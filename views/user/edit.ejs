@@ -1,0 +1,27 @@
+<div class="container">
+  <h3 class="heading-h3">Edit My Details</h3>
+  <form action="/user/update/<%= user.id %>" method="post" class="form-signin">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="input-field">
+          <input type="text" required id="name" class="validate" value="<%= user.name %>" name="name">
+          <label for="name">Name</label>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="input-field">
+          <input type="email" required id="email" class="validate" value="<%= user.email %>" name="email">
+          <label for="email" data-error="Incorrect">Email</label>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="input-field">
+          <input required type="text" required id="phone" class="validate"  name="phone">
+          <label for="phone" data-error="Incorrect">Phone number</label>
+        </div>
+      </div>
+      </div>
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    <button type="submit" class="btn waves-effect waves-light updatebtn" value="Update">Update &nbsp;<i class="material-icons">send</i></button>
+  </form>
+  </div>
