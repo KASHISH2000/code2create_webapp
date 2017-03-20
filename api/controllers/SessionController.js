@@ -41,7 +41,8 @@ module.exports = {
       req.session.User = user;
 
 
-      res.redirect('/user/showall');
+      res.status(200).json(user);
+
 
       bcrypt.compare(req.param('password'), user.encryptedPassword, function(err, valid) {
 

@@ -4,10 +4,6 @@ module.exports = {
 
   },
 
-
-
-
-
   create : function(req, res, next) {
 
     User.create(req.params.all(), function userCreated(err, user) {
@@ -16,16 +12,19 @@ module.exports = {
         req.session.flash = {
           err: err
         };
-        return res.redirect('/user/new');
+        res.status(200).json(err);
       }
+      user.uid = user.id;
+      user.save(
+        function (err) {
+          console.log('saving records for user');
+        }
+      );
+
 
       req.session.authenticated = true;
       req.session.User = user;
-
-
-
-
-      res.redirect('/user/showall');
+      res.status(200).json(user);
 
     });
   },
@@ -34,20 +33,15 @@ module.exports = {
     User.findOne(req.param('id'), function foundUser(err, user) {
       if (err) return next(err);
       if (!user) return next();
-      res.view({
-        user: user
-      });
+      res.status(200).json(user.id);
     });
   },
-
 
   showall : function(req, res, next){
 
     User.find(function foundUsers(err, users){
       if(err) return next(err);
-      res.view({
-        users: users
-      });
+      res.status(200).json(users);
     });
   },
 

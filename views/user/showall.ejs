@@ -1,25 +1,28 @@
-<% _.each(users, function(user) { %>
-<tr data-id="<%= user.id %>" data-model="user">
-
-  <% if(session.User.id != user.id) { %>
-  <!--<td><%= user.id %></td>-->
-  <td><%= user.name %></td><br>
-  <td><%= user.phone %></td><br>
-  <td><%= user.email %></td><br>
-
-  <form action="/request/create" method="post" class="form-signin">
-    <input name="sender" type="text" value="<%= user.id %>">
-    <input name="reciever" type="text" value="<%= session.User.id %>">
-    <input name="name" type="text" value="<%= session.User.name %>">
-    <input name="phone" type="number" value="<%= session.User.phone %>">
-    <input name="email" type="text" value="<%= session.User.email %>">
+<a href="/team/create" class="btn btn-logout waves-effect waves-light">Create team</a><br>
 
 
-    <button class="btn btn-logout waves-effect waves-light">Send Request</button><br>
-  </form>
+<!--<% _.each(users, function(user) { %>-->
+<!--<tr data-id="<%= user.id %>" data-model="user">-->
 
-  <br>
-  <% } %>
 
-<% }) %>
+  <!--<% if(session.User.id != user.id) { %>-->
+  <!--&lt;!&ndash;<td><%= user.id %></td>&ndash;&gt;-->
+  <!--<td><%= user.name %></td><br>-->
+  <!--<td><%= user.phone %></td><br>-->
+  <!--<td><%= user.email %></td><br>-->
+
+  <!--<form action="/request/create" method="post" class="form-signin">-->
+    <!--<input name="sender" type="text" value="<%= user.id %>">-->
+    <!--<input name="reciever" type="text" value="<%= session.User.id %>">-->
+    <!--<input name="name" type="text" value="<%= session.User.name %>">-->
+    <!--<input name="phone" type="number" value="<%= session.User.phone %>">-->
+    <!--<input name="email" type="text" value="<%= session.User.email %>">-->
+
+    <!--<button class="btn btn-logout waves-effect waves-light">Send Request</button><br>-->
+  <!--</form>-->
+
+  <!--<br>-->
+  <!--<% } %>-->
+
+<!--<% }) %>-->
 
