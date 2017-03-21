@@ -27,6 +27,8 @@ module.exports = {
       type: 'string'
     },
 
+
+
     toJSON: function() {
       var obj = this.toObject();
       delete obj.password;
@@ -34,8 +36,8 @@ module.exports = {
       delete obj._csrf;
       return obj;
     }
+  },
 
 
-  }
 };
 

@@ -27,7 +27,7 @@ module.exports = {
       type : 'string',
       required : false
     },
-    // which is recieving request
+    //to whom i am sending request
 
 
   }
