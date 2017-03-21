@@ -47,6 +47,13 @@ module.exports = {
     })
   },
 
+  showteam : function(req, res, next) {
+    Team.findOne(req.param('id'), function foundTeam(err, team) {
+      if (err) return next(err);
+      if (!team) return next();
+      res.status(200).json(team);
+    });
+  },
 
   eligiblemembers : function(req, res, next) {
 
