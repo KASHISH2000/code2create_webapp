@@ -8,7 +8,7 @@ module.exports = {
       required : false
   },
     admin : {
-      type : 'string',
+      type : 'integer',
       required : false
     },
 

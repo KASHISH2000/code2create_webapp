@@ -1,7 +1,0 @@
-<% if(flash && flash.err) { %>
-<ul class="alert alert-success">
-  <% Object.keys(flash.err).forEach(function(error) { %>
-  <li class="error-red"><%- JSON.stringify(flash.err[error]) %></li>
-  <% }) %>
-</ul>
-<% } %>
