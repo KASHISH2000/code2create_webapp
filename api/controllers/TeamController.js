@@ -155,9 +155,6 @@ module.exports = {
 
   },
 
-
-
-
   removemember : function(req,res,next) {
 
     Team.findOne(req.param('id'), function foundTeam(err, team) {
@@ -248,12 +245,7 @@ module.exports = {
 
    });
 
-   var dostuffWith = function(ReceiverName){
-     // all the code that you want to use ReceiverName should be in here.
-     console.log("#####################################");
-     console.log(ReceiverName);
-     console.log("#####################################");
-   }
+
 
   },
   //this will send the collection of all the teams and in frontend, it will check
@@ -314,12 +306,76 @@ module.exports = {
 
   sendRequest : function(req, res, next) {
 
+
+    var temp = [];
+    var l=0;
+
+
+
     Team.update(req.param('id'),req.params.all(), function teamUpdated(err){
       if(err){
         res.status(200).json(err);
       }
+
+
+
+        Team.findOne(req.param('id'), function foundTeam(err, team) {
+          console.log(team.reciever);
+          if (err) return next(err);
+          if (!team) return next();
+
+          if (team) {
+            if (team.admin != team.reciever) {
+
+              if (team.memberSend) {
+                for (var i = 0; i < team.memberSend.length; i++) {
+                  if (team.reciever != team.memberSend[i]) {
+                    l = l + 1;
+                  }
+                  //this is used so that if some1 trigger this show function again and again,
+                  //this will not create duplicity of same user in memberSend array.
+                }
+                if (l === team.memberSend.length) {
+                  if (team.admin != team.reciever) {
+                    (team.memberSend).push(team.reciever);
+                  }
+                  else {
+                    res.status(200).json("Admin cannot send request to himself");
+                    return;
+                  }
+                }
+                else {
+                  return res.status(200).json("Already sent request to this person");
+                }
+              }
+              else {
+                if (team.admin != team.reciever) {
+                  temp.push(team.reciever);
+                  team.memberSend = temp;
+                }
+                else {
+                  res.status(200).json("Admin cannot send request to himself");
+                  return;
+                }
+              }
+              //undefined while entering the first entry
+              team.save(
+                function (err) {
+                  console.log('saving records for team');
+                }
+              );
+            }
+            else{
+              res.status(200).json("Cannot send request to himself");
+              return;
+
+            }
+          }
+
+
       // res.status(200).json(team);
       res.redirect('/team/show/'+req.param('id'));
+        });
     });
 
   },

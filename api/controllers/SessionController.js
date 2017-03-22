@@ -1,6 +1,6 @@
 
 var bcrypt = require('bcrypt');
-var senderid;
+
 module.exports = {
 
   'new': function (req, res) {
@@ -8,7 +8,7 @@ module.exports = {
   },
 
   create: function (req, res, next) {
-    if (!req.param('email'))  {
+    if (!req.param('email') || !req.param('password')) {
       var usernamePasswordRequiredError = [{
         name: 'usernamePasswordRequired',
         message: 'You must enter both a username and password.'
@@ -37,13 +37,6 @@ module.exports = {
         return;
       }
 
-      req.session.authenticated = true;
-      req.session.User = user;
-
-
-      res.status(200).json(user);
-
-
       bcrypt.compare(req.param('password'), user.encryptedPassword, function(err, valid) {
 
         if (err) return next(err);
@@ -61,7 +54,10 @@ module.exports = {
           return;
         }
 
+        req.session.authenticated = true;
+        req.session.User = user;
 
+        res.redirect('/user/show/' + user.id);
       });
 
     });
