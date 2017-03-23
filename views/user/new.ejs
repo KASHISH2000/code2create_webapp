@@ -71,11 +71,11 @@
     <h5 class="center"> <%= flash.err %></h5>
   </div>
   <% } %>
-  <!-- <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
   <div class="success center">
     <h5 class="center"><%= flash.success %></h5>
   </div>
-  <% } %> -->
+  <% } %>
   <div class="row error-row alert alert-danger" id="errors">
     <h5>Please fix the following Errors:</h5>
     <ul>
@@ -83,11 +83,7 @@
     </ul>
   </div>
   <div class="row">
-<<<<<<< HEAD
-    <form action="/users/create" method="POST" id="registerForm" autocomplete="on">
-=======
     <form action="/user/create" method="POST" id="registerForm" autocomplete="on">
->>>>>>> 211c9563670b2e71c780c42c664c3d1af96848c1
       <div class="input-field col s12 m6">
         <input id="name" type="text" class="validate" required name="name">
         <label for="name">Name <span class="required">*</span></label>
@@ -114,13 +110,8 @@
         <label for="password">Password <span class="required">*</span></label>
       </div>
       <div class="input-field col s12 m6">
-<<<<<<< HEAD
-        <input id="confirm_password" type="password" class="validate" required name="confirm_password">
-        <label for="confirm_password">Confirm Password <span class="required">*</span></label>
-=======
         <input id="confirmation" type="password" class="validate" required name="confirmation">
         <label for="confirmation">Confirm Password <span class="required">*</span></label>
->>>>>>> 211c9563670b2e71c780c42c664c3d1af96848c1
       </div>
       <div class="row center">
         <div class="input-field col s12">
@@ -268,11 +259,7 @@ $("input[name='living']").change(function () {
     var phoneno = $("#phoneno").val();
     var userid = $("#userid").val();
     var password = $("#password").val();
-<<<<<<< HEAD
-    var confirm_password = $("#confirm_password").val();
-=======
     var confirmation = $("#confirmation").val();
->>>>>>> 211c9563670b2e71c780c42c664c3d1af96848c1
     var internal_external= $("input[name='internal_external']:checked").val();
     var college_name = $("#college_name").val();
     var college_city = $("#college_city").val();
@@ -296,11 +283,7 @@ $("input[name='living']").change(function () {
       errors.push('User id cannot be blank');
     if(!password)
       errors.push('Password cannot be blank');
-<<<<<<< HEAD
-    else if(password!=confirm_password)
-=======
     else if(password!=confirmation)
->>>>>>> 211c9563670b2e71c780c42c664c3d1af96848c1
       errors.push('Password and Confirm password must match');
     if(!internal_external)
       errors.push('Please Select <b>VIT Student</b> or <b>External</b>');

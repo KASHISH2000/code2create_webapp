@@ -1,11 +1,8 @@
 
-<<<<<<< HEAD
 var bcrypt = require('bcryptjs');
 var senderid;
-=======
-var bcrypt = require('bcrypt');
 
->>>>>>> 211c9563670b2e71c780c42c664c3d1af96848c1
+// var bcrypt = require('bcrypt');
 module.exports = {
 
   'new': function (req, res) {
