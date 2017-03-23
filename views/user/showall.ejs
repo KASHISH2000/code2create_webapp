@@ -1,0 +1,143 @@
+    <style>
+      #submit_mock {
+        margin-top: 20px;
+      }
+      .error {
+        border: solid 1px red;
+        color: red;
+        padding: 10px;
+      }
+      .success {
+        border: solid 1px green;
+        color: green;
+        padding: 10px;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+        border: 2px solid #1eb76e;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+        background-color: #1eb76e;
+      }
+      .send-req-but{
+        padding: 0.5rem 0.9rem;
+        background-color: #1eb76e;
+        border-radius: 10px;
+        color: #fff;
+      }
+      .send-req-but:hover{
+        background-color: #10844c;
+      }
+      .send-req-but.disabled{
+        cursor: not-allowed;
+        background-color: #5a5a5a;
+        opacity: 0.8;
+      }
+    </style>
+
+
+    <%- partial('../partials/navbar.ejs') %>
+    <div class="container">
+     <div class="heading-bg">
+       <h5 class="left-align white-text main-heading">All Members</h5>
+       <p class="margin-bottom-0 white-text">List of all members</p>
+     </div>
+     <div class="my-main-card hoverable">
+      <table class="bordered striped responsive-table white-text">
+        <thead>
+          <td>userid</td>
+          <td>Name</td>
+          <td class="th-skills-td">Skills</td>
+          <td>University</td>
+          <td title="Send Invitation to a member to join your team(you should be an admin)">Invite to Team</td>
+        </thead>
+        <tbody>
+        <% _.each(users, function(user) { %>
+          <tr>
+            <td><a href="/user/view/<%=user.userid%>" class="ver-align-middlee underline-wala"><%= user.userid %></a></td>
+            <td>Harshit Kedia</td>
+            <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=user.description %></td>
+            <td>
+              <% if(user.internal_external=='external'){ %>
+              <%=user.college_name %>
+              <% } %>
+              <% else{ %>
+              VIT University
+              <% } %>
+            </td>
+            
+            <td class="center"><a href="sendrequest" class="send-req-but smooth-transition">Invite</a></td>
+          </tr>
+          <% } %>
+         <!--  <tr>
+            <td><a href="viewmember.html" class="underline-wala">bodhwani</a></td>
+            <td>Harshit Kedia</td>
+            <td class="skills-td">I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. </td>
+            <td>VIT University</td>
+            <td class="center" title="Send Invitation to a member to join your team(you should be an admin)"><a href="sendrequest" class="send-req-but smooth-transition disabled">Invite</a></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <br><br>
+  <div class="footer-divider">
+  </div>
+  <br>
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col s6 m3 l2 offset-m1 offset-l1 center footer-acm-div">
+          <a href="http://acmvit.in/" target="_blank">
+            <img src="images/acmwhite.png" class="responsive-img">
+          </a>
+        </div>
+        <div class="col s6 hide-on-med-and-up center">
+          <a href="http://www.vit.ac.in/" target="_blank">
+            <img src="images/vitlogo2_white.png" class="responsive-img">
+          </a>
+        </div>
+        <div class="col s12 m4 l6 center">
+          <a href="http://c2c.acmvit.in/"><img src="images/c_only.png" class="responsive-img footer-logo-c2c"></a>
+          <div class="social-div">
+            <a href="https://www.facebook.com/ACM.VITU" target="_blank" class="social-a social-facebook"><i class="smooth-transition fa fa-2x fa-facebook"
+             aria-hidden="true"></i>
+           </a>
+           <a href="https://twitter.com/ACMVITU" target="_blank" class="social-a social-twitter"><i class="smooth-transition fa fa-2x fa-twitter"
+            aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/ACM-VIT" target="_blank" class="social-a social-github"><i class="smooth-transition fa fa-2x fa-github"
+           aria-hidden="true"></i>
+         </a>
+       </div>
+       <span class="footer-follow-text white-text">Follow us for latest updates</span>
+     </div>
+     <div class="col s6 m3 l2 hide-on-small-only center footer-vit-div">
+      <a href="http://www.vit.ac.in/" target="_blank">
+        <img src="images/vitlogo2_white.png" class="responsive-img">
+      </a>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+<script type="text/javascript">
+  //<![CDATA[
+  $(window).on('load', function () { // makes sure the whole site is loaded
+    $('#status').fadeOut(); // will first fade out the loading animation
+    $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+    $('body').delay(350).css({'overflow': 'visible'});
+  })
+  //]]>
+</script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script type="text/javascript">
+  $(".button-collapse").sideNav();
+</script>
+<script>
+  $(document).ready(function () {
+    $('select').material_select();
+  });
+</script>
+</body>
