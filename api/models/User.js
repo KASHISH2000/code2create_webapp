@@ -97,17 +97,17 @@ module.exports = {
     }
   },
 
-  // beforeCreate: function (values, next) {
-  //   if (!values.password || values.password != values.confirmation) {
-  //     return next({passworderror: ["Password doesn't match password confirmation."]});
-  //   }
-  //
-  //   require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
-  //     if (err) return next(err);
-  //     values.encryptedPassword = encryptedPassword;
-  //     next();
-  //   });
-  // }
+  beforeCreate: function (values, next) {
+    if (!values.password || values.password != values.confirmation) {
+      return next({passworderror: ["Password doesn't match password confirmation."]});
+    }
+
+    require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+      if (err) return next(err);
+      values.encryptedPassword = encryptedPassword;
+      next();
+    });
+  }
 
 };
 

@@ -110,8 +110,8 @@
         <label for="password">Password <span class="required">*</span></label>
       </div>
       <div class="input-field col s12 m6">
-        <input id="confirm_password" type="password" class="validate" required name="confirm_password">
-        <label for="confirm_password">Confirm Password <span class="required">*</span></label>
+        <input id="confirmation" type="password" class="validate" required name="confirmation">
+        <label for="confirmation">Confirm Password <span class="required">*</span></label>
       </div>
       <div class="row center">
         <div class="input-field col s12">
@@ -259,7 +259,7 @@ $("input[name='living']").change(function () {
     var phoneno = $("#phoneno").val();
     var userid = $("#userid").val();
     var password = $("#password").val();
-    var confirm_password = $("#confirm_password").val();
+    var confirmation = $("#confirmation").val();
     var internal_external= $("input[name='internal_external']:checked").val();
     var college_name = $("#college_name").val();
     var college_city = $("#college_city").val();
@@ -283,7 +283,7 @@ $("input[name='living']").change(function () {
       errors.push('User id cannot be blank');
     if(!password)
       errors.push('Password cannot be blank');
-    else if(password!=confirm_password)
+    else if(password!=confirmation)
       errors.push('Password and Confirm password must match');
     if(!internal_external)
       errors.push('Please Select <b>VIT Student</b> or <b>External</b>');
