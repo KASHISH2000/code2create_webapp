@@ -87,7 +87,11 @@ module.exports = {
           err1: usernamePasswordRequiredError1
         };
 
-        res.status(200).json("No user id or password");
+        res.view({
+          message: "No user id or password"
+        });
+
+        //res.status(200).json("No user id or password");
         return;
       }
 

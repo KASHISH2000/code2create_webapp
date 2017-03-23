@@ -13,9 +13,13 @@ module.exports = {
         req.session.flash = {
           err: err
         };
-        res.status(404).json({
-          message : 'Page not found'
-        });
+
+        return res.redirect('back');
+
+        // res.status(404).json({
+        //   message : 'Page not found'
+        // });
+
       }
       user = req.session.User;
       console.log(user);
@@ -31,7 +35,10 @@ module.exports = {
       );
       console.log(team.admin);
 
-      res.status(200).json(team);
+      res.view({
+        team : team
+      });
+      //res.status(200).json(team);
     });
   },
 
@@ -40,7 +47,10 @@ module.exports = {
       if (err) return next(err);
       console.log("Inside team.find");
 
-      res.status(200).json(teams);
+      res.view({
+        teams : teams
+      });
+      //res.status(200).json(teams);
     })
   },
 
@@ -48,7 +58,11 @@ module.exports = {
     Team.findOne(req.param('id'), function foundTeam(err, team) {
       if (err) return next(err);
       if (!team) return next();
-      res.status(200).json(team);
+
+      res.view({
+        team : team
+      });
+      //res.status(200).json(team);
     });
   },
 
@@ -58,7 +72,6 @@ module.exports = {
 
     Team.find({
       admin: req.param('id')
-      //admin :   req.param('id')
     }).then(function (team) {
       console.log(team);
       //console.log(req.param('id'));
@@ -66,10 +79,17 @@ module.exports = {
       if (team.length > 0) {
         temp = 1;
         console.log("Inside team");
-        res.status(200).json({
-          team: team,
-          admin: true
+
+        res.view({
+          team : team,
+          admin : true
         });
+
+
+        // res.status(200).json({
+        //   team: team,
+        //   admin: true
+        // });
         return;
       }
     });
@@ -96,10 +116,17 @@ module.exports = {
 
                 console.log("Team is :");
                 console.log(team);
-                res.status(200).json({
-                  team: team,
-                  admin: false
+
+                res.view({
+                  team : team,
+                  admin : false
                 });
+
+
+                // res.status(200).json({
+                //   team: team,
+                //   admin: false
+                // });
                 return;
                 break;
               }
@@ -112,8 +139,18 @@ module.exports = {
 
         if(temp === 0){
           console.log("After temp === 2");
-          res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
-          return;
+
+          // res.view({
+          //   message : "Sorry, you are not a part of any team yet.Create your own team now."
+          // });
+
+          req.session.flash = {
+            err: "Sorry, you are not a part of any team yet.Create your own team now"
+          };
+
+
+          //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
+          return res.redirect('back');
 
         }
         });
@@ -134,8 +171,12 @@ module.exports = {
               (team.memberAccepted).splice(i, 1);
             }
             else{
-              res.status(400).json("Bad Request");
-              return;
+
+              req.session.flash = {
+                err: "Bad Request"
+              };
+              //res.status(400).json("Bad Request");
+              return res.redirect('back');
             }
           }
           }
@@ -145,7 +186,11 @@ module.exports = {
           }
         );
 
-        res.status(200).json(team);
+        res.view({
+          team: team
+        });
+        return;
+        //res.status(200).json(team);
 
 
 
@@ -163,10 +208,16 @@ module.exports = {
         if (team.admin === parseInt(user.uid)) {
 
           if(team.memberAccepted.length != 1) {
-          res.status(200).json({
-            message: "You should first remove other members to destroy team"
-          });
-          return;
+
+
+            req.session.flash = {
+              err: "You should first remove other members to destroy team"
+            };
+
+          // res.status(200).json({
+          //   message: "You should first remove other members to destroy team"
+          // });
+          return res.redirect('back');
         }
         else{
             (team.memberAccepted).splice(0, 1);
@@ -188,66 +239,15 @@ module.exports = {
           }
         );
 
-        res.status(200).json(team);
-
-
-
-
+        res.view({
+          team : team
+        });
+        //res.status(200).json(team);
       })
     })
 
   },
 
-  eligiblememberss : function(req, res, next) {
-
-    var j=0;
-    var length=0;
-    var showmembers = [];
-   User.find(function foundUsers(err, users) {
-      length = users.length;
-     console.log(length);
-
-     if (err) return next(err);
-     //console.log("Inside teaM.find");
-     users.forEach(function (user) {
-
-       if (!user) {
-         res.status(200).json('No team found')
-       }
-
-       Team.find({
-         memberAccepted :   user.id
-       }).then(function (teams) {
-         j=j+1;
-
-
-         if(teams.length === 0){
-           showmembers.push(user.id);
-
-             //dostuffWith(showmembers);
-
-         }
-         console.log("Value of i is "+ i);
-         console.log("Value of length is "+ length);
-
-         if(j===length){
-           res.status(200).json({
-             members : showmembers,
-             users : users
-             });
-
-        }
-       });
-
-     });
-
-
-
-   });
-
-
-
-  },
   //this will send the collection of all the teams and in frontend, it will check
   //names from memberSend array, and try to match ids with loggedin user.
   //If it matches, then it will display the team name.
@@ -276,8 +276,13 @@ module.exports = {
               (team.memberSend).push(team.reciever);
             }
             else{
-              res.status(200).json("Admin cannot send request to himself");
-              return;
+
+              req.session.flash = {
+                err: "Admin cannot send request to himself"
+              };
+
+              //res.status(200).json("Admin cannot send request to himself");
+              return res.redirect('back');
             }
           }
         }
@@ -287,8 +292,14 @@ module.exports = {
             team.memberSend = temp;
           }
           else{
-            res.status(200).json("Admin cannot send request to himself");
-            return;
+
+            req.session.flash = {
+              err: "Admin cannot send request to himself"
+            };
+            return res.redirect('back');
+
+
+            //res.status(200).json("Admin cannot send request to himself");
           }
         }
           //undefined while entering the first entry
@@ -300,7 +311,11 @@ module.exports = {
       }
       console.log("Must come at lars t kasjr");
 
-      res.status(200).json(team);
+      res.view({
+        team : team
+      });
+
+      //res.status(200).json(team);
     });
   },
 
@@ -314,7 +329,11 @@ module.exports = {
 
     Team.update(req.param('id'),req.params.all(), function teamUpdated(err){
       if(err){
-        res.status(200).json(err);
+        req.session.flash = {
+          err: err
+        };
+        return res.redirect('back');
+        //res.status(200).json(err);
       }
 
 
@@ -340,12 +359,23 @@ module.exports = {
                     (team.memberSend).push(team.reciever);
                   }
                   else {
-                    res.status(200).json("Admin cannot send request to himself");
+                    req.session.flash = {
+                      err: "Admin cannot send request to himself"
+                    };
+                    return res.redirect('back');
+
+                    //res.status(200).json("Admin cannot send request to himself");
                     return;
                   }
                 }
                 else {
-                  return res.status(200).json("Already sent request to this person");
+
+                  req.session.flash = {
+                    err: "Already sent request to this person"
+                  };
+                  return res.redirect('back');
+
+                  //return res.status(200).json("Already sent request to this person");
                 }
               }
               else {
@@ -354,8 +384,12 @@ module.exports = {
                   team.memberSend = temp;
                 }
                 else {
-                  res.status(200).json("Admin cannot send request to himself");
-                  return;
+                  req.session.flash = {
+                    err: "Admin cannot send request to himself"
+                  };
+                  return res.redirect('back');
+
+                  //res.status(200).json("Admin cannot send request to himself");
                 }
               }
               //undefined while entering the first entry
@@ -366,8 +400,13 @@ module.exports = {
               );
             }
             else{
-              res.status(200).json("Cannot send request to himself");
-              return;
+
+              req.session.flash = {
+                err: "Cannot send request to himself"
+              };
+              return res.redirect('back');
+
+              //res.status(200).json("Cannot send request to himself");
 
             }
           }
@@ -403,10 +442,16 @@ module.exports = {
                 //console.log(team.memberAccepted);
               }
               else{
-                res.status(200).json({
-                  message : "Sorry, the team is full"
-                });
-                return;
+
+                req.session.flash = {
+                  err: "Sorry, the team is full"
+                };
+                return res.redirect('back');
+
+
+                // res.status(200).json({
+                //   message : "Sorry, the team is full"
+                // });
               }
             }
           }
@@ -417,10 +462,15 @@ module.exports = {
           );
           //console.log(team.memberSend);
 
-          res.status(200).json({
+          res.view({
             team : team,
             user : user
           });
+
+          // res.status(200).json({
+          //   team : team,
+          //   user : user
+          // });
         })
         });
       },
@@ -475,13 +525,16 @@ module.exports = {
 
 
         });
-        res.status(200).json(memberarray);
+
+        res.view({
+          users : users,
+          memberarray : memberarray
+        });
+
+        //res.status(200).json(memberarray);
       })
 
     });
-
-
-
 
   },
 
