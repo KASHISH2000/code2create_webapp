@@ -5,52 +5,56 @@
   <!--NAV START-->
   <ul id="dropdown1" class="dropdown-content">
     <li>
-      <a href="myinfo.html">
-        <div class="user-info-nav">
-          <i class="fa fa-user fa-2x ver-align-middle" aria-hidden="true"></i>
-          hkedia321
-        </div>
-      </a>
-    </li>
-    <li><a href="myteam.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Team Details</a></li>
-    <li><a href="createateam.html"><i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a></li>
-    <li class="divider"></li>
-    <li><a href="/logout">Logout</a></li>
-  </ul>
-  <div class="nav-wrap navbar-fixed">
-    <nav class="smooth-transition navelem">
-      <div class="nav-wrapper">
-        <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="images/logowhite_t.png" class="responsive-img"></a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a class="navlink a-home" href="rules.html">Rules</a>
-          </li>
-          <li><a class="navlink a-home" href="agenda.html">Agenda</a>
-          </li>
-          <li><a class="navlink a-home" href="allteams.html">All Teams</a>
-          </li>
-          <li><a class="navlink a-home" href="allmembers.html">All Members</a>
-          </li>
-          <li><a class="navlink a-home" href="viewrequests.html">View Requests</a>
-          </li>
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-button active-colour" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-2x" aria-hidden="true"></i><i class="material-icons right margin-left-0">arrow_drop_down</i></a></li>
-
+      <a href="/user/edit">
+        <div class="user-info-nav
+        <% if(active=='userEdit'){ %>
+        active-colour
+        <% } %>
+        ">
+        <i class="fa fa-user fa-2x ver-align-middle" aria-hidden="true"></i>
+        hkedia321
+      </div>
+    </a>
+  </li>
+  <li><a href="myteam.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Team Details</a></li>
+  <li><a href="createateam.html"><i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a></li>
+  <li class="divider"></li>
+  <li><a href="/logout">Logout</a></li>
+</ul>
+<div class="nav-wrap navbar-fixed">
+  <nav class="smooth-transition navelem">
+    <div class="nav-wrapper">
+      <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="navlink a-home" href="/rules">Rules</a>
         </li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-       <li><a class="navlink a-home">Agenda</a>
-       </li>
-       <li><a class="navlink a-home">All Teams</a>
-       </li>
-       <li><a class="navlink a-home">All Members</a>
-       </li>
-       <li><a class="navlink a-home">View Requests</a>
-       </li>
-     </ul>
-   </div>
- </nav>
+        <li><a class="navlink a-home" href="/agenda">Agenda</a>
+        </li>
+        <li><a class="navlink a-home" href="/team/showall">All Teams</a>
+        </li>
+        <li><a class="navlink a-home" href="/user/showall">All Members</a>
+        </li>
+        <li><a class="navlink a-home" href="/viewrequests">View Requests</a>
+        </li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button active-colour" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-2x" aria-hidden="true"></i><i class="material-icons right margin-left-0">arrow_drop_down</i></a></li>
+
+      </li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a class="navlink a-home" href="/rules">Rules</a>
+      </li>
+      <li><a class="navlink a-home" href="/agenda">Agenda</a>
+      </li>
+      <li><a class="navlink a-home" href="/team/showall">All Teams</a>
+      </li>
+      <li><a class="navlink a-home" href="/user/showall">All Members</a>
+      </li>
+      <li><a class="navlink a-home" href="/viewrequests">View Requests</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 </div>
 <!-- NAV END-->
-
-<% _.each(users, function(user) { %>

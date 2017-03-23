@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="styles/app_common.css">
+    <link rel="stylesheet" href="/styles/app_common.css">
     <style>
       #submit_mock {
         margin-top: 20px;
@@ -21,7 +21,6 @@
       }
     </style>
 
-
     <%- partial('../partials/navbar.ejs') %>
     <div class="container">
       <div class="heading-bg">
@@ -35,7 +34,7 @@
             </p>
             <p class="detail-answer margin-bottom-0">
              <i class="material-icons prefix ver-align-middle">account_circle</i>
-             <span class="ver-align-middle"><%=user.id%></span>
+             <span class="ver-align-middle"><%=user.userid%></span>
            </p>
          </div>
          <div class="col m6 offset-m3">
@@ -63,7 +62,7 @@
           <% if(user.internal_external=='external'){%>
           <%=user.college_name%>
           <% } %>
-          <% else{ %>
+          <% if(user.internal_external=='internal'){ %>
           VIT Univeristy,Vellore 
           <%}%>
         </p>

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/styles/app_common.css">
     <style>
       #submit_mock {
         margin-top: 20px;
@@ -21,7 +22,7 @@
     </style>
 
 
-    <%- partial('../partials/navbar.ejs') %>
+    <%- partial('../partials/navbar.ejs', {active: 'userEdit'}) %>
     <div class="container">
       <div class="heading-bg">
         <h5 class="left-align white-text main-heading">Your Profile</h5>
@@ -141,12 +142,5 @@
 </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
-<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('select').material_select();
-  });
-</script>
-</body>
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>
