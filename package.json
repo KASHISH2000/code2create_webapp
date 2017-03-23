@@ -18,7 +18,9 @@
     "sails": "~0.12.4",
     "sails-disk": "~0.10.9",
     "sails-mongo": "^0.12.1",
-    "sendgrid": "^4.6.0"
+    "sendgrid": "^4.6.0",
+    "request": "^2.81.0",
+    "sails-hook-email": "^0.12.1"
   },
   "scripts": {
     "debug": "node debug app.js",
