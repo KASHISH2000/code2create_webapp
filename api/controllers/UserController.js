@@ -1,6 +1,8 @@
 var request = require('request');
 
 
+
+
 module.exports = {
 
   'new' : function (req, res) {
@@ -101,12 +103,14 @@ module.exports = {
   },
 
 
-
   show: function(req, res, next) {
     User.findOne(req.param('id'), function foundUser(err, user) {
       if (err) return next(err);
       if (!user) return next();
-      res.status(200).json(user);
+      res.view({
+        user : user
+      });
+      //res.status(200).json(user);
     });
   },
 
@@ -114,7 +118,10 @@ module.exports = {
 
     User.find(function foundUsers(err, users){
       if(err) return next(err);
-      res.status(200).json(users);
+      res.view({
+        users: users
+      });
+      //res.status(200).json(users);
     });
   },
 
@@ -140,7 +147,10 @@ module.exports = {
       if(err) return next(err);
       if(!user) return next();
 
-      res.status(200).json(user);
+      res.view({
+        user: user
+      });
+      //res.status(200).json(user);
     });
   },
   //
@@ -156,9 +166,27 @@ module.exports = {
   //   });
   // },
   //
+
+
   update : function(req,res,next){
 
-    User.update(req.param('id'),req.params.all(), function userUpdated(err){
+    var us_phone = req.param('phoneno');
+    var us_description = req.param('description');
+    var us_github = req.param('github');
+    var us_linkedin = req.param('linkedin');
+
+    var update_params_needed = {
+      phoneno: us_phone,
+      description: us_description,
+      github: us_github,
+      linkedin: us_linkedin,
+
+    };
+
+
+
+
+    User.update(req.param('id'),update_params_needed, function userUpdated(err){
       if(err){
         return res.redirect('/user/edit/'+req.param('id'));
       }
