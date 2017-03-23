@@ -7,39 +7,52 @@ module.exports = {
 
   create : function(req, res, next) {
 
-    Team.create(req.params.all(), function teamCreated(err, team) {
-      if (err) {
-        //console.log(err);
-        req.session.flash = {
-          err: err
-        };
+    user = req.session.User;
 
-        return res.redirect('back');
 
-        // res.status(404).json({
-        //   message : 'Page not found'
-        // });
+    if(user) {
+      Team.create(req.params.all(), function teamCreated(err, team) {
+        if (err) {
+          //console.log(err);
+          req.session.flash = {
+            err: err
+          };
 
-      }
-      user = req.session.User;
-      console.log(user);
-      team.admin = user.id;
-      (array).push(user.id);
-      (team.memberAccepted) = (array);
-      array = [];
+          return res.redirect('back');
 
-      team.save(
-        function (err) {
-          console.log('saving records for team');
+          // res.status(404).json({
+          //   message : 'Page not found'
+          // });
+
         }
-      );
-      console.log(team.admin);
+        console.log(user);
+        team.admin = user.id;
+        (array).push(user.id);
+        (team.memberAccepted) = (array);
+        array = [];
 
-      res.view({
-        team : team
+        team.save(
+          function (err) {
+            console.log('saving records for team');
+          }
+        );
+        console.log(team.admin);
+
+        return res.status(200).json(team);
+        res.view({
+          team: team
+        });
+        //
       });
-      //res.status(200).json(team);
-    });
+    }
+    else{
+      req.session.flash = {
+        err: "Please Login"
+      };
+      console.log("Please login");
+
+      return res.redirect('back');
+    }
   },
 
   showallteams : function (req, res, next) {
@@ -47,10 +60,11 @@ module.exports = {
       if (err) return next(err);
       console.log("Inside team.find");
 
+      return res.status(200).json(teams);
       res.view({
         teams : teams
       });
-      //res.status(200).json(teams);
+      //
     })
   },
 

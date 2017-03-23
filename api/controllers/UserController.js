@@ -12,7 +12,6 @@ module.exports = {
 
   create : function(req, res, next) {
 
-
     var recaptcha_secret = "6LcTthcUAAAAAGoJ2l5SeaBzleD7D_RaHk1key9V";
     var us_name = req.param('name');
     var us_regno = req.param('regno');
@@ -105,6 +104,9 @@ module.exports = {
 
   show: function(req, res, next) {
     User.findOne(req.param('id'), function foundUser(err, user) {
+
+
+
       if (err) return next(err);
       if (!user) return next();
       res.view({
@@ -123,6 +125,19 @@ module.exports = {
       });
       //res.status(200).json(users);
     });
+  },
+
+  showteam : function (req, res, next) {
+
+    User.findOne(req.param('id'), function foundUser(err, user) {
+      console.log(user);
+      Team.find(function foundTeams(err, teams) {
+        console.log(teams);
+        return res.status(200).json(teams);
+      });
+    });
+
+
   },
 
   send: function(req, res, next) {
