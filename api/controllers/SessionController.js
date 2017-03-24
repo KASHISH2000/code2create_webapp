@@ -5,92 +5,92 @@ var senderid;
 module.exports = {
 
   'welcome': function (req, res) {
+    res.view();
+    return;
+  },
+
+  'new': function (req, res) {
+   if(req.session.authenticated)
+   {
+    redirect('/session/welcome');
+    return;
+  }
   res.view();
-  return;
-},
+  },
 
-'new': function (req, res) {
- if(req.session.authenticated)
- {
-  res.redirect('/session/welcome');
-  return;
-}
-res.view();
-},
+  create: function (req, res, next) {
+   if(req.session.authenticated)
+   {
+    redirect('/session/welcome');
+    return;
+  }
+  console.log("Inside session create function");
+  if (!req.param('email_username') || !req.param('password')) {
+    req.session.flash = {
+      err: 'You must enter both a username/email and password.'
+    };
+    res.redirect('/session/new');
+    return;
+  }
 
-create: function (req, res, next) {
- if(req.session.authenticated)
- {
-  res.redirect('/session/welcome');
-  return;
-}
-console.log("Inside session create function");
-if (!req.param('email_username') || !req.param('password')) {
-  req.session.flash = {
-    err: 'You must enter both a username/email and password.'
-  };
-  res.redirect('/session/new');
-  return;
-}
+  console.log("Inside Email");
+  User.findOne({
+    or : [
+    { username: req.param('email_username') },
+    { email: req.param('email_username') }
+    ]
+  }).exec(function(err, user) {
+    // console.log("The user found in db is:");
+    // console.log(user);8
+    if (err){
+     req.session.flash = {
+      err: 'Error in logging'
+    };
+    res.redirect('/session/new');
+    return;
+  }
 
-console.log("Inside Email");
-User.findOne({
-  or : [
-  { username: req.param('email_username') },
-  { email: req.param('email_username') }
-  ]
-}).exec(function(err, user) {
-  // console.log("The user found in db is:");
-  // console.log(user);
-  if (err){
-   req.session.flash = {
-    err: 'Error in logging'
-  };
-  res.redirect('/session/new');
-  return;
-}
-
-        // If no user is found...
-        if (!user) {
-          var noAccountError = {
-            name: 'noAccount',
-            message: 'The email address ' + req.param('email') + ' not found.'
-          };
-          req.session.flash = {
-            err: 'The email address ' + req.param('email') + ' not found.'
-          };
-          res.redirect('/session/new');
-          return;
-        }
-        else{
-          bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
-
-            console.log("Entered into bycrypt");
-
-            if (err) return next(err);
-
-          // If the password from the form doesn't match the password from the database...
-          if (!valid) {
-            var usernamePasswordMismatchError = [{
-              name: 'usernamePasswordMismatch',
-              message: 'Invalid username and password combination.'
-            }]
+          // If no user is found...
+          if (!user) {
+            var noAccountError = {
+              name: 'noAccount',
+              message: 'The email address ' + req.param('email') + ' not found.'
+            };
             req.session.flash = {
-              err: 'Invalid username and password combination.'
-            }
+              err: 'The email address ' + req.param('email') + ' not found.'
+            };
             res.redirect('/session/new');
             return;
           }
+          else{
+            bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
 
-          req.session.authenticated = true;
-          req.session.User = user;
+              console.log("Entered into bycrypt");
 
-          //return res.json({user: user});
-          res.redirect('/session/welcome');
+              if (err) return next(err);
+
+            // If the password from the form doesn't match the password from the database...
+            if (!valid) {
+              var usernamePasswordMismatchError = [{
+                name: 'usernamePasswordMismatch',
+                message: 'Invalid username and password combination.'
+              }]
+              req.session.flash = {
+                err: 'Invalid username and password combination.'
+              }
+              res.redirect('/session/new');
+              return;
+            }
+
+            req.session.authenticated = true;
+            req.session.User = user;
+
+            //return res.json({user: user});
+            res.redirect('/session/welcome');
+          });
+          }
+
         });
-        }
-
-      });
 },
 
 

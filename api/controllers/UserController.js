@@ -181,6 +181,7 @@ module.exports = {
         req.session.flash = {
           err : "Sorry, No user found"
         };
+        res.redirect('back');
         return;
       }
 
@@ -206,35 +207,68 @@ module.exports = {
   },
 
 
-  // show: function(req, res, next) {
-  //
-  //   //console.log(user);
-  //
-  //   User.findOne(req.token).exec(function(err, user) {
-  //
-  //     if (err) return next(err);
-  //     if (!user) return next();
-  //
-  //
-  //     return res.status(200).json(user);
-  //
-  //   });
-  //
-  //   return res.status(200).json(req.session.User);
-  //
-  // },
 
-  showall : function(req, res, next){
 
-    User.find(function foundUsers(err, users){
-      if(err) return next(err);
+  showall : function (req, res, next) {
 
-      //return res.status(200).json(users);
-      res.view({
-        users: users
-      });
-      //
+
+    var iduser = 0;
+    var count = 0;
+    var final = 0;
+    var memberarray = [];
+    Team.find(function foundTeams(err, teams) {
+      if (err) return next(err);
+      //console.log("After team.find");
+      User.find(function foundUsers(err, users) {
+        //console.log("baap re");
+        users.forEach(function (user) {
+          teams.forEach(function (team) {
+            // console.log("After teams");
+            // console.log("Length of team.memberaccepted is :");
+            // console.log(team.memberAccepted.length);
+            for(var i=0 ; i<team.memberAccepted.length; i++){
+              //console.log("For " + i + "th iteration");
+              //
+
+              if(team.memberAccepted[i] != user.id){
+                count = count + 1;
+              }
+              //   }
+              //console.log("Value of count vakue is : " + count);
+              if(count === team.memberAccepted.length){
+                final = final + 1;
+              }
+              //   count = 0;
+            }
+            count = 0;
+
+          });
+          // console.log("Final value is :");
+          // console.log(final);
+          // //console.log(teams.length);
+          //
+          if(teams.length === final){
+            console.log("User is :" );
+            memberarray.push(user);
+          }
+          final = 0;
+          // else{
+          //   //console.log();
+          // }
+
+
+        });
+
+        res.view({
+          users : users,
+          memberarray : memberarray
+        });
+
+        //res.status(200).json(memberarray);
+      })
+
     });
+
   },
 
 

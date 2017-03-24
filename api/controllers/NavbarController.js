@@ -80,7 +80,101 @@
           })
 
         });
-  }
+  },
+
+   myteam : function(req, res, next) {
+     var userid = 0;
+     var temp = 0;
+
+     user = req.session.User;
+
+     if(!user){
+       return res.redirect('/login');
+     }
+
+     Team.find({
+       admin: user.id
+     }).then(function (team) {
+       console.log(team);
+       //console.log(req.param('id'));
+
+       if (team.length > 0) {
+         temp = 1;
+         console.log("Inside team");
+
+
+         res.status(200).json({
+           team: team,
+           admin: true
+         });
+         return;
+       }
+     });
+
+
+     if(temp === 0){
+       //
+       console.log("After temp === 0");
+       userid = req.param('id');
+       Team.find(function foundTeams(err, teams) {
+         console.log("After team.find");
+         teams.forEach(function (team) {
+
+           for (var k=0; k<team.memberAccepted.length; k++) {
+             //         console.log("Accepted members is :");
+             //         console.log(team.memberAccepted[k] +  req.param('id'));
+             //         //console.log("user id is :");
+             //         //console.log(userid);
+             if (team.memberAccepted[k] === parseInt(userid)) {
+               if(team.admin != parseInt(userid)) {
+                 console.log("Inside for loop");
+                 temp = 3;
+
+
+                 console.log("Team is :");
+                 console.log(team);
+
+                 // res.view({
+                 //   team : team,
+                 //   admin : false
+                 // });
+
+
+                 res.status(200).json({
+                   team: team,
+                   admin: false
+                 });
+                 return;
+                 break;
+               }
+               //
+             }
+             console.log("Checking");
+           }
+         });
+         console.log("Before team === 2 checking");
+
+         if(temp === 0){
+           console.log("After temp === 2");
+
+           // res.view({
+           //   message : "Sorry, you are not a part of any team yet.Create your own team now."
+           // });
+
+           // req.session.flash = {
+           //   err: "Sorry, you are not a part of any team yet.Create your own team now"
+           // };
+
+
+           res.status(200).json({'noteam':true});
+           return;
+
+         }
+       });
+       //
+     }
+
+   },
 
 };
 

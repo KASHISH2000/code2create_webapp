@@ -21,7 +21,7 @@
       }
     </style>
 
-    <%- partial('../partials/navbar.ejs',{active: 'teamViewrequests'}) %>
+    <%- partial('../partials/navbar.ejs',{active: 'teamViewrequest'}) %>
 
     <div class="container">
       <div class="heading-bg">
@@ -38,26 +38,38 @@
           <td title="Accept Invitation to join a team (only if you are not a team member)">Accept Invitation</td>
         </thead>
         <tbody>
-           <% _.each(teams, function(team) { %>
-          <tr>
-            <td><a href="viewmember.html" class="ver-align-middlee underline-wala">hkedia321</a></td>
-            <td>Harshit Kedia</td>
-            <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)">I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. </td>
-            <td>VIT University</td>
-            <td class="center"><a href="sendrequest" class="send-req-but smooth-transition">Invite</a></td>
-          </tr>
-          <tr>
-            <td><a href="viewmember.html" class="underline-wala">bodhwani</a></td>
-            <td>Harshit Kedia</td>
-            <td class="skills-td">I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. </td>
-            <td>VIT University</td>
-            <td class="center" title="Send Invitation to a member to join your team(you should be an admin)"><a href="sendrequest" class="send-req-but smooth-transition disabled">Invite</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+         <% _.each(requestview, function(reqview) {
+         var trackk='';
+         if(team.arvr=='1')
+         trackk='AR/VR';
+         else if(team.helc=='1')
+         trackk='Health Care';
+         else if(team.fint=='1')
+         trackk='FinTech';
+         else if(team.clen=='1')
+         trackk='Clean Energy';
+         else
+         trackk='not found';
+         %>
+         <tr>
+          <td>
+            <a href="/team/show/<%=reqview.teamName%>" class="ver-align-middlee underline-wala"><%=reqview.teamName%></a>
+          </td>
+          <td>trackk</td>
+          <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=reqview.description%>
+
+          </td>
+          <td>
+          <a href="/team/show/<%=reqview.teamAdmin%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
+          </td>
+          <td class="center"><a href="sendrequest" class="send-req-but smooth-transition">Invite</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
   </div>
+</div>
 
 
-  <%- partial('../partials/footer.ejs') %>
-  <%- partial('../partials/commonScripts.ejs') %>
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>
