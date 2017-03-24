@@ -29,7 +29,6 @@
     Team.find(function foundTeams(err, teams) {
       if (err) return next(err);
 
-
       teams.forEach(function (team) {
         if (user.id === team.admin) {
           console.log("USer id and admin id is :");

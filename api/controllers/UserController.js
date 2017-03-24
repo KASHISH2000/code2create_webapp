@@ -206,6 +206,14 @@ module.exports = {
     });
   },
 
+  //this is for backend testing
+  showalluser : function (req, res, next) {
+    User.find(function foundUsers(err, users){
+      if(err) return next(err);
+      return res.status(200).json(users);
+    });
+  },
+
 
 
 

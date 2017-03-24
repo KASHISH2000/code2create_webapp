@@ -10,6 +10,7 @@ module.exports = {
 
   },
 
+  //this will creata a team.
   create : function(req, res, next) {
 
     user = req.session.User;
@@ -67,17 +68,22 @@ module.exports = {
     }
   },
 
-  showallteams : function (req, res, next) {
-    Team.find(function foundTeams(err, teams) {
+  //this is for backend
+  showallteams : function(req, res, next){
 
+    Team.find(function foundTeams(err, teams){
+      if(err) return next(err);
       res.status(200).json(teams);
-    })
-
+      // res.view({
+      //   teams: teams
+      // });
+    });
   },
 
+
+  //this will display all the members to whom admin can send requests.
   showall : function (req, res, next) {
 
-    //this will display all the members to whom admin can send requests.
 
     var temp = 0;
 
@@ -175,6 +181,8 @@ module.exports = {
 
   },
 
+
+  //this will display the single team search by team name.
   show : function(req, res, next) {
     console.log("ENtered into show");
 
@@ -208,6 +216,7 @@ module.exports = {
 
 
 
+  //this will show team of admin(if admin), user's team (if not admin, and available in any team).
   myteam : function(req, res, next) {
     var userid = 0;
     var temp = 0;
@@ -240,7 +249,9 @@ module.exports = {
      if(temp === 0){
     //
        console.log("After temp === 0");
-      userid = req.param('id');
+
+      userid = req.session.User.id;
+
       Team.find(function foundTeams(err, teams) {
         console.log("After team.find");
         teams.forEach(function (team) {
@@ -335,8 +346,6 @@ module.exports = {
         //res.status(200).json(team);
 
 
-
-
       })
     })
 
@@ -412,15 +421,18 @@ module.exports = {
   //   });
   // },
 
+  //admin can send request to users.
   sendRequest : function(req, res, next) {
-
 
     var temp = [];
     var l=0;
 
+    user = req.session.User;
 
+    Team.update({
+      admin : user.id
 
-    Team.update(req.param('id'),req.params.all(), function teamUpdated(err){
+      },req.params.all(), function teamUpdated(err){
       if(err){
         req.session.flash = {
           err: err
@@ -431,7 +443,12 @@ module.exports = {
 
 
 
-        Team.findOne(req.param('id'), function foundTeam(err, team) {
+
+        Team.findOne({
+          admin : user.id
+        }, function foundTeam(err, team) {
+
+
 
           console.log(team.reciever);
           if (err) return next(err);
@@ -480,6 +497,7 @@ module.exports = {
                   req.session.flash = {
                     err: "Admin cannot send request to himself"
                   };
+                  console.log("Cannot send request to himself");
                   return res.redirect('back');
 
                   //res.status(200).json("Admin cannot send request to himself");
@@ -497,6 +515,7 @@ module.exports = {
               req.session.flash = {
                 err: "Cannot send request to himself"
               };
+              console.log("Cannot send request to himself");
               return res.redirect('back');
 
               //res.status(200).json("Cannot send request to himself");
@@ -504,7 +523,7 @@ module.exports = {
             }
           }
 
-      return res.status(200).json(team);
+      //return res.status(200).json(team);
 
       return res.redirect('/team/show/' + team.teamName );
         });
@@ -512,6 +531,7 @@ module.exports = {
 
   },
 
+  //request come to logged in user.
   viewrequest : function (req, res, next) {
 
     var requestview = [];
@@ -530,7 +550,10 @@ module.exports = {
 
       });
       if(requestview.length > 0){
-        return res.status(200).json(requestview);
+        //return res.status(200).json(requestview);
+        res.view({
+          requestview : requestview
+        });
       }
       else{
         return res.status(200).json("Sorry, you are not a part of any team");
@@ -542,17 +565,29 @@ module.exports = {
       },
 
   acceptedRequest : function(req, res, next){
+
+    var arr = [];
+
+    var user = req.session.User;
+
     Team.findOne(req.param('id'), function foundTeam(err, team) {
-        User.findOne(req.param('uid'), function foundUser(err, user) {
+        // User.findOne(req.param('uid'), function foundUser(err, user) {
+          //this is user id of user
           // console.log(user);
           // console.log(team);
 
           //console.log("previous");
-          //console.log(team);
+          console.log(team);
           //console.log(team.memberSend);
-          arr = team.memberSend;
+
+
+            arr = team.memberSend;
+
 
           for(var i=0;i<team.memberSend.length ; i++) {
+
+
+
             if (team.memberSend[i] === user.uid) {
               console.log(i);
               (team.memberSend).splice(i,1);
@@ -584,11 +619,11 @@ module.exports = {
           );
           //console.log(team.memberSend);
 
-          // res.status(200).json({
-          //   team : team,
-          //   user : user
-          // });
-          // return;
+          res.status(200).json({
+            team : team,
+            user : user
+          });
+          return;
 
           res.view({
             team : team,
@@ -600,7 +635,7 @@ module.exports = {
           //   team : team,
           //   user : user
           // });
-        })
+        //})
         });
       },
   //here uid is id of that person, who is accepting that team request.
