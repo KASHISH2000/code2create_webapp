@@ -36,7 +36,14 @@
     view: 'homepage'
   },
   '/register' : 'UserController.new',
-  '/login' : 'SessionController.new'
+  '/login' : 'SessionController.new',
+  '/rules' : {
+    view: 'rules'
+  },
+  '/agenda' : {
+    view: 'agenda'
+  },
+
 
   /***************************************************************************
   *                                                                          *
