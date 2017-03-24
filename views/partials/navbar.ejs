@@ -16,45 +16,74 @@
       </div>
     </a>
   </li>
-  <li><a href="myteam.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Team Details</a></li>
-  <li><a href="createateam.html"><i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a></li>
-  <li class="divider"></li>
-  <li><a href="/logout">Logout</a></li>
-</ul>
-<div class="nav-wrap navbar-fixed">
-  <nav class="smooth-transition navelem">
-    <div class="nav-wrapper">
-      <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a class="navlink a-home" href="/rules">Rules</a>
+  <li><a href="/team/edit" 
+  <% if(active=='teamEdit'){ %>
+    class='active-colour' 
+    <% } %>
+    ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Team Details</a></li>
+    <li><a href="createateam.html" 
+     <% if(active=='teamNew'){ %>
+     class='active-colour' 
+     <% } %>
+     ">
+     "><i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a></li>
+     <li class="divider"></li>
+     <li><a href="/session/destroy">Logout</a></li>
+   </ul>
+   <div class="nav-wrap navbar-fixed">
+    <nav class="smooth-transition navelem">
+      <div class="nav-wrapper">
+        <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="navlink a-home 
+           <% if(active=='rules'){ %>
+           nav-active
+           <% } %>
+           " href="/rules">Rules</a>
+         </li>
+         <li><a class="navlink a-home 
+           <% if(active=='agenda'){ %>
+           nav-active
+           <% } %>
+           " href="/agenda">agenda</a>
+         </li>
+         <li><a class="navlink a-home 
+           <% if(active=='teamShowall'){ %>
+           nav-active
+           <% } %>
+           " href="/team/showall">All Teams</a>
+         </li>
+         <li><a class="navlink a-home 
+          <% if(active=='userShowall'){ %>
+          nav-active
+          <% } %>
+          " href="/user/showall">All Members</a>
         </li>
-        <li><a class="navlink a-home" href="/agenda">Agenda</a>
-        </li>
-        <li><a class="navlink a-home" href="/team/showall">All Teams</a>
-        </li>
-        <li><a class="navlink a-home" href="/user/showall">All Members</a>
-        </li>
-        <li><a class="navlink a-home" href="/viewrequests">View Requests</a>
-        </li>
-        <!-- Dropdown Trigger -->
-        <li><a class="dropdown-button active-colour" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-2x" aria-hidden="true"></i><i class="material-icons right margin-left-0">arrow_drop_down</i></a></li>
+        <li><a class="navlink a-home" href="/viewrequests 
+         <% if(active=='teamViewrequests'){ %>
+         nav-active
+         <% } %>
+         ">View Requests</a>
+       </li>
+       <!-- Dropdown Trigger -->
+       <li><a class="dropdown-button active-colour" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-2x" aria-hidden="true"></i><i class="material-icons right margin-left-0">arrow_drop_down</i></a></li>
 
-      </li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a class="navlink a-home" href="/rules">Rules</a>
-      </li>
-      <li><a class="navlink a-home" href="/agenda">Agenda</a>
-      </li>
-      <li><a class="navlink a-home" href="/team/showall">All Teams</a>
-      </li>
-      <li><a class="navlink a-home" href="/user/showall">All Members</a>
-      </li>
-      <li><a class="navlink a-home" href="/viewrequests">View Requests</a>
-      </li>
-    </ul>
-  </div>
+     </li>
+   </ul>
+   <ul class="side-nav" id="mobile-demo">
+    <li><a class="navlink a-home" href="/rules">Rules</a>
+    </li>
+    <li><a class="navlink a-home" href="/agenda">Agenda</a>
+    </li>
+    <li><a class="navlink a-home" href="/team/showall">All Teams</a>
+    </li>
+    <li><a class="navlink a-home" href="/user/showall">All Members</a>
+    </li>
+    <li><a class="navlink a-home" href="/viewrequests">View Requests</a>
+    </li>
+  </ul>
+</div>
 </nav>
 </div>
 <!-- NAV END-->
