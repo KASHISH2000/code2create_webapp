@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/styles/app_common.css">
+<style>
+  #submit_mock {
+    margin-top: 20px;
+  }
+  .error {
+    border: solid 1px red;
+    color: red;
+    padding: 10px;
+  }
+  .success {
+    border: solid 1px green;
+    color: green;
+    padding: 10px;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1eb76e;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #1eb76e;
+  }
+</style>
+
+
+<%- partial('../partials/navbar.ejs', {active: 'userEdit'}) %>
+<h4 class="center white-text">Welcome ....</h4>
+<br><br><br><br><br>s
+
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>

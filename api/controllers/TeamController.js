@@ -25,7 +25,7 @@ module.exports = {
             err: err
           };
 
-          return res.redirect('back');
+          return res.redirect('/team/new');
 
           // res.status(404).json({
           //   message : 'Page not found'
@@ -50,9 +50,10 @@ module.exports = {
         console.log(team.admin);
 
         //return res.status(200).json(team);
-        res.view({
-          team: team
-        });
+          req.session.flash = {
+        success: "You have successfully made a team!"
+      };
+        res.redirect('/user/showall');
         //
       });
     }
@@ -62,7 +63,7 @@ module.exports = {
       };
       console.log("Please login");
 
-      return res.redirect('back');
+      return res.redirect('/team/new');
     }
   },
 
@@ -75,6 +76,8 @@ module.exports = {
   },
 
   showall : function (req, res, next) {
+
+    //this will display all the members to whom admin can send requests.
 
     var temp = 0;
 
@@ -429,6 +432,7 @@ module.exports = {
 
 
         Team.findOne(req.param('id'), function foundTeam(err, team) {
+
           console.log(team.reciever);
           if (err) return next(err);
           if (!team) return next();
@@ -500,13 +504,42 @@ module.exports = {
             }
           }
 
-      //return res.status(200).json(team);
+      return res.status(200).json(team);
 
       return res.redirect('/team/show/' + team.teamName );
         });
     });
 
   },
+
+  viewrequest : function (req, res, next) {
+
+    var requestview = [];
+
+      user = req.session.User;
+
+    Team.find(function foundTeams(err, teams) {
+
+      teams.forEach(function (team) {
+
+        for(var i=0;i<team.memberSend.length ; i++) {
+          if (team.memberSend[i] === user.uid) {
+            requestview.push(team);
+          }
+        }
+
+      });
+      if(requestview.length > 0){
+        return res.status(200).json(requestview);
+      }
+      else{
+        return res.status(200).json("Sorry, you are not a part of any team");
+      }
+
+
+    });
+
+      },
 
   acceptedRequest : function(req, res, next){
     Team.findOne(req.param('id'), function foundTeam(err, team) {
@@ -572,67 +605,7 @@ module.exports = {
       },
   //here uid is id of that person, who is accepting that team request.
 
-  eligiblemembers : function (req, res, next) {
 
-
-    var iduser = 0;
-    var count = 0;
-    var final = 0;
-    var memberarray = [];
-    Team.find(function foundTeams(err, teams) {
-      if (err) return next(err);
-      //console.log("After team.find");
-      User.find(function foundUsers(err, users) {
-        //console.log("baap re");
-        users.forEach(function (user) {
-          teams.forEach(function (team) {
-            // console.log("After teams");
-            // console.log("Length of team.memberaccepted is :");
-            // console.log(team.memberAccepted.length);
-            for(var i=0 ; i<team.memberAccepted.length; i++){
-                 //console.log("For " + i + "th iteration");
-            //
-
-               if(team.memberAccepted[i] != user.id){
-                 count = count + 1;
-               }
-            //   }
-              //console.log("Value of count vakue is : " + count);
-              if(count === team.memberAccepted.length){
-                final = final + 1;
-              }
-            //   count = 0;
-             }
-             count = 0;
-
-          });
-          // console.log("Final value is :");
-          // console.log(final);
-          // //console.log(teams.length);
-          //
-          if(teams.length === final){
-            console.log("User is :" );
-            memberarray.push(user);
-          }
-          final = 0;
-          // else{
-          //   //console.log();
-          // }
-
-
-        });
-
-        res.view({
-          users : users,
-          memberarray : memberarray
-        });
-
-        //res.status(200).json(memberarray);
-      })
-
-    });
-
-  },
 
   destroyyTeam: function(req, res, next) {
     Team.findOne(req.param('id'), function foundTeam(err, team) {

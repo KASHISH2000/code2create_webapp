@@ -1,0 +1,93 @@
+    <link rel="stylesheet" href="/styles/app_common.css">
+    <style>
+      #submit_mock {
+        margin-top: 20px;
+      }
+      .error {
+        border: solid 1px red;
+        color: red;
+        padding: 10px;
+      }
+      .success {
+        border: solid 1px green;
+        color: green;
+        padding: 10px;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+        border: 2px solid #1eb76e;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+        background-color: #1eb76e;
+      }
+      .detail-title{
+        color: #1eb76e;
+      }
+      .detail-answer{
+        padding-bottom: 5px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgba(88, 88, 88, 0.64);
+        font-size: 1em;
+      }
+    </style>
+
+    <%- partial('../partials/navbar.ejs', {active: 'teamShow'}) %>
+
+    <div class="container">
+      <div class="heading-bg">
+       <h5 class="left-align white-text main-heading">Team details</h5>
+     </div>
+     <div class="my-main-card hoverable white-text">
+      <p class="detail-title">
+        Team Name
+      </p>
+      <p class="detail-answer">
+        <%=team.teamName%>
+      </p>
+      <p class="detail-title">
+        Team Track
+      </p>
+      <p class="detail-answer">
+        AR/VR
+      </p>
+      <p class="detail-title">
+        Project Detail
+      </p>
+      <p class="detail-answer">
+        <%=team.description %>
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="heading-bg">
+     <h5 class="left-align white-text main-heading">Team members</h5>
+   </div>
+   <div class="my-main-card hoverable">
+    <table class="bordered striped responsive-table white-text">
+      <thead>
+        <td>userid</td>
+        <td>Name</td>
+        <td>Skills</td>
+        <td>University</td>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="viewmember.html" class="ver-align-middlee underline-wala">hkedia321 <img src="images/admin.png" class="admin-img"></a></td>
+          <td>Harshit Kedia</td>
+          <td>I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. </td>
+          <td>VIT University</td>
+        </tr>
+        <tr>
+          <td><a href="viewmember.html" class="underline-wala">bodhwani</a></td>
+          <td>Harshit Kedia</td>
+          <td>I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. </td>
+          <td>VIT University</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>

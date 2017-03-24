@@ -53,7 +53,7 @@ module.exports = {
 
     living : {
       type : 'string',
-      required : true
+      required : false
     },
 
     block : {
