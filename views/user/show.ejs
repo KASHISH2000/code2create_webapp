@@ -34,7 +34,7 @@
             </p>
             <p class="detail-answer margin-bottom-0">
              <i class="material-icons prefix ver-align-middle">account_circle</i>
-             <span class="ver-align-middle"><%=user.userid%></span>
+             <span class="ver-align-middle"><%=user.username%></span>
            </p>
          </div>
          <div class="col m6 offset-m3">
@@ -43,7 +43,7 @@
           </p>
           <p class="detail-answer margin-bottom-0">
             <i class="material-icons prefix ver-align-middle">people_outline</i>
-            <span class="ver-align-middle"><a href="viewteam.html" class="underline-wala"><%=user.userid%></a></span>
+            <span class="ver-align-middle"><a href="viewteam.html" class="underline-wala"><%=user.username%></a></span>
           </p>
         </div>
         <div class="col m6">
@@ -96,11 +96,14 @@
     <br>
   </div>
   <div class="col m4 offset-m4 center profile-social">
+  <% if(user.github){%>
     <a href="<%=user.github%>" title="GitHub Profile" target="_blank" class="social-a social-github"><i class="smooth-transition fa fa-2x fa-github" aria-hidden="true"></i>
     </a>
-
+<% } %>
+ <% if(user.linkedin){%>
     <a href="<%=user.linkedin%>" title="LinkedIn Profile" target="_blank" class="social-a social-linkedin"><i class="smooth-transition fa fa-2x fa-linkedin" aria-hidden="true"></i>
     </a>
+    <% } %>
   </div>
 </div>
 </div>

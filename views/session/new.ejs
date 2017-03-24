@@ -72,11 +72,11 @@
   <% } %>
   <div class="row">
     <div class="col s12 m6 offset-m3">
-      <form action="/session/create" method="POST" id="loginForm" autocomplete="on">
+      <form action="/session/create" method="POST" id="loginForm" autocomplete="on" novalidate>
         <div class="input-field col s12 m12">
           <i class="material-icons prefix">account_circle</i>
-          <input id="userid" type="text" class="validate" required name="userid">
-          <label for="userid">userid <span class="required">*</span></label>
+          <input id="email_username" type="text" class="validate" required name="email_username">
+          <label for="email_username">email/Username <span class="required">*</span></label>
         </div>
         <div class="input-field col s12 m12">
           <i class="material-icons prefix">lock</i>
@@ -105,9 +105,9 @@
 <script type="text/javascript" src="/js/nav_fade_scroll.js"></script>
 <script type="text/javascript">
   function checkerrors(){
-    var userid=$("#userid").val();
+    var email_username=$("#email_username").val();
     var password=$("#password").val();
-    if(userid && password)
+    if(email_username && password)
       return false;
     return true;//means there is some error
   }
@@ -115,8 +115,9 @@
     $("#real_submit").click();
   }
   function submit_try() {
-    if (checkerrors() == false)
-      $("#submit").click();
+    //if (checkerrors() == false)
+     // $("#submit").click(); //for captcha
+      onSubmit();//for no captcha
   }
 </script>
 

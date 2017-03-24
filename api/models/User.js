@@ -28,7 +28,7 @@ module.exports = {
       unique : true
     },
 
-    userid : {
+    username : {
       type : 'string',
       required : true,
       unique : true
@@ -53,7 +53,7 @@ module.exports = {
 
     living : {
       type : 'string',
-      required : true
+      required : false
     },
 
     block : {
@@ -80,6 +80,10 @@ module.exports = {
     linkedin : {
       type : 'string',
       required : false
+    },
+
+    token : {
+      type : 'string'
     },
 
     encryptedPassword: {

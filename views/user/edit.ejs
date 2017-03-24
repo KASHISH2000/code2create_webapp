@@ -49,7 +49,7 @@
           </p>
 
           <p class="detail-answer white-text">
-            <i class="material-icons ver-align-middle">account_circle</i> <%=user.userid%>
+            <i class="material-icons ver-align-middle">account_circle</i> <%=user.username%>
           </p>
         </div>
 
@@ -98,19 +98,39 @@
  </p>
 </div>
 <div class="col s12 center">
-  <p class="detail-title">
-    Hostler
-  </p>
-  <p class="detail-answer white-text">
-   <%=user.block%>, <%=user.roomno%>
- </p>
+ <% if(user.internal_external=='internal'){ 
+ if(user.living=='hostler'){ %>
+ <p class="detail-title">
+  Hostler
+</p>
+<p class="detail-answer white-text">
+ <%=user.block%>, <%=user.roomno%>
+</p>
+<% } %>
+<% if(user.living=='dayscholar'){ %>
+<p class="detail-title">
+   &nbsp;
+</p>
+<p class="detail-answer white-text">
+Dayscholar
+</p>
+<% } %>
+<% } %>
+<% if(user.internal_external=='external'){ %>
+<p class="detail-title">
+  &nbsp;
+</p>
+<p class="detail-answer white-text">
+ External
+</p>
+<% } %>
 </div>
 <div class="col s12">
   <br><br>
 </div>
 <hr style="border-color:#868686;">
 <div class="input-field col s12 m12">
-  <textarea id="description" class="validate materialize-textarea" name="description" value="user.description"></textarea>
+  <textarea id="description" class="validate materialize-textarea" name="description" value="<%=user.description%>"></textarea>
   <label for="description">What are your skills? In what languages do you code?</label>
 </div>
 <div class="input-field col s12 m6">

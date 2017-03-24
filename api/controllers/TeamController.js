@@ -5,66 +5,206 @@ var i = 0;
 
 module.exports = {
 
+  'new' : function (req, res) {
+    res.view();
+
+  },
+
   create : function(req, res, next) {
 
-    Team.create(req.params.all(), function teamCreated(err, team) {
-      if (err) {
-        //console.log(err);
-        req.session.flash = {
-          err: err
-        };
+    user = req.session.User;
+    console.log("Here is the loggedn user");
+    console.log(user);
 
-        return res.redirect('back');
 
-        // res.status(404).json({
-        //   message : 'Page not found'
-        // });
+    if(user) {
+      Team.create(req.params.all(), function teamCreated(err, team) {
+        if (err) {
+          //console.log(err);
+          req.session.flash = {
+            err: err
+          };
 
-      }
-      user = req.session.User;
-      console.log(user);
-      team.admin = user.id;
-      (array).push(user.id);
-      (team.memberAccepted) = (array);
-      array = [];
+          return res.redirect('/team/new');
 
-      team.save(
-        function (err) {
-          console.log('saving records for team');
+          // res.status(404).json({
+          //   message : 'Page not found'
+          // });
+
         }
-      );
-      console.log(team.admin);
+        console.log(user);
+        team.admin = user.id;
+        team.teamAdmin = user.username;
 
-      res.view({
-        team : team
+
+
+        (array).push(user.id);
+        (team.memberAccepted) = (array);
+        array = [];
+
+        team.save(
+          function (err) {
+            console.log('saving records for team');
+          }
+        );
+        console.log(team.admin);
+
+        //return res.status(200).json(team);
+          req.session.flash = {
+        success: "You have successfully made a team!"
+      };
+        res.redirect('/team/new');
+        //
       });
-      //res.status(200).json(team);
-    });
+    }
+    else{
+      req.session.flash = {
+        err: "Please Login"
+      };
+      console.log("Please login");
+
+      return res.redirect('/team/new');
+    }
   },
 
   showallteams : function (req, res, next) {
     Team.find(function foundTeams(err, teams) {
-      if (err) return next(err);
-      console.log("Inside team.find");
 
-      res.view({
-        teams : teams
-      });
-      //res.status(200).json(teams);
+      res.status(200).json(teams);
     })
+
   },
 
-  showteam : function(req, res, next) {
-    Team.findOne(req.param('id'), function foundTeam(err, team) {
-      if (err) return next(err);
-      if (!team) return next();
+  showall : function (req, res, next) {
 
+    var temp = 0;
+
+    var iduser = 0;
+    var count = 0;
+    var final = 0;
+    var memberarray = [];
+
+
+    user = req.session.User;
+    console.log(user);
+
+
+    Team.find(function foundTeams(err, teams) {
+      if (err) return next(err);
+
+
+      teams.forEach(function (team) {
+        if (user.id === team.admin) {
+          console.log("USer id and admin id is :");
+          console.log(user.id + team.admin);
+          console.log(team.admin);
+          temp = 1;
+        }
+
+      });
+      if(temp === 1){
+
+          //console.log("After team.find");
+          User.find(function foundUsers(err, users) {
+            //console.log("baap re");
+            users.forEach(function (user) {
+              teams.forEach(function (team) {
+                // console.log("After teams");
+                // console.log("Length of team.memberaccepted is :");
+                // console.log(team.memberAccepted.length);
+                for(var i=0 ; i<team.memberAccepted.length; i++){
+                  //console.log("For " + i + "th iteration");
+                  //
+
+                  if(team.memberAccepted[i] != user.id){
+                    count = count + 1;
+                  }
+                  //   }
+                  //console.log("Value of count vakue is : " + count);
+                  if(count === team.memberAccepted.length){
+                    final = final + 1;
+                  }
+                  //   count = 0;
+                }
+                count = 0;
+
+              });
+              // console.log("Final value is :");
+              // console.log(final);
+              // //console.log(teams.length);
+              //
+              if(teams.length === final){
+                console.log("User is :" );
+                memberarray.push(user);
+              }
+              final = 0;
+              // else{
+              //   //console.log();
+              // }
+
+
+            });
+
+            // res.view({
+            //   users : users,
+            //   memberarray : memberarray
+            // });
+
+            //res.status(200).json(memberarray);
+            res.view({
+              membersarray : memberarray,
+              teams : teams,
+              admin : true
+            })
+          })
+
+
+      }
+      else{
+        // return res.status(200).json({
+        //   admin : false
+        // });
+        res.view({
+          teams : teams,
+          admin : false
+        })
+      }
+    })
+
+  },
+
+  show : function(req, res, next) {
+    console.log("ENtered into show");
+
+    Team.findOne({
+      teamName : req.param('id')
+    }).exec(function(err, team) {
+
+      console.log(team);
+
+      if (err) {
+        req.session.flash = {
+          err : "Sorry, Error in finding team"
+        };
+        return;
+      }
+      if (!team) {
+        req.session.flash = {
+          err : "Sorry, No team found"
+        };
+        return;
+      }
+
+      //return res.status(200).json(team);
       res.view({
         team : team
       });
-      //res.status(200).json(team);
+      return;
     });
+
   },
+
+
 
   myteam : function(req, res, next) {
     var userid = 0;
@@ -251,73 +391,24 @@ module.exports = {
   //this will send the collection of all the teams and in frontend, it will check
   //names from memberSend array, and try to match ids with loggedin user.
   //If it matches, then it will display the team name.
-
-  show: function(req, res, next) {
-
-    var temp = [];
-    var l=0;
-
-    Team.findOne(req.param('id'), function foundTeam(err, team) {
-      if (err) return next(err);
-      if (!team) return next();
-
-      if(team) {
-
-        if(team.memberSend) {
-          for(var i=0; i<team.memberSend.length; i++) {
-            if (team.reciever != team.memberSend[i]) {
-              l=l+1;
-            }
-            //this is used so that if some1 trigger this show function again and again,
-            //this will not create duplicity of same user in memberSend array.
-          }
-          if(l === team.memberSend.length){
-            if(team.admin != team.reciever) {
-              (team.memberSend).push(team.reciever);
-            }
-            else{
-
-              req.session.flash = {
-                err: "Admin cannot send request to himself"
-              };
-
-              //res.status(200).json("Admin cannot send request to himself");
-              return res.redirect('back');
-            }
-          }
-        }
-        else{
-          if(team.admin != team.reciever) {
-            temp.push(team.reciever);
-            team.memberSend = temp;
-          }
-          else{
-
-            req.session.flash = {
-              err: "Admin cannot send request to himself"
-            };
-            return res.redirect('back');
-
-
-            //res.status(200).json("Admin cannot send request to himself");
-          }
-        }
-          //undefined while entering the first entry
-          team.save(
-            function (err) {
-              console.log('saving records for team');
-            }
-          );
-      }
-      console.log("Must come at lars t kasjr");
-
-      res.view({
-        team : team
-      });
-
-      //res.status(200).json(team);
-    });
-  },
+  //
+  // show: function(req, res, next) {
+  //
+  //   var temp = [];
+  //   var l=0;
+  //
+  //   Team.findOne(req.param('id'), function foundTeam(err, team) {
+  //     if (err) return next(err);
+  //     if (!team) return next();
+  //     console.log("Must come at lars t kasjr");
+  //
+  //     res.view({
+  //       team : team
+  //     });
+  //
+  //     //res.status(200).json(team);
+  //   });
+  // },
 
   sendRequest : function(req, res, next) {
 
@@ -365,7 +456,6 @@ module.exports = {
                     return res.redirect('back');
 
                     //res.status(200).json("Admin cannot send request to himself");
-                    return;
                   }
                 }
                 else {
@@ -411,9 +501,9 @@ module.exports = {
             }
           }
 
+      //return res.status(200).json(team);
 
-      // res.status(200).json(team);
-      res.redirect('/team/show/'+req.param('id'));
+      return res.redirect('/team/show/' + team.teamName );
         });
     });
 
@@ -462,10 +552,17 @@ module.exports = {
           );
           //console.log(team.memberSend);
 
+          // res.status(200).json({
+          //   team : team,
+          //   user : user
+          // });
+          // return;
+
           res.view({
             team : team,
             user : user
           });
+          return;
 
           // res.status(200).json({
           //   team : team,

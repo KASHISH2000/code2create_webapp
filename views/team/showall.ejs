@@ -42,13 +42,25 @@
         </thead>
 
         <tbody>
-            <% _.each(teams, function(team) { %>
+            <% _.each(teams, function(team) {
+              var trackk='';
+              if(team.arvr=='1')
+               trackk='AR/VR';
+               else if(team.helc=='1')
+               trackk='Health Care';
+               else if(team.fint=='1')
+               trackk='FinTech';
+               else if(team.clen=='1')
+               trackk='Clean Energy';
+               else
+               trackk='not found';
+             %>
           <tr>
-            <td><a href="viewteam.html" class="underline-wala"><%=team.teamName%></a></td>
-            <td>AR/VR</td>
+            <td><a href="/team/show/<%=team.teamName%>" class="underline-wala"><%=team.teamName%></a></td>
+            <td><%=trackk%></td>
             <td><%=team.memberAccepted.length%></td>
             <td><%=team.description%></td>
-            <td><a href="viewteam.html" class="underline-wala"><%=team.teamAdmin%></a></td>
+            <td><a href="/user/show/<%=team.teamAdmin%>" class="underline-wala"><%=team.teamAdmin%></a></td>
           </tr>
           <% }); %>
         

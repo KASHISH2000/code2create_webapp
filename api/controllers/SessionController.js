@@ -1,55 +1,73 @@
-
 var bcrypt = require('bcryptjs');
 var senderid;
 
 // var bcrypt = require('bcrypt');
 module.exports = {
 
-  'new': function (req, res) {
-    res.view('session/new');
-  },
+  'welcome': function (req, res) {
+  res.view();
+  return;
+},
 
-  create: function (req, res, next) {
-    console.log("Inside session create function");
+'new': function (req, res) {
+ if(req.session.authenticated)
+ {
+  redirect('/session/welcome');
+  return;
+}
+res.view();
+},
 
-    if(req.param('email')) {
+create: function (req, res, next) {
+ if(req.session.authenticated)
+ {
+  redirect('/session/welcome');
+  return;
+}
+console.log("Inside session create function");
+if (!req.param('email_username') || !req.param('password')) {
+  req.session.flash = {
+    err: 'You must enter both a username/email and password.'
+  };
+  res.redirect('/session/new');
+  return;
+}
 
-
-      if (!req.param('email') || !req.param('password')) {
-        var usernamePasswordRequiredError = [{
-          name: 'usernamePasswordRequired',
-          message: 'You must enter both a username and password.'
-        }];
-
-        req.session.flash = {
-          err1: usernamePasswordRequiredError
-        };
-
-        res.redirect('/session/new');
-        return;
-      }
-
-
-      console.log("Inside Email");
-      User.findOneByEmail(req.param('email'), function foundUser(err, user) {
-        if (err) return next(err);
+console.log("Inside Email");
+User.findOne({
+  or : [
+  { username: req.param('email_username') },
+  { email: req.param('email_username') }
+  ]
+}).exec(function(err, user) {
+  // console.log("The user found in db is:");
+  // console.log(user);
+  if (err){
+   req.session.flash = {
+    err: 'Error in logging'
+  };
+  res.redirect('/session/new');
+  return;
+}
 
         // If no user is found...
         if (!user) {
-          var noAccountError = [{
+          var noAccountError = {
             name: 'noAccount',
             message: 'The email address ' + req.param('email') + ' not found.'
-          }];
+          };
           req.session.flash = {
-            err2: noAccountError
+            err: 'The email address ' + req.param('email') + ' not found.'
           };
           res.redirect('/session/new');
           return;
         }
+        else{
+          bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
 
-        bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
+            console.log("Entered into bycrypt");
 
-          if (err) return next(err);
+            if (err) return next(err);
 
           // If the password from the form doesn't match the password from the database...
           if (!valid) {
@@ -58,7 +76,7 @@ module.exports = {
               message: 'Invalid username and password combination.'
             }]
             req.session.flash = {
-              err3: usernamePasswordMismatchError
+              err: 'Invalid username and password combination.'
             }
             res.redirect('/session/new');
             return;
@@ -67,97 +85,23 @@ module.exports = {
           req.session.authenticated = true;
           req.session.User = user;
 
-          res.redirect('/user/show/' + user.id);
+          //return res.json({user: user});
+          res.redirect('/session/welcome');
         });
-
-      });
-    }
-    else{
-
-      console.log("Not Inside Email");
-
-
-      if (!req.param('userid') || !req.param('password')) {
-        var usernamePasswordRequiredError1 = [{
-          name: 'usernamePasswordRequired',
-          message: 'You must enter both a username and password.'
-        }];
-
-        req.session.flash = {
-          err1: usernamePasswordRequiredError1
-        };
-
-        res.view({
-          message: "No user id or password"
-        });
-
-        //res.status(200).json("No user id or password");
-        return;
-      }
-
-
-      User.findOne({
-        userid : req.param('userid')
-      }, function foundUser(err, user) {
-
-        console.log("Inside User.finaone");
-        console.log(user);
-
-        if (err) return next(err);
-
-        // If no user is found...
-        if (!user) {
-          var noAccountError = [{
-            name: 'noAccount',
-            message: 'The email address ' + req.param('email') + ' not found.'
-          }];
-          req.session.flash = {
-            err2: noAccountError
-          };
-          res.redirect('/session/new');
-          return;
         }
 
-
-        bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
-
-          if (err) return next(err);
-
-          // If the password from the form doesn't match the password from the database...
-          if (!valid) {
-            var usernamePasswordMismatchError = [{
-              name: 'usernamePasswordMismatch',
-              message: 'Invalid username and password combination.'
-            }]
-            req.session.flash = {
-              err3: usernamePasswordMismatchError
-            }
-            res.redirect('/session/new');
-            return;
-          }
-
-          req.session.authenticated = true;
-          req.session.User = user;
-
-          res.redirect('/user/show/' + user.id);
-        });
-
-
       });
-
-    }
-
-  },
+},
 
 
-  destroy: function (req, res, next) {
-    console.log('Entered into destroy');
+destroy: function (req, res, next) {
+  console.log('Entered into destroy');
 
-    User.findOne(req.session.User.id, function foundUser(err, user) {
+  User.findOne(req.session.User.id, function foundUser(err, user) {
 
-      var userId = req.session.User.id;
+    var userId = req.session.User.id;
 
-      if (user) {
+    if (user) {
         // The user is "logging out" (e.g. destroying the session) so change the online attribute to false.
         User.update(userId, {
           online: false
@@ -174,7 +118,7 @@ module.exports = {
 
           // Wipe out the session (log out)
           req.session.destroy();
-          console.log('session destroyed');
+          console.log('session destroyed, user was logged in');
 
           // Redirect the browser to the sign-in screen
           res.redirect('/session/new');
@@ -183,12 +127,12 @@ module.exports = {
 
         // Wipe out the session (log out)
         req.session.destroy();
-        console.log('session destroyed');
+        console.log('session destroyed, user was not logged in.');
 
         // Redirect the browser to the sign-in screen
         res.redirect('/session/new');
       }
     });
-  }
+}
 };
 

@@ -27,9 +27,10 @@ module.exports = {
       req.session.flash = {
         success: "Successfully Send Message!"
       };
-      console.log(contact);
-      RecieveMailer.sendWelcomeMail(contact);
+      //console.log(contact);
+      //RecieveMailer.sendWelcomeMail(contact);
       return res.status(200).json(contact);
+      // return res.redirect('/');
     });
   }
 };

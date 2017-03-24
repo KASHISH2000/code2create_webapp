@@ -102,8 +102,8 @@
       </div>
       <div class="input-field col s12 m12">
         <i class="material-icons prefix">account_circle</i>
-        <input id="userid" type="text" class="validate" required name="userid">
-        <label for="userid">userid (Choose a userid eg. hkedia321) <span class="required">*</span></label>
+        <input id="username" type="text" class="validate" required name="username">
+        <label for="username">username (Choose a username eg. hkedia321) <span class="required">*</span></label>
       </div>
       <div class="input-field col s12 m6">
         <input id="password" type="password" class="validate" required name="password">
@@ -250,7 +250,7 @@ $("input[name='living']").change(function () {
     var regno = $("#regno").val();
     var email = $("#email").val();
     var phoneno = $("#phoneno").val();
-    var userid = $("#userid").val();
+    var username = $("#username").val();
     var password = $("#password").val();
     var confirmation = $("#confirmation").val();
     var internal_external= $("input[name='internal_external']:checked").val();
@@ -272,7 +272,7 @@ $("input[name='living']").change(function () {
       errors.push('Email cannot be blank');
     else if (!isEmail(email))
       errors.push('Please Enter a Valid Email');
-    if(!userid)
+    if(!username)
       errors.push('User id cannot be blank');
     if(!password)
       errors.push('Password cannot be blank');

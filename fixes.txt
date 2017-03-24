@@ -1,0 +1,12 @@
+1. userModel - living required false
+2. userController - edit - take session id
+3. userController - create - req.password ?? and check validation
+4. userController - create - on success, redirect to /welcome
+5. In register and login, redirect to /agenda if user already logged in
+6. Have only two flash variables - err and success. Eg. in SessionController.create there is err2
+7. sessionController.create - redirect to /session/new if any error
+8. Login is not working apparently
+
+
+Landing page,
+september, 2018

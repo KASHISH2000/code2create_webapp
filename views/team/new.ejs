@@ -89,6 +89,16 @@
 
  <%- partial('../partials/navbar.ejs',{active: 'teamNew'}) %>
  <div class="container">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  <div class="error center">
+    <h5 class="center"> <%= flash.err %></h5>
+  </div>
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
+  <div class="success center">
+    <h5 class="center"><%= flash.success %></h5>
+  </div>
+  <% } %>
   <div class="heading-bg">
    <h5 class="left-align white-text main-heading">Create A Team</h5>
  </div>
@@ -97,7 +107,7 @@
     <form action="/team/create" method="POST" id="teamForm" autocomplete="on">
       <div class="input-field col s12 m10 offset-m1">
         <i class="material-icons prefix">people_outline</i>
-        <input id="teamid" type="text" class="validate" required name="teamid" tabindex="1">
+        <input id="teamid" type="text" class="validate" required name="teamName" tabindex="1">
         <label for="teamid">teamid (Choose a teamid eg. coders97) <span class="required">*</span></label>
       </div>
       <div class="row">
@@ -111,7 +121,7 @@
           </div>
           <div class="rank-disp" id="rank1">
           </div>
-          <img src="images/tracks/ar.png" class="track-img responsive-img">
+          <img src="/images/tracks/ar.png" class="track-img responsive-img">
         </div>
         <div class="col m3 s6 track-col">
          <input type="hidden" name="helc" class="inp_track">
@@ -120,7 +130,7 @@
         </div>
         <div class="rank-disp">
         </div>
-        <img src="images/tracks/helc.jpg" class="track-img responsive-img">
+        <img src="/images/tracks/helc.jpg" class="track-img responsive-img">
       </div>
       <div class="col m3 s6 track-col">
        <input type="hidden" name="fint" class="inp_track">
@@ -129,7 +139,7 @@
       </div>
       <div class="rank-disp">
       </div>
-      <img src="images/tracks/fintech.jpg" class="track-img responsive-img">
+      <img src="/images/tracks/fintech.jpg" class="track-img responsive-img">
     </div>
     <div class="col m3 s6 track-col">
      <input type="hidden" name="clen" class="inp_track">
@@ -138,7 +148,7 @@
     </div>
     <div class="rank-disp">
     </div>
-    <img src="images/tracks/clen.jpg" class="track-img responsive-img">
+    <img src="/images/tracks/clen.jpg" class="track-img responsive-img">
   </div>
 </div>
 <div class="input-field col s12 m12">
@@ -148,14 +158,11 @@
 <div class="row">
   <input type="hidden" name="_csrf" value="<%= _csrf %>">
   <div class="center-align">
-    <button type="button" class="waves-effect btn sub-but" id="submit_mock" onclick="submit_try();">Submit <i
+  <button type="submit" class="waves-effect btn sub-but" id="submit_mock">Submit <i
       class="material-icons right">send</i>
     </button>
-    <button class="g-recaptcha hide" data-sitekey="6LcTthcUAAAAANHIWtQFAdQ7Mi4B_Xchbyt1cwuX"
-    data-callback="onSubmit" id="submit">Submit captcha <i class="material-icons right">send</i>
-  </button>
-  <input type="submit" id="real_submit" value="Submit" class="hide" name="submit">
-</div>
+    <input type="submit" id="real_submit" value="Submit" class="hide" name="submit">
+  </div>
 </div>
 </form>
 </div>
@@ -165,3 +172,57 @@
 
 <%- partial('../partials/footer.ejs') %>
 <%- partial('../partials/commonScripts.ejs') %>
+<script type="text/javascript">
+  var cur_rank=0;
+  var rank1=false;
+  var rank2=false;
+  var rank3=false;
+  var rank4=false;
+  function get_rank()
+  {
+    if(!rank1)
+    {
+      rank1=true;
+      return 1;
+    }
+    if(!rank2)
+    {
+      rank2=true;
+      return 2;
+    }
+    if(!rank3)
+    {
+      rank3=true;
+      return 3;
+    }
+    if(!rank4)
+    {
+      rank4=true;
+      return 4;
+    }
+    return 0;
+  }
+  $(".track-col").click(function(){
+    if($(this).hasClass('selected'))
+    {
+      $(this).removeClass('selected');
+      var str_val=$(this).find('.rank-disp').text();
+      console.log("The value is:"+str_val);
+      if(str_val=="1")
+        rank1=false;
+      if(str_val=="2")
+        rank2=false;
+      if(str_val=="3")
+        rank3=false;
+      if(str_val=="4")
+        rank4=false;
+    }
+    else
+    {
+      $(this).addClass("selected");
+      var r=get_rank();
+      $(this).find('.rank-disp').html(r);
+      $(this).find('.inp_track').val(r);
+    }
+  });
+</script>

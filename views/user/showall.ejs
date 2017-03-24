@@ -53,8 +53,8 @@
         <tbody>
           <% _.each(users, function(user) { %>
           <tr>
-            <td><a href="/user/show/<%=user.id%>" class="ver-align-middlee underline-wala"><%= user.userid %></a></td>
-            <td>Harshit Kedia</td>
+            <td><a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%= user.username %></a></td>
+            <td><%=user.name%></td>
             <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=user.description %></td>
             <td>
               <% if(user.internal_external=='external'){ %>
