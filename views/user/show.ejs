@@ -1,0 +1,119 @@
+
+<link rel="stylesheet" href="/styles/app_common.css">
+<style>
+  #submit_mock {
+    margin-top: 20px;
+  }
+  .error {
+    border: solid 1px red;
+    color: red;
+    padding: 10px;
+  }
+  .success {
+    border: solid 1px green;
+    color: green;
+    padding: 10px;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1eb76e;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #1eb76e;
+  }
+</style>
+
+<%- partial('../partials/navbar.ejs') %>
+<div class="container">
+  <div class="heading-bg">
+    <h5 class="left-align white-text main-heading">Member details</h5>
+  </div>
+  <div class="my-main-card hoverable white-text">
+    <div class="row">
+      <div class="col m6 offset-m3">
+        <p class="detail-title">
+          userID
+        </p>
+        <p class="detail-answer margin-bottom-0">
+          <i class="material-icons prefix ver-align-middle">account_circle</i>
+          <span class="ver-align-middle"><%=user.userid%></span>
+        </p>
+      </div>
+      <div class="col m6 offset-m3">
+        <p class="detail-title">
+          teamID
+        </p>
+        <p class="detail-answer margin-bottom-0">
+          <i class="material-icons prefix ver-align-middle">people_outline</i>
+          <span class="ver-align-middle"><a href="viewteam.html" class="underline-wala"><%=user.userid%></a></span>
+        </p>
+      </div>
+      <div class="col m6">
+        <p class="detail-title">
+          Name
+        </p>
+        <p class="detail-answer margin-bottom-0">
+          <%=user.name%>
+        </p>
+      </div>
+      <div class="col m6">
+        <p class="detail-title">
+          College
+        </p>
+        <p class="detail-answer margin-bottom-0">
+          <% if(user.internal_external=='external'){%>
+          <%=user.college_name%>
+          <% } %>
+          <% if(user.internal_external=='internal'){ %>
+          VIT Univeristy,Vellore
+          <%}%>
+        </p>
+      </div>
+      <div class="col m6">
+        <p class="detail-title">
+          Email
+        </p>
+        <p class="detail-answer margin-bottom-0">
+          <%=user.email%>
+        </p>
+      </div>
+      <div class="col m6">
+        <p class="detail-title">
+          Phone no
+        </p>
+        <p class="detail-answer margin-bottom-0">
+          <%=user.phoneno%>
+        </p>
+      </div>
+      <div class="col m8 offset-m2">
+        <p class="detail-title">
+          Skills
+        </p>
+        <p class="detail-answer margin-bottom-0">
+          <%=user.description %>
+        </p>
+      </div>
+      <div class="col s12">
+        <br>
+        <br>
+      </div>
+      <div class="col m4 offset-m4 center profile-social">
+        <a href="<%=user.github%>" title="GitHub Profile" target="_blank" class="social-a social-github"><i class="smooth-transition fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>
+
+        <a href="<%=user.linkedin%>" title="LinkedIn Profile" target="_blank" class="social-a social-linkedin"><i class="smooth-transition fa fa-2x fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('select').material_select();
+  });
+</script>

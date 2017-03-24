@@ -28,7 +28,7 @@ module.exports = {
       unique : true
     },
 
-    userid : {
+    username : {
       type : 'string',
       required : true,
       unique : true
@@ -82,6 +82,10 @@ module.exports = {
       required : false
     },
 
+    token : {
+      type : 'string'
+    },
+
     encryptedPassword: {
       type: 'string'
     },
@@ -102,7 +106,7 @@ module.exports = {
       return next({passworderror: ["Password doesn't match password confirmation."]});
     }
 
-    require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+    require('bcryptjs').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
       if (err) return next(err);
       values.encryptedPassword = encryptedPassword;
       next();

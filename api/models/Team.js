@@ -14,7 +14,8 @@ module.exports = {
 
     teamName : {
       type : 'string',
-      required : true
+      required : true,
+      unique : true
     },
 
     memberSend : {
@@ -27,6 +28,37 @@ module.exports = {
       type : 'string',
       required : false
     },
+
+    arvr : {
+      type : 'string',
+      required : true
+    },
+
+    helc : {
+      type : 'string',
+      required : true
+    },
+
+    fint : {
+      type : 'string',
+      required : true
+    },
+
+    clen : {
+      type : 'string',
+      required : true
+    },
+
+    teamAdmin : {
+      type : 'string',
+      required : false
+    },
+
+    description : {
+      type : 'text',
+      required : false
+    }
+
     //to whom i am sending request
 
 

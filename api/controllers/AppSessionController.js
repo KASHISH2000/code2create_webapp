@@ -1,3 +1,4 @@
+
 var bcrypt = require('bcryptjs');
 var senderid;
 
@@ -49,8 +50,6 @@ module.exports = {
 
         bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
 
-          console.log("Entered into bycrypt");
-
           if (err) return next(err);
 
           // If the password from the form doesn't match the password from the database...
@@ -69,8 +68,7 @@ module.exports = {
           req.session.authenticated = true;
           req.session.User = user;
 
-          return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
-          //res.redirect('/user/show/' + user.id);
+          res.redirect('/user/show/' + user.id);
         });
 
       });
@@ -80,7 +78,7 @@ module.exports = {
       console.log("Not Inside Email");
 
 
-      if (!req.param('username') || !req.param('password')) {
+      if (!req.param('userid') || !req.param('password')) {
         var usernamePasswordRequiredError1 = [{
           name: 'usernamePasswordRequired',
           message: 'You must enter both a username and password.'
@@ -100,7 +98,7 @@ module.exports = {
 
 
       User.findOne({
-        username : req.param('username')
+        userid : req.param('userid')
       }, function foundUser(err, user) {
 
         console.log("Inside User.finaone");
@@ -124,8 +122,6 @@ module.exports = {
 
         bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
 
-          console.log("Entered into bycrypt");
-
           if (err) return next(err);
 
           // If the password from the form doesn't match the password from the database...
@@ -144,7 +140,7 @@ module.exports = {
           req.session.authenticated = true;
           req.session.User = user;
 
-          return res.redirect('/user/show/' + user.username);
+          res.redirect('/user/show/' + user.id);
         });
 
 
