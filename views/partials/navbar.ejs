@@ -17,7 +17,7 @@
     </a>
   </li>
   <li><a href="/team/edit" 
-  <% if(active=='teamEdit'){ %>
+    <% if(active=='teamEdit'){ %>
     class='active-colour' 
     <% } %>
     ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Team Details</a></li>
@@ -26,7 +26,7 @@
      class='active-colour' 
      <% } %>
      ">
-     "><i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a></li>
+     <i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a></li>
      <li class="divider"></li>
      <li><a href="/session/destroy">Logout</a></li>
    </ul>
@@ -58,7 +58,7 @@
           <% if(active=='userShowall'){ %>
           nav-active
           <% } %>
-          " href="/user/showall">All Members</a>
+          " href="/team/eligiblemembers">All Members</a>
         </li>
         <li><a class="navlink a-home" href="/viewrequests 
          <% if(active=='teamViewrequests'){ %>

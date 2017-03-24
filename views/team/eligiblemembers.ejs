@@ -1,0 +1,101 @@
+    <link rel="stylesheet" href="/styles/app_common.css">
+    <style>
+      #submit_mock {
+        margin-top: 20px;
+      }
+      .error {
+        border: solid 1px red;
+        color: red;
+        padding: 10px;
+      }
+      .success {
+        border: solid 1px green;
+        color: green;
+        padding: 10px;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+        border: 2px solid #1eb76e;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+        background-color: #1eb76e;
+      }
+      .send-req-but{
+        padding: 0.5rem 0.9rem;
+        background-color: #1eb76e;
+        border-radius: 10px;
+        color: #fff;
+      }
+      .send-req-but:hover{
+        background-color: #10844c;
+      }
+      .send-req-but.disabled{
+        cursor: not-allowed;
+        background-color: #5a5a5a;
+        opacity: 0.8;
+      }
+    </style>
+
+    <%- partial('../partials/navbar.ejs',{active: 'userShowall'}) %>
+    <div class="container">
+     <div class="heading-bg">
+       <h5 class="left-align white-text main-heading">All Members</h5>
+       <p class="margin-bottom-0 white-text">List of all members</p>
+     </div>
+     <div class="my-main-card hoverable">
+      <table class="bordered striped responsive-table white-text">
+        <thead>
+          <td>userid</td>
+          <td>Name</td>
+          <td class="th-skills-td">Skills</td>
+          <td>University</td>
+          <td title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
+        </thead>
+        <tbody>
+          <% _.each(users, function(user) {
+          var eli=false;
+          _.each(memberarray, function(mem){
+          if(mem.id==user.id)
+          eli=true;
+        });
+
+        %>
+
+        <tr>
+          <td><a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%= user.username %></a></td>
+          <td><%=user.name%></td>
+          <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=user.description %></td>
+          <td>
+            <% if(user.internal_external=='external'){ %>
+            <%=user.college_name %>
+            <% } %>
+            <% if(user.internal_external=='internal'){ %>
+            VIT University
+            <% } %>
+          </td>
+
+          <td class="center">
+          <% if(eli){ %>
+          <a href="sendrequest" class="send-req-but smooth-transition">Invite</a>
+          <%}%>
+            <% if(!eli){ %>
+          <a href="sendrequest" class="send-req-but smooth-transition">not allowed</a>
+          <%}%>
+          </td>
+        </tr>
+
+        <%});%>
+         <!--  <tr>
+            <td><a href="viewmember.html" class="underline-wala">bodhwani</a></td>
+            <td>Harshit Kedia</td>
+            <td class="skills-td">I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. </td>
+            <td>VIT University</td>
+            <td class="center" title="Send Invitation to a member to join your team(you should be an admin)"><a href="sendrequest" class="send-req-but smooth-transition disabled">Invite</a></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <%- partial('../partials/footer.ejs') %>
+  <%- partial('../partials/commonScripts.ejs') %>
