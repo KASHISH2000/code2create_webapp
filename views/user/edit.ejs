@@ -1,98 +1,93 @@
-    <style>
-      #submit_mock {
-        margin-top: 20px;
-      }
-      .error {
-        border: solid 1px red;
-        color: red;
-        padding: 10px;
-      }
-      .success {
-        border: solid 1px green;
-        color: green;
-        padding: 10px;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
-        border: 2px solid #1eb76e;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
-        background-color: #1eb76e;
-      }
-    </style>
+<link rel="stylesheet" href="/styles/app_common.css">
+<style>
+  #submit_mock {
+    margin-top: 20px;
+  }
+  .error {
+    border: solid 1px red;
+    color: red;
+    padding: 10px;
+  }
+  .success {
+    border: solid 1px green;
+    color: green;
+    padding: 10px;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1eb76e;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #1eb76e;
+  }
+</style>
 
 
-    <%- partial('../partials/navbar.ejs') %>
-    <div class="container">
-      <div class="heading-bg">
-        <h5 class="left-align white-text main-heading">Your Profile</h5>
-      </div>
-      <div class="my-main-card hoverable">
+<%- partial('../partials/navbar.ejs', {active: 'userEdit'}) %>
+<div class="container">
+  <div class="heading-bg">
+    <h5 class="left-align white-text main-heading">Your Profile</h5>
+  </div>
+  <div class="my-main-card hoverable">
 
-        <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-        <div class="error center">
-          <h5 class="center"> <%= flash.err %></h5>
-        </div>
-        <% } %>
-        <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
-        <div class="success center">
-          <h5 class="center"><%= flash.success %></h5>
-        </div>
-        <% } %> 
-        <div class="row error-row alert alert-danger" id="errors">
-          <h5>Please fix the following Errors:</h5>
-          <ul>
-
-          </ul>
-        </div>
-        <div class="row">
-         <form action="/users/create" method="POST" id="registerForm" autocomplete="on">
-          <div class="row margin-bottom-0">
-            <div class="col s12">
-             <div class="input-field col s12 m6">
-               <p class="detail-title">
-                UserID
-              </p>
-
-              <p class="detail-answer white-text">
-                <i class="material-icons ver-align-middle">account_circle</i> <%=user.userid%>
-              </p>
-            </div>
-
-            <div class="input-field col s12 m6">
-             <p class="detail-title">
-               Email
-             </p>
-
-             <p class="detail-answer white-text">
-              <%=user.email%>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="input-field col s12 m6">
-       <p class="detail-title">
-        Name
-      </p>
-      <p class="detail-answer white-text">
-        <%=user.name%>
-      </p>
+    <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    <div class="error center">
+      <h5 class="center"> <%= flash.err %></h5>
     </div>
-    <div class="input-field col s12 m6">
-     <p class="detail-title">
-      College Registration No.
-    </p>
-    <p class="detail-answer white-text">
-     <%=user.regno%>
-   </p>
- </div>
- <div class="input-field col s12 m6">
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
+    <div class="success center">
+      <h5 class="center"><%= flash.success %></h5>
+    </div>
+    <% } %> 
+    <div class="row">
+     <form action="/users/create" method="POST" id="registerForm" autocomplete="on">
+      <div class="row margin-bottom-0">
+        <div class="col s12">
+         <div class="input-field col s12 m6">
+           <p class="detail-title">
+            UserID
+          </p>
+
+          <p class="detail-answer white-text">
+            <i class="material-icons ver-align-middle">account_circle</i> <%=user.userid%>
+          </p>
+        </div>
+
+        <div class="input-field col s12 m6">
+         <p class="detail-title">
+           Email
+         </p>
+
+         <p class="detail-answer white-text">
+          <%=user.email%>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-field col s12 m6">
    <p class="detail-title">
-    Email
+    Name
   </p>
   <p class="detail-answer white-text">
-   <%=user.email%>
- </p>
+    <%=user.name%>
+  </p>
+</div>
+<div class="input-field col s12 m6">
+ <p class="detail-title">
+  College Registration No.
+</p>
+<p class="detail-answer white-text">
+ <%=user.regno%>
+</p>
+</div>
+<div class="input-field col s12 m6">
+ <p class="detail-title">
+  Email
+</p>
+<p class="detail-answer white-text">
+ <%=user.email%>
+</p>
 </div>
 <div class="input-field col s12 m6">
   <p class="detail-title">
@@ -115,7 +110,7 @@
 </div>
 <hr style="border-color:#868686;">
 <div class="input-field col s12 m12">
-<textarea id="description" class="validate materialize-textarea" name="description" value="user.description"></textarea>
+  <textarea id="description" class="validate materialize-textarea" name="description" value="user.description"></textarea>
   <label for="description">What are your skills? In what languages do you code?</label>
 </div>
 <div class="input-field col s12 m6">
@@ -141,12 +136,5 @@
 </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
-<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('select').material_select();
-  });
-</script>
-</body>
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>
