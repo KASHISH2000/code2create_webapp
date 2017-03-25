@@ -41,7 +41,7 @@
     <%- partial('../partials/navbar.ejs',{active: 'userShowall'}) %>
     <div class="container">
      <div class="heading-bg">
-       <h5 class="left-align white-text main-heading">All Members</h5>
+       <h5 class="left-align white-text main-heading">All Members (<%=users.length%>)</h5>
        <p class="margin-bottom-0 white-text">List of all members</p>
      </div>
      <div class="my-main-card hoverable">
@@ -61,7 +61,7 @@
           <td>Name</td>
           <td class="th-skills-td">Skills</td>
           <td>University</td>
-          <td title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
+          <td class="show_if_I_admin" title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
         </thead>
         <tbody>
           <% _.each(users, function(user) {
@@ -86,7 +86,7 @@
             <% } %>
           </td>
 
-          <td class="center">
+          <td class="center show_if_I_admin">
             <% if(eli){ %>
             <form action="/team/sendRequest" method="POST">
               <input type="hidden" name="reciever" value="<%=user.id%>">
@@ -94,19 +94,12 @@
             </form>
             <%}%>
             <% if(!eli){ %>
-            <a class="send-req-but smooth-transition disabled">Invite</a>
+            <a class="send-req-but smooth-transition disabled">in team</a>
             <%}%>
           </td>
         </tr>
 
         <%});%>
-         <!--  <tr>
-            <td><a href="viewmember.html" class="underline-wala">bodhwani</a></td>
-            <td>Harshit Kedia</td>
-            <td class="skills-td">I am a web developer. I do front end. I code in HTML,CSS, JS, Angular2, SASS. </td>
-            <td>VIT University</td>
-            <td class="center" title="Send Invitation to a member to join your team(you should be an admin)"><a href="sendrequest" class="send-req-but smooth-transition disabled">Invite</a></td>
-          </tr> -->
         </tbody>
       </table>
     </div>
@@ -115,26 +108,3 @@
 
   <%- partial('../partials/footer.ejs') %>
   <%- partial('../partials/commonScripts.ejs') %>
-<!--   <script type="text/javascript">
-
-    function  getUserDetails(memberid){
-      $.get("http://localhost:1337/user/showsingleuser/"+memberid, function (data, status) {
-        if (!data)
-          console.log("Failure in getting individual user info");
-        else {
-          console.log("successfully in getting info user");
-          $("#"+memberid+"_username").text(data[0].username);
-          var lin="/user/show/"+data[0].username;
-          $("#"+memberid+"_anchor").attr('href',lin);
-          $("#"+memberid+"_name").text(data[0].name);
-          $("#"+memberid+"_description").text(data[0].description);
-          if(data[0].internal_external=='internal')
-            $("#"+memberid+"_college_name").text("VIT University");
-          else
-           $("#"+memberid+"_college_name").text(data[0].college_name);
-       }
-     });
-
-      return ee;
-    }
-  </script> -->

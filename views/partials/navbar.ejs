@@ -17,8 +17,8 @@
     </a>
   </li>
   <li class="my_team_li">
-    <a href="/team/edit" 
-    <% if(active=='teamEdit'){ %>
+    <a href="/team/myteam" 
+    <% if(active=='myteam'){ %>
     class='active-colour' 
     <% } %>
     ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="myteam_span"></span></a>
@@ -63,7 +63,7 @@
         <% } %>
         " href="/user/showall">All Members</a>
       </li>
-      <li><a class="navlink a-home" href="/team/viewrequest
+      <li><a href="/team/viewrequest" class="navlink a-home 
        <% if(active=='teamViewrequest'){ %>
        nav-active
        <% } %>

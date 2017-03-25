@@ -52,7 +52,7 @@ module.exports = {
 
         //return res.status(200).json(team);
         req.session.flash = {
-          success: "You have successfully made a team! Now you can Invite others to join your team"
+          success: "You have successfully made a team!"
         };
         res.redirect('/user/showall');
         //
@@ -220,114 +220,124 @@ module.exports = {
   myteam : function(req, res, next) {
     var userid = 0;
     var temp = 0;
+    var count = 0;
+
+    user = req.session.User;
+    userid = user.id;
 
     Team.find({
-      admin: req.param('id')
+      admin: user.id
     }).then(function (team) {
+      console.log("Team is :");
       console.log(team);
-      //console.log(req.param('id'));
+      console.log("User id is :" + user.id);
+
 
       if (team.length > 0) {
         temp = 1;
         console.log("Inside team");
 
-        res.view({
-          team : team,
-          admin : true
-        });
-
-
         // res.status(200).json({
         //   team: team,
         //   admin: true
         // });
-        return;
-      }
-    });
-
-
-    if(temp === 0){
-    //
-    console.log("After temp === 0");
-
-    userid = req.session.User.id;
-
-    Team.find(function foundTeams(err, teams) {
-      console.log("After team.find");
-      teams.forEach(function (team) {
-
-        for (var k=0; k<team.memberAccepted.length; k++) {
-    //         console.log("Accepted members is :");
-    //         console.log(team.memberAccepted[k] +  req.param('id'));
-    //         //console.log("user id is :");
-    //         //console.log(userid);
-    if (team.memberAccepted[k] === parseInt(userid)) {
-      if(team.admin != parseInt(userid)) {
-        console.log("Inside for loop");
-        temp = 3;
-
-
-        console.log("Team is :");
-        console.log(team);
+        // return;
 
         res.view({
-          team : team,
-          admin : false
+          team: team,
+          admin: true
         });
+        return;
+
+      }
 
 
-                // res.status(200).json({
-                //   team: team,
-                //   admin: false
-                // });
-                return;
-                break;
+      else {
+
+        console.log("Phele chal rha hai");
+
+        Team.find(function foundTeams(err, teams) {
+          console.log("After team.find");
+          teams.forEach(function (team) {
+            count = count + 1;
+            for (var k = 0; k < team.memberAccepted.length; k++) {
+                //         console.log("Accepted members is :");
+                //         console.log(team.memberAccepted[k] +  req.param('id'));
+                //         //console.log("user id is :");
+                //         //console.log(userid);
+                if (team.memberAccepted[k] === parseInt(userid)) {
+                  if (team.admin != parseInt(userid)) {
+                    console.log("Inside for loop");
+                    temp = 3;
+                    count = 100000000;
+
+
+                    console.log("Team is :");
+                    console.log(team);
+
+
+                    // res.status(200).json({
+                    //   team: team,
+                    //   admin: false
+                    // });
+                    ;
+
+                    res.view({
+                      team: team,
+                      admin: false
+                    });
+                    return
+                    break;
+
+
+
+
+                  }
+                  //
+                }
+
               }
-    //
-  }
-  console.log("Checking");
-}
-});
-      console.log("Before team === 2 checking");
+            });
 
-      if(temp === 0){
-        console.log("After temp === 2");
+          if (count === teams.length) {
+            console.log("After temp === 2");
 
-          // res.view({
-          //   message : "Sorry, you are not a part of any team yet.Create your own team now."
-          // });
-
-          req.session.flash = {
-            err: "Sorry, you are not a part of any team yet.Create your own team now"
-          };
+              // res.status(200).json({
+              //   message : "Sorry, you are not a part of any team yet.Create your own team now."
+              // });
+              // return;
+              req.session.flash = {
+                err: "Sorry, you are not a part of any team yet.Create your own team now"
+              };
 
 
-          //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
-          return res.redirect('back');
+              //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
+              return res.redirect('back');
 
+            }
+          });
+          //
         }
       });
-    //
-  }
 
-},
+  },
 
 
-leaveteam : function(req,res,next) {
+  leaveteam : function(req,res,next) {
 
-  Team.findOne(req.param('id'), function foundTeam(err, team) {
-    User.findOne(req.param('uid'), function foundUser(err, user) {
+    Team.findOne(req.param('id'), function foundTeam(err, team) {
+      User.findOne(req.param('uid'), function foundUser(err, user) {
 
-      for (var i = 0; i < 3; i++) {
-        if (team.memberAccepted[i] === parseInt(user.uid)) {
-          if(parseInt(user.uid) != team.admin) {
-            (team.memberAccepted).splice(i, 1);
-          }
-          else{
+        for (var i = 0; i < 3; i++) {
+          if (team.memberAccepted[i] === parseInt(user.uid)) {
+            if(parseInt(user.uid) != team.admin) {
+              (team.memberAccepted).splice(i, 1);
+            }
+            else{
 
-            req.session.flash = {
-              err: "Bad Request"
-            };
+              req.session.flash = {
+                err: "Bad Request"
+              };
               //res.status(400).json("Bad Request");
               return res.redirect('back');
             }
@@ -347,23 +357,23 @@ leaveteam : function(req,res,next) {
 
 
       })
-  })
+    })
 
-},
+  },
 
-removemember : function(req,res,next) {
+  removemember : function(req,res,next) {
 
-  Team.findOne(req.param('id'), function foundTeam(err, team) {
-    User.findOne(req.param('uid'), function foundUser(err, user) {
+    Team.findOne(req.param('id'), function foundTeam(err, team) {
+      User.findOne(req.param('uid'), function foundUser(err, user) {
 
-      if (team.admin === parseInt(user.uid)) {
+        if (team.admin === parseInt(user.uid)) {
 
-        if(team.memberAccepted.length != 1) {
+          if(team.memberAccepted.length != 1) {
 
 
-          req.session.flash = {
-            err: "You should first remove other members to destroy team"
-          };
+            req.session.flash = {
+              err: "You should first remove other members to destroy team"
+            };
 
           // res.status(200).json({
           //   message: "You should first remove other members to destroy team"
@@ -395,9 +405,9 @@ removemember : function(req,res,next) {
       });
         //res.status(200).json(team);
       })
-  })
+    })
 
-},
+  },
 
   //this will send the collection of all the teams and in frontend, it will check
   //names from memberSend array, and try to match ids with loggedin user.
@@ -437,7 +447,7 @@ removemember : function(req,res,next) {
         req.session.flash = {
           err: err
         };
-        return res.redirect('back');
+        return res.redirect('/user/showall');
         //res.status(200).json(err);
       }
 
@@ -524,13 +534,15 @@ removemember : function(req,res,next) {
           }
 
       //return res.status(200).json(team);
+
       req.session.flash = {
         success: "successfully Send Request"
       };
       return res.redirect('/user/showall');
-    });
-    });
 
+      //return res.redirect('/team/show/' + team.teamName );
+    });
+    });
   },
 
   //request come to logged in user.
@@ -553,24 +565,18 @@ removemember : function(req,res,next) {
       });
       if(requestview.length > 0){
         //return res.status(200).json(requestview);
-        req.session.flash = {
-          success: "you got many requests"
-        };
         res.view({
           requestview : requestview
         });
-        return;
       }
       else{
-        // return res.status(200).json("Sorry, you are not a part of any team");
+        //return res.status(200).json("Sorry, you are not a part of any team");
         req.session.flash = {
-          err: "You have received No Requests"
+          err: "You have received no request for joining team"
         };
         res.view({
           requestview : requestview
         });
-
-
       }
 
 
@@ -583,6 +589,8 @@ removemember : function(req,res,next) {
     var arr = [];
 
     var user = req.session.User;
+    var temp = 0;
+    var count = 0;
 
     Team.findOne(req.param('id'), function foundTeam(err, team) {
         // User.findOne(req.param('uid'), function foundUser(err, user) {
@@ -595,62 +603,97 @@ removemember : function(req,res,next) {
           //console.log(team.memberSend);
 
 
-          arr = team.memberSend;
+          Team.find(function foundTeams(err, teams) {
 
+            if(teams) {
+            //sails.models.team.checkmembers(user.id)
 
-          for(var i=0;i<team.memberSend.length ; i++) {
+            teams.forEach(function (tempteam) {
+              count = count + 1;
+              if(tempteam.memberAccepted) {
+                for (var i = 0; i < tempteam.memberAccepted.length; i++) {
+                  if (user.id === tempteam.memberAccepted[i]) {
 
+                    console.log("Not in any team");
+                    temp = 2;
+                    count = 10000000000;
 
+                      // res.status(200).json("Already in a team");
+                      // return;
 
-            if (team.memberSend[i] === user.uid) {
-              console.log(i);
-              (team.memberSend).splice(i,1);
-              console.log("Length is ");
-              console.log(team.memberAccepted.length);
+                      req.session.flash = {
+                        err: "You are already in a team. For joining this team, levae your team first"
+                      };
+                      res.redirect('/team/viewrequest');
+                      return;
+                    }
+                  }
+                }
 
-              if(team.memberAccepted.length < 4) {
-                (team.memberAccepted).push(user.id);
-                //console.log(team.memberAccepted);
-              }
-              else{
+              });
 
-                req.session.flash = {
-                  err: "Sorry, the team is full"
-                };
-                return res.redirect('back');
-
-
-                // res.status(200).json({
-                //   message : "Sorry, the team is full"
-                // });
-              }
-            }
           }
-          team.save(
-            function (err) {
-              //console.log('saving records for team');
+
+          if(count === teams.length) {
+
+            console.log(team);
+            arr = team.memberSend;
+
+
+            for (var i = 0; i < team.memberSend.length; i++) {
+
+
+              if (team.memberSend[i] === user.uid) {
+                console.log(i);
+                (team.memberSend).splice(i, 1);
+                console.log("Length is ");
+                console.log(team.memberAccepted.length);
+
+                if (team.memberAccepted.length < 4) {
+                  (team.memberAccepted).push(user.id);
+                  //console.log(team.memberAccepted);
+                }
+                else {
+
+                  req.session.flash = {
+                    err: "Sorry, the team is full"
+                  };
+                  return res.redirect('/team/viewrequest');
+
+
+                  // res.status(200).json({
+                  //   message : "Sorry, the team is full"
+                  // });
+                }
+              }
             }
-            );
-          //console.log(team.memberSend);
+            team.save(
+              function (err) {
+                //console.log('saving records for team');
+              }
+              );
+            //console.log(team.memberSend);
 
-          res.status(200).json({
-            team : team,
-            user : user
-          });
-          return;
+            // res.status(200).json({
+            //   team: team,
+            //   user: user
+            // });
+            // return;
+            req.session.flash = {
+              success: "YOu Have Successfully Joined the team"
+            };
+            res.redirect('/team/viewrequest');
+            return;
 
-          res.view({
-            team : team,
-            user : user
-          });
-          return;
+            // res.status(200).json({
+            //   team : team,
+            //   user : user
+            // });
+            //})
+          }
+        });
+        });
 
-          // res.status(200).json({
-          //   team : team,
-          //   user : user
-          // });
-        //})
-      });
   },
   //here uid is id of that person, who is accepting that team request.
 

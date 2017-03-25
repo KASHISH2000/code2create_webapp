@@ -57,9 +57,16 @@ module.exports = {
     description : {
       type : 'text',
       required : false
-    }
+    },
 
     //to whom i am sending request
+
+    checkmembers : function (userid) {
+
+
+
+
+    }
 
 
   }
