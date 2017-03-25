@@ -241,7 +241,7 @@ module.exports = {
         //   team: team,
         //   admin: true
         // });
-        // return;
+        return;
 
         res.view({
           team: team,
@@ -280,7 +280,7 @@ module.exports = {
                     //   team: team,
                     //   admin: false
                     // });
-                    ;
+                    // ;
 
                     res.view({
                       team: team,
@@ -680,7 +680,7 @@ module.exports = {
             // });
             // return;
             req.session.flash = {
-              success: "YOu Have Successfully Joined the team"
+              success: "You Have Successfully Joined the team"
             };
             res.redirect('/team/viewrequest');
             return;

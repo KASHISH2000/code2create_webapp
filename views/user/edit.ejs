@@ -139,7 +139,7 @@
         <label for="phoneno">Phone no</label>
       </div>
       <div class="input-field col s12 m12">
-        <textarea id="description" class="validate materialize-textarea" name="description" value="<%=user.description%>"></textarea>
+        <textarea id="description" class="validate materialize-textarea" name="description" value="<%=user.description%>"><%=user.description%></textarea>
         <label for="description">What are your skills? In what languages do you code?</label>
       </div>
       <div class="input-field col s12 m6">
@@ -154,7 +154,7 @@
       <div class="row">
 
         <div class="center-align">
-          <button type="button" class="waves-effect btn sub-but" id="submit_mock" onclick="submit_try();">Update Details <i
+          <button type="submit" class="waves-effect btn sub-but" id="submit_mock" onclick="submit_try();">Update Details <i
             class="material-icons right">send</i>
           </button>
           <input type="submit" id="real_submit" value="Submit" class="hide" name="submit">
