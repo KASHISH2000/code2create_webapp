@@ -17,11 +17,22 @@ module.exports = {
     console.log("Here is the loggedn user");
     console.log(user);
 
-    if((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.clen === user.clen)){
+
+    if((user.arvr in priorityarray) &&  (user.helc in priorityarray) && (user.fint in priorityarray) && (user.clen in priorityarray)){
+
+      if ((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.fint === user.clen)) {
+        req.session.flash = {
+          err: "Cannot select two same priorities."
+        };
+        return res.redirect('/team/new');
+      }
+    }
+    else{
       req.session.flash = {
-        err : "Bad request."
+        err: "Please select priorities correctly"
       };
-      return res.redirect('/team/new/');
+      return res.redirect('/team/new');
+
     }
 
     if(user) {
@@ -241,11 +252,22 @@ module.exports = {
 
     };
 
-    if((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.clen === user.clen)){
+
+    if((user.arvr in priorityarray) &&  (user.helc in priorityarray) && (user.fint in priorityarray) && (user.clen in priorityarray)){
+
+      if ((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.fint === user.clen)) {
+        req.session.flash = {
+          err: "Cannot select two same priorities."
+        };
+        return res.redirect('/team/new');
+      }
+    }
+    else{
       req.session.flash = {
-        err : "Bad request."
+        err: "Please select priorities correctly"
       };
-      return res.redirect('/team/myteam/');
+      return res.redirect('/team/new');
+
     }
 
 
