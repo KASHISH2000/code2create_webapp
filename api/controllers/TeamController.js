@@ -1,5 +1,4 @@
 
-var array = [];
 var passport = require('passport');
 var i = 0;
 var priorityarray = ["1","2","3","4"];
@@ -18,7 +17,6 @@ module.exports = {
           if (team.memberAccepted[i] === user.id) {
 
             count = 10000000;
-
 
           }
         }
@@ -48,6 +46,8 @@ module.exports = {
   create : function(req, res, next) {
 
     user = req.session.User;
+    var array = [];
+
 
     var temparvr = req.param('arvr');
     var temphelc = req.param('helc');
@@ -68,7 +68,7 @@ module.exports = {
       Team.create(req.params.all(), function teamCreated(err, team) {
         if (err) {
           req.session.flash = {
-            err: err
+            err: "Please fill all the details properly"
           };
 
           return res.redirect('/team/new');
@@ -84,20 +84,30 @@ module.exports = {
 
 
         (array).push(user.id);
-        (team.memberAccepted) = (array);
-        array = [];
+        team.memberAccepted = array;
+
+        console.log("HEre is the array");
 
         team.save(
           function (err) {
-            console.log('saving records for team');
+            if(err){
+              req.session.flash = {
+                err: "Error in creating team. Please fill details properly"
+              };
+              return res.redirect('/team/new');
+            }
+            req.session.flash = {
+              success: "You have successfully made a team!"
+            };
+
+            res.redirect('/user/showall');
+            return;
           }
           );
 
         //return res.status(200).json(team);
-        req.session.flash = {
-          success: "You have successfully made a team!"
-        };
-        res.redirect('/user/showall');
+
+
         //
       });
     }
@@ -461,16 +471,20 @@ module.exports = {
         }
         team.save(
           function (err) {
-            console.log('saving records for team');
-          }
+            if(err){
+              req.session.flash = {
+                success : "Successfully removed!"
+              };
+              return res.redirect('/team/myteam');
+            }
+            req.session.flash = {
+              success : "Successfully removed!"
+            };
+
+            return res.redirect('/team/myteam');          }
           );
 
-        req.session.flash = {
-          success : "Successfully removed!"
-        };
 
-        return res.redirect('/team/myteam');
-        //res.status(200).json(team);
       })
     })
 
@@ -620,7 +634,8 @@ module.exports = {
       if(requestview.length > 0){
         //return res.status(200).json(requestview);
         res.view({
-          requestview : requestview
+          requestview : requestview,
+          err : false
         });
       }
       else{
@@ -709,6 +724,18 @@ module.exports = {
             }
             team.save(
               function (err) {
+                if(err){
+                  req.session.flash = {
+                    err : "Cannot remove.Please try again"
+                  };
+                  res.redirect('/team/viewrequest');
+                  return;
+                }
+                req.session.flash = {
+                  success: "You Have Successfully Joined the team"
+                };
+                res.redirect('/team/myteam');
+                return;
               }
               );
 
@@ -717,11 +744,7 @@ module.exports = {
             //   user: user
             // });
             // return;
-            req.session.flash = {
-              success: "You Have Successfully Joined the team"
-            };
-            res.redirect('/team/viewrequest');
-            return;
+
 
             // res.status(200).json({
             //   team : team,

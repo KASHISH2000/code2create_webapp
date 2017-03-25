@@ -181,15 +181,23 @@ module.exports = {
   showall : function (req, res, next) {
 
 
+    console.log("Entered into showall");
     var iduser = 0;
     var count = 0;
     var final = 0;
     var memberarray = [];
     Team.find(function foundTeams(err, teams) {
-      if (err) return next(err);
+      if (err) {
+        console.log("HEre is the error");
+        console.log(err);
+        return next(err);
+      }
       User.find(function foundUsers(err, users) {
         users.forEach(function (user) {
           teams.forEach(function (team) {
+
+            console.log("Here is the team :");
+            console.log(team);
 
             for(var i=0 ; i<team.memberAccepted.length; i++){
 
@@ -221,6 +229,7 @@ module.exports = {
           users : users,
           memberarray : memberarray
         });
+        return;
 
         //
       })
