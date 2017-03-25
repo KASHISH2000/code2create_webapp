@@ -34,11 +34,17 @@
         <h5 class="center"> <%= flash.err %></h5>
       </div>
       <% } %>
+       <% if(typeof err !== 'undefined' && err){ %>
+      <div class="error center">
+        <h5 class="center"> <%= err %></h5>
+      </div>
+      <% } %>
       <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
       <div class="success center">
         <h5 class="center"><%= flash.success %></h5>
       </div>
       <% } %>
+
       <table class="bordered striped responsive-table white-text">
         <thead>
           <td>teamid</td>

@@ -235,7 +235,7 @@
 <% if(admin) { %>
 <div class="row center">
   <br>
-  <form action="/team/" method="POST">
+  <form action="/team/removemember" method="POST">
     <input type="hidden" name="uid" value="<%=team.admin%>" >
     <button type="submit" name="submit" value="Destroyteam" class="red btn waves-effect waves-light">
       <i class="fa fa-trash-o" aria-hidden="true"></i> Destroy Team

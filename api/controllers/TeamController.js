@@ -2,6 +2,7 @@
 var array = [];
 var passport = require('passport');
 var i = 0;
+var priorityarray = [1,2,3,4];
 
 module.exports = {
 
@@ -17,6 +18,21 @@ module.exports = {
     console.log("Here is the loggedn user");
     console.log(user);
 
+    var temparvr = req.param('arvr');
+    var temphelc = req.param('helc');
+    var tempfint = req.param('fint');
+    var tempclen = req.param('clen');
+
+
+    if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
+
+      if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
+        req.session.flash = {
+          err: "Cannot select two same priorities."
+        };
+        return res.redirect('/team/new');
+      }
+    }
 
     if(user) {
       Team.create(req.params.all(), function teamCreated(err, team) {
@@ -218,12 +234,12 @@ module.exports = {
 
     user = req.session.User;
 
-    var team_arvr = req.param('arvr');
-    var team_helc = req.param('helc');
-    var team_fint = req.param('fint');
-    var team_clen = req.param('clen');
-    var team_description = req.param('description');
 
+    var temparvr = req.param('arvr');
+    var temphelc = req.param('helc');
+    var tempfint = req.param('fint');
+    var tempclen = req.param('clen');
+    var team_description = req.param('description');
 
 
     var update_params_needed = {
@@ -234,6 +250,21 @@ module.exports = {
       description : team_description,
 
     };
+
+
+
+
+
+    if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
+
+      if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
+        req.session.flash = {
+          err: "Cannot select two same priorities."
+        };
+        return res.redirect('/team/new');
+      }
+    }
+
 
 
     Team.update({
@@ -318,7 +349,7 @@ module.exports = {
                     //   team: team,
                     //   admin: false
                     // });
-                    // ;
+                    ;
 
                     res.view({
                       team: team,
@@ -345,10 +376,10 @@ module.exports = {
               // });
               // return;
 
-              res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
-              // return res.view({
-              //   err : "Sorry, you are not a part of any team yet.Create your own team now"
-              // });
+              //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
+              return res.view({
+                err : "Sorry, you are not a part of any team yet.Create your own team now"
+              });
 
             }
           });
@@ -365,16 +396,16 @@ module.exports = {
 
     Team.findOne(req.param('id'), function foundTeam(err, team) {
 
-        for (var i = 0; i < 3; i++) {
-          if (team.memberAccepted[i] === parseInt(user.uid)) {
-            if(parseInt(user.uid) != team.admin) {
-              (team.memberAccepted).splice(i, 1);
-            }
-            else{
+      for (var i = 0; i < 3; i++) {
+        if (team.memberAccepted[i] === parseInt(user.uid)) {
+          if(parseInt(user.uid) != team.admin) {
+            (team.memberAccepted).splice(i, 1);
+          }
+          else{
 
-              req.session.flash = {
-                err: "Bad Request"
-              };
+            req.session.flash = {
+              err: "No team found"
+            };
               //res.status(400).json("Bad Request");
               return res.redirect('team/showall');
             }
@@ -385,13 +416,15 @@ module.exports = {
             console.log('saving records for team');
           }
           );
-
-      return res.redirect('team/myteam');
-      return;
+        req.session.flash = {
+          success: "Successfully left team"
+        };
+        return res.redirect('team/myteam');
+        return;
         //res.status(200).json(team);
 
 
-    })
+      })
 
   },
 
@@ -427,18 +460,18 @@ module.exports = {
       }
       else {
           //if admin wants to delete another user.
-        for (var i = 0; i < 3; i++) {
-          if (team.memberAccepted[i] === parseInt(user.uid)) {
-            (team.memberAccepted).splice(i, 1);
-          }
+          for (var i = 0; i < 3; i++) {
+            if (team.memberAccepted[i] === parseInt(user.uid)) {
+              (team.memberAccepted).splice(i, 1);
+            }
 
+          }
         }
-      }
-      team.save(
-        function (err) {
-          console.log('saving records for team');
-        }
-        );
+        team.save(
+          function (err) {
+            console.log('saving records for team');
+          }
+          );
 
         req.session.flash = {
           success : "Successfully removed!"
@@ -487,7 +520,7 @@ module.exports = {
     },req.params.all(), function teamUpdated(err){
       if(err){
         req.session.flash = {
-          err: "Bad request"
+          err: "unable to update team"
         };
         return res.redirect('/user/showall');
         //res.status(200).json(err);
@@ -664,7 +697,7 @@ module.exports = {
                       // return;
 
                       req.session.flash = {
-                        err: "You are already in a team. For joining this team, levae your team first"
+                        err: "You are already in a team. For joining this team, leave your team first"
                       };
                       res.redirect('/team/viewrequest');
                       return;
@@ -722,7 +755,7 @@ module.exports = {
             // });
             // return;
             req.session.flash = {
-              success: "YOu Have Successfully Joined the team"
+              success: "You Have Successfully Joined the team"
             };
             res.redirect('/team/viewrequest');
             return;
@@ -750,9 +783,9 @@ module.exports = {
 
       if (err) {
         req.session.flash = {
-          err : "No team members for your team"
+          err : "Unable to find team"
         };
-        res.redirect('/team/myteam');
+        res.redirect('/team/showall');
         return;
       }
 
@@ -760,7 +793,7 @@ module.exports = {
         req.session.flash = {
           err : "Team doesn\'t exist "
         };
-        res.redirect('/team/myteam');
+        res.redirect('/team/showall');
         return;
 
       }
@@ -770,7 +803,7 @@ module.exports = {
       });
 
       req.session.flash = {
-        success : "Successfully destroyed team"
+        success : "Successfully deleted team"
       };
 
       res.redirect('/team/showall');
