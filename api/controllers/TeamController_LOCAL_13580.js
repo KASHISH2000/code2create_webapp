@@ -10,7 +10,6 @@ module.exports = {
 
   },
 
-  //this will creata a team.
   create : function(req, res, next) {
 
     user = req.session.User;
@@ -52,7 +51,7 @@ module.exports = {
 
         //return res.status(200).json(team);
         req.session.flash = {
-          success: "You have successfully made a team! Now you can Invite others to join your team"
+          success: "You have successfully made a team!"
         };
         res.redirect('/user/showall');
         //
@@ -68,22 +67,17 @@ module.exports = {
     }
   },
 
-  //this is for backend
-  showallteams : function(req, res, next){
+  showallteams : function (req, res, next) {
+    Team.find(function foundTeams(err, teams) {
 
-    Team.find(function foundTeams(err, teams){
-      if(err) return next(err);
       res.status(200).json(teams);
-      // res.view({
-      //   teams: teams
-      // });
-    });
+    })
+
   },
 
-
-  //this will display all the members to whom admin can send requests.
   showall : function (req, res, next) {
 
+    //this will display all the members to whom admin can send requests.
 
     var temp = 0;
 
@@ -181,8 +175,6 @@ module.exports = {
 
   },
 
-
-  //this will display the single team search by team name.
   show : function(req, res, next) {
     console.log("ENtered into show");
 
@@ -216,7 +208,6 @@ module.exports = {
 
 
 
-  //this will show team of admin(if admin), user's team (if not admin, and available in any team).
   myteam : function(req, res, next) {
     var userid = 0;
     var temp = 0;
@@ -249,9 +240,7 @@ module.exports = {
     if(temp === 0){
     //
     console.log("After temp === 0");
-
-    userid = req.session.User.id;
-
+    userid = req.param('id');
     Team.find(function foundTeams(err, teams) {
       console.log("After team.find");
       teams.forEach(function (team) {
@@ -346,6 +335,8 @@ leaveteam : function(req,res,next) {
         //res.status(200).json(team);
 
 
+
+
       })
   })
 
@@ -421,18 +412,15 @@ removemember : function(req,res,next) {
   //   });
   // },
 
-  //admin can send request to users.
   sendRequest : function(req, res, next) {
+
 
     var temp = [];
     var l=0;
 
-    user = req.session.User;
 
-    Team.update({
-      admin : user.id
 
-    },req.params.all(), function teamUpdated(err){
+    Team.update(req.param('id'),req.params.all(), function teamUpdated(err){
       if(err){
         req.session.flash = {
           err: err
@@ -443,12 +431,7 @@ removemember : function(req,res,next) {
 
 
 
-
-      Team.findOne({
-        admin : user.id
-      }, function foundTeam(err, team) {
-
-
+      Team.findOne(req.param('id'), function foundTeam(err, team) {
 
         console.log(team.reciever);
         if (err) return next(err);
@@ -473,7 +456,7 @@ removemember : function(req,res,next) {
                     req.session.flash = {
                       err: "Admin cannot send request to himself"
                     };
-                    return res.redirect('/user/showall');
+                    return res.redirect('back');
 
                     //res.status(200).json("Admin cannot send request to himself");
                   }
@@ -483,7 +466,7 @@ removemember : function(req,res,next) {
                   req.session.flash = {
                     err: "Already sent request to this person"
                   };
-                  return res.redirect('/user/showall');
+                  return res.redirect('back');
 
                   //return res.status(200).json("Already sent request to this person");
                 }
@@ -497,8 +480,7 @@ removemember : function(req,res,next) {
                   req.session.flash = {
                     err: "Admin cannot send request to himself"
                   };
-                  console.log("Cannot send request to himself");
-                  return res.redirect('/user/showall');
+                  return res.redirect('back');
 
                   //res.status(200).json("Admin cannot send request to himself");
                 }
@@ -515,25 +497,21 @@ removemember : function(req,res,next) {
               req.session.flash = {
                 err: "Cannot send request to himself"
               };
-              console.log("Cannot send request to himself");
-              return res.redirect('/user/showall');
+              return res.redirect('back');
 
               //res.status(200).json("Cannot send request to himself");
 
             }
           }
 
-      //return res.status(200).json(team);
-      req.session.flash = {
-        success: "successfully Send Request"
-      };
-      return res.redirect('/user/showall');
-    });
+          return res.status(200).json(team);
+
+          return res.redirect('/team/show/' + team.teamName );
+        });
     });
 
   },
 
-  //request come to logged in user.
   viewrequest : function (req, res, next) {
 
     var requestview = [];
@@ -553,55 +531,36 @@ removemember : function(req,res,next) {
       });
       if(requestview.length > 0){
         //return res.status(200).json(requestview);
-        req.session.flash = {
-          success: "you got many requests"
-        };
-        res.view({
-          requestview : requestview
+        return res.view({
+          requestview: requestview
         });
-        return;
       }
       else{
-        // return res.status(200).json("Sorry, you are not a part of any team");
-        req.session.flash = {
-          err: "You have received No Requests"
-        };
-        res.view({
-          requestview : requestview
-        });
+      //  req.session.flash = {
+      //   err: "You Have Received no requests for joining team"
+      // };
+      return res.view({
+        requestview: requestview
+      });
+    }
 
 
-      }
-
-
-    });
+  });
 
   },
 
   acceptedRequest : function(req, res, next){
-
-    var arr = [];
-
-    var user = req.session.User;
-
     Team.findOne(req.param('id'), function foundTeam(err, team) {
-        // User.findOne(req.param('uid'), function foundUser(err, user) {
-          //this is user id of user
+      User.findOne(req.param('uid'), function foundUser(err, user) {
           // console.log(user);
           // console.log(team);
 
           //console.log("previous");
-          console.log(team);
+          //console.log(team);
           //console.log(team.memberSend);
-
-
           arr = team.memberSend;
 
-
           for(var i=0;i<team.memberSend.length ; i++) {
-
-
-
             if (team.memberSend[i] === user.uid) {
               console.log(i);
               (team.memberSend).splice(i,1);
@@ -633,11 +592,11 @@ removemember : function(req,res,next) {
             );
           //console.log(team.memberSend);
 
-          res.status(200).json({
-            team : team,
-            user : user
-          });
-          return;
+          // res.status(200).json({
+          //   team : team,
+          //   user : user
+          // });
+          // return;
 
           res.view({
             team : team,
@@ -649,8 +608,8 @@ removemember : function(req,res,next) {
           //   team : team,
           //   user : user
           // });
-        //})
-      });
+        })
+    });
   },
   //here uid is id of that person, who is accepting that team request.
 

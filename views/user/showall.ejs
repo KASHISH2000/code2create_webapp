@@ -21,17 +21,19 @@
       }
       .send-req-but{
         padding: 0.5rem 0.9rem;
-        background-color: #1eb76e;
+        border: none !important;
+        box-shadow: none !important;
+        background-color: #1eb76e !important;
         border-radius: 10px;
         color: #fff;
         cursor: pointer;
       }
       .send-req-but:hover{
-        background-color: #10844c;
+        background-color: #10844c !important;
       }
       .send-req-but.disabled{
         cursor: not-allowed;
-        background-color: #5a5a5a;
+        background-color: #5a5a5a !important;
         opacity: 0.8;
       }
     </style>
@@ -43,6 +45,16 @@
        <p class="margin-bottom-0 white-text">List of all members</p>
      </div>
      <div class="my-main-card hoverable">
+      <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+      <div class="error center">
+        <h5 class="center"> <%= flash.err %></h5>
+      </div>
+      <% } %>
+      <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
+      <div class="success center">
+        <h5 class="center"><%= flash.success %></h5>
+      </div>
+      <% } %>
       <table class="bordered striped responsive-table white-text">
         <thead>
           <td>userid</td>
@@ -76,7 +88,10 @@
 
           <td class="center">
             <% if(eli){ %>
-            <a href="sendrequest" class="send-req-but smooth-transition">Invite</a>
+            <form action="/team/sendRequest" method="POST">
+              <input type="hidden" name="reciever" value="<%=user.id%>">
+              <input type="submit" class="send-req-but smooth-transition" value="Invite"/>
+            </form>
             <%}%>
             <% if(!eli){ %>
             <a class="send-req-but smooth-transition disabled">Invite</a>

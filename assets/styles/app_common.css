@@ -236,7 +236,8 @@ table.bordered>tbody>tr {
 
 .admin-img{
 	width: 25px;
-	display: block;
+	margin-left: 20px;
+	display: inline-block;
 	vertical-align: middle;
 }
 .detail-title{

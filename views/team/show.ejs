@@ -1,43 +1,29 @@
-    <%- partial('../partials/commonScripts.ejs') %>
-    <script type="text/javascript">
-      var cur_user_id="";
 
-//get the info of currently logged in user
-$.get("http://localhost:1337/navbar/getinfo", function (data, status) {
-  if (status != 'success' || !data)
-    console.log("Failure!", "Couldn't fetch navbar/getinfo");
-  else {
-   console.log("successfully fetched navbar/getinfo");
-   cur_user_id=data.userid;
-   console.log("The userid is:"+cur_user_id);
- }
-});
+<%- partial('../partials/commonScripts.ejs') %>
+<script type="text/javascript">
+  function  getUserDetails(memberid){
+    $.get("http://localhost:1337/user/showsingleuser/"+memberid, function (data, status) {
+      if (!data)
+        console.log("Failure in getting individual user info");
+      else {
+        console.log("successfully in getting info user");
+        $("#"+memberid+"_username").text(data[0].username);
+        var lin="/user/show/"+data[0].username;
+        $("#"+memberid+"_anchor").attr('href',lin);
+        $("#"+memberid+"_name").text(data[0].name);
+        $("#"+memberid+"_description").text(data[0].description);
+        if(data[0].internal_external=='internal')
+          $("#"+memberid+"_college_name").text("VIT University");
+        else
+         $("#"+memberid+"_college_name").text(data[0].college_name);
+     }
+   });
 
-
-
-function  getUserDetails(memberid){
-  $.get("http://localhost:1337/user/showsingleuser/"+memberid, function (data, status) {
-    if (!data)
-      console.log("Failure in getting individual user info");
-    else {
-      console.log("successfully in getting info user");
-      $("#"+memberid+"_username").text(data[0].username);
-      var lin="/user/show/"+data[0].username;
-      $("#"+memberid+"_anchor").attr('href',lin);
-      $("#"+memberid+"_name").text(data[0].name);
-      $("#"+memberid+"_description").text(data[0].description);
-      if(data[0].internal_external=='internal')
-        $("#"+memberid+"_college_name").text("VIT University");
-      else
-       $("#"+memberid+"_college_name").text(data[0].college_name);
-   }
- });
-
-  return ee;
-}
+    return ee;
+  }
 </script>
-<link rel="stylesheet" href="/styles/app_common.css">
-<style>
+ <link rel="stylesheet" href="/styles/app_common.css">
+ <style>
   #submit_mock {
     margin-top: 20px;
   }

@@ -29,7 +29,17 @@
        <p class="margin-bottom-0 white-text">Here you will see all the invitations that you received for joining teams.</p>
      </div>
      <div class="my-main-card hoverable">
-       <table class="bordered striped responsive-table white-text">
+      <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+      <div class="error center">
+        <h5 class="center"> <%= flash.err %></h5>
+      </div>
+      <% } %>
+      <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
+      <div class="success center">
+        <h5 class="center"><%= flash.success %></h5>
+      </div>
+      <% } %>
+      <table class="bordered striped responsive-table white-text">
         <thead>
           <td>teamid</td>
           <td>Track</td>
@@ -40,13 +50,13 @@
         <tbody>
          <% _.each(requestview, function(reqview) {
          var trackk='';
-         if(team.arvr=='1')
+         if(reqview.arvr=='1')
          trackk='AR/VR';
-         else if(team.helc=='1')
+         else if(reqview.helc=='1')
          trackk='Health Care';
-         else if(team.fint=='1')
+         else if(reqview.fint=='1')
          trackk='FinTech';
-         else if(team.clen=='1')
+         else if(reqview.clen=='1')
          trackk='Clean Energy';
          else
          trackk='not found';
@@ -60,9 +70,14 @@
 
           </td>
           <td>
-          <a href="/team/show/<%=reqview.teamAdmin%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
+            <a href="/team/show/<%=reqview.teamAdmin%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
           </td>
-          <td class="center"><a href="sendrequest" class="send-req-but smooth-transition">Invite</a></td>
+          <td class="center">
+            <form action="/team/acceptedRequest">
+              <input type="hidden" name="id" value="<%=reqview.id%>">
+              <input type="submit" value="Accept" class="send-req-but smooth-transition"/>
+            </form>
+          </td>
         </tr>
         <% }); %>
       </tbody>
