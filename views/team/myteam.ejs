@@ -1,0 +1,382 @@
+    <link rel="stylesheet" href="/styles/app_common.css">
+    <style>
+      #submit_mock {
+        margin-top: 20px;
+      }
+      .error {
+        border: solid 1px red;
+        color: red;
+        padding: 10px;
+      }
+      .success {
+        border: solid 1px green;
+        color: green;
+        padding: 10px;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+        border: 2px solid #1eb76e;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+        background-color: #1eb76e;
+      }
+      .radio-pref{
+        margin-right: 60px;
+      }
+      .track-col{
+        height: 190px;
+        padding: 1.5rem !important;
+        background-color: #373d41;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        width: 45% !important;
+        margin: 2% !important;
+      }
+
+      .track-col .track-img{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+      .track-col.selected{
+        border:5px solid #1eb76e;
+        padding: 2.5rem;
+      }
+      .track-col .rank-disp{
+        display: none;
+      }
+      .track-col.selected .rank-disp{
+        display: block;
+        background-color: #1eb76e;
+        padding: 0.6rem 1rem;
+        border-radius: 100%;
+        position: absolute;
+        top: -12px;
+        font-size: 1.1rem;
+        color: #fff;
+        right: -12px;
+      }
+      .track-col .overlay{
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        border-radius: 10px;
+        vertical-align: middle;
+        opacity: 0;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+      }
+      .track-col:hover .overlay{
+       opacity: 1;
+     }
+     .track-col .overlay .track-heading{
+      vertical-align: middle;
+      margin-top: 30%;
+    }
+    .team-status{
+     padding: 0.4rem;
+     display: inline-block;
+     border-radius: 5px;
+   }
+   .team-remove{
+    background-color: #f44336 !important;
+    border:none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .team-status-joined{
+    background-color: #1eb76e !important;
+    opacity: 1;
+  }
+
+  .team-status-requested{
+    background-color: #d32f2f !important;
+    opacity: 0.8;
+  }
+  .team-remove{
+    background-color: #f44336 !important;
+    border:none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .team-remove:hover{
+    background-color: #bf291d !important;
+  }
+  @media(min-width: 601px){
+    .track-col{
+     height: 210px;
+     width: 21% !important;
+     margin: 2% !important;
+   }
+ }
+</style>
+<%- partial('../partials/commonScripts.ejs') %>
+<script type="text/javascript">
+  function  getUserDetails(memberid){
+    $.get("http://localhost:1337/user/showsingleuser/"+memberid, function (data, status) {
+      if (!data)
+        console.log("Failure in getting individual user info");
+      else {
+        console.log("successfully in getting info user");
+        $("#"+memberid+"_username").text(data[0].username);
+        var lin="/user/show/"+data[0].username;
+        $("#"+memberid+"_anchor").attr('href',lin);
+        $("#"+memberid+"_name").text(data[0].name);
+        $("#"+memberid+"_description").text(data[0].description);
+      }
+    });
+  }
+</script>
+
+<%- partial('../partials/navbar.ejs', {active: 'myteam'}) %>
+
+<div class="container">
+  <div class="heading-bg">
+    <h5 class="left-align white-text main-heading">Your Team</h5>
+  </div>
+  <% if(typeof team !== 'undefined' && team) { %>
+  <div class="my-main-card hoverable">
+    <div class="row">
+      <% if(admin) { %>
+      <form action="/team/update" method="POST" id="teamForm" autocomplete="on">
+        <% } %>
+        <div class="col m6 offset-m3">
+          <p class="detail-title">
+            teamID
+          </p>
+          <p class="detail-answer margin-bottom-0">
+           <i class="material-icons prefix ver-align-middle white-text">account_circle</i>
+           <span class="ver-align-middle"><a href="/team/show/<%=team.teamName%>" class="underline-wala"><%=team.teamName%></a></span>
+         </p>
+       </div>
+       <div class="row">
+        <div class="col s12">
+          <h5 class="left-align grey-colour">Priority for each Track:</h5>
+        </div>
+        <div class="col m3 s6 track-col" id="track-col_arvr">
+          <input type="hidden" name="arvr" class="inp_track">
+          <div class="overlay">
+            <h4 class="center white-text track-heading">AR/VR</h4>
+          </div>
+          <div class="rank-disp" id="rank1">
+          </div>
+          <img src="/images/tracks/ar.png" class="track-img responsive-img">
+        </div>
+        <div class="col m3 s6 track-col" id="track-col_helc">
+         <input type="hidden" name="helc" class="inp_track">
+         <div class="overlay">
+          <h4 class="center white-text track-heading">Health Care</h4>
+        </div>
+        <div class="rank-disp">
+        </div>
+        <img src="/images/tracks/helc.jpg" class="track-img responsive-img">
+      </div>
+      <div class="col m3 s6 track-col" id="track-col_fint">
+       <input type="hidden" name="fint" class="inp_track">
+       <div class="overlay">
+        <h4 class="center white-text track-heading">FinTech</h4>
+      </div>
+      <div class="rank-disp">
+      </div>
+      <img src="/images/tracks/fintech.jpg" class="track-img responsive-img">
+    </div>
+    <div class="col m3 s6 track-col" id="track-col_clen">
+     <input type="hidden" name="clen" class="inp_track">
+     <div class="overlay">
+      <h4 class="center white-text track-heading">Clean Energy</h4>
+    </div>
+    <div class="rank-disp">
+    </div>
+    <img src="/images/tracks/clen.jpg" class="track-img responsive-img">
+  </div>
+</div>
+<div class="input-field col s12 m12">
+  <% if(!admin){ %>
+  <p class="detail-title">
+    Project Detail
+  </p>
+  <p class="detail-answer white-text">
+    <%=team.description %>
+  </p>
+  <br>
+  <% } %>
+  <% if(admin){ %>
+  <textarea id="description" class="validate materialize-textarea" name="description"><%=team.description%></textarea>
+  <label for="description">Description of your project...</label>
+  <% } %>
+</div>
+<% if(admin){ %>
+<div class="row">
+  <input type="hidden" name="_csrf" value="<%= _csrf %>">
+  <div class="center-align">
+    <button type="submit" name="submit" class="waves-effect btn sub-but" id="submit_mock">Save Changes <i
+      class="material-icons right">send</i>
+    </button>
+  </div>
+</div>
+</form>
+<% } %>
+
+<!-- FOR DELETE TEAM -->
+<% if(admin) { %>
+<div class="row center">
+  <br>
+  <form action="/team/removemember" method="POST">
+    <input type="hidden" name="uid" value="<%=team.admin%>" >
+    <button type="submit" name="submit" value="Destroyteam" class="red btn waves-effect waves-light">
+      <i class="fa fa-trash-o" aria-hidden="true"></i> Destroy Team
+    </form>
+  </div>
+  <% } %>
+  <!-- FOR LEAVE TEAM -->
+  <% if( !admin) { %>
+  <div class="row center">
+    <br>
+    <form action="/team/leaveteam" method="POST">
+      <input type="hidden" name="id" value="<%=team.id%>">
+      <button type="submit" name="submit" value="Destroyteam" class="red btn waves-effect waves-light">
+        <i class="fa fa-sign-out" aria-hidden="true"></i> Leave Team
+      </form>
+    </div>
+    <% } %>
+    <div class="col s12">
+      <h5 class="left-align color-theme-green">Team Members:</h5>
+      <table class="bordered striped responsive-table white-text">
+        <thead>
+          <th>userID</th>
+          <th>Name</th>
+          <th>Skills</th>
+          <th>Status</th>
+          <% if(admin){ %>
+          <th>Remove</th>
+          <% } %>
+        </thead>
+        <tbody>
+          <% _.each(team.memberAccepted,function(memberid){ %>
+          <tr>
+           <td><a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
+            <span id="<%=memberid%>_username"></span>
+            <% if(memberid==team.admin){ %>
+            <img src="/images/admin.png" class="admin-img">
+            <%}%></a></td>
+            <td> <span id="<%=memberid%>_name"></span></td>
+            <td> <span id="<%=memberid%>_description"></span></td>
+            <td><span class="team-status team-status-joined">Joined</span></td>
+            <% if(admin && !(memberid==team.admin)) {%>
+            <td>
+              <form action="/team/removemember" method="POST">
+                <input type="hidden" name="uid" value="<%=memberid%>">
+                <button type="submit" class="team-status team-remove" value="remove"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+              </form>
+            </td>
+            <% } %>
+            <script type="text/javascript">
+              getUserDetails("<%=memberid%>");
+            </script>
+          </tr>
+
+          <% }); %>
+          <% _.each(team.memberSend,function(memberid){ %>
+          <tr>
+            <td>
+              <a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
+                <span id="<%=memberid%>_username"></span>
+              </a>
+            </td>
+            <td> <span id="<%=memberid%>_name"></span></td>
+            <td> <span id="<%=memberid%>_description"></span></td>
+            <td><span class="team-status team-status-requested">requested</span></td>
+            <% if(admin && !(memberid==team.admin)) {%>
+            <td>
+            </td>
+            <% } %>
+            <script type="text/javascript">
+              getUserDetails("<%=memberid%>");
+            </script>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% } %>
+<% if(typeof team == 'undefined' || !team){ %>
+<h3 class="center white-text">You are not a part of any team. Please <a href="/team/new">Create your own team</a> first or accept invite from other team</h3>
+<% } %>
+</div>
+
+<%- partial('../partials/footer.ejs') %>
+<script type="text/javascript">
+  var cur_rank=0;
+  var rank = [false, false, false, false];
+  function get_rank()
+  {
+    var i;
+    for(i=0;i<rank.length;i++){
+      if(!rank[i])
+      {
+        rank[i]=true;
+        return (i+1);
+      }
+    }
+    return 0;
+  }
+
+  <% if(admin) { %>
+    $(".track-col").click(function(){
+      if($(this).hasClass('selected'))
+      {
+        $(this).removeClass('selected');
+        var str_val=$(this).find('.rank-disp').text();
+        console.log("The value is:"+str_val);
+        rank[parseInt(str_val)-1]=false;
+      }
+      else
+      {
+        $(this).addClass("selected");
+        var r=get_rank();
+        $(this).find('.rank-disp').html(r);
+        $(this).find('.inp_track').val(r);
+      }
+    });
+    <% } %>
+
+
+  </script>
+  <script type="text/javascript">
+    $(".track-col").addClass("selected");
+    $("#track-col_arvr").find('.rank-disp').html(<%=team.arvr%>);
+    $("#track-col_arvr").find('.inp_track').val(<%=team.arvr%>);
+    var r1=<%=team.arvr%> -1;
+    rank[r1]=true;
+
+    $("#track-col_helc").find('.rank-disp').html(<%=team.helc%>);
+    $("#track-col_helc").find('.inp_track').val(<%=team.helc%>);
+    var r2=<%=team.helc%> -1;
+    rank[r2]=true;
+
+    $("#track-col_fint").find('.rank-disp').html(<%=team.fint%>);
+    $("#track-col_fint").find('.inp_track').val(<%=team.fint%>);
+    var r3=<%=team.fint%> -1;
+    rank[r3]=true;
+
+    $("#track-col_clen").find('.rank-disp').html(<%=team.clen%>);
+    $("#track-col_clen").find('.inp_track').val(<%=team.clen%>);
+    var r4=<%=team.clen%> -1;
+    rank[r4]=true;
+  </script>
+
+    <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>

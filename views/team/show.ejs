@@ -1,0 +1,137 @@
+
+<%- partial('../partials/commonScripts.ejs') %>
+<script type="text/javascript">
+  function  getUserDetails(memberid){
+    $.get("http://localhost:1337/user/showsingleuser/"+memberid, function (data, status) {
+      if (!data)
+        console.log("Failure in getting individual user info");
+      else {
+        console.log("successfully in getting info user");
+        $("#"+memberid+"_username").text(data[0].username);
+        var lin="/user/show/"+data[0].username;
+        $("#"+memberid+"_anchor").attr('href',lin);
+        $("#"+memberid+"_name").text(data[0].name);
+        $("#"+memberid+"_description").text(data[0].description);
+        if(data[0].internal_external=='internal')
+          $("#"+memberid+"_college_name").text("VIT University");
+        else
+         $("#"+memberid+"_college_name").text(data[0].college_name);
+     }
+   });
+  }
+</script>
+<link rel="stylesheet" href="/styles/app_common.css">
+<style>
+  #submit_mock {
+    margin-top: 20px;
+  }
+  .error {
+    border: solid 1px red;
+    color: red;
+    padding: 10px;
+  }
+  .success {
+    border: solid 1px green;
+    color: green;
+    padding: 10px;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1eb76e;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #1eb76e;
+  }
+  .detail-title{
+    color: #1eb76e;
+  }
+  .detail-answer{
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(88, 88, 88, 0.64);
+    font-size: 1em;
+  }
+</style>
+
+<%- partial('../partials/navbar.ejs', {active: 'teamShow'}) %>
+<%
+var trackk='';
+if(team.arvr=='1')
+trackk='AR/VR';
+else if(team.helc=='1')
+trackk='Health Care';
+else if(team.fint=='1')
+trackk='FinTech';
+else if(team.clen=='1')
+trackk='Clean Energy';
+else
+trackk='not found';
+%>
+<div class="container">
+  <div class="heading-bg">
+   <h5 class="left-align white-text main-heading">Team details</h5>
+ </div>
+ <div class="my-main-card hoverable white-text">
+  <p class="detail-title">
+    Team Name
+  </p>
+  <p class="detail-answer">
+    <%=team.teamName%>
+  </p>
+  <p class="detail-title">
+    Team Track
+  </p>
+  <p class="detail-answer">
+    <%=trackk%>
+  </p>
+  <p class="detail-title">
+    Project Detail
+  </p>
+  <p class="detail-answer">
+    <%=team.description %>
+  </p>
+</div>
+</div>
+
+<div class="container">
+  <div class="heading-bg">
+   <h5 class="left-align white-text main-heading">Team members</h5>
+ </div>
+ <div class="my-main-card hoverable">
+  <table class="bordered striped responsive-table white-text">
+    <thead>
+      <td>userid</td>
+      <td>Name</td>
+      <td>Skills</td>
+      <td>University</td>
+    </thead>
+    <tbody>
+      <% _.each(team.memberAccepted, function(memberid) { %>
+      <tr>
+        <td><a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
+          <span id="<%=memberid%>_username"></span>
+          <% if(memberid==team.admin){ %>
+          <img src="/images/admin.png" class="admin-img">
+          <%}%></a></td>
+          <td> <span id="<%=memberid%>_name"></span></td>
+          <td> <span id="<%=memberid%>_description"></span></td>
+          <td><span id="<%=memberid%>_college_name"></span></td>
+          <script type="text/javascript">
+            getUserDetails("<%=memberid%>");
+          </script>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<%- partial('../partials/footer.ejs') %>
+  <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>

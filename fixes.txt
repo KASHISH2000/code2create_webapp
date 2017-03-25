@@ -1,0 +1,2 @@
+1. viewRequest - res.view
+2. sendRequest - redirect to showall

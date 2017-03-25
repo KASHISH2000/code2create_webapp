@@ -1,0 +1,12 @@
+<h1>Hello There!!</h1>
+
+<% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  <div class="error center">
+    <h5 class="center"> <%= flash.err %></h5>
+  </div>
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
+  <div class="success center">
+    <h5 class="center"><%= flash.success %></h5>
+  </div>
+  <% } %>

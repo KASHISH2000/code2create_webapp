@@ -1,0 +1,165 @@
+<link rel="stylesheet" href="/styles/app_common.css">
+<style>
+  #submit_mock {
+    margin-top: 20px;
+  }
+  .error {
+    border: solid 1px red;
+    color: red;
+    padding: 10px;
+  }
+  .success {
+    border: solid 1px green;
+    color: green;
+    padding: 10px;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1eb76e;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #1eb76e;
+  }
+</style>
+
+
+<%- partial('../partials/navbar.ejs', {active: 'userEdit'}) %>
+<div class="container">
+  <div class="heading-bg">
+    <h5 class="left-align white-text main-heading">Your Profile</h5>
+  </div>
+  <div class="my-main-card hoverable">
+    <div class="row">
+      <div class="row margin-bottom-0">
+        <div class="col s12">
+         <div class="input-field col s12 m6">
+           <p class="detail-title">
+            UserID
+          </p>
+
+          <p class="detail-answer white-text">
+          <i class="material-icons ver-align-middle">account_circle</i> &nbsp;<a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%=user.username%></a>
+          </p>
+        </div>
+
+        <div class="input-field col s12 m6">
+         <p class="detail-title">
+           Email
+         </p>
+
+         <p class="detail-answer white-text">
+          <%=user.email%>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-field col s12 m6">
+   <p class="detail-title">
+    Name
+  </p>
+  <p class="detail-answer white-text">
+    <%=user.name%>
+  </p>
+</div>
+<div class="input-field col s12 m6">
+ <p class="detail-title">
+  College Registration No.
+</p>
+<p class="detail-answer white-text">
+ <%=user.regno%>
+</p>
+</div>
+<div class="input-field col s12 m6">
+ <p class="detail-title">
+  Email
+</p>
+<p class="detail-answer white-text">
+ <%=user.email%>
+</p>
+</div>
+<div class="input-field col s12 m6">
+  <p class="detail-title">
+    College
+  </p>
+  <p class="detail-answer white-text">
+   <%=user.regno%>
+ </p>
+</div>
+<div class="col s12 center">
+ <% if(user.internal_external=='internal'){ 
+ if(user.living=='hostler'){ %>
+ <p class="detail-title">
+  Hostler
+</p>
+<p class="detail-answer white-text">
+ <%=user.block%>, <%=user.roomno%>
+</p>
+<% } %>
+<% if(user.living=='dayscholar'){ %>
+<p class="detail-title">
+ &nbsp;
+</p>
+<p class="detail-answer white-text left-align">
+  Dayscholar
+</p>
+<% } %>
+<% } %>
+<% if(user.internal_external=='external'){ %>
+<p class="detail-title">
+  &nbsp;
+</p>
+<p class="detail-answer white-text">
+ External
+</p>
+<% } %>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="heading-bg">
+    <h5 class="left-align white-text main-heading">Your Details</h5>
+  </div>
+  <div class="my-main-card hoverable">
+    <div class="row">
+      <form action="/user/update" method="POST" id="registerForm" autocomplete="off">
+       <div class="input-field col s12">
+        <input id="phoneno" type="number" class="validate" name="phoneno" value="<%=user.phoneno%>">
+        <label for="phoneno">Phone no</label>
+      </div>
+      <div class="input-field col s12 m12">
+        <textarea id="description" class="validate materialize-textarea" name="description" value="<%=user.description%>"><%=user.description%></textarea>
+        <label for="description">What are your skills? In what languages do you code?</label>
+      </div>
+      <div class="input-field col s12 m6">
+        <input id="github" type="text" class="validate" name="github" value="<%=user.github%>">
+        <label for="github">Github Profie link</label>
+      </div>
+      <div class="input-field col s12 m6">
+        <input id="linkedin" type="text" class="validate" name="linkedin" value="<%=user.linkedin%>">
+        <label for="linkedin">Linkedin Profie link</label>
+      </div>
+      <input type="hidden" name="_csrf" value="<%= _csrf %>">
+      <div class="row">
+
+        <div class="center-align">
+          <button type="submit" class="waves-effect btn sub-but" id="submit_mock" onclick="submit_try();">Update Details <i
+            class="material-icons right">send</i>
+          </button>
+          <input type="submit" id="real_submit" value="Submit" class="hide" name="submit">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>
+  <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>
