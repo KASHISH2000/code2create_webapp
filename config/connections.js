@@ -28,9 +28,14 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+  // localDiskDb: {
+  //   adapter: 'sails-disk'
+  // },
+
+  MongoConnection_mlab: {
+    adapter: 'sails-mongo',
+    url:'mongodb://vinit_harshit:vinitharshit@ds141950.mlab.com:41950/heroku_jv8g4jvd'
+  }
 
   /***************************************************************************
   *                                                                          *

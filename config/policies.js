@@ -27,8 +27,18 @@ module.exports.policies = {
   ***************************************************************************/
 
 
-  '*': "flash"
 
+  '*': ["userCanSeeProfile","flash"],
+
+  user:{
+    'new' : "flash",
+    create : "flash"
+  },
+
+  session : {
+    'new' : "flash",
+    create : "flash"
+  }
 
 
 

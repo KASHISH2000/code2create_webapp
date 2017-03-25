@@ -8,14 +8,13 @@ module.exports = function(req, res, ok) {
   // var sessionUserMatchesId = req.session.User.id === req.param('id');
   // var isAdmin = req.session.User.admin;
 
-  var sessionUserMatchesId = (req.session.User && req.session.User.id === req.param('id'));
-  var isAdmin = req.session.User && req.session.User.admin;
+  var sessionUserMatchesId = (req.session.User);
   // The requested id does not match the user's id,
   // and this is not an admin
-  if (!(sessionUserMatchesId || isAdmin)) {
-    var noRightsError = [{name: 'noRights', message: 'You must be an admin.Check userCanSeeProfile.js'}]
+  if (!(sessionUserMatchesId)) {
+    var noRightsError = [{name: 'noRights', message: 'Please Login or Register'}];
     req.session.flash = {
-      err: noRightsError
+      err: "Please Login or Register"
     };
     res.redirect('/session/new');
     return;

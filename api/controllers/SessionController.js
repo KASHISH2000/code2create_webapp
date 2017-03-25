@@ -24,7 +24,6 @@ module.exports = {
     res.redirect('/session/welcome');
     return;
   }
-  console.log("Inside session create function");
   if (!req.param('email_username') || !req.param('password')) {
     req.session.flash = {
       err: 'You must enter both a username/email and password.'
@@ -33,15 +32,13 @@ module.exports = {
     return;
   }
 
-  console.log("Inside Email");
   User.findOne({
     or : [
     { username: req.param('email_username') },
     { email: req.param('email_username') }
     ]
   }).exec(function(err, user) {
-    // console.log("The user found in db is:");
-    // console.log(user);8
+
     if (err){
      req.session.flash = {
       err: 'Error in logging'
@@ -64,8 +61,6 @@ module.exports = {
           }
           else{
             bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
-
-              console.log("Entered into bycrypt");
 
               if (err) return next(err);
 
@@ -95,7 +90,6 @@ module.exports = {
 
 
 destroy: function (req, res, next) {
-  console.log('Entered into destroy');
 
   User.findOne(req.session.User.id, function foundUser(err, user) {
 
@@ -118,7 +112,6 @@ destroy: function (req, res, next) {
 
           // Wipe out the session (log out)
           req.session.destroy();
-          console.log('session destroyed, user was logged in');
 
           // Redirect the browser to the sign-in screen
           res.redirect('/session/new');
@@ -127,7 +120,6 @@ destroy: function (req, res, next) {
 
         // Wipe out the session (log out)
         req.session.destroy();
-        console.log('session destroyed, user was not logged in.');
 
         // Redirect the browser to the sign-in screen
         res.redirect('/session/new');
