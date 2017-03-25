@@ -373,15 +373,10 @@ module.exports = {
 
           if (count === teams.length) {
 
-              // res.status(200).json({
-              //   message : "Sorry, you are not a part of any team yet.Create your own team now."
-              // });
-              // return;
-
-              //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
-              return res.view({
-                err : "Sorry, you are not a part of any team yet.Create your own team now"
-              });
+              req.session.flash = {
+                  err: "You dont have any team."
+              };
+              return res.redirect('/user/showall');
 
             }
           });
