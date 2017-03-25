@@ -220,95 +220,105 @@ module.exports = {
   myteam : function(req, res, next) {
     var userid = 0;
     var temp = 0;
+    var count = 0;
+
+    user = req.session.User;
+    userid = user.id;
 
     Team.find({
-      admin: req.param('id')
+      admin: user.id
     }).then(function (team) {
+      console.log("Team is :");
       console.log(team);
-      //console.log(req.param('id'));
+      console.log("User id is :" + user.id);
+
 
       if (team.length > 0) {
         temp = 1;
         console.log("Inside team");
 
-        res.view({
-          team : team,
-          admin : true
-        });
-
-
         // res.status(200).json({
         //   team: team,
         //   admin: true
         // });
+        // return;
+
+        res.view({
+          team: team,
+          admin: true
+        });
         return;
+
+      }
+
+
+      else {
+
+        console.log("Phele chal rha hai");
+
+          Team.find(function foundTeams(err, teams) {
+            console.log("After team.find");
+            teams.forEach(function (team) {
+              count = count + 1;
+              for (var k = 0; k < team.memberAccepted.length; k++) {
+                //         console.log("Accepted members is :");
+                //         console.log(team.memberAccepted[k] +  req.param('id'));
+                //         //console.log("user id is :");
+                //         //console.log(userid);
+                if (team.memberAccepted[k] === parseInt(userid)) {
+                  if (team.admin != parseInt(userid)) {
+                    console.log("Inside for loop");
+                    temp = 3;
+                    count = 100000000;
+
+
+                    console.log("Team is :");
+                    console.log(team);
+
+
+                    // res.status(200).json({
+                    //   team: team,
+                    //   admin: false
+                    // });
+                    ;
+
+                    res.view({
+                      team: team,
+                      admin: false
+                    });
+                    return
+                    break;
+
+
+
+
+                  }
+                  //
+                }
+
+              }
+            });
+
+            if (count === teams.length) {
+              console.log("After temp === 2");
+
+              // res.status(200).json({
+              //   message : "Sorry, you are not a part of any team yet.Create your own team now."
+              // });
+              // return;
+              req.session.flash = {
+                err: "Sorry, you are not a part of any team yet.Create your own team now"
+              };
+
+
+              //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
+              return res.redirect('back');
+
+            }
+          });
+          //
       }
     });
-
-
-     if(temp === 0){
-    //
-       console.log("After temp === 0");
-
-      userid = req.session.User.id;
-
-      Team.find(function foundTeams(err, teams) {
-        console.log("After team.find");
-        teams.forEach(function (team) {
-
-          for (var k=0; k<team.memberAccepted.length; k++) {
-    //         console.log("Accepted members is :");
-    //         console.log(team.memberAccepted[k] +  req.param('id'));
-    //         //console.log("user id is :");
-    //         //console.log(userid);
-            if (team.memberAccepted[k] === parseInt(userid)) {
-              if(team.admin != parseInt(userid)) {
-                console.log("Inside for loop");
-                temp = 3;
-
-
-                console.log("Team is :");
-                console.log(team);
-
-                res.view({
-                  team : team,
-                  admin : false
-                });
-
-
-                // res.status(200).json({
-                //   team: team,
-                //   admin: false
-                // });
-                return;
-                break;
-              }
-    //
-            }
-            console.log("Checking");
-          }
-         });
-        console.log("Before team === 2 checking");
-
-        if(temp === 0){
-          console.log("After temp === 2");
-
-          // res.view({
-          //   message : "Sorry, you are not a part of any team yet.Create your own team now."
-          // });
-
-          req.session.flash = {
-            err: "Sorry, you are not a part of any team yet.Create your own team now"
-          };
-
-
-          //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
-          return res.redirect('back');
-
-        }
-        });
-    //
-     }
 
   },
 
@@ -523,12 +533,12 @@ module.exports = {
             }
           }
 
-      //return res.status(200).json(team);
+      return res.status(200).json(team);
 
-      return res.redirect('/team/show/' + team.teamName );
+
+      //return res.redirect('/team/show/' + team.teamName );
         });
     });
-
   },
 
   //request come to logged in user.
@@ -569,6 +579,8 @@ module.exports = {
     var arr = [];
 
     var user = req.session.User;
+    var temp = 0;
+    var count = 0;
 
     Team.findOne(req.param('id'), function foundTeam(err, team) {
         // User.findOne(req.param('uid'), function foundUser(err, user) {
@@ -581,63 +593,96 @@ module.exports = {
           //console.log(team.memberSend);
 
 
+        Team.find(function foundTeams(err, teams) {
+
+          if(teams) {
+            //sails.models.team.checkmembers(user.id)
+
+              teams.forEach(function (tempteam) {
+                count = count + 1;
+                if(tempteam.memberAccepted) {
+                  for (var i = 0; i < tempteam.memberAccepted.length; i++) {
+                    if (user.id === tempteam.memberAccepted[i]) {
+
+                      console.log("Not in any team");
+                      temp = 2;
+                      count = 10000000000;
+
+                      // res.status(200).json("Already in a team");
+                      // return;
+
+                      req.session.flash = {
+                        err: "You are already in a team. For joining this team, levae your team first"
+                      };
+                      res.redirect('/team/showall');
+                      return;
+                    }
+                  }
+                }
+
+              });
+
+          }
+
+          if(count === teams.length) {
+
+            console.log(team);
             arr = team.memberSend;
 
 
-          for(var i=0;i<team.memberSend.length ; i++) {
+            for (var i = 0; i < team.memberSend.length; i++) {
 
 
+              if (team.memberSend[i] === user.uid) {
+                console.log(i);
+                (team.memberSend).splice(i, 1);
+                console.log("Length is ");
+                console.log(team.memberAccepted.length);
 
-            if (team.memberSend[i] === user.uid) {
-              console.log(i);
-              (team.memberSend).splice(i,1);
-              console.log("Length is ");
-              console.log(team.memberAccepted.length);
+                if (team.memberAccepted.length < 4) {
+                  (team.memberAccepted).push(user.id);
+                  //console.log(team.memberAccepted);
+                }
+                else {
 
-              if(team.memberAccepted.length < 4) {
-                (team.memberAccepted).push(user.id);
-                //console.log(team.memberAccepted);
-              }
-              else{
-
-                req.session.flash = {
-                  err: "Sorry, the team is full"
-                };
-                return res.redirect('back');
+                  req.session.flash = {
+                    err: "Sorry, the team is full"
+                  };
+                  return res.redirect('back');
 
 
-                // res.status(200).json({
-                //   message : "Sorry, the team is full"
-                // });
+                  // res.status(200).json({
+                  //   message : "Sorry, the team is full"
+                  // });
+                }
               }
             }
+            team.save(
+              function (err) {
+                //console.log('saving records for team');
+              }
+            );
+            //console.log(team.memberSend);
+
+            // res.status(200).json({
+            //   team: team,
+            //   user: user
+            // });
+            // return;
+
+            res.redirect('/team/viewrequests');
+            return;
+
+            // res.status(200).json({
+            //   team : team,
+            //   user : user
+            // });
+            //})
           }
-          team.save(
-            function (err) {
-              //console.log('saving records for team');
-            }
-          );
-          //console.log(team.memberSend);
-
-          res.status(200).json({
-            team : team,
-            user : user
-          });
-          return;
-
-          res.view({
-            team : team,
-            user : user
-          });
-          return;
-
-          // res.status(200).json({
-          //   team : team,
-          //   user : user
-          // });
-        //})
         });
-      },
+    });
+
+  },
   //here uid is id of that person, who is accepting that team request.
 
 

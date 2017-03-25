@@ -9,6 +9,53 @@ module.exports = {
 
   attributes: {
 
+    question : {
+      type : 'array'
+    },
+
+    questionResponse : {
+      type : 'array'
+    },
+
+    questionName : {
+      type : 'text',
+    },
+
+    options : {
+      type : 'array'
+    },
+
+    op1 : {
+      type : 'string'
+    },
+
+    op2 : {
+      type : 'string'
+    },
+
+    op3 : {
+      type : 'string'
+    },
+
+    op4 : {
+      type : 'string'
+    },
+
+    userid : {
+      type : 'string'
+    },
+
+    answer : {
+      type : 'string'
+    },
+
+    responseTime : {
+      type : 'string'
+    }
+
+
   }
+
+
 };
 
