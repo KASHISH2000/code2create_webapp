@@ -23,6 +23,7 @@ module.exports = {
     var tempfint = req.param('fint');
     var tempclen = req.param('clen');
 
+
     if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
 
       if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
@@ -31,13 +32,6 @@ module.exports = {
         };
         return res.redirect('/team/new');
       }
-    }
-    else{
-      req.session.flash = {
-        err: "Please select priorities correctly"
-      };
-      return res.redirect('/team/new');
-
     }
 
     if(user) {
@@ -270,13 +264,7 @@ module.exports = {
         return res.redirect('/team/new');
       }
     }
-    else{
-      req.session.flash = {
-        err: "Please select priorities correctly"
-      };
-      return res.redirect('/team/new');
 
-    }
 
 
     Team.update({
@@ -346,8 +334,8 @@ module.exports = {
                 //         console.log(team.memberAccepted[k] +  req.param('id'));
                 //         //console.log("user id is :");
                 //         //console.log(userid);
-                if (team.memberAccepted[k] === (userid)) {
-                  if (team.admin != (userid)) {
+                if (team.memberAccepted[k] === parseInt(userid)) {
+                  if (team.admin != parseInt(userid)) {
                     console.log("Inside for loop");
                     temp = 3;
                     count = 100000000;
@@ -408,16 +396,16 @@ module.exports = {
 
     Team.findOne(req.param('id'), function foundTeam(err, team) {
 
-        for (var i = 0; i < 3; i++) {
-          if (team.memberAccepted[i] === (user.uid)) {
-            if((user.uid) != team.admin) {
-              (team.memberAccepted).splice(i, 1);
-            }
-            else{
+      for (var i = 0; i < 3; i++) {
+        if (team.memberAccepted[i] === parseInt(user.uid)) {
+          if(parseInt(user.uid) != team.admin) {
+            (team.memberAccepted).splice(i, 1);
+          }
+          else{
 
-              req.session.flash = {
-                err: "Bad Request"
-              };
+            req.session.flash = {
+              err: "No team found"
+            };
               //res.status(400).json("Bad Request");
               return res.redirect('team/showall');
             }
@@ -428,13 +416,15 @@ module.exports = {
             console.log('saving records for team');
           }
           );
-
-      return res.redirect('team/myteam');
-      return;
+        req.session.flash = {
+          success: "Successfully left team"
+        };
+        return res.redirect('team/myteam');
+        return;
         //res.status(200).json(team);
 
 
-    })
+      })
 
   },
 
@@ -447,7 +437,7 @@ module.exports = {
     }, function foundTeam(err, team) {
       User.findOne(req.param('uid'), function foundUser(err, user) {
 
-        if (team.admin === (user.uid)) {
+        if (team.admin === parseInt(user.uid)) {
           //if admin wants to delete itself
 
           if(team.memberAccepted.length > 1) {
@@ -470,18 +460,18 @@ module.exports = {
       }
       else {
           //if admin wants to delete another user.
-        for (var i = 0; i < 3; i++) {
-          if (team.memberAccepted[i] === (user.uid)) {
-            (team.memberAccepted).splice(i, 1);
-          }
+          for (var i = 0; i < 3; i++) {
+            if (team.memberAccepted[i] === parseInt(user.uid)) {
+              (team.memberAccepted).splice(i, 1);
+            }
 
+          }
         }
-      }
-      team.save(
-        function (err) {
-          console.log('saving records for team');
-        }
-        );
+        team.save(
+          function (err) {
+            console.log('saving records for team');
+          }
+          );
 
         req.session.flash = {
           success : "Successfully removed!"
@@ -530,7 +520,7 @@ module.exports = {
     },req.params.all(), function teamUpdated(err){
       if(err){
         req.session.flash = {
-          err: "Bad request"
+          err: "unable to update team"
         };
         return res.redirect('/user/showall');
         //res.status(200).json(err);
@@ -707,7 +697,7 @@ module.exports = {
                       // return;
 
                       req.session.flash = {
-                        err: "You are already in a team. For joining this team, levae your team first"
+                        err: "You are already in a team. For joining this team, leave your team first"
                       };
                       res.redirect('/team/viewrequest');
                       return;
@@ -765,7 +755,7 @@ module.exports = {
             // });
             // return;
             req.session.flash = {
-              success: "YOu Have Successfully Joined the team"
+              success: "You Have Successfully Joined the team"
             };
             res.redirect('/team/viewrequest');
             return;
@@ -793,9 +783,9 @@ module.exports = {
 
       if (err) {
         req.session.flash = {
-          err : "No team members for your team"
+          err : "Unable to find team"
         };
-        res.redirect('/team/myteam');
+        res.redirect('/team/showall');
         return;
       }
 
@@ -803,7 +793,7 @@ module.exports = {
         req.session.flash = {
           err : "Team doesn\'t exist "
         };
-        res.redirect('/team/myteam');
+        res.redirect('/team/showall');
         return;
 
       }
@@ -813,7 +803,7 @@ module.exports = {
       });
 
       req.session.flash = {
-        success : "Successfully destroyed team"
+        success : "Successfully deleted team"
       };
 
       res.redirect('/team/showall');

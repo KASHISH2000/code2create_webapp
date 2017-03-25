@@ -9,7 +9,8 @@ module.exports = {
   },
     admin : {
       type : 'integer',
-      required : false
+      required : false,
+      unique: true
     },
 
     teamName : {
@@ -51,7 +52,8 @@ module.exports = {
 
     teamAdmin : {
       type : 'string',
-      required : false
+      required : false,
+       unique: true
     },
 
     description : {

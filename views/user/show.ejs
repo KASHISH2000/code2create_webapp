@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col m6 offset-m3">
             <p class="detail-title">
-              userID
+              userName
             </p>
             <p class="detail-answer margin-bottom-0">
              <i class="material-icons prefix ver-align-middle">account_circle</i>
@@ -43,7 +43,7 @@
           </p>
           <p class="detail-answer margin-bottom-0">
             <i class="material-icons prefix ver-align-middle">people_outline</i>
-            <span class="ver-align-middle"><span id="noteamname">Not in a team</span><a id="teamname_a" href="viewteam.html" class="underline-wala"><span id="teamname"></span></a></span>
+            <span class="ver-align-middle"><span id="noteamname">Not in a team</span><a id="teamname_a" class="underline-wala"><span id="teamname"></span></a></span>
           </p>
         </div>
         <div class="col m6">
@@ -72,7 +72,7 @@
          Email
        </p>
        <p class="detail-answer margin-bottom-0">
-       <%=user.email%>
+         <%=user.email%>
        </p>
      </div>
      <div class="col m6">
@@ -89,22 +89,22 @@
     </p>
     <p class="detail-answer margin-bottom-0">
      <%=user.description %>
-    </p>
-  </div>
-  <div class="col s12">
-    <br>
-    <br>
-  </div>
-  <div class="col m4 offset-m4 center profile-social">
+   </p>
+ </div>
+ <div class="col s12">
+  <br>
+  <br>
+</div>
+<div class="col m4 offset-m4 center profile-social">
   <% if(user.github){%>
-    <a href="<%=user.github%>" title="GitHub Profile" target="_blank" class="social-a social-github"><i class="smooth-transition fa fa-2x fa-github" aria-hidden="true"></i>
-    </a>
-<% } %>
- <% if(user.linkedin){%>
-    <a href="<%=user.linkedin%>" title="LinkedIn Profile" target="_blank" class="social-a social-linkedin"><i class="smooth-transition fa fa-2x fa-linkedin" aria-hidden="true"></i>
-    </a>
-    <% } %>
-  </div>
+  <a href="<%=user.github%>" title="GitHub Profile" target="_blank" class="social-a social-github"><i class="smooth-transition fa fa-2x fa-github" aria-hidden="true"></i>
+  </a>
+  <% } %>
+  <% if(user.linkedin){%>
+  <a href="<%=user.linkedin%>" title="LinkedIn Profile" target="_blank" class="social-a social-linkedin"><i class="smooth-transition fa fa-2x fa-linkedin" aria-hidden="true"></i>
+  </a>
+  <% } %>
+</div>
 </div>
 </div>
 </div>
@@ -113,9 +113,9 @@
 
 <%- partial('../partials/footer.ejs') %>
 <%- partial('../partials/commonScripts.ejs') %>
-  <script type="text/javascript">
+<script type="text/javascript">
 //get the info of currently logged in user
-$.get("http://localhost:1337/navbar/anyuserteam", function (data, status) {
+$.get("http://localhost:1337/navbar/anyuserteam/<%=user.id%>", function (data, status) {
   var teamname_togive="undefined";
   if (!data)
     console.log("Failure!", "Couldn't fetch navbar/getinfo");
@@ -123,15 +123,16 @@ $.get("http://localhost:1337/navbar/anyuserteam", function (data, status) {
    if(data.team){
     $("#noteamname").hide();
     $("#teamname_a").show();
-    console.log(data.team[0].teamName);
-    $("#teamname").html(data.team[0].teamName);
-   }
-   else{
-  $("#noteamname").show();
+    $("#teamname_a").attr("href","http://localhost:1337/team/show/"+data.team.teamName);
+    console.log(data.team.teamName);
+    $("#teamname").html(data.team.teamName);
+  }
+  else{
+    $("#noteamname").show();
     $("#teamname_a").hide();
 
-   }
-
   }
+
+}
 });
 </script>

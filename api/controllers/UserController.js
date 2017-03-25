@@ -8,162 +8,162 @@ module.exports = {
   'new' : function (req, res) {
     if(req.session.authenticated)
     {
-      redirect('/session/welcome');
+      res.redirect('/session/welcome');
       return;
     }
     res.view();
 
   },
 
-  // create : function(req, res, next) {
-  //
-  //   var recaptcha_secret = "6LcTthcUAAAAAGoJ2l5SeaBzleD7D_RaHk1key9V";
-  //   var us_name = req.param('name');
-  //   var us_regno = req.param('regno');
-  //   var us_phoneno = req.param('phoneno');
-  //   var us_email = req.param('email');
-  //   var us_username = req.param('username');
-  //   var us_internal_external = req.param('internal_external');
-  //   var us_college_name = req.param('college_name');
-  //   var us_college_city = req.param('college_city');
-  //   var us_living = req.param('living');
-  //   var us_block = req.param('block');
-  //   var us_roomno = req.param('roomno');
-  //   var us_description = req.param('description');
-  //   var us_github = req.param('github');
-  //   var us_linkedin = req.param('linkedin');
-  //   var us_response = req.param('g-recaptcha-response');
-  //   var us_ip = req.ip;
-  //   var us_gender = req.param('gender');
-  //   var us_password = req.param('password');
-  //   var us_confirmation = req.param('confirmation');
-  //
-  //   // if (!us_name || !us_regno || !us_email || !us_phoneno || !us_living || (us_living == 'hostler' && (!us_block || !us_roomno)) || !us_password || !us_confirmation) {
-  //   //   req.session.flash = {
-  //   //     err: "Error: Form Fields are Incorrect."
-  //   //   };
-  //   //   return res.redirect('/register');
-  //   // }
-  //
-  //   var params_needed = {
-  //     name: us_name,
-  //     regno: us_regno,
-  //     phoneno: us_phoneno,
-  //     email: us_email,
-  //     gender : us_gender,
-  //     username: us_username,
-  //     internal_external: us_internal_external,
-  //     college_name: us_college_name,
-  //     college_city: us_college_city,
-  //     living: us_living,
-  //     block: us_block,
-  //     roomno: us_roomno,
-  //     description: us_description,
-  //     github: us_github,
-  //     linkedin: us_linkedin,
-  //     password: us_password,
-  //     confirmation: us_confirmation
-  //   };
-  //
-  //   var recaptcha_obj = {
-  //     secret: recaptcha_secret,
-  //     response: us_response,
-  //     remoteip: us_ip
-  //   };
-  //   request.post({
-  //     url: 'https://www.google.com/recaptcha/api/siteverify',
-  //     form: {secret: recaptcha_obj.secret, response: recaptcha_obj.response, remoteip: recaptcha_obj.remoteip}
-  //
-  //   }, function Callback(err, httpResponse, body) {
-  //     if (err) {
-  //       req.session.flash = {
-  //         err: "Error in Recaptcha"
-  //       };
-  //       return res.redirect('/register');
-  //     }
-  //     var body_json = JSON.parse(body);
-  //     console.log("The body.success is:", body_json.success);
-  //     if (body_json.success) {
-  //       User.create(params_needed, function userCreated(err, user) {
-  //         if (err) {
-  //           req.session.flash = {
-  //             err: "Error: Couldn't register"
-  //           };
-  //           console.log(err);
-  //           return res.redirect('/register');
-  //         }
-  //
-  //         user.uid = user.id;
-  //         user.token = sailsTokenAuth.issueToken(user.id);
-  //         user.save(
-  //           function (err) {
-  //             console.log('saving records for user');
-  //           }
-  //           );
-  //           //console.log(user);
-  //
-  //
-  //           req.session.authenticated = true;
-  //           req.session.User = user;
-  //
-  //
-  //           req.session.flash = {
-  //             success: "Successfully Registered!",
-  //             ip: us_ip,
-  //             response: us_response
-  //           };
-  //         //Mailer.sendWelcomeMail(user);
-  //         //return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
-  //         return res.redirect('/agenda');
-  //       }
-  //       );
-  //     }
-  //     else {
-  //       req.session.flash = {
-  //         err: "Error: Couldn't Verify ReCaptcha"
-  //       };
-  //       return res.redirect('/register');
-  //     }
-  //   })
-  // },
-
-
-  create : function (req, res, next) {
-
-    User.create(req.params.all(), function userCreated(err, user) {
+  create : function(req, res, next) {
+  
+    var recaptcha_secret = "6LcTthcUAAAAAGoJ2l5SeaBzleD7D_RaHk1key9V";
+    var us_name = req.param('name');
+    var us_regno = req.param('regno');
+    var us_phoneno = req.param('phoneno');
+    var us_email = req.param('email');
+    var us_username = req.param('username');
+    var us_internal_external = req.param('internal_external');
+    var us_college_name = req.param('college_name');
+    var us_college_city = req.param('college_city');
+    var us_living = req.param('living');
+    var us_block = req.param('block');
+    var us_roomno = req.param('roomno');
+    var us_description = req.param('description');
+    var us_github = req.param('github');
+    var us_linkedin = req.param('linkedin');
+    var us_response = req.param('g-recaptcha-response');
+    var us_ip = req.ip;
+    var us_gender = req.param('gender');
+    var us_password = req.param('password');
+    var us_confirmation = req.param('confirmation');
+  
+    // if (!us_name || !us_regno || !us_email || !us_phoneno || !us_living || (us_living == 'hostler' && (!us_block || !us_roomno)) || !us_password || !us_confirmation) {
+    //   req.session.flash = {
+    //     err: "Error: Form Fields are Incorrect."
+    //   };
+    //   return res.redirect('/register');
+    // }
+  
+    var params_needed = {
+      name: us_name,
+      regno: us_regno,
+      phoneno: us_phoneno,
+      email: us_email,
+      gender : us_gender,
+      username: us_username,
+      internal_external: us_internal_external,
+      college_name: us_college_name,
+      college_city: us_college_city,
+      living: us_living,
+      block: us_block,
+      roomno: us_roomno,
+      description: us_description,
+      github: us_github,
+      linkedin: us_linkedin,
+      password: us_password,
+      confirmation: us_confirmation
+    };
+  
+    var recaptcha_obj = {
+      secret: recaptcha_secret,
+      response: us_response,
+      remoteip: us_ip
+    };
+    request.post({
+      url: 'https://www.google.com/recaptcha/api/siteverify',
+      form: {secret: recaptcha_obj.secret, response: recaptcha_obj.response, remoteip: recaptcha_obj.remoteip}
+  
+    }, function Callback(err, httpResponse, body) {
       if (err) {
         req.session.flash = {
-          err: "Error: Couldn't register"
+          err: "Error in Recaptcha"
         };
-        console.log(err);
         return res.redirect('/register');
       }
-
-      user.uid = user.id;
-      user.token = sailsTokenAuth.issueToken(user.id);
-      user.save(
-        function (err) {
-          console.log('saving records for user');
+      var body_json = JSON.parse(body);
+      console.log("The body.success is:", body_json.success);
+      if (body_json.success) {
+        User.create(params_needed, function userCreated(err, user) {
+          if (err) {
+            req.session.flash = {
+              err: "Error: Couldn't register"
+            };
+            console.log(err);
+            return res.redirect('/register');
+          }
+  
+          user.uid = user.id;
+          user.token = sailsTokenAuth.issueToken(user.id);
+          user.save(
+            function (err) {
+              console.log('saving records for user');
+            }
+            );
+            //console.log(user);
+  
+  
+            req.session.authenticated = true;
+            req.session.User = user;
+  
+  
+            req.session.flash = {
+              success: "Successfully Registered!",
+              ip: us_ip,
+              response: us_response
+            };
+          //Mailer.sendWelcomeMail(user);
+          //return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
+          return res.redirect('/agenda');
         }
-      );
-      //console.log(user);
-
-
-      req.session.authenticated = true;
-      req.session.User = user;
-
-
-      req.session.flash = {
-        success: "Successfully Registered!",
-        //ip: us_ip,
-        //response: us_response
-      };
-      //Mailer.sendWelcomeMail(user);
-      return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
-      //return res.redirect('/register');
-
-  });
+        );
+      }
+      else {
+        req.session.flash = {
+          err: "Error: Couldn't Verify ReCaptcha"
+        };
+        return res.redirect('/register');
+      }
+    })
   },
+
+
+  // create : function (req, res, next) {
+
+  //   User.create(req.params.all(), function userCreated(err, user) {
+  //     if (err) {
+  //       req.session.flash = {
+  //         err: "Error: Couldn't register"
+  //       };
+  //       console.log(err);
+  //       return res.redirect('/register');
+  //     }
+
+  //     user.uid = user.id;
+  //     user.token = sailsTokenAuth.issueToken(user.id);
+  //     user.save(
+  //       function (err) {
+  //         console.log('saving records for user');
+  //       }
+  //     );
+  //     //console.log(user);
+
+
+  //     req.session.authenticated = true;
+  //     req.session.User = user;
+
+
+  //     req.session.flash = {
+  //       success: "Successfully Registered!",
+  //       //ip: us_ip,
+  //       //response: us_response
+  //     };
+  //     //Mailer.sendWelcomeMail(user);
+  //     return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
+  //     //return res.redirect('/register');
+
+  // });
+  // },
 
   show: function(req, res, next) {
 

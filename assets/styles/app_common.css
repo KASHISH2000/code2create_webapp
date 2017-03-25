@@ -6,6 +6,11 @@ Theme green: #1eb76e;
 body,html{
 	overflow-x: hidden !important;
 }
+body{
+	/*background-image: url('/images/background.png') !important;
+	background-size: cover;
+	background-repeat: repeat;*/
+}
 .margin-0{
 	margin: 0px !important;
 }
