@@ -13,6 +13,18 @@
         color: green;
         padding: 10px;
       }
+      .accept-but{
+        padding: 0.5rem 0.9rem;
+        border: none !important;
+        box-shadow: none !important;
+        background-color: #1eb76e !important;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .accept-but:hover{
+        background-color: #10844c !important;
+      }
       [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
         border: 2px solid #1eb76e;
       }
@@ -30,7 +42,7 @@
      </div>
      <div class="my-main-card hoverable">
 
-      <% if(typeof err == 'undefined' && !err){ %>
+      <% if(typeof err == 'undefined' || !err){ %>
       <table class="bordered striped responsive-table white-text">
         <thead>
           <td>teamid</td>
@@ -67,7 +79,7 @@
             <td class="center">
               <form action="/team/acceptedRequest">
                 <input type="hidden" name="id" value="<%=reqview.id%>">
-                <input type="submit" value="Accept" class="send-req-but smooth-transition"/>
+                <input type="submit" value="Accept" class="accept-but smooth-transition"/>
               </form>
             </td>
           </tr>

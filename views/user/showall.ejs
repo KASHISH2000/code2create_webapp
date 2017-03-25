@@ -90,24 +90,54 @@
         </tr>
 
         <%});%>
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
   </div>
+</div>
 
 
-  <%- partial('../partials/footer.ejs') %>
-  <%- partial('../partials/commonScripts.ejs') %>
-  <script type="text/javascript">
-   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-    sweetAlert("Error", "<%=flash.err%>", "error");
-    <% } %>
-    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
     sweetAlert("success", "<%=flash.success%>", "success");
     <% } %>
   </script>
- <script type="text/javascript">
-   $(".must_admin").click(function(){
+  <script type="text/javascript">
+    $.get("http://localhost:1337/navbar/getinfo", function (data, status) {
+      if (!data || !data.username)
+        console.log("Failure!", "Couldn't fetch navbar/getinfo from all user");
+      else {
+        console.log("successfully fetched navbar/getinfo");
+        username_togive=data.username;
+        console.log("The username is:"+username_togive);
+        var is_team=data.anotherTeam;
+        var is_admin=data.admin;
+        cur_is_admin=is_admin;
+        if(is_team)
+        {
+          if(is_admin){
+             console.log("Here i am");
+          }
+          else{
+            console.log("Here i am");
+            $(".send-req-but").addClass('disabled');
+            $(".send-req-but").addClass('must_admin');
+          }
+        }
+        else{
+        
+        }
+
+      }
+    });
+
+
+
+    $(".must_admin").click(function(){
      sweetAlert("Not Allowed", "You must be an admin of a team to send request", "error");
-   })
+   });
  </script>

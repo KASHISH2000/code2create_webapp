@@ -620,7 +620,8 @@ module.exports = {
       if(requestview.length > 0){
         //return res.status(200).json(requestview);
         res.view({
-          requestview : requestview
+          requestview : requestview,
+          err: false
         });
       }
       else{
