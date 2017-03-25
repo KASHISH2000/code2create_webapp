@@ -2,6 +2,7 @@
 var array = [];
 var passport = require('passport');
 var i = 0;
+var priorityarray = [1,2,3,4];
 
 module.exports = {
 
@@ -17,10 +18,15 @@ module.exports = {
     console.log("Here is the loggedn user");
     console.log(user);
 
+    var temparvr = req.param('arvr');
+    var temphelc = req.param('helc');
+    var tempfint = req.param('fint');
+    var tempclen = req.param('clen');
 
-    if((user.arvr in priorityarray) &&  (user.helc in priorityarray) && (user.fint in priorityarray) && (user.clen in priorityarray)){
 
-      if ((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.fint === user.clen)) {
+    if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
+
+      if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
         req.session.flash = {
           err: "Cannot select two same priorities."
         };
@@ -235,12 +241,12 @@ module.exports = {
 
     user = req.session.User;
 
-    var team_arvr = req.param('arvr');
-    var team_helc = req.param('helc');
-    var team_fint = req.param('fint');
-    var team_clen = req.param('clen');
-    var team_description = req.param('description');
 
+    var temparvr = req.param('arvr');
+    var temphelc = req.param('helc');
+    var tempfint = req.param('fint');
+    var tempclen = req.param('clen');
+    var team_description = req.param('description');
 
 
     var update_params_needed = {
@@ -253,9 +259,12 @@ module.exports = {
     };
 
 
-    if((user.arvr in priorityarray) &&  (user.helc in priorityarray) && (user.fint in priorityarray) && (user.clen in priorityarray)){
 
-      if ((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.fint === user.clen)) {
+
+
+    if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
+
+      if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
         req.session.flash = {
           err: "Cannot select two same priorities."
         };
