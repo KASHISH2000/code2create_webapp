@@ -21,4 +21,8 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  models: {
+    connection: 'MongoConnection_mlab'
+  }
+
 };

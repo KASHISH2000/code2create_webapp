@@ -12,6 +12,9 @@
 
 module.exports = {
 
+  port: process.env.port,
+  hookTimeout: 300000
+
   /***************************************************************************
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *

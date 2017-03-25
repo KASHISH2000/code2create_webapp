@@ -2,14 +2,49 @@
 var array = [];
 var passport = require('passport');
 var i = 0;
-var priorityarray = [1,2,3,4];
+var priorityarray = ["1","2","3","4"];
 
 module.exports = {
 
-  'new' : function (req, res) {
-    res.view();
+  new : function (req, res) {
+    var count = 0;
+
+    user = req.session.User;
+
+    Team.find(function foundTeams(err, teams) {
+      teams.forEach(function (team) {
+        count = count + 1;
+        for(var i=0 ; i<team.memberAccepted.length; i++) {
+          if (team.memberAccepted[i] === user.id) {
+
+            console.log("Already team mai hai");
+            count = 10000000;
+
+
+          }
+        }
+      });
+      console.log(count);
+      if(count === teams.length){
+
+        res.view();
+        return;
+      }
+      else{
+        req.session.flash = {
+          err: "You are already a part of team."
+        };
+        return res.redirect('/team/myteam');
+      }
+
+
+    });
+
+
 
   },
+
+
 
   //this will creata a team.
   create : function(req, res, next) {
@@ -24,7 +59,6 @@ module.exports = {
     var tempclen = req.param('clen');
 
 
-    if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
 
       if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
         req.session.flash = {
@@ -32,7 +66,7 @@ module.exports = {
         };
         return res.redirect('/team/new');
       }
-    }
+
 
     if(user) {
       Team.create(req.params.all(), function teamCreated(err, team) {
@@ -243,26 +277,22 @@ module.exports = {
 
 
     var update_params_needed = {
-      arvr : team_arvr,
-      helc : team_helc,
-      fint : team_fint,
-      clen : team_clen,
-      description : team_description,
+      arvr : temparvr,
+      helc : temphelc,
+      fint : tempfint,
+      clen : tempclen,
+      description : team_description
 
     };
 
 
 
 
-
-    if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
-
-      if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
-        req.session.flash = {
-          err: "Cannot select two same priorities."
-        };
-        return res.redirect('/team/new');
-      }
+    if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
+      req.session.flash = {
+        err: "Cannot select two same priorities."
+      };
+      return res.redirect('/team/new');
     }
 
 
@@ -273,7 +303,7 @@ module.exports = {
       if(err){
 
         req.session.flash = {
-          err : "Something went wrong while updating, please fill correct details."
+          err : "Something went wrong while updating, please fill details properly."
         };
         return res.redirect('/team/myteam/');
       }
@@ -334,8 +364,8 @@ module.exports = {
                 //         console.log(team.memberAccepted[k] +  req.param('id'));
                 //         //console.log("user id is :");
                 //         //console.log(userid);
-                if (team.memberAccepted[k] === parseInt(userid)) {
-                  if (team.admin != parseInt(userid)) {
+                if (team.memberAccepted[k] === (userid)) {
+                  if (team.admin != (userid)) {
                     console.log("Inside for loop");
                     temp = 3;
                     count = 100000000;
@@ -397,8 +427,8 @@ module.exports = {
     Team.findOne(req.param('id'), function foundTeam(err, team) {
 
       for (var i = 0; i < 3; i++) {
-        if (team.memberAccepted[i] === parseInt(user.uid)) {
-          if(parseInt(user.uid) != team.admin) {
+        if (team.memberAccepted[i] === (user.uid)) {
+          if((user.uid) != team.admin) {
             (team.memberAccepted).splice(i, 1);
           }
           else{
@@ -437,7 +467,7 @@ module.exports = {
     }, function foundTeam(err, team) {
       User.findOne(req.param('uid'), function foundUser(err, user) {
 
-        if (team.admin === parseInt(user.uid)) {
+        if (team.admin === (user.uid)) {
           //if admin wants to delete itself
 
           if(team.memberAccepted.length > 1) {
@@ -461,7 +491,7 @@ module.exports = {
       else {
           //if admin wants to delete another user.
           for (var i = 0; i < 3; i++) {
-            if (team.memberAccepted[i] === parseInt(user.uid)) {
+            if (team.memberAccepted[i] === (user.uid)) {
               (team.memberAccepted).splice(i, 1);
             }
 
@@ -535,9 +565,19 @@ module.exports = {
 
 
 
-        console.log(team.reciever);
-        if (err) return next(err);
-        if (!team) return next();
+        //console.log(team.reciever);
+        if (err) {
+          req.session.flash = {
+            err: "Create your team first, to send requests"
+          };
+          return res.redirect('/user/showall');
+        }
+        if (!team) {
+          req.session.flash = {
+            err: "Create your team first, to send requests"
+          };
+          return res.redirect('/user/showall');
+        }
 
         if (team) {
           if (team.admin != team.reciever) {
