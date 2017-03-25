@@ -17,15 +17,15 @@
     </a>
   </li>
   <li class="my_team_li">
-    <a href="/team/myteam" 
+    <a href="/team/myteam"
     <% if(active=='myteam'){ %>
-    class='active-colour' 
+    class='active-colour'
     <% } %>
     ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="myteam_span"></span></a>
   </li>
-  <li class="create_a_team_li"><a href="/team/new" 
+  <li class="create_a_team_li"><a href="/team/new"
    <% if(active=='teamNew'){ %>
-   class='active-colour' 
+   class='active-colour'
    <% } %>
    ">
    <i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a>
@@ -39,31 +39,31 @@
       <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="navlink a-home 
+        <li><a class="navlink a-home
          <% if(active=='rules'){ %>
          nav-active
          <% } %>
          " href="/rules">Rules</a>
        </li>
-       <li><a class="navlink a-home 
+       <li><a class="navlink a-home
          <% if(active=='agenda'){ %>
          nav-active
          <% } %>
-         " href="/agenda">agenda</a>
+         " href="/agenda">Agenda</a>
        </li>
-       <li><a class="navlink a-home 
+       <li><a class="navlink a-home
          <% if(active=='teamShowall'){ %>
          nav-active
          <% } %>
          " href="/team/showall">All Teams</a>
        </li>
-       <li><a class="navlink a-home 
+       <li><a class="navlink a-home
         <% if(active=='userShowall'){ %>
         nav-active
         <% } %>
         " href="/user/showall">All Members</a>
       </li>
-      <li><a href="/team/viewrequest" class="navlink a-home 
+      <li><a href="/team/viewrequest" class="navlink a-home
        <% if(active=='teamViewrequest'){ %>
        nav-active
        <% } %>
@@ -85,6 +85,34 @@
   </li>
   <li><a class="navlink a-home" href="/viewrequests">View Requests</a>
   </li>
+     <li>
+         <a href="/user/edit">
+             <div class="user-info-nav
+        <% if(active=='userEdit'){ %>
+        active-colour
+        <% } %>
+        ">
+                 <i class="fa fa-user fa-2x ver-align-middle" aria-hidden="true"></i>
+                 <span id="usernameField"></span>
+             </div>
+         </a>
+     </li>
+     <li class="my_team_li">
+         <a href="/team/myteam"
+                 <% if(active=='myteam'){ %>
+            class='active-colour'
+                 <% } %>
+         ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="myteam_span"></span></a>
+     </li>
+     <li class="create_a_team_li"><a href="/team/new"
+             <% if(active=='teamNew'){ %>
+                                     class='active-colour'
+         <% } %>
+         ">
+         <i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a>
+     </li>
+     <li class="divider"></li>
+     <li><a href="/session/destroy">Logout</a></li>
 </ul>
 </div>
 </nav>
