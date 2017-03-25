@@ -214,6 +214,44 @@ module.exports = {
 
   },
 
+  update : function(req,res,next){
+
+    user = req.session.User;
+
+    var team_arvr = req.param('arvr');
+    var team_helc = req.param('helc');
+    var team_fint = req.param('fint');
+    var team_clen = req.param('clen');
+    var team_description = req.param('description');
+
+
+
+    var update_params_needed = {
+      arvr : team_arvr,
+      helc : team_helc,
+      fint : team_fint,
+      clen : team_clen,
+      description : team_description,
+
+    };
+
+
+    Team.update({
+      admin : user.id
+    },update_params_needed, function teamUpdated(err){
+      if(err){
+
+        req.session.flash = {
+          err : "Something went wrong while updating, please fill correct details."
+        };
+        return res.redirect('/team/myteam/');
+      }
+      req.session.flash = {
+        success : "Successfully updated"
+      };
+      return res.redirect('/team/myteam/');
+    });
+  },
 
 
   //this will show team of admin(if admin), user's team (if not admin, and available in any team).
@@ -225,7 +263,7 @@ module.exports = {
     user = req.session.User;
     userid = user.id;
 
-    Team.find({
+    Team.findOne({
       admin: user.id
     }).then(function (team) {
       console.log("Team is :");
@@ -325,8 +363,9 @@ module.exports = {
 
   leaveteam : function(req,res,next) {
 
+    user = req.session.User;
+
     Team.findOne(req.param('id'), function foundTeam(err, team) {
-      User.findOne(req.param('uid'), function foundUser(err, user) {
 
         for (var i = 0; i < 3; i++) {
           if (team.memberAccepted[i] === parseInt(user.uid)) {
@@ -339,7 +378,7 @@ module.exports = {
                 err: "Bad Request"
               };
               //res.status(400).json("Bad Request");
-              return res.redirect('back');
+              return res.redirect('team/showall');
             }
           }
         }
@@ -349,26 +388,28 @@ module.exports = {
           }
           );
 
-        res.view({
-          team: team
-        });
-        return;
+      return res.redirect('team/myteam');
+      return;
         //res.status(200).json(team);
 
 
-      })
     })
 
   },
 
   removemember : function(req,res,next) {
 
-    Team.findOne(req.param('id'), function foundTeam(err, team) {
+    user = req.session.User;
+
+    Team.findOne({
+      admin : user.id
+    }, function foundTeam(err, team) {
       User.findOne(req.param('uid'), function foundUser(err, user) {
 
         if (team.admin === parseInt(user.uid)) {
+          //if admin wants to delete itself
 
-          if(team.memberAccepted.length != 1) {
+          if(team.memberAccepted.length < 2) {
 
 
             req.session.flash = {
@@ -378,7 +419,7 @@ module.exports = {
           // res.status(200).json({
           //   message: "You should first remove other members to destroy team"
           // });
-          return res.redirect('back');
+          return res.redirect('/team/myteam');
         }
         else{
           (team.memberAccepted).splice(0, 1);
@@ -387,6 +428,7 @@ module.exports = {
         }
       }
       else {
+          //if admin wants to delete another user.
         for (var i = 0; i < 3; i++) {
           if (team.memberAccepted[i] === parseInt(user.uid)) {
             (team.memberAccepted).splice(i, 1);
@@ -400,9 +442,11 @@ module.exports = {
         }
         );
 
-      res.view({
-        team : team
-      });
+        req.session.flash = {
+          success : "Successfully removed!"
+        };
+
+        return res.redirect('/team/myteam');
         //res.status(200).json(team);
       })
     })
@@ -445,7 +489,7 @@ module.exports = {
     },req.params.all(), function teamUpdated(err){
       if(err){
         req.session.flash = {
-          err: err
+          err: "Bad request"
         };
         return res.redirect('/user/showall');
         //res.status(200).json(err);
@@ -700,17 +744,39 @@ module.exports = {
 
 
   destroyyTeam: function(req, res, next) {
-    Team.findOne(req.param('id'), function foundTeam(err, team) {
+    user = req.session.User;
 
-      if (err) return next(err);
+    Team.findOne({
+      admin : user.id
+    }, function foundTeam(err, team) {
 
-      if(!team) return next('Team doesn\'t exist ');
+      if (err) {
+        req.session.flash = {
+          err : "No team members for your team"
+        };
+        res.redirect('/team/myteam');
+        return;
+      }
+
+      if(!team) {
+        req.session.flash = {
+          err : "Team doesn\'t exist "
+        };
+        res.redirect('/team/myteam');
+        return;
+
+      }
 
       Team.destroy(req.param('id'), function teamDestroyed(err){
         if(err) return next(err);
       });
 
-      res.redirect('/team/showallteams');
+      req.session.flash = {
+        success : "Successfully destroyed team"
+      };
+
+      res.redirect('/team/showall');
+
 
 
     });
