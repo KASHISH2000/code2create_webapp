@@ -23,7 +23,6 @@ module.exports = {
     var tempfint = req.param('fint');
     var tempclen = req.param('clen');
 
-
     if((temparvr in priorityarray) &&  (temphelc in priorityarray) && (tempfint in priorityarray) && (tempclen in priorityarray)){
 
       if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
@@ -347,8 +346,8 @@ module.exports = {
                 //         console.log(team.memberAccepted[k] +  req.param('id'));
                 //         //console.log("user id is :");
                 //         //console.log(userid);
-                if (team.memberAccepted[k] === parseInt(userid)) {
-                  if (team.admin != parseInt(userid)) {
+                if (team.memberAccepted[k] === (userid)) {
+                  if (team.admin != (userid)) {
                     console.log("Inside for loop");
                     temp = 3;
                     count = 100000000;
@@ -410,8 +409,8 @@ module.exports = {
     Team.findOne(req.param('id'), function foundTeam(err, team) {
 
         for (var i = 0; i < 3; i++) {
-          if (team.memberAccepted[i] === parseInt(user.uid)) {
-            if(parseInt(user.uid) != team.admin) {
+          if (team.memberAccepted[i] === (user.uid)) {
+            if((user.uid) != team.admin) {
               (team.memberAccepted).splice(i, 1);
             }
             else{
@@ -448,10 +447,10 @@ module.exports = {
     }, function foundTeam(err, team) {
       User.findOne(req.param('uid'), function foundUser(err, user) {
 
-        if (team.admin === parseInt(user.uid)) {
+        if (team.admin === (user.uid)) {
           //if admin wants to delete itself
 
-          if(team.memberAccepted.length < 2) {
+          if(team.memberAccepted.length > 1) {
 
 
             req.session.flash = {
@@ -472,7 +471,7 @@ module.exports = {
       else {
           //if admin wants to delete another user.
         for (var i = 0; i < 3; i++) {
-          if (team.memberAccepted[i] === parseInt(user.uid)) {
+          if (team.memberAccepted[i] === (user.uid)) {
             (team.memberAccepted).splice(i, 1);
           }
 
