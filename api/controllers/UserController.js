@@ -34,6 +34,7 @@ module.exports = {
   //   var us_linkedin = req.param('linkedin');
   //   var us_response = req.param('g-recaptcha-response');
   //   var us_ip = req.ip;
+  //   var us_gender = req.param('gender');
   //   var us_password = req.param('password');
   //   var us_confirmation = req.param('confirmation');
   //
@@ -49,6 +50,7 @@ module.exports = {
   //     regno: us_regno,
   //     phoneno: us_phoneno,
   //     email: us_email,
+  //     gender : us_gender,
   //     username: us_username,
   //     internal_external: us_internal_external,
   //     college_name: us_college_name,

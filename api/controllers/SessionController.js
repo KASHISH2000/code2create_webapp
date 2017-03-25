@@ -21,7 +21,7 @@ module.exports = {
   create: function (req, res, next) {
    if(req.session.authenticated)
    {
-    redirect('/session/welcome');
+    res.redirect('/session/welcome');
     return;
   }
   console.log("Inside session create function");

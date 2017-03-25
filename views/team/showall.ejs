@@ -28,7 +28,16 @@
    <p class="margin-bottom-0 white-text">List of all teams</p>
   </div>
   <div class="my-main-card hoverable">
-
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+      <div class="error center">
+        <h5 class="center"> <%= flash.err %></h5>
+      </div>
+      <% } %>
+      <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
+      <div class="success center">
+        <h5 class="center"><%= flash.success %></h5>
+      </div>
+      <% } %>
     <div class="table-wrap">
       <table class="bordered striped responsive-table white-text">
         <thead>
