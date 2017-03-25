@@ -271,7 +271,7 @@ module.exports = {
       console.log("User id is :" + user.id);
 
 
-      if (team.length > 0) {
+      if (team) {
         temp = 1;
         console.log("Inside team");
 
@@ -344,13 +344,11 @@ module.exports = {
               //   message : "Sorry, you are not a part of any team yet.Create your own team now."
               // });
               // return;
-              req.session.flash = {
-                err: "Sorry, you are not a part of any team yet.Create your own team now"
-              };
-
 
               //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
-              return res.redirect('back');
+              return res.view({
+                err : "Sorry, you are not a part of any team yet.Create your own team now"
+              });
 
             }
           });
@@ -615,10 +613,10 @@ module.exports = {
       }
       else{
         //return res.status(200).json("Sorry, you are not a part of any team");
-        req.session.flash = {
-          err: "You have received no request for joining team"
-        };
+
+
         res.view({
+          err : "You have received no request for joining team",
           requestview : requestview
         });
       }

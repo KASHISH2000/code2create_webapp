@@ -97,7 +97,7 @@
        console.log("User id is :" + user.id);
 
 
-       if (team.length > 0) {
+       if (team) {
          temp = 1;
          console.log("Inside team");
 
@@ -195,6 +195,7 @@
 
      userid = req.param('id');
 
+
      Team.findOne({
        admin: userid
      }).then(function (team) {
@@ -203,21 +204,22 @@
        console.log("User id is :" + userid);
 
 
-       if (team.length > 0) {
-         temp = 1;
-         console.log("Inside team");
+       if(team) {
+           temp = 1;
+           console.log("Inside team");
 
-         res.status(200).json({
-           team: team,
-           admin: true
-         });
-         return;
+           res.status(200).json({
+             team: team,
+             admin: true
+           });
+           return;
 
-         // res.view({
-         //   team: team,
-         //   admin: true
-         // });
-         //return;
+           // res.view({
+           //   team: team,
+           //   admin: true
+           // });
+           //return;
+
 
        }
 

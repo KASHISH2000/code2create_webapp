@@ -86,6 +86,11 @@ module.exports = {
       type : 'string'
     },
 
+    gender : {
+      type : 'string',
+      required : true
+    },
+
     encryptedPassword: {
       type: 'string'
     },
