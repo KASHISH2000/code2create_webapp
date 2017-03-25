@@ -115,7 +115,7 @@
 <%- partial('../partials/commonScripts.ejs') %>
   <script type="text/javascript">
 //get the info of currently logged in user
-$.get("http://localhost:1337/navbar/anyuserteam/<%=user.username%>", function (data, status) {
+$.get("http://localhost:1337/navbar/anyuserteam/<%=user.id%>", function (data, status) {
   var teamname_togive="undefined";
   if (!data)
     console.log("Failure!", "Couldn't fetch navbar/getinfo");

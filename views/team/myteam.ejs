@@ -140,7 +140,7 @@
       </p>
       <p class="detail-answer margin-bottom-0">
        <i class="material-icons prefix ver-align-middle white-text">account_circle</i>
-       <span class="ver-align-middle"><a href="/team/show/<%=team[0].teamName%>" class="underline-wala"><%=team[0].teamName%></a></span>
+       <span class="ver-align-middle"><a href="/team/show/<%=team[0].teamName%>" class="underline-wala"><%=team.teamName%></a></span>
      </p>
    </div>
    <div class="row">
@@ -185,7 +185,7 @@
 </div>
 </div>
 <div class="input-field col s12 m12">
-  <textarea id="description" class="validate materialize-textarea" name="description"><%=team[0].description%></textarea>
+  <textarea id="description" class="validate materialize-textarea" name="description"><%=team.description%></textarea>
   <label for="description">Description of your project...</label>
 </div>
 <div class="row">
@@ -214,20 +214,20 @@
       <% } %>
     </thead>
     <tbody>
-      <% _.each(team[0].memberAccepted,function(memberid){ %>
+      <% _.each(team.memberAccepted,function(memberid){ %>
       <tr>
        <td><a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
         <span id="<%=memberid%>_username"></span>
-        <% if(memberid==team[0].admin){ %>
+        <% if(memberid==team.admin){ %>
         <img src="/images/admin.png" class="admin-img">
         <%}%></a></td>
         <td> <span id="<%=memberid%>_name"></span></td>
         <td> <span id="<%=memberid%>_description"></span></td>
         <td><span class="team-status team-status-joined">Joined</span></td>
-        <% if(admin && !memberid==team[0].admin) {%>
+        <% if(admin && !memberid==team.admin) {%>
         <td>
           <form action="/team/removemember" method="POST">
-            <input type="hidden" name="id" value="<%=team[0].id%>">
+            <input type="hidden" name="id" value="<%=team.id%>">
             <input type="hidden" name="uid" value="<%=memberid%>">
             <button type="submit" class="team-status team-remove" value="remove"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
           </form>
@@ -239,7 +239,7 @@
       </tr>
 
       <% }); %>
-      <% _.each(team[0].memberSend,function(memberid){ %>
+      <% _.each(team.memberSend,function(memberid){ %>
       <tr>
         <td>
           <a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
@@ -249,7 +249,7 @@
         <td> <span id="<%=memberid%>_name"></span></td>
         <td> <span id="<%=memberid%>_description"></span></td>
         <td><span class="team-status team-status-requested">requested</span></td>
-        <% if(admin && !memberid==team[0].admin) {%>
+        <% if(admin && !memberid==team.admin) {%>
         <td>
         </td>
         <% } %>
@@ -303,19 +303,19 @@
 </script>
 <script type="text/javascript">
   $(".track-col").addClass("selected");
-  $("#track-col_arvr").find('.rank-disp').html(<%=team[0].arvr%>);
-  $("#track-col_arvr").find('.inp_track').val(<%=team[0].arvr%>);
-  rank[parseInt(<%=team[0].arvr%>)]=true;
+  $("#track-col_arvr").find('.rank-disp').html(<%=team.arvr%>);
+  $("#track-col_arvr").find('.inp_track').val(<%=team.arvr%>);
+  rank[parseInt(<%=team.arvr%>)]=true;
 
-  $("#track-col_helc").find('.rank-disp').html(<%=team[0].helc%>);
-  $("#track-col_helc").find('.inp_track').val(<%=team[0].helc%>);
-  rank[parseInt(<%=team[0].helc%>)]=true;
+  $("#track-col_helc").find('.rank-disp').html(<%=team.helc%>);
+  $("#track-col_helc").find('.inp_track').val(<%=team.helc%>);
+  rank[parseInt(<%=team.helc%>)]=true;
 
-  $("#track-col_fint").find('.rank-disp').html(<%=team[0].fint%>);
-  $("#track-col_fint").find('.inp_track').val(<%=team[0].fint%>);
-  rank[parseInt(<%=team[0].fint%>)]=true;
+  $("#track-col_fint").find('.rank-disp').html(<%=team.fint%>);
+  $("#track-col_fint").find('.inp_track').val(<%=team.fint%>);
+  rank[parseInt(<%=team.fint%>)]=true;
 
-  $("#track-col_clen").find('.rank-disp').html(<%=team[0].clen%>);
-  $("#track-col_clen").find('.inp_track').val(<%=team[0].clen%>);
+  $("#track-col_clen").find('.rank-disp').html(<%=team.clen%>);
+  $("#track-col_clen").find('.inp_track').val(<%=team.clen%>);
   rank[parseInt(<%=team[0].clen%>)]=true;
 </script>

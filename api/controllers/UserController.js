@@ -8,7 +8,7 @@ module.exports = {
   'new' : function (req, res) {
     if(req.session.authenticated)
     {
-      redirect('/session/welcome');
+      res.redirect('/session/welcome');
       return;
     }
     res.view();

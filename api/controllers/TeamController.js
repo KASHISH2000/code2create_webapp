@@ -348,7 +348,7 @@ module.exports = {
                 err: "Sorry, you are not a part of any team yet.Create your own team now"
               };
 
-
+              console.log("going back");
               //res.status(200).json("Sorry, you are not a part of any team yet.Create your own team now.");
               return res.redirect('back');
 
