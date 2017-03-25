@@ -29,22 +29,8 @@
        <p class="margin-bottom-0 white-text">Here you will see all the invitations that you received for joining teams.</p>
      </div>
      <div class="my-main-card hoverable">
-      <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-      <div class="error center">
-        <h5 class="center"> <%= flash.err %></h5>
-      </div>
-      <% } %>
-       <% if(typeof err !== 'undefined' && err){ %>
-      <div class="error center">
-        <h5 class="center"> <%= err %></h5>
-      </div>
-      <% } %>
-      <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
-      <div class="success center">
-        <h5 class="center"><%= flash.success %></h5>
-      </div>
-      <% } %>
 
+      <% if(typeof err == 'undefined' && !err){ %>
       <table class="bordered striped responsive-table white-text">
         <thead>
           <td>teamid</td>
@@ -54,43 +40,56 @@
           <td title="Accept Invitation to join a team (only if you are not a team member)">Accept Invitation</td>
         </thead>
         <tbody>
-         <% _.each(requestview, function(reqview) {
-         var trackk='';
-         if(reqview.arvr=='1')
-         trackk='AR/VR';
-         else if(reqview.helc=='1')
-         trackk='Health Care';
-         else if(reqview.fint=='1')
-         trackk='FinTech';
-         else if(reqview.clen=='1')
-         trackk='Clean Energy';
-         else
-         trackk='not found';
-         %>
-         <tr>
-          <td>
-            <a href="/team/show/<%=reqview.teamName%>" class="ver-align-middlee underline-wala"><%=reqview.teamName%></a>
-          </td>
-          <td><%=trackk%></td>
-          <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=reqview.description%>
+          <% _.each(requestview, function(reqview) {
+          var trackk='';
+          if(reqview.arvr=='1')
+          trackk='AR/VR';
+          else if(reqview.helc=='1')
+          trackk='Health Care';
+          else if(reqview.fint=='1')
+          trackk='FinTech';
+          else if(reqview.clen=='1')
+          trackk='Clean Energy';
+          else
+          trackk='not found';
+          %>
+          <tr>
+            <td>
+              <a href="/team/show/<%=reqview.teamName%>" class="ver-align-middlee underline-wala"><%=reqview.teamName%></a>
+            </td>
+            <td><%=trackk%></td>
+            <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=reqview.description%>
 
-          </td>
-          <td>
-            <a href="/team/show/<%=reqview.teamAdmin%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
-          </td>
-          <td class="center">
-            <form action="/team/acceptedRequest">
-              <input type="hidden" name="id" value="<%=reqview.id%>">
-              <input type="submit" value="Accept" class="send-req-but smooth-transition"/>
-            </form>
-          </td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+            </td>
+            <td>
+              <a href="/team/show/<%=reqview.teamAdmin%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
+            </td>
+            <td class="center">
+              <form action="/team/acceptedRequest">
+                <input type="hidden" name="id" value="<%=reqview.id%>">
+                <input type="submit" value="Accept" class="send-req-but smooth-transition"/>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+        <% } %>
+      <% if(typeof err !== 'undefined' && err){ %>
+      <h5 class="center white-text"><%=err%></h5>
+      <% } %>
+    </div>
   </div>
-</div>
 
 
-<%- partial('../partials/footer.ejs') %>
-<%- partial('../partials/commonScripts.ejs') %>
+  <%- partial('../partials/footer.ejs') %>
+  <%- partial('../partials/commonScripts.ejs') %>
+
+  <script type="text/javascript">
+    <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+      sweetAlert("Error", "<%=flash.err%>", "error");
+      <% } %>
+      <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+        sweetAlert("success", "<%=flash.success%>", "success");
+        <% } %>
+      </script>

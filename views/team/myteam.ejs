@@ -91,7 +91,7 @@
   }
   .team-status-joined{
     background-color: #1eb76e !important;
-    opacity: 0.8;
+    opacity: 1;
   }
 
   .team-status-requested{
@@ -139,18 +139,9 @@
   <div class="heading-bg">
     <h5 class="left-align white-text main-heading">Your Team</h5>
   </div>
+  <% if(typeof team !== 'undefined' && team) { %>
   <div class="my-main-card hoverable">
     <div class="row">
-      <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-      <div class="error center">
-        <h5 class="center"> <%= flash.err %></h5>
-      </div>
-      <% } %>
-      <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
-      <div class="success center">
-        <h5 class="center"><%= flash.success %></h5>
-      </div>
-      <% } %>
       <% if(admin) { %>
       <form action="/team/update" method="POST" id="teamForm" autocomplete="on">
         <% } %>
@@ -276,7 +267,7 @@
             <td> <span id="<%=memberid%>_name"></span></td>
             <td> <span id="<%=memberid%>_description"></span></td>
             <td><span class="team-status team-status-joined">Joined</span></td>
-            <% if(admin && !memberid==team.admin) {%>
+            <% if(admin && !(memberid==team.admin)) {%>
             <td>
               <form action="/team/removemember" method="POST">
                 <input type="hidden" name="uid" value="<%=memberid%>">
@@ -300,7 +291,7 @@
             <td> <span id="<%=memberid%>_name"></span></td>
             <td> <span id="<%=memberid%>_description"></span></td>
             <td><span class="team-status team-status-requested">requested</span></td>
-            <% if(admin && !memberid==team.admin) {%>
+            <% if(admin && !(memberid==team.admin)) {%>
             <td>
             </td>
             <% } %>
@@ -314,6 +305,10 @@
     </div>
   </div>
 </div>
+<% } %>
+<% if(typeof team == 'undefined' || !team){ %>
+<h3 class="center white-text">You are not a part of any team. Please <a href="/team/new">Create your own team</a> first or accept invite from other team</h3>
+<% } %>
 </div>
 
 <%- partial('../partials/footer.ejs') %>
@@ -375,4 +370,13 @@
     $("#track-col_clen").find('.inp_track').val(<%=team.clen%>);
     var r4=<%=team.clen%> -1;
     rank[r4]=true;
+  </script>
+
+    <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
   </script>

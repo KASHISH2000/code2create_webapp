@@ -23,8 +23,27 @@
 
 
 <%- partial('../partials/navbar.ejs', {active: 'userEdit'}) %>
-<h4 class="center white-text">Welcome ....</h4>
-<br><br><br><br><br>s
+
+<div class="container">
+ <div class="heading-bg">
+   <h5 class="left-align white-text main-heading">Welcome</h5>
+ </div>
+ <div class="my-main-card hoverable">
+ <p class="white-text">Welcome to Code2Create Webapp! This app is made to handle registrations. Here you can <a href="/team/new">create a team</a>, and then send requests to others. Or you can accept request from others. 
+
+     This place if for more general info...content needed 
+   </p>
+ </div>
+</div>
 
 <%- partial('../partials/footer.ejs') %>
 <%- partial('../partials/commonScripts.ejs') %>
+
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>
