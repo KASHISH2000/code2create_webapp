@@ -93,16 +93,6 @@
    <h5 class="left-align white-text main-heading">Create A Team</h5>
  </div>
  <div class="my-main-card hoverable">
-  <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-  <div class="error center">
-    <h5 class="center"> <%= flash.err %></h5>
-  </div>
-  <% } %>
-  <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
-  <div class="success center">
-    <h5 class="center"><%= flash.success %></h5>
-  </div>
-  <% } %>
   <div class="row">
     <form action="/team/create" method="POST" id="teamForm" autocomplete="on">
       <div class="input-field col s12 m10 offset-m1">
@@ -226,3 +216,12 @@
     }
   });
 </script>
+
+  <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>

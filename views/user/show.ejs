@@ -136,3 +136,11 @@ $.get("http://localhost:1337/navbar/anyuserteam/<%=user.id%>", function (data, s
 }
 });
 </script>
+  <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>

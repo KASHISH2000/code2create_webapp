@@ -45,16 +45,6 @@
        <p class="margin-bottom-0 white-text">List of all members</p>
      </div>
      <div class="my-main-card hoverable">
-      <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-      <div class="error center">
-        <h5 class="center"> <%= flash.err %></h5>
-      </div>
-      <% } %>
-      <% if(typeof flash !== 'undefined' && typeof flash.success != 'undefined' && flash.success){ %>
-      <div class="success center">
-        <h5 class="center"><%= flash.success %></h5>
-      </div>
-      <% } %>
       <table class="bordered striped responsive-table white-text">
         <thead>
           <td>userid</td>
@@ -108,3 +98,16 @@
 
   <%- partial('../partials/footer.ejs') %>
   <%- partial('../partials/commonScripts.ejs') %>
+  <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>
+ <script type="text/javascript">
+   $(".must_admin").click(function(){
+     sweetAlert("Not Allowed", "You must be an admin of a team to send request", "error");
+   })
+ </script>
