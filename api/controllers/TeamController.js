@@ -58,7 +58,7 @@ module.exports = {
 
     if((!temparvr) || (!temphelc) || (!tempfint) || (!tempclen)){
         req.session.flash = {
-            err: "Please select all the fields according to your priority."
+            err: "Please select all the tracks according to your priority."
         };
         return res.redirect('/team/new');
     }
