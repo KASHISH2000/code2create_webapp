@@ -56,7 +56,14 @@ module.exports = {
 
 
 
-      if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
+    if((!temparvr) || (!temphelc) || (!tempfint) || (!tempclen)){
+        req.session.flash = {
+            err: "Please select all the fields according to your priority."
+        };
+        return res.redirect('/team/new');
+    }
+
+    if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
         req.session.flash = {
           err: "Cannot select two same priorities."
         };
