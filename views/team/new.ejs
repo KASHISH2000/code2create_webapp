@@ -89,7 +89,11 @@
 
  <%- partial('../partials/navbar.ejs',{active: 'teamNew'}) %>
  <div class="container">
- <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  <div class="heading-bg">
+   <h5 class="left-align white-text main-heading">Create A Team</h5>
+ </div>
+ <div class="my-main-card hoverable">
+  <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
   <div class="error center">
     <h5 class="center"> <%= flash.err %></h5>
   </div>
@@ -99,10 +103,6 @@
     <h5 class="center"><%= flash.success %></h5>
   </div>
   <% } %>
-  <div class="heading-bg">
-   <h5 class="left-align white-text main-heading">Create A Team</h5>
- </div>
- <div class="my-main-card hoverable">
   <div class="row">
     <form action="/team/create" method="POST" id="teamForm" autocomplete="on">
       <div class="input-field col s12 m10 offset-m1">
@@ -158,7 +158,7 @@
 <div class="row">
   <input type="hidden" name="_csrf" value="<%= _csrf %>">
   <div class="center-align">
-  <button type="submit" class="waves-effect btn sub-but" id="submit_mock">Submit <i
+    <button type="submit" class="waves-effect btn sub-but" id="submit_mock">Submit <i
       class="material-icons right">send</i>
     </button>
     <input type="submit" id="real_submit" value="Submit" class="hide" name="submit">

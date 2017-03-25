@@ -18,23 +18,6 @@ module.exports = {
     console.log(user);
 
 
-    if((user.arvr in priorityarray) &&  (user.helc in priorityarray) && (user.fint in priorityarray) && (user.clen in priorityarray)){
-
-      if ((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.fint === user.clen)) {
-        req.session.flash = {
-          err: "Cannot select two same priorities."
-        };
-        return res.redirect('/team/new');
-      }
-    }
-    else{
-      req.session.flash = {
-        err: "Please select priorities correctly"
-      };
-      return res.redirect('/team/new');
-
-    }
-
     if(user) {
       Team.create(req.params.all(), function teamCreated(err, team) {
         if (err) {
@@ -253,24 +236,6 @@ module.exports = {
     };
 
 
-    if((user.arvr in priorityarray) &&  (user.helc in priorityarray) && (user.fint in priorityarray) && (user.clen in priorityarray)){
-
-      if ((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.fint === user.clen)) {
-        req.session.flash = {
-          err: "Cannot select two same priorities."
-        };
-        return res.redirect('/team/new');
-      }
-    }
-    else{
-      req.session.flash = {
-        err: "Please select priorities correctly"
-      };
-      return res.redirect('/team/new');
-
-    }
-
-
     Team.update({
       admin : user.id
     },update_params_needed, function teamUpdated(err){
@@ -442,7 +407,7 @@ module.exports = {
         if (team.admin === parseInt(user.uid)) {
           //if admin wants to delete itself
 
-          if(team.memberAccepted.length < 2) {
+          if(team.memberAccepted.length > 1) {
 
 
             req.session.flash = {
