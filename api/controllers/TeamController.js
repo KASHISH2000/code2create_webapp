@@ -17,6 +17,12 @@ module.exports = {
     console.log("Here is the loggedn user");
     console.log(user);
 
+    if((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.clen === user.clen)){
+      req.session.flash = {
+        err : "Bad request."
+      };
+      return res.redirect('/team/new/');
+    }
 
     if(user) {
       Team.create(req.params.all(), function teamCreated(err, team) {
@@ -234,6 +240,13 @@ module.exports = {
       description : team_description,
 
     };
+
+    if((user.arvr === user.helc) || (user.arvr === user.fint) || (user.arvr === user.clen) || (user.helc === user.fint) || (user.helc === user.clen) || (user.clen === user.clen)){
+      req.session.flash = {
+        err : "Bad request."
+      };
+      return res.redirect('/team/myteam/');
+    }
 
 
     Team.update({
