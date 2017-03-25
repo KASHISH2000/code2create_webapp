@@ -181,7 +181,7 @@ module.exports = {
         req.session.flash = {
           err : "Sorry, No user found"
         };
-        res.redirect('back');
+        res.view();
         return;
       }
 
@@ -194,6 +194,7 @@ module.exports = {
    });
   },
 
+  //this is for backend.
   showsingleuser: function(req, res, next) {
 
     //console.log(user);
@@ -344,12 +345,14 @@ module.exports = {
 
   update : function(req,res,next){
 
+    user = req.session.User;
+
     var us_phone = req.param('phoneno');
     var us_description = req.param('description');
     var us_github = req.param('github');
     var us_linkedin = req.param('linkedin');
 
-    var update_params_needed = {
+    var update_params_given = {
       phoneno: us_phone,
       description: us_description,
       github: us_github,
@@ -358,13 +361,20 @@ module.exports = {
     };
 
 
-
-
-    User.update(req.param('id'),update_params_needed, function userUpdated(err){
+    User.update({
+      id : user.id
+    },update_params_given, function userUpdated(err){
       if(err){
-        return res.redirect('/user/edit/'+req.param('id'));
+
+        req.session.flash = {
+          err : "Something went wrong while updating, please fill correct details."
+        };
+        return res.redirect('/user/edit/'+ user.username);
       }
-      res.redirect('/user/show/'+req.param('id'));
+      req.session.flash = {
+        success : "Successfully updated"
+      };
+      return res.redirect('/user/edit/'+ user.username);
     });
   },
 
