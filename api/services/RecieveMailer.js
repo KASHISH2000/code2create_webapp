@@ -16,7 +16,7 @@ module.exports.sendWelcomeMail = function(obj) {
 
     },
     {
-      to: obj.email,
+      to: "hackathon.acmvit@gmail.com",
       subject: obj.subject
 
     },
