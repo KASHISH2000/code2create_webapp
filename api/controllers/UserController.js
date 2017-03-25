@@ -82,14 +82,12 @@ module.exports = {
         return res.redirect('/register');
       }
       var body_json = JSON.parse(body);
-      console.log("The body.success is:", body_json.success);
       if (body_json.success) {
         User.create(params_needed, function userCreated(err, user) {
           if (err) {
             req.session.flash = {
               err: "Error: Could not register"
             };
-            console.log(err);
             return res.redirect('/register');
           }
 
@@ -100,7 +98,6 @@ module.exports = {
               console.log('saving records for user');
             }
             );
-            //console.log(user);
 
 
             req.session.authenticated = true;
@@ -128,46 +125,8 @@ module.exports = {
   },
 
 
-  // create : function (req, res, next) {
-
-  //   User.create(req.params.all(), function userCreated(err, user) {
-  //     if (err) {
-  //       req.session.flash = {
-  //         err: "Error: Couldn't register"
-  //       };
-  //       console.log(err);
-  //       return res.redirect('/register');
-  //     }
-
-  //     user.uid = user.id;
-  //     user.token = sailsTokenAuth.issueToken(user.id);
-  //     user.save(
-  //       function (err) {
-  //         console.log('saving records for user');
-  //       }
-  //     );
-  //     //console.log(user);
-
-
-  //     req.session.authenticated = true;
-  //     req.session.User = user;
-
-
-  //     req.session.flash = {
-  //       success: "Successfully Registered!",
-  //       //ip: us_ip,
-  //       //response: us_response
-  //     };
-  //     //Mailer.sendWelcomeMail(user);
-  //     return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
-  //     //return res.redirect('/register');
-
-  // });
-  // },
-
   show: function(req, res, next) {
 
-    //console.log(user);
 
     User.findOne({
       username : req.param('id')
@@ -199,7 +158,6 @@ module.exports = {
   //this is for backend.
   showsingleuser: function(req, res, next) {
 
-    //console.log(user);
 
     User.find(req.param('id')).exec(function(err, user) {
 
@@ -229,23 +187,16 @@ module.exports = {
     var memberarray = [];
     Team.find(function foundTeams(err, teams) {
       if (err) return next(err);
-      //console.log("After team.find");
       User.find(function foundUsers(err, users) {
-        console.log("baap re");
         users.forEach(function (user) {
           teams.forEach(function (team) {
-             console.log("After teams");
-             console.log("Length of team.memberaccepted is :");
-             console.log(team.memberAccepted.length);
+
             for(var i=0 ; i<team.memberAccepted.length; i++){
-              //console.log("For " + i + "th iteration");
-              //
 
               if(team.memberAccepted[i] != user.id){
                 count = count + 1;
               }
               //   }
-              //console.log("Value of count vakue is : " + count);
               if(count === team.memberAccepted.length){
                 final = final + 1;
               }
@@ -256,18 +207,11 @@ module.exports = {
           });
 
 
-           console.log("Final value is :");
-          // console.log(final);
-          // //console.log(teams.length);
-          //
+
           if(teams.length === final){
-            console.log("User is :" );
             memberarray.push(user);
           }
           final = 0;
-          // else{
-          //   //console.log();
-          // }
 
 
         });

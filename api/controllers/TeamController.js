@@ -17,14 +17,12 @@ module.exports = {
         for(var i=0 ; i<team.memberAccepted.length; i++) {
           if (team.memberAccepted[i] === user.id) {
 
-            console.log("Already team mai hai");
             count = 10000000;
 
 
           }
         }
       });
-      console.log(count);
       if(count === teams.length){
 
         res.view();
@@ -50,8 +48,6 @@ module.exports = {
   create : function(req, res, next) {
 
     user = req.session.User;
-    console.log("Here is the loggedn user");
-    console.log(user);
 
     var temparvr = req.param('arvr');
     var temphelc = req.param('helc');
@@ -71,7 +67,6 @@ module.exports = {
     if(user) {
       Team.create(req.params.all(), function teamCreated(err, team) {
         if (err) {
-          //console.log(err);
           req.session.flash = {
             err: err
           };
@@ -83,7 +78,6 @@ module.exports = {
           // });
 
         }
-        console.log(user);
         team.admin = user.id;
         team.teamAdmin = user.username;
 
@@ -98,7 +92,6 @@ module.exports = {
             console.log('saving records for team');
           }
           );
-        console.log(team.admin);
 
         //return res.status(200).json(team);
         req.session.flash = {
@@ -112,7 +105,6 @@ module.exports = {
       req.session.flash = {
         err: "Please Login"
       };
-      console.log("Please login");
 
       return res.redirect('/team/new');
     }
@@ -144,7 +136,6 @@ module.exports = {
 
 
     user = req.session.User;
-    console.log(user);
 
 
     Team.find(function foundTeams(err, teams) {
@@ -153,32 +144,22 @@ module.exports = {
 
       teams.forEach(function (team) {
         if (user.id === team.admin) {
-          console.log("USer id and admin id is :");
-          console.log(user.id + team.admin);
-          console.log(team.admin);
           temp = 1;
         }
 
       });
       if(temp === 1){
 
-          //console.log("After team.find");
           User.find(function foundUsers(err, users) {
-            //console.log("baap re");
             users.forEach(function (user) {
               teams.forEach(function (team) {
-                // console.log("After teams");
-                // console.log("Length of team.memberaccepted is :");
-                // console.log(team.memberAccepted.length);
+
                 for(var i=0 ; i<team.memberAccepted.length; i++){
-                  //console.log("For " + i + "th iteration");
-                  //
 
                   if(team.memberAccepted[i] != user.id){
                     count = count + 1;
                   }
                   //   }
-                  //console.log("Value of count vakue is : " + count);
                   if(count === team.memberAccepted.length){
                     final = final + 1;
                   }
@@ -187,17 +168,12 @@ module.exports = {
                 count = 0;
 
               });
-              // console.log("Final value is :");
-              // console.log(final);
-              // //console.log(teams.length);
-              //
+
               if(teams.length === final){
-                console.log("User is :" );
                 memberarray.push(user);
               }
               final = 0;
               // else{
-              //   //console.log();
               // }
 
 
@@ -234,13 +210,11 @@ module.exports = {
 
   //this will display the single team search by team name.
   show : function(req, res, next) {
-    console.log("ENtered into show");
 
     Team.findOne({
       teamName : req.param('id')
     }).exec(function(err, team) {
 
-      console.log(team);
 
       if (err) {
         req.session.flash = {
@@ -327,14 +301,10 @@ module.exports = {
     Team.findOne({
       admin: user.id
     }).then(function (team) {
-      console.log("Team is :");
-      console.log(team);
-      console.log("User id is :" + user.id);
 
 
       if (team) {
         temp = 1;
-        console.log("Inside team");
 
         // res.status(200).json({
         //   team: team,
@@ -353,26 +323,19 @@ module.exports = {
 
       else {
 
-        console.log("Phele chal rha hai");
 
         Team.find(function foundTeams(err, teams) {
-          console.log("After team.find");
           teams.forEach(function (team) {
             count = count + 1;
             for (var k = 0; k < team.memberAccepted.length; k++) {
-                //         console.log("Accepted members is :");
-                //         console.log(team.memberAccepted[k] +  req.param('id'));
-                //         //console.log("user id is :");
-                //         //console.log(userid);
+
                 if (team.memberAccepted[k] === (userid)) {
                   if (team.admin != (userid)) {
-                    console.log("Inside for loop");
                     temp = 3;
                     count = 100000000;
 
 
-                    console.log("Team is :");
-                    console.log(team);
+
 
 
                     // res.status(200).json({
@@ -399,7 +362,6 @@ module.exports = {
             });
 
           if (count === teams.length) {
-            console.log("After temp === 2");
 
               // res.status(200).json({
               //   message : "Sorry, you are not a part of any team yet.Create your own team now."
@@ -514,27 +476,7 @@ module.exports = {
 
   },
 
-  //this will send the collection of all the teams and in frontend, it will check
-  //names from memberSend array, and try to match ids with loggedin user.
-  //If it matches, then it will display the team name.
-  //
-  // show: function(req, res, next) {
-  //
-  //   var temp = [];
-  //   var l=0;
-  //
-  //   Team.findOne(req.param('id'), function foundTeam(err, team) {
-  //     if (err) return next(err);
-  //     if (!team) return next();
-  //     console.log("Must come at lars t kasjr");
-  //
-  //     res.view({
-  //       team : team
-  //     });
-  //
-  //     //res.status(200).json(team);
-  //   });
-  // },
+
 
   //admin can send request to users.
   sendRequest : function(req, res, next) {
@@ -565,7 +507,6 @@ module.exports = {
 
 
 
-        //console.log(team.reciever);
         if (err) {
           req.session.flash = {
             err: "Create your team first, to send requests"
@@ -622,7 +563,6 @@ module.exports = {
                   req.session.flash = {
                     err: "Admin cannot send request to himself"
                   };
-                  console.log("Cannot send request to himself");
                   return res.redirect('/user/showall');
 
                   //res.status(200).json("Admin cannot send request to himself");
@@ -640,7 +580,6 @@ module.exports = {
               req.session.flash = {
                 err: "Cannot send request to himself"
               };
-              console.log("Cannot send request to himself");
               return res.redirect('/user/showall');
 
               //res.status(200).json("Cannot send request to himself");
@@ -708,14 +647,6 @@ module.exports = {
     var count = 0;
 
     Team.findOne(req.param('id'), function foundTeam(err, team) {
-        // User.findOne(req.param('uid'), function foundUser(err, user) {
-          //this is user id of user
-          // console.log(user);
-          // console.log(team);
-
-          //console.log("previous");
-          console.log(team);
-          //console.log(team.memberSend);
 
 
           Team.find(function foundTeams(err, teams) {
@@ -729,7 +660,6 @@ module.exports = {
                 for (var i = 0; i < tempteam.memberAccepted.length; i++) {
                   if (user.id === tempteam.memberAccepted[i]) {
 
-                    console.log("Not in any team");
                     temp = 2;
                     count = 10000000000;
 
@@ -751,7 +681,6 @@ module.exports = {
 
           if(count === teams.length) {
 
-            console.log(team);
             arr = team.memberSend;
 
 
@@ -759,14 +688,10 @@ module.exports = {
 
 
               if (team.memberSend[i] === user.uid) {
-                console.log(i);
                 (team.memberSend).splice(i, 1);
-                console.log("Length is ");
-                console.log(team.memberAccepted.length);
 
                 if (team.memberAccepted.length < 4) {
                   (team.memberAccepted).push(user.id);
-                  //console.log(team.memberAccepted);
                 }
                 else {
 
@@ -784,10 +709,8 @@ module.exports = {
             }
             team.save(
               function (err) {
-                //console.log('saving records for team');
               }
               );
-            //console.log(team.memberSend);
 
             // res.status(200).json({
             //   team: team,
