@@ -132,7 +132,7 @@
          <div class="row center">
           <div class="input-field col s12">
             <input class="with-gap" name="living" type="radio" id="hostler" value="hostler"/>
-            <label for="hostler">Hostler</label>
+            <label for="hostler">Hosteller</label>
             <input class="with-gap" name="living" type="radio" id="dayscholar" value="dayscholar"/>
             <label for="dayscholar">Dayscholar</label>
           </div>
@@ -167,8 +167,8 @@
                 <option value="lh_c">LH C</option>
                 <option value="lh_d">LH D</option>
                 <option value="lh_e">LH E</option>
+                <option value="lh_ea">LH E Annex</option>
                 <option value="lh_f">LH F</option>
-                <option value="lh_g">LH G</option>
               </optgroup>
             </select>
             <label>Hostel Block</label>
@@ -196,11 +196,11 @@
     </div>
     <div class="input-field col s12 m6">
       <input id="github" type="url" class="validate" name="github">
-      <label for="github">Github Profie link</label>
+      <label for="github">Github Profile link</label>
     </div>
     <div class="input-field col s12 m6">
       <input id="linkedin" type="url" class="validate" name="linkedin">
-      <label for="linkedin">Linkedin Profie link</label>
+      <label for="linkedin">Linkedin Profile link</label>
     </div>
     <input type="hidden" name="_csrf" value="<%= _csrf %>">
     <div class="row">
@@ -244,8 +244,9 @@ $("input[name='living']").change(function () {
   if ($("input[name='living']:checked").val() == 'hostler') {
     $("#hostler_row").slideDown();
   }
-  else
+  else{
     $("#hostler_row").slideUp();
+  }
 });
 </script>
 <script>
@@ -304,9 +305,16 @@ $("input[name='living']").change(function () {
         errors.push('Please enter block and room no');
     }
     if (errors.length > 0) {
+      var all_errors_swal="<ul>";
       for (var i = 0; i < errors.length; i++)
-        $("#errors ul").append('<li>' + errors[i] + '</li>');
-      $("#errors").fadeIn(500);
+        all_errors_swal+=('<li>' + errors[i] + '</li>');
+      all_errors_swal+="</ul>";
+      swal({
+        title: "Please fill all the details",
+        text: all_errors_swal,
+        type: "error",
+        html: true
+      });
       return true;
     }
 
@@ -336,5 +344,5 @@ function isRegno(regno) {
 
   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
     sweetAlert("Error", "<%= flash.err%>", "error");
-   <% } %>
- </script>
+    <% } %>
+  </script>

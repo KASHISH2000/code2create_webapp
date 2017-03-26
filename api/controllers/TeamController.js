@@ -505,6 +505,7 @@ module.exports = {
 
     var temp = [];
     var l=0;
+    useremail = req.param('email');
 
     user = req.session.User;
 
@@ -526,8 +527,6 @@ module.exports = {
       Team.findOne({
         admin : user.id
       }, function foundTeam(err, team) {
-
-
 
         if (err) {
           req.session.flash = {
@@ -593,8 +592,12 @@ module.exports = {
               //undefined while entering the first entry
               team.save(
                 function (err) {
-                  console.log('saving records for team');
-                }
+                    req.session.flash = {
+                        success: "successfully Send Invitation"
+                    };
+                    Mailer.sendWelcomeMail(useremail);
+
+                    return res.redirect('/user/showall');                }
                 );
             }
             else{
@@ -610,11 +613,6 @@ module.exports = {
           }
 
       //return res.status(200).json(team);
-
-      req.session.flash = {
-        success: "successfully Send Invitation"
-      };
-      return res.redirect('/user/showall');
 
       //return res.redirect('/team/show/' + team.teamName );
     });
