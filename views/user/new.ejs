@@ -90,7 +90,7 @@
             <input id="phoneno" type="text" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
-           <div class="hide-on-large-only">
+          <div class="hide-on-large-only">
             <input id="phoneno" type="number" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
@@ -151,10 +151,10 @@
               <optgroup label="Mens hostel">
                 <option value="mh_a">MH A</option>
                 <option value="mh_b">MH B</option>
-                <option value="mh_ba">MH B-annex</option>
+                <option value="mh_ba">MH B-annexe</option>
                 <option value="mh_c">MH C</option>
                 <option value="mh_d">MH D</option>
-                <option id="6" value="mh_da">MH D-annex</option>
+                <option id="6" value="mh_da">MH D-annexe</option>
                 <option value="mh_e">MH E</option>
                 <option value="mh_f">MH F</option>
                 <option value="mh_g">MH G</option>
@@ -163,7 +163,7 @@
                 <option value="mh_k">MH K</option>
                 <option value="mh_l">MH L</option>
                 <option value="mh_m">MH M</option>
-                <option value="mh_ma">MH M-annex</option>
+                <option value="mh_ma">MH M-annexe</option>
                 <option value="mh_n">MH N</option>
                 <option value="mh_p">MH P</option>
               </optgroup>
@@ -173,7 +173,7 @@
                 <option value="lh_c">LH C</option>
                 <option value="lh_d">LH D</option>
                 <option value="lh_e">LH E</option>
-                <option value="lh_ea">LH E Annex</option>
+                <option value="lh_ea">LH E Annexe</option>
                 <option value="lh_f">LH F</option>
               </optgroup>
             </select>
@@ -282,6 +282,8 @@ $("input[name='living']").change(function () {
       errors.push('Please Enter a Valid Registration number');
     if (!phoneno)
       errors.push('Phone number cannot be blank');
+    else if (phoneno.length !=10 || (isNaN(phoneno)))
+      errors.push('Please Enter a valid Phone no');
     if (!email)
       errors.push('Email cannot be blank');
     else if (!isEmail(email))
