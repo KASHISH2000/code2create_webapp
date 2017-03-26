@@ -1,59 +1,65 @@
+  <link rel="stylesheet" type="text/css" href="/styles/register.css">
+  <style>
+    #submit_mock {
+      margin-top: 20px;
+    }
+    .error {
+      border: solid 1px red;
+      color: red;
+      padding: 10px;
+    }
+    .success {
+      border: solid 1px green;
+      color: green;
+      padding: 10px;
+    }
+    [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+      border: 2px solid #1eb76e;
+    }
+    [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+      background-color: #1eb76e;
+    }
+    /*nav*/
+    nav {
+      background-color: #332e2e;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 10 !important;
+    }
+    .brand-logo img {
+      height: 50px;
+      margin-left: 10px;
+      margin-top: 5px;
+      max-height: 95%;
+      cursor: pointer; 
+    }
+       .active{
+        color: #fff !important;
+      }
+  </style>
 
-<link rel="stylesheet" type="text/css" href="/styles/register.css">
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<style>
-  #submit_mock {
-    margin-top: 20px;
-  }
-  .error {
-    border: solid 1px red;
-    color: red;
-    padding: 10px;
-  }
-  .success {
-    border: solid 1px green;
-    color: green;
-    padding: 10px;
-  }
-</style>
-
-<!-- Preloader -->
-<div id="preloader">
-  <div id="status">&nbsp;</div>
-</div>
-<div class="nav-wrap my-navbar-fixed">
-  <nav class="smooth-transition navelem">
-    <div class="nav-wrapper">
-      <a class="brand-logo" onclick=""><img src="/images/c_only.png" class="responsive-img"></a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/register" class="navlink a-register btn waves-effect waves-light nav-reg-but"
-          >Register</a>
-        </li>
-        <li><a href="/login" class="navlink a-login btn active waves-effect waves-light nav-reg-but"
-          >Login</a>
-        </li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-       <li><a href="/register" class="navlink a-register">Register</a>
-       </li>
-       <li><a href="/login" class="navlink a-login">Login</a>
-       </li>
-     </ul>
-   </div>
- </nav>
-</div>
-<div class="hero-img-div">
-  <div class="layer"></div>
-  <div class="hero-content-div container">
-    <div class="row center">
-      <br>
-      <a href="/"><img src="/images/c2c.png" class="hero-logo-c2c wow fadeInDown responsive-img"
-       data-wow-delay="0.5s"></a>
-       <h4 class="center white-text wow fadeIn">Create. Innovate. Learn.</h4>
+  <div class="nav-wrap">
+    <nav class="smooth-transition navelem">
+      <div class="nav-wrapper">
+        <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/register" class="navlink a-login btn waves-effect waves-light nav-reg-but"
+            >Register</a>
+          </li>
+          <li><a href="/login" class="navlink a-register btn active waves-effect waves-light nav-reg-but"
+            >Login</a>
+          </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+         <li><a href="/register" class="navlink a-register">Register</a>
+         </li>
+         <li><a href="/login" class="navlink a-login">Login</a>
+         </li>
+       </ul>
      </div>
-   </div>
+   </nav>
  </div>
+ <br>
 
 
  <div class="container">
@@ -61,35 +67,32 @@
      <h5 class="left-align white-text main-heading">Login</h5>
    </div>
    <div class="my-main-card hoverable">
-  <div class="row">
-    <div class="col s12 m6 offset-m3">
-      <form action="/session/create" method="POST" id="loginForm" autocomplete="on" novalidate>
-        <div class="input-field col s12 m12">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="email_username" type="text" class="validate" required name="email_username">
-          <label for="email_username">email/Username <span class="required">*</span></label>
-        </div>
-        <div class="input-field col s12 m12">
-          <i class="material-icons prefix">lock</i>
-          <input id="password" type="password" class="validate" required name="password">
-          <label for="password">Password <span class="required">*</span></label>
-        </div>
-        <input type="hidden" name="_csrf" value="<%= _csrf %>">
-        <div class="row">
-          <div class="center-align">
-            <button type="button" class="waves-effect btn sub-but" id="submit_mock" onclick="submit_try();">Submit <i
-              class="material-icons right">send</i>
-            </button>
-            <button class="g-recaptcha hide" data-sitekey="6LcTthcUAAAAANHIWtQFAdQ7Mi4B_Xchbyt1cwuX"
-            data-callback="onSubmit" id="submit">Submit captcha <i class="material-icons right">send</i>
-          </button>
-          <input type="submit" id="real_submit" value="Submit" class="hide" name="submit">
-        </div>
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <form action="/session/create" method="POST" id="loginForm" autocomplete="on" novalidate>
+          <div class="input-field col s12 m12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="email_username" type="text" class="validate" required name="email_username">
+            <label for="email_username">email/Username <span class="required">*</span></label>
+          </div>
+          <div class="input-field col s12 m12">
+            <i class="material-icons prefix">lock</i>
+            <input id="password" type="password" class="validate" required name="password">
+            <label for="password">Password <span class="required">*</span></label>
+          </div>
+          <input type="hidden" name="_csrf" value="<%= _csrf %>">
+          <div class="row">
+            <div class="center-align">
+              <button type="button" class="waves-effect btn sub-but" id="submit_mock" onclick="submit_try();">Submit <i
+                class="material-icons right">send</i>
+              </button>
+              <input type="submit" id="real_submit" value="Submit" class="hide" name="submit">
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
-</div>
-</div>
 </div>
 
 <%- partial('../partials/footer.ejs') %>
@@ -107,16 +110,17 @@
     $("#real_submit").click();
   }
   function submit_try() {
-    //if (checkerrors() == false)
-     // $("#submit").click(); //for captcha
+    if (checkerrors() == false)
       onSubmit();//for no captcha
-    }
-  </script>
-  <script type="text/javascript">
-   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-    sweetAlert("Error", "<%=flash.err%>", "error");
-    <% } %>
-    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    else
+      sweetAlert("Error", "Please Fill in Username/Email and Password", "error");
+  }
+</script>
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
     sweetAlert("success", "<%=flash.success%>", "success");
     <% } %>
   </script>

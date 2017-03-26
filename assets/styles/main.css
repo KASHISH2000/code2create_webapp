@@ -5,9 +5,10 @@ body{
   /*font-family: 'Lato', sans-serif !important;*/
  
 }
-*{
- 
+body,html{
+  font-family: 'Lato', sans-serif !important;
 }
+
 .color-theme-green{
   color: #1eb76e !important;
 }
