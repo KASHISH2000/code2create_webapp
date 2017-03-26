@@ -86,8 +86,14 @@
           <label for="regno">College Registration number <span class="required">*</span></label>
         </div>
         <div class="input-field col s12 m6">
-          <input id="phoneno" type="number" class="validate" required maxlength="13" minlength="10" name="phoneno">
-          <label for="phoneno">Phone number <span class="required">*</span></label>
+          <div class="hide-on-med-and-down">
+            <input id="phoneno" type="text" class="validate" required maxlength="13" minlength="10" name="phoneno">
+            <label for="phoneno">Phone number <span class="required">*</span></label>
+          </div>
+           <div class="hide-on-large-only">
+            <input id="phoneno" type="number" class="validate" required maxlength="13" minlength="10" name="phoneno">
+            <label for="phoneno">Phone number <span class="required">*</span></label>
+          </div>
         </div>
         <div class="input-field col s12 m6">
           <input id="email" type="email" class="validate" required name="email">
@@ -122,7 +128,7 @@
         <div class="row center">
           <div class="input-field col s12">
             <input class="with-gap ver-align-middle" name="internal_external" type="radio" id="internal" value="internal"/>
-            <label for="internal">VIT Student</label>
+            <label for="internal">VIT Vellore Student</label>
             &nbsp;&nbsp;&nbsp;
             <input class="with-gap" name="internal_external" type="radio" id="external" value="external"/>
             <label for="external">External</label>

@@ -80,6 +80,7 @@
             <% if(eli){ %>
             <form action="/team/sendRequest" method="POST">
               <input type="hidden" name="reciever" value="<%=user.id%>">
+               <input type="hidden" name="email" value="<%=user.email%>">
               <button type="submit" class="send-req-but smooth-transition hide" id="sub_<%=user.id%>" >Invite</button>
               <button type="button" class="send-req-but smooth-transition" onclick="confirm_send_invite('sub_<%=user.id%>')" id="but_sended_req_<%=user.id%>">Invite</button>
             </form>
