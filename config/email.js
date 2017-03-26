@@ -1,7 +1,7 @@
 module.exports.email = {
-  service: "Zoho",
+  service: "Gmail",
   auth: {
-    user: 'c2c@acmvit.in', pass: 'CY$e5TYh#m&5'
+      user: 'hackathon.acmvit@gmail.com', pass: 'hackathoneventacmvithk#01'
   },
   templateDir: "api/emailTemplates",
   testMode: false
