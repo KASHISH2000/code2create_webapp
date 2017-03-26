@@ -446,14 +446,16 @@ module.exports = {
 
   removemember : function(req,res,next) {
 
-    user = req.session.User;
-    usernameDeleted = req.param('name');
-    useremailDeleted = req.param('email');
+    sessionuser = req.session.User;
+
 
     Team.findOne({
-      admin : user.id
+      admin : sessionuser.id
     }, function foundTeam(err, team) {
       User.findOne(req.param('uid'), function foundUser(err, user) {
+
+        console.log(user);
+        console.log(sessionuser);
 
         if (team.admin === (user.uid)) {
           //if admin wants to delete itself
@@ -489,14 +491,14 @@ module.exports = {
           function (err) {
             if(err){
               req.session.flash = {
-                success : "Successfully removed!"
+                err : "Something went wrong.Please try again!"
               };
               return res.redirect('/team/myteam');
             }
             req.session.flash = {
               success : "Successfully removed!"
             };
-            RemoveMember.sendWelcomeMail(user, usernameDeleted, useremailDeleted);
+            RemoveMember.sendWelcomeMail(sessionuser , user);
 
             return res.redirect('/team/myteam');          }
           );
