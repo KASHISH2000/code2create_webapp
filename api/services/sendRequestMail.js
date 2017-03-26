@@ -1,8 +1,5 @@
 module.exports.sendWelcomeMail = function(sendername, receivername, useremail) {
 
-    console.log("Successfully reached");
-
-
     sails.hooks.email.send(
         "sendRequestEmail",
         {

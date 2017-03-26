@@ -2,10 +2,6 @@
 
 module.exports.sendWelcomeMail = function(obj) {
 
-  console.log("Successfully reached");
-
-  console.log(obj.email);
-
   sails.hooks.email.send(
     "recieveEmail",
     {
@@ -27,7 +23,6 @@ module.exports.sendWelcomeMail = function(obj) {
       }
       else {
         console.log("It worked!");
-        console.log(obj.email);
       }
     }
   )

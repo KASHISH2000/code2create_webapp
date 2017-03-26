@@ -1,6 +1,5 @@
 module.exports.sendWelcomeMail = function(teamuser, user) {
 
-  console.log("Successfully reached");
 
   sails.hooks.email.send(
     "RemoveEmail",
@@ -18,11 +17,7 @@ module.exports.sendWelcomeMail = function(teamuser, user) {
         console.log(err);
       }
       else {
-        console.log("Successfully reached to " + user.name );
-        console.log("admin is " );
-        console.log(teamuser.name);
         console.log("It worked!");
-        // console.log(obj.email);
       }
     }
   )

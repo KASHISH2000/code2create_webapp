@@ -274,7 +274,6 @@ module.exports = {
     };
 
 
-    console.log(temparvr + tempclen);
     if((!temparvr) || (!temphelc) || (!tempfint) || (!tempclen)){
       req.session.flash = {
         err: "Please select all the tracks according to your priority."
@@ -428,19 +427,19 @@ module.exports = {
         }
         team.save(
           function (err) {
-            console.log('saving records for team');
+            req.session.flash = {
+              success: "Successfully left team"
+            };
+            User.findOne({
+              id : team.admin
+            }, function foundTeam(err, tempuser) {
+              LeftTeam.sendWelcomeMail(tempuser, user);
+            });
+            return res.redirect('team/showall');
+            return;
           }
           );
-        req.session.flash = {
-          success: "Successfully left team"
-        };
-        User.findOne({
-          id : team.admin
-        }, function foundTeam(err, tempuser) {
-          LeftTeam.sendWelcomeMail(tempuser, user);
-        });
-      return res.redirect('team/showall');
-        return;
+
         //res.status(200).json(team);
 
 
@@ -502,8 +501,9 @@ module.exports = {
             };
             RemoveMember.sendWelcomeMail(sessionuser , user);
 
-            return res.redirect('/team/myteam');          }
-          );
+            return res.redirect('/team/myteam');
+          }
+        );
 
 
       })
@@ -608,8 +608,9 @@ module.exports = {
                     };
                     sendRequestMail.sendWelcomeMail(sendername, receivername, useremail);
 
-                    return res.redirect('/user/showall');                }
-                );
+                    return res.redirect('/user/showall');
+                }
+              );
             }
             else{
 
