@@ -1,5 +1,5 @@
-  <link rel="stylesheet" type="text/css" href="/styles/register.css">
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <link rel="stylesheet" type="text/css" href="/styles/register.css">
   <style>
     #submit_mock {
       margin-top: 20px;
@@ -20,22 +20,34 @@
     [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
       background-color: #1eb76e;
     }
+    /*nav*/
+    nav {
+      background-color: #332e2e;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 10 !important;
+    }
+    .brand-logo img {
+      height: 50px;
+      margin-left: 10px;
+      margin-top: 5px;
+      max-height: 95%;
+      cursor: pointer; 
+    }
+       .active{
+        color: #fff !important;
+      }
   </style>
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <div id="status">&nbsp;</div>
-  </div>
-  <div class="nav-wrap my-navbar-fixed">
+  <div class="nav-wrap">
     <nav class="smooth-transition navelem">
       <div class="nav-wrapper">
-        <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/c_only.png" class="responsive-img"></a>
+        <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/register" class="navlink a-register btn waves-effect waves-light nav-reg-but"
             >Register</a>
           </li>
-          <li><a href="/login" class="navlink a-login btn active waves-effect waves-light nav-reg-but"
+          <li><a href="/login" class="navlink a-login active btn waves-effect waves-light nav-reg-but"
             >Login</a>
           </li>
         </ul>
@@ -48,17 +60,7 @@
      </div>
    </nav>
  </div>
- <div class="hero-img-div">
-  <div class="layer"></div>
-  <div class="hero-content-div container">
-    <div class="row center">
-      <br>
-      <a href="/"><img src="/images/c2c.png" class="hero-logo-c2c wow fadeInDown responsive-img"
-       data-wow-delay="0.5s"></a>
-       <h4 class="center white-text wow fadeIn">Create. Innovate. Learn.</h4>
-     </div>
-   </div>
- </div>
+ <br>
  <div class="container">
    <div class="heading-bg">
      <h5 class="left-align white-text main-heading">Register</h5>
@@ -70,10 +72,10 @@
       </div>
     </div> -->
     <div class="row error-row alert alert-danger" id="errors">
-      <h5>Please fix the following Errors:</h5>
+     <!--  <h5>Please fix the following Errors:</h5>
       <ul>
 
-      </ul>
+      </ul> -->
     </div>
     <div class="row">
       <form action="/user/create" method="POST" id="registerForm" autocomplete="on" novalidate="true">
@@ -90,7 +92,7 @@
             <input id="phoneno" type="text" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
-           <div class="hide-on-large-only">
+          <div class="hide-on-large-only">
             <input id="phoneno" type="number" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
@@ -151,10 +153,10 @@
               <optgroup label="Mens hostel">
                 <option value="mh_a">MH A</option>
                 <option value="mh_b">MH B</option>
-                <option value="mh_ba">MH B-annex</option>
+                <option value="mh_ba">MH B-annexe</option>
                 <option value="mh_c">MH C</option>
                 <option value="mh_d">MH D</option>
-                <option id="6" value="mh_da">MH D-annex</option>
+                <option id="6" value="mh_da">MH D-annexe</option>
                 <option value="mh_e">MH E</option>
                 <option value="mh_f">MH F</option>
                 <option value="mh_g">MH G</option>
@@ -163,7 +165,7 @@
                 <option value="mh_k">MH K</option>
                 <option value="mh_l">MH L</option>
                 <option value="mh_m">MH M</option>
-                <option value="mh_ma">MH M-annex</option>
+                <option value="mh_ma">MH M-annexe</option>
                 <option value="mh_n">MH N</option>
                 <option value="mh_p">MH P</option>
               </optgroup>
@@ -173,7 +175,7 @@
                 <option value="lh_c">LH C</option>
                 <option value="lh_d">LH D</option>
                 <option value="lh_e">LH E</option>
-                <option value="lh_ea">LH E Annex</option>
+                <option value="lh_ea">LH E Annexe</option>
                 <option value="lh_f">LH F</option>
               </optgroup>
             </select>
@@ -282,6 +284,8 @@ $("input[name='living']").change(function () {
       errors.push('Please Enter a Valid Registration number');
     if (!phoneno)
       errors.push('Phone number cannot be blank');
+    else if (phoneno.length !=10 || (isNaN(phoneno)))
+      errors.push('Please Enter a valid Phone no');
     if (!email)
       errors.push('Email cannot be blank');
     else if (!isEmail(email))
