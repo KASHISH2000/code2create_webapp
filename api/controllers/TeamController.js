@@ -128,16 +128,16 @@ module.exports = {
   },
 
   //this is for backend
-  showallteams : function(req, res, next){
-
-    Team.find(function foundTeams(err, teams){
-      if(err) return next(err);
-      res.status(200).json(teams);
-      // res.view({
-      //   teams: teams
-      // });
-    });
-  },
+  // showallteams : function(req, res, next){
+  //
+  //   Team.find(function foundTeams(err, teams){
+  //     if(err) return next(err);
+  //     res.status(200).json(teams);
+  //     // res.view({
+  //     //   teams: teams
+  //     // });
+  //   });
+  // },
 
 
   //this will display all the members to whom admin can send requests.
@@ -522,9 +522,6 @@ module.exports = {
         return res.redirect('/user/showall');
         //res.status(200).json(err);
       }
-
-
-
 
       Team.findOne({
         admin : user.id

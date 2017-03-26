@@ -35,6 +35,12 @@
   '/': {
     view: 'homepage'
   },
+   '/user' : {
+    view : '404'
+   },
+   '/team' : {
+     view : '404'
+   },
   '/register' : 'UserController.new',
   '/login' : 'SessionController.new',
   '/rules' : {
@@ -45,7 +51,10 @@
   },
   '/tracks' : {
     view: 'tracks'
-  }
+  },
+   '/contact' : {
+    view : 'tracks'
+   }
 
 
   /***************************************************************************
