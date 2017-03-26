@@ -5,6 +5,9 @@ var request = require('request');
 
 module.exports = {
 
+
+
+
   'new' : function (req, res) {
     if(req.session.authenticated)
     {
@@ -132,7 +135,7 @@ module.exports = {
       username : req.param('id')
     }).exec(function(err, user) {
 
-      console.log(user);
+      //console.log(user);
 
       if (err) {
         req.session.flash = {
@@ -182,6 +185,66 @@ module.exports = {
 
 
 
+  // showall : function (req, res, next) {
+  //
+  //
+  //   console.log("Entered into showall");
+  //   var iduser = 0;
+  //   var count = 0;
+  //   var final = 0;
+  //   var memberarray = [];
+  //   Team.find(function foundTeams(err, teams) {
+  //     if (err) {
+  //       console.log("HEre is the error");
+  //       console.log(err);
+  //       return next(err);
+  //     }
+  //     User.find(function foundUsers(err, users) {
+  //       users.forEach(function (user) {
+  //         teams.forEach(function (team) {
+  //
+  //           console.log("Here is the team :");
+  //           console.log(team);
+  //
+  //           for(var i=0 ; i<team.memberAccepted.length; i++){
+  //
+  //             if(team.memberAccepted[i] != user.id){
+  //               count = count + 1;
+  //             }
+  //             //   }
+  //             if(count === team.memberAccepted.length){
+  //               final = final + 1;
+  //             }
+  //             //   count = 0;
+  //           }
+  //           count = 0;
+  //
+  //         });
+  //
+  //
+  //
+  //         if(teams.length === final){
+  //           memberarray.push(user);
+  //         }
+  //         final = 0;
+  //
+  //
+  //       });
+  //
+  //      // return res.status(200).json(memberarray);
+  //       res.view({
+  //         users : users,
+  //         memberarray : memberarray
+  //       });
+  //       return;
+  //
+  //       //
+  //     })
+  //
+  //   });
+  //
+  // },
+
   showall : function (req, res, next) {
 
 
@@ -200,26 +263,19 @@ module.exports = {
         users.forEach(function (user) {
           teams.forEach(function (team) {
 
-            console.log("Here is the team :");
-            console.log(team);
 
-            for(var i=0 ; i<team.memberAccepted.length; i++){
 
-              if(team.memberAccepted[i] != user.id){
-                count = count + 1;
-              }
-              //   }
-              if(count === team.memberAccepted.length){
+              if(team.admin != user.id){
                 final = final + 1;
               }
-              //   count = 0;
-            }
-            count = 0;
+
+
 
           });
 
 
 
+          console.log("Value of final is " + final);
           if(teams.length === final){
             memberarray.push(user);
           }
@@ -227,8 +283,9 @@ module.exports = {
 
 
         });
+        //console.log(memberarray);
 
-       // return res.status(200).json(memberarray);
+        // return res.status(200).json(memberarray);
         res.view({
           users : users,
           memberarray : memberarray

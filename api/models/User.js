@@ -74,11 +74,13 @@ module.exports = {
 
     github : {
       type : 'string',
+      url : true,
       required : false
     },
 
     linkedin : {
       type : 'string',
+      url : true,
       required : false
     },
 
