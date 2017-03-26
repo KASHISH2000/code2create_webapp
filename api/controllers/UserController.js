@@ -302,6 +302,7 @@ module.exports = {
 
     };
 
+    console.log()
 
     User.update({
       id : user.id
