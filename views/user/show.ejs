@@ -22,6 +22,7 @@
     </style>
 
     <%- partial('../partials/navbar.ejs', {active: 'userShow'}) %>
+    <% if(typeof user !=='undefined' && user){ %>
     <div class="container">
       <div class="heading-bg">
         <h5 class="left-align white-text main-heading">Member details</h5>
@@ -111,6 +112,7 @@
 
 
 
+
 <%- partial('../partials/footer.ejs') %>
 <%- partial('../partials/commonScripts.ejs') %>
 <script type="text/javascript">
@@ -144,3 +146,13 @@ $.get("http://c2c.acmvit.in/navbar/anyuserteam/<%=user.id%>", function (data, st
     sweetAlert("success", "<%=flash.success%>", "success");
     <% } %>
   </script>
+<% } %>
+
+
+<% if(typeof user =='undefined' || !user){ %>
+<%- partial('../partials/commonScripts.ejs') %>
+
+<script type="text/javascript">
+   sweetAlert("Error", "No user Found with this id", "error");
+</script>
+<% } %>

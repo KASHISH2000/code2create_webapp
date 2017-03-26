@@ -242,13 +242,9 @@ $("input[name='internal_external']").change(function () {
 $("#hostler_row").hide();
 $("input[name='living']").change(function () {
   if ($("input[name='living']:checked").val() == 'hostler') {
-    $("#block").prop('required',true);
-    $("#roomno").prop('required',true);
     $("#hostler_row").slideDown();
   }
   else{
-    $("#block").prop('required',false);
-    $("#roomno").prop('required',false);
     $("#hostler_row").slideUp();
   }
 });
@@ -309,9 +305,16 @@ $("input[name='living']").change(function () {
         errors.push('Please enter block and room no');
     }
     if (errors.length > 0) {
+      var all_errors_swal="<ul>";
       for (var i = 0; i < errors.length; i++)
-        $("#errors ul").append('<li>' + errors[i] + '</li>');
-      $("#errors").fadeIn(500);
+        all_errors_swal+=('<li>' + errors[i] + '</li>');
+      all_errors_swal+="</ul>";
+      swal({
+        title: "Please fill all the details",
+        text: all_errors_swal,
+        type: "error",
+        html: true
+      });
       return true;
     }
 
@@ -341,5 +344,5 @@ function isRegno(regno) {
 
   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
     sweetAlert("Error", "<%= flash.err%>", "error");
-   <% } %>
- </script>
+    <% } %>
+  </script>
