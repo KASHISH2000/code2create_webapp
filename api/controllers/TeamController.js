@@ -430,7 +430,12 @@ module.exports = {
         req.session.flash = {
           success: "Successfully left team"
         };
-        return res.redirect('team/showall');
+        User.findOne({
+          id : team.admin
+        }, function foundTeam(err, tempuser) {
+          LeftTeam.sendWelcomeMail(tempuser, user);
+        });
+      return res.redirect('team/showall');
         return;
         //res.status(200).json(team);
 
@@ -442,6 +447,8 @@ module.exports = {
   removemember : function(req,res,next) {
 
     user = req.session.User;
+    usernameDeleted = req.param('name');
+    useremailDeleted = req.param('email');
 
     Team.findOne({
       admin : user.id
@@ -489,6 +496,7 @@ module.exports = {
             req.session.flash = {
               success : "Successfully removed!"
             };
+            RemoveMember.sendWelcomeMail(user, usernameDeleted, useremailDeleted);
 
             return res.redirect('/team/myteam');          }
           );
