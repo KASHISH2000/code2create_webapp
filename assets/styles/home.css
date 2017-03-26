@@ -196,11 +196,13 @@ nav .nav-wrapper {
 .faq-wrapper {
   border-bottom: 2px solid #262a2d;
   cursor: pointer; }
+
+  @media(min-width: 769px){
   .faqs-div-wrap{
     margin-left: 25px;
     margin-right: 25px;
   }
-
+}
 /*Why Sponsor Us*/
 .sponsors-btn {
   background-color: transparent !important;

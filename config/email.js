@@ -1,5 +1,5 @@
 module.exports.email = {
-  service: "Zoho",
+  service: "Gmail",
   auth: {
     user: 'hackathon.acmvit@gmail.com', pass: 'hackathoneventacmvithk#01'
   },
