@@ -117,7 +117,7 @@
 <%- partial('../partials/commonScripts.ejs') %>
 <script type="text/javascript">
 //get the info of currently logged in user
-$.get("http://c2c.acmvit.in/navbar/anyuserteam/<%=user.id%>", function (data, status) {
+$.get("<%=defaultUrl.url()%>navbar/anyuserteam/<%=user.id%>", function (data, status) {
   var teamname_togive="undefined";
   if (!data)
     console.log("Failure!", "Couldn't fetch navbar/getinfo");
@@ -125,7 +125,7 @@ $.get("http://c2c.acmvit.in/navbar/anyuserteam/<%=user.id%>", function (data, st
    if(data.team){
     $("#noteamname").hide();
     $("#teamname_a").show();
-    $("#teamname_a").attr("href","http://c2c.acmvit.in/team/show/"+data.team.teamName);
+    $("#teamname_a").attr("href","<%=defaultUrl.url()%>team/show/"+data.team.teamName);
     console.log(data.team.teamName);
     $("#teamname").html(data.team.teamName);
   }

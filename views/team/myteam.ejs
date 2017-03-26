@@ -118,7 +118,7 @@
 <%- partial('../partials/commonScripts.ejs') %>
 <script type="text/javascript">
   function  getUserDetails(memberid){
-    $.get("http://c2c.acmvit.in/user/showsingleuser/"+memberid, function (data, status) {
+    $.get("<%=defaultUrl.url()%>user/showsingleuser/"+memberid, function (data, status) {
       if (!data)
         console.log("Failure in getting individual user info");
       else {

@@ -117,7 +117,7 @@
    var is_admin=false;
    var sendRequest=[];
    $.ajax({
-    url: "http://c2c.acmvit.in/navbar/myteam",
+    url: "<%=defaultUrl.url()%>navbar/myteam",
     dataType: 'json',
     async: false,
     success: function(data) {
