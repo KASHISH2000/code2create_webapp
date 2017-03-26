@@ -277,6 +277,12 @@ module.exports = {
     };
 
 
+      if((!temparvr) || (!temphelc) || (!tempfint) || (!tempclen)){
+          req.session.flash = {
+              err: "Please select all the tracks according to your priority."
+          };
+          return res.redirect('/team/new');
+      }
 
 
     if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
@@ -499,6 +505,7 @@ module.exports = {
 
     var temp = [];
     var l=0;
+    useremail = req.param('email');
 
     user = req.session.User;
 
@@ -520,8 +527,6 @@ module.exports = {
       Team.findOne({
         admin : user.id
       }, function foundTeam(err, team) {
-
-
 
         if (err) {
           req.session.flash = {
@@ -587,8 +592,12 @@ module.exports = {
               //undefined while entering the first entry
               team.save(
                 function (err) {
-                  console.log('saving records for team');
-                }
+                    req.session.flash = {
+                        success: "successfully Send Invitation"
+                    };
+                    sendRequestMail.sendWelcomeMail(useremail);
+
+                    return res.redirect('/user/showall');                }
                 );
             }
             else{
@@ -604,11 +613,6 @@ module.exports = {
           }
 
       //return res.status(200).json(team);
-
-      req.session.flash = {
-        success: "successfully Send Invitation"
-      };
-      return res.redirect('/user/showall');
 
       //return res.redirect('/team/show/' + team.teamName );
     });
