@@ -1,19 +1,19 @@
-module.exports.sendWelcomeMail = function(email) {
+module.exports.sendWelcomeMail = function(sendername, receivername, useremail) {
 
     console.log("Successfully reached");
-    console.log(email);
 
 
     sails.hooks.email.send(
         "sendRequestEmail",
         {
-            Email : email
-
+            sendername : sendername,
+            receivername : receivername,
+            useremail : useremail
 
         },
         {
-            to: email,
-            subject: "Welcome to Code2Create"
+            to: useremail,
+            subject: "New Invitation for joining team in Code2Create"
         },
 
         function(err) {
@@ -22,9 +22,9 @@ module.exports.sendWelcomeMail = function(email) {
             }
             else {
                 console.log("It worked!");
-                console.log(email);
+                // console.log(obj.email);
             }
         }
-    )
+        )
 };
 

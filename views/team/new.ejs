@@ -1,6 +1,6 @@
     <link rel="stylesheet" href="/styles/app_common.css">
     <style>
-      #submit_mock {
+  #submit_mock {
         margin-top: 20px;
       }
       .error {
@@ -23,7 +23,7 @@
         margin-right: 60px;
       }
       .track-col{
-        height: 190px;
+        height: 170px;
         padding: 1.5rem !important;
         background-color: #373d41;
         border-radius: 10px;
@@ -36,9 +36,7 @@
         -moz-transition: all 0.3s ease;
         transition: all 0.3s ease;
       }
-      .track-col:hover{
-        padding: 0.7rem !important;
-      }
+
       .track-col .track-img{
         width: 100%;
         height: 100%;
@@ -80,17 +78,55 @@
       .track-col:hover .overlay{
        opacity: 1;
      }
-     .track-col .overlay .track-heading{
+     .track-col:hover{
+      padding: 0.7rem !important;
+    }
+    .track-col .overlay .track-heading{
       vertical-align: middle;
       margin-top: 30%;
     }
-    @media(min-width: 601px){
-      .track-col{
-       height: 210px;
-       width: 21% !important;
-       margin: 2% !important;
-     }
+    .team-status{
+     padding: 0.4rem;
+     display: inline-block;
+     border-radius: 5px;
    }
+   .team-remove{
+    background-color: #f44336 !important;
+    border:none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .team-status-joined{
+    background-color: #1eb76e !important;
+    opacity: 1;
+  }
+
+  .team-status-requested{
+    background-color: #d32f2f !important;
+    opacity: 0.8;
+  }
+  .team-remove{
+    background-color: #f44336 !important;
+    border:none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .team-remove:hover{
+    background-color: #bf291d !important;
+  }
+  @media(min-width: 601px){
+    .track-col{
+     height: 210px;
+     width: 21% !important;
+     margin: 2% !important;
+   }
+ }
+ @media(max-width: 769px){
+  .track-col .overlay{
+    opacity: 1;
+  }
+ }
+
  </style>
 
  <%- partial('../partials/navbar.ejs',{active: 'teamNew'}) %>
@@ -148,7 +184,7 @@
   </div>
 </div>
 <div class="input-field col s12 m12 hide">
-  <textarea id="description" class="validate materialize-textarea" name="description"></textarea>
+  <textarea id="description" class="validate materialize-textarea" name="description" value=""> </textarea>
   <label for="description">Description of your project...</label>
 </div>
 <div class="row">
@@ -203,6 +239,7 @@
     {
       $(this).removeClass('selected');
       var str_val=$(this).find('.rank-disp').text();
+      $(this).find('.inp_track').val("0");
       console.log("The value is:"+str_val);
       if(str_val=="1")
         rank1=false;

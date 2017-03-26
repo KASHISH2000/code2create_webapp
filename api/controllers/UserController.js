@@ -132,6 +132,8 @@ module.exports = {
       username : req.param('id')
     }).exec(function(err, user) {
 
+      console.log(user);
+
       if (err) {
         req.session.flash = {
           err : "Sorry, Error in finding user"
@@ -152,7 +154,9 @@ module.exports = {
     });
      return;
 
-   });
+   }).fail({
+
+    });
   },
 
   //this is for backend.

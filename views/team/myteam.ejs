@@ -23,7 +23,7 @@
         margin-right: 60px;
       }
       .track-col{
-        height: 190px;
+        height: 170px;
         padding: 1.5rem !important;
         background-color: #373d41;
         border-radius: 10px;
@@ -31,6 +31,10 @@
         cursor: pointer;
         width: 45% !important;
         margin: 2% !important;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
       }
 
       .track-col .track-img{
@@ -74,7 +78,10 @@
       .track-col:hover .overlay{
        opacity: 1;
      }
-     .track-col .overlay .track-heading{
+     .track-col:hover{
+      padding: 0.7rem !important;
+    }
+    .track-col .overlay .track-heading{
       vertical-align: middle;
       margin-top: 30%;
     }
@@ -114,6 +121,12 @@
      margin: 2% !important;
    }
  }
+ @media(max-width: 769px){
+  .track-col .overlay{
+    opacity: 1;
+  }
+ }
+
 </style>
 <%- partial('../partials/commonScripts.ejs') %>
 <script type="text/javascript">
@@ -145,7 +158,7 @@
       <% if(admin) { %>
       <form action="/team/update" method="POST" id="teamForm" autocomplete="on">
         <% } %>
-        <div class="col m6 offset-m3">
+        <div class="col s12 m6 offset-m3">
           <p class="detail-title">
             teamID
           </p>
@@ -155,7 +168,7 @@
          </p>
        </div>
        <div class="row">
-        <div class="col s12">
+        <div class="col s11 offset-s1">
           <h5 class="left-align grey-colour">Priority for each Track:</h5>
         </div>
         <div class="col m3 s6 track-col" id="track-col_arvr">
@@ -341,6 +354,7 @@
         var str_val=$(this).find('.rank-disp').text();
         console.log("The value is:"+str_val);
         rank[parseInt(str_val)-1]=false;
+         $(this).find('.inp_track').val("0");
       }
       else
       {

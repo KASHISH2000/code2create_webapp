@@ -47,7 +47,7 @@
         <thead>
           <td>TeamName</td>
           <td>Track</td>
-          <td class="th-skills-td">Project Idea</td>
+         <!--  <td class="th-skills-td">Project Idea</td> -->
           <td>Team Admin</td>
           <td title="Accept Invitation to join a team (only if you are not a team member)">Accept Invitation</td>
         </thead>
@@ -70,13 +70,13 @@
               <a href="/team/show/<%=reqview.teamName%>" class="ver-align-middlee underline-wala"><%=reqview.teamName%></a>
             </td>
             <td><%=trackk%></td>
-            <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=reqview.description%>
+           <!--  <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=reqview.description%>
 
-            </td>
+            </td> -->
             <td>
               <a href="/team/show/<%=reqview.teamAdmin%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
             </td>
-            <td class="center">
+            <td class="">
               <form action="/team/acceptedRequest">
                 <input type="hidden" name="id" value="<%=reqview.id%>">
                 <input type="submit" value="Accept" class="accept-but smooth-transition"/>
@@ -89,6 +89,7 @@
         <% } %>
       <% if(typeof err !== 'undefined' && err){ %>
       <h5 class="center white-text"><%=err%></h5>
+      <h6 class="center white-text">Contact the admin of the team which you want to join</h6>
       <% } %>
     </div>
   </div>
