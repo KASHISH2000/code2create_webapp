@@ -7,10 +7,10 @@ body,html{
 	overflow-x: hidden !important;
 }
 body{
-	background-image: url('/images/background.png');
+	/*background-image: url('/images/background.png');
 	background-size: contain;
 	background-repeat: repeat;
-	background-attachment: fixed;
+	background-attachment: fixed;*/
 }
 .margin-0{
 	margin: 0px !important;

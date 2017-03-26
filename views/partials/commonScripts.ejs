@@ -19,7 +19,7 @@ $.get("http://c2c.acmvit.in/navbar/getinfo", function (data, status) {
 		console.log("successfully fetched navbar/getinfo");
 		username_togive=data.username;
 		console.log("The username is:"+username_togive);
-		$("#usernameField").text(username_togive);
+		$(".usernameField").text(username_togive);
 		var is_team=data.anotherTeam;
 		var is_admin=data.admin;
 		cur_is_admin=is_admin;
