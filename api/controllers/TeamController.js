@@ -595,7 +595,7 @@ module.exports = {
                     req.session.flash = {
                         success: "successfully Send Invitation"
                     };
-                    sendRequestEmail.sendWelcomeMail(useremail);
+                    sendRequestMail.sendWelcomeMail(useremail);
 
                     return res.redirect('/user/showall');                }
                 );

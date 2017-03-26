@@ -4,7 +4,7 @@ module.exports.sendWelcomeMail = function(email) {
 
 
     sails.hooks.email.send(
-        "welcomeEmail",
+        "sendRequestEmail",
         {
             Name : email
 
