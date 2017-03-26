@@ -81,7 +81,7 @@
             <form action="/team/sendRequest" method="POST">
               <input type="hidden" name="reciever" value="<%=user.id%>">
               <button type="submit" class="send-req-but smooth-transition hide" id="sub_<%=user.id%>" >Invite</button>
-              <button type="button" class="send-req-but smooth-transition" onclick="confirm_send_invite('sub_<%=user.id%>')">Invite</button>
+              <button type="button" class="send-req-but smooth-transition" onclick="confirm_send_invite('sub_<%=user.id%>')" id="but_sended_req_<%=user.id%>">Invite</button>
             </form>
             <%}%>
             <% if(!eli){ %>
@@ -108,55 +108,59 @@
     <% } %>
   </script>
   <script type="text/javascript">
+    $(".disabled-in-team").click(function(){
+     sweetAlert("Not Allowed", "This person is already in a team, so you cannot send Invite", "error");
+   })
+ </script>
+ <script type="text/javascript">
    var is_admin=false;
    var sendRequest=[];
-    $.get("http://localhost:1337/navbar/myteam", function (data, status) {
-      if (!data)
-        console.log("Failure!", "Couldn't fetch navbar/getinfo from all user");
-      else {
-        console.log("successfully fetched navbar/getinfo");    
-        if(typeof data.admin !=='undefined' && data.admin)
-          is_admin=true;
-        if(is_admin){
-          console.log("Here i am admin");
-       }
-       else{
-        console.log("Here i am sevak");
-        $(".send-req-but").addClass('disabled');
-        $(".send-req-but").addClass('must_admin');
-        $(".must_admin").click(function(){
-          sweetAlert("Not Allowed", "You must be an admin of a team to send Invite", "error");
-        });
-
+   $.ajax({
+    url: "http://c2c.acmvit.in/navbar/myteam",
+    dataType: 'json',
+    async: false,
+    success: function(data) {
+      console.log(JSON.stringify(data));
+      if(typeof data.admin !=='undefined' && data.admin)
+        is_admin=true;
+      sendRequest=data.team.memberSend;
+      for(i=0;i<sendRequest.length;i++){
+        $("#but_sended_req_"+sendRequest[i]).addClass("already-sended-request");
+        $("#but_sended_req_"+sendRequest[i]).addClass("disabled");
+        $("#but_sended_req_"+sendRequest[i]).html("Invited");
       }
     }
   });
-
-
-
-
-</script>
-<script type="text/javascript">
-
-  $(".disabled-in-team").click(function(){
-   sweetAlert("Not Allowed", "This person is already in a team, so you cannot send Invite", "error");
- })
+   if(!is_admin){
+    $(".send-req-but").addClass('disabled');
+    $(".send-req-but").addClass('must_admin');
+      sweetAlert("Not Allowed", "You must be an admin of a team to send Invite", "error");
+  }
 </script>
 <script type="text/javascript">
   function confirm_send_invite(sub_but_id){
-    if(is_admin){
-      swal({
-        title: "Are you sure to send an Invite ?",
-        text: "The person will receive an Invitation to join your Team. If they accept it, then they will be a part of your team!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Send Invite",
-        closeOnConfirm: true
-      },
-      function(){
-        $("#"+sub_but_id).click();
-      });
-    }
+    var useridd=sub_but_id.substring(4);
+    for(var i=0;i<sendRequest.length;i++){
+     if(useridd==sendRequest[i]){
+       sweetAlert("Not Allowed", "You have already send Invite to this person", "error");
+       return false;
+     }
+   }
+
+   console.log(useridd);
+   if(is_admin){
+    swal({
+      title: "Are you sure to send an Invite ?",
+      text: "The person will receive an Invitation to join your Team. If they accept it, then they will be a part of your team!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Send Invite",
+      closeOnConfirm: true
+    },
+    function(){
+      $("#"+sub_but_id).click();
+    });
   }
+}
 </script>

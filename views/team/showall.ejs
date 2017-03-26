@@ -35,7 +35,7 @@
               <th data-field="id">TeamName</th>
               <th data-field="name">Track</th>
               <th data-field="price">Members</th>
-              <th data-field="price">Project Description</th>
+            <!--   <th data-field="price">Project Description</th> -->
               <th data-field="price">Team Admin</th>
             </tr>
           </thead>
@@ -58,7 +58,7 @@
               <td><a href="/team/show/<%=team.teamName%>" class="underline-wala"><%=team.teamName%></a></td>
               <td><%=trackk%></td>
               <td><%=team.memberAccepted.length%></td>
-              <td><%=team.description%></td>
+            <!--   <td><%=team.description%></td> -->
               <td><a href="/user/show/<%=team.teamAdmin%>" class="underline-wala"><%=team.teamAdmin%></a></td>
             </tr>
             <% }); %>
