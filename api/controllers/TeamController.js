@@ -507,6 +507,9 @@ module.exports = {
     var l=0;
     useremail = req.param('email');
 
+    console.log("Email to which request has to be send.");
+    console.log(useremail);
+
     user = req.session.User;
 
     Team.update({

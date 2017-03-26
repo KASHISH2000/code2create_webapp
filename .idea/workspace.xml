@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8509ca-efdd-44fc-b707-eea704422688" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/TeamController.js" afterPath="$PROJECT_DIR$/api/controllers/TeamController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/emailTemplates/sendRequestEmail/html.ejs" afterPath="$PROJECT_DIR$/api/emailTemplates/sendRequestEmail/html.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/services/sendRequestMail.js" afterPath="$PROJECT_DIR$/api/services/sendRequestMail.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,18 +25,8 @@
       <file leaf-file-name="TeamController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1588">
-              <caret line="601" column="13" lean-forward="true" selection-start-line="601" selection-start-column="13" selection-end-line="601" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="defaultUrl.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/services/defaultUrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="408">
+              <caret line="599" column="22" lean-forward="false" selection-start-line="599" selection-start-column="22" selection-end-line="599" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -43,38 +35,28 @@
       <file leaf-file-name="sendRequestMail.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/services/sendRequestMail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="html.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="html.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/emailTemplates/sendRequestEmail/html.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+            <state relative-caret-position="120">
+              <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/email.js">
+      <file leaf-file-name="showall.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/user/showall.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mailer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/services/Mailer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="223">
+              <caret line="82" column="25" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -83,8 +65,18 @@
       <file leaf-file-name="UserController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/UserController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="117" column="12" lean-forward="true" selection-start-line="117" selection-start-column="12" selection-end-line="117" selection-end-column="12" />
+            <state relative-caret-position="231">
+              <caret line="111" column="16" lean-forward="false" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mailer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/services/Mailer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -107,8 +99,11 @@
       <find>myteam :</find>
       <find>show</find>
       <find>mailer</find>
-      <find>sendRe</find>
       <find>send</find>
+      <find>email</find>
+      <find>sendRe</find>
+      <find>showall</find>
+      <find>Mailer</find>
     </findStrings>
     <replaceStrings>
       <replace>http://c2c.acmvit.in/</replace>
@@ -219,6 +214,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code2create" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code2create" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emailTemplates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code2create" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code2create" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emailTemplates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sendRequestEmail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -304,12 +339,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490473729833</updated>
       <workItem from="1490473733394" duration="5087000" />
-      <workItem from="1490515695790" duration="9071000" />
+      <workItem from="1490515695790" duration="9788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14158000" />
+    <option name="totallyTimeSpent" value="14875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -482,14 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/showall.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="100" column="31" lean-forward="false" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/homepage.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27">
@@ -602,50 +629,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/services/defaultUrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/showall.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="82" column="25" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/UserController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="117" column="12" lean-forward="true" selection-start-line="117" selection-start-column="12" selection-end-line="117" selection-end-column="12" />
+        <state relative-caret-position="231">
+          <caret line="111" column="16" lean-forward="false" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/services/Mailer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/emailTemplates/sendRequestEmail/html.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/services/sendRequestMail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1588">
-          <caret line="601" column="13" lean-forward="true" selection-start-line="601" selection-start-column="13" selection-end-line="601" selection-end-column="13" />
+        <state relative-caret-position="408">
+          <caret line="599" column="22" lean-forward="false" selection-start-line="599" selection-start-column="22" selection-end-line="599" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/services/defaultUrl.js">
+    <entry file="file://$PROJECT_DIR$/api/services/sendRequestMail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        <state relative-caret-position="360">
+          <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/emailTemplates/sendRequestEmail/html.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
           <folding />
         </state>
       </provider>
