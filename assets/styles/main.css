@@ -2,11 +2,11 @@ body{
 	/*background-color: #2e3438;*/
 	background-color: #262a2d;
 	overflow-y: auto !important;
- /* font-family: 'Lato', sans-serif;*/
+  /*font-family: 'Lato', sans-serif !important;*/
  
 }
 *{
-
+ 
 }
 .color-theme-green{
   color: #1eb76e !important;
