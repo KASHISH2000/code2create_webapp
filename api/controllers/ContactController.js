@@ -29,8 +29,8 @@ module.exports = {
       };
       //console.log(contact);
       RecieveMailer.sendWelcomeMail(contact);
-      return res.status(200).json(contact);
-      // return res.redirect('/');
+      //return res.status(200).json(contact);
+       return res.redirect('/');
     });
   }
 };

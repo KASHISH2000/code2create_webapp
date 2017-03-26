@@ -51,35 +51,51 @@ Developed by:
     <script>
       new WOW().init();
     </script>
+    <script type="text/javascript">
+    </script>
   </head>
   <body>
-   <%- body %>
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+
+    </div>
+    <%- body %>
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
   //<![CDATA[
-  $(window).on('load', function() { // makes sure the whole site is loaded
-    $('#status').fadeOut(); // will first fade out the loading animation
-    $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-    $('body').delay(350).css({'overflow':'visible'});
+  // $(window).on('load', function() { // makes sure the whole site is loaded
+  //   $('#status').fadeOut(); // will first fade out the loading animation
+  //   $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+  //   $('body').delay(350).css({'overflow':'visible'});
+  // });
+  $(document).ready(function() {
+
+    setTimeout(function(){
+      $('body').addClass('loaded');
+    }, 100);
+
   });
   //]]>
 </script>
 <script type="text/javascript">
 </script>
 <script type="text/javascript">
-   $(".button-collapse").sideNav();
-   check_scroll_top();
-   $(window).scroll(function () {
-    check_scroll_top();
-  });
-   function check_scroll_top(){
-    if ($(window).scrollTop() > 1400) {
-      $("#back-to-top").fadeIn(400);
-    } else {
-      $("#back-to-top").fadeOut(500);
-    }
+ $(".button-collapse").sideNav();
+ check_scroll_top();
+ $(window).scroll(function () {
+  check_scroll_top();
+});
+ function check_scroll_top(){
+  if ($(window).scrollTop() > 1400) {
+    $("#back-to-top").fadeIn(400);
+  } else {
+    $("#back-to-top").fadeOut(500);
   }
+}
 </script>
 <!-- <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

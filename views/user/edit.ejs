@@ -21,7 +21,6 @@
   }
 </style>
 
-
 <%- partial('../partials/navbar.ejs', {active: 'userEdit'}) %>
 <div class="container">
   <div class="heading-bg">
@@ -33,11 +32,11 @@
         <div class="col s12">
          <div class="input-field col s12 m6">
            <p class="detail-title">
-            UserID
+            UserName
           </p>
 
           <p class="detail-answer white-text">
-          <i class="material-icons ver-align-middle">account_circle</i> &nbsp;<a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%=user.username%></a>
+            <i class="material-icons ver-align-middle">account_circle</i> &nbsp;<a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%=user.username%></a>
           </p>
         </div>
 
@@ -92,7 +91,7 @@
   Hostler
 </p>
 <p class="detail-answer white-text">
- <%=user.block%>, <%=user.roomno%>
+<span id="set_hostel"></span>, <%=user.roomno%>
 </p>
 <% } %>
 <% if(user.living=='dayscholar'){ %>
@@ -132,11 +131,11 @@
         <label for="description">What are your skills? In what languages do you code?</label>
       </div>
       <div class="input-field col s12 m6">
-        <input id="github" type="text" class="validate" name="github" value="<%=user.github%>">
+        <input id="github" type="url" class="validate" name="github" value="<%=user.github%>">
         <label for="github">Github Profie link</label>
       </div>
       <div class="input-field col s12 m6">
-        <input id="linkedin" type="text" class="validate" name="linkedin" value="<%=user.linkedin%>">
+        <input id="linkedin" type="url" class="validate" name="linkedin" value="<%=user.linkedin%>">
         <label for="linkedin">Linkedin Profie link</label>
       </div>
       <input type="hidden" name="_csrf" value="<%= _csrf %>">
@@ -155,11 +154,36 @@
 </div>
 <%- partial('../partials/footer.ejs') %>
 <%- partial('../partials/commonScripts.ejs') %>
-  <script type="text/javascript">
-   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-    sweetAlert("Error", "<%=flash.err%>", "error");
-    <% } %>
-    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
     sweetAlert("success", "<%=flash.success%>", "success");
     <% } %>
   </script>
+  <script type="text/javascript">
+
+  function getHostel(host){
+    var to_return="";
+    console.log(host);
+    var mh_lh=host.substring(0,2);
+    if(mh_lh=="mh")
+      to_return=to_return.concat("Mens Hostel");
+    else
+      to_return=to_return.concat("Girls Hostel");
+    var block=host.substring(3);
+    console.log("blockk="+block);
+    if(block.length==1){
+      var blockk=block.toUpperCase();
+      to_return=to_return.concat(", "+blockk+" Block");
+    }
+    else{
+      var blockk=block.substring(3,4);
+      to_return=to_return.concat(", "+blockk+" Annex");
+    }
+   document.getElementById("set_hostel").innerHTML= to_return;
+
+  }
+  getHostel("<%=user.block%>");
+</script>

@@ -96,7 +96,7 @@
         <div class="input-field col s12 m12">
           <i class="material-icons prefix">account_circle</i>
           <input id="username" type="text" class="validate" required name="username">
-          <label for="username">username (Choose a username eg. hkedia321) <span class="required">*</span></label>
+          <label for="username">UserName (Choose a username) <span class="required">*</span></label>
         </div>
         <div class="input-field col s12 m6">
           <input id="password" type="password" class="validate" required name="password">
@@ -143,7 +143,7 @@
             <select name="block" id="block" class="validate">
               <option value="">select an option..</option>
               <optgroup label="Mens hostel">
-                <option value="mha">MH A</option>
+                <option value="mh_a">MH A</option>
                 <option value="mh_b">MH B</option>
                 <option value="mh_ba">MH B-annex</option>
                 <option value="mh_c">MH C</option>
@@ -195,11 +195,11 @@
       <label for="description">What are your skills? In what languages do you code?</label>
     </div>
     <div class="input-field col s12 m6">
-      <input id="github" type="text" class="validate" name="github">
+      <input id="github" type="url" class="validate" name="github">
       <label for="github">Github Profie link</label>
     </div>
     <div class="input-field col s12 m6">
-      <input id="linkedin" type="text" class="validate" name="linkedin">
+      <input id="linkedin" type="url" class="validate" name="linkedin">
       <label for="linkedin">Linkedin Profie link</label>
     </div>
     <input type="hidden" name="_csrf" value="<%= _csrf %>">

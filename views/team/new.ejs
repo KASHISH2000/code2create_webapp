@@ -31,8 +31,14 @@
         cursor: pointer;
         width: 45% !important;
         margin: 2% !important;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
       }
-
+      .track-col:hover{
+        padding: 0.7rem !important;
+      }
       .track-col .track-img{
         width: 100%;
         height: 100%;
@@ -111,7 +117,7 @@
           </div>
           <div class="rank-disp" id="rank1">
           </div>
-          <img src="/images/tracks/ar.png" class="track-img responsive-img">
+          <img src="/images/tracks/track_arvr.png" class="track-img responsive-img">
         </div>
         <div class="col m3 s6 track-col">
          <input type="hidden" name="helc" class="inp_track">
@@ -120,7 +126,7 @@
         </div>
         <div class="rank-disp">
         </div>
-        <img src="/images/tracks/helc.jpg" class="track-img responsive-img">
+        <img src="/images/tracks/track_helc.png" class="track-img responsive-img">
       </div>
       <div class="col m3 s6 track-col">
        <input type="hidden" name="fint" class="inp_track">
@@ -129,7 +135,7 @@
       </div>
       <div class="rank-disp">
       </div>
-      <img src="/images/tracks/fintech.jpg" class="track-img responsive-img">
+      <img src="/images/tracks/track_fint.png" class="track-img responsive-img">
     </div>
     <div class="col m3 s6 track-col">
      <input type="hidden" name="clen" class="inp_track">
@@ -138,7 +144,7 @@
     </div>
     <div class="rank-disp">
     </div>
-    <img src="/images/tracks/clen.jpg" class="track-img responsive-img">
+    <img src="/images/tracks/track_clen.png" class="track-img responsive-img">
   </div>
 </div>
 <div class="input-field col s12 m12">
@@ -217,11 +223,11 @@
   });
 </script>
 
-  <script type="text/javascript">
-   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-    sweetAlert("Error", "<%=flash.err%>", "error");
-    <% } %>
-    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
     sweetAlert("success", "<%=flash.success%>", "success");
     <% } %>
   </script>

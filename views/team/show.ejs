@@ -71,18 +71,24 @@ trackk='not found';
    <h5 class="left-align white-text main-heading">Team details</h5>
  </div>
  <div class="my-main-card hoverable white-text">
-  <p class="detail-title">
-    Team Name
-  </p>
-  <p class="detail-answer">
-    <%=team.teamName%>
-  </p>
-  <p class="detail-title">
-    Team Track
-  </p>
-  <p class="detail-answer">
-    <%=trackk%>
-  </p>
+ <div class="row margin-bottom-0">
+     <div class="col s12 m6">
+      <p class="detail-title">
+        Team Name
+      </p>
+      <p class="detail-answer">
+        <%=team.teamName%>
+      </p>
+    </div>
+    <div class="col m6">
+      <p class="detail-title">
+        Team Track
+      </p>
+      <p class="detail-answer">
+        <%=trackk%>
+      </p>
+    </div>
+  </div>
   <p class="detail-title">
     Project Detail
   </p>
@@ -127,11 +133,11 @@ trackk='not found';
 
 
 <%- partial('../partials/footer.ejs') %>
-  <script type="text/javascript">
-   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
-    sweetAlert("Error", "<%=flash.err%>", "error");
-    <% } %>
-    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
     sweetAlert("success", "<%=flash.success%>", "success");
     <% } %>
   </script>

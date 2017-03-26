@@ -15,7 +15,7 @@ module.exports.sendWelcomeMail = function(obj) {
     },
     {
       to: obj.email,
-      subject: "Hi there"
+      subject: "Welcome to Code2Create"
     },
 
     function(err) {

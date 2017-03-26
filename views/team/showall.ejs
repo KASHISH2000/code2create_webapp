@@ -1,5 +1,5 @@
     <link rel="stylesheet" href="/styles/app_common.css">
-      <style>
+    <style>
       #submit_mock {
         margin-top: 20px;
       }
@@ -22,62 +22,63 @@
     </style>
 
     <%- partial('../partials/navbar.ejs',{active: 'teamShowall'}) %>
-     <div class="container">
-   <div class="heading-bg">
-   <h5 class="left-align white-text main-heading">All Teams (<%=teams.length%>)</h5>
-   <p class="margin-bottom-0 white-text">List of all teams</p>
-  </div>
-  <div class="my-main-card hoverable">
-    <div class="table-wrap">
-      <table class="bordered striped responsive-table white-text">
-        <thead>
-          <tr>
-            <th data-field="id">Team Name</th>
-            <th data-field="name">Track</th>
-            <th data-field="price">Members</th>
-            <th data-field="price">Project Description</th>
-            <th data-field="price">Team Admin</th>
-          </tr>
-        </thead>
+    <div class="container">
+     <div class="heading-bg">
+       <h5 class="left-align white-text main-heading">All Teams (<%=teams.length%>)</h5>
+       <p class="margin-bottom-0 white-text">List of all teams</p>
+     </div>
+     <div class="my-main-card hoverable">
+      <div class="table-wrap">
+        <table class="bordered striped responsive-table white-text">
+          <thead>
+            <tr>
+              <th data-field="id">TeamName</th>
+              <th data-field="name">Track</th>
+              <th data-field="price">Members</th>
+              <th data-field="price">Project Description</th>
+              <th data-field="price">Team Admin</th>
+            </tr>
+          </thead>
 
-        <tbody>
+          <tbody>
             <% _.each(teams, function(team) {
-              var trackk='';
-              if(team.arvr=='1')
-               trackk='AR/VR';
-               else if(team.helc=='1')
-               trackk='Health Care';
-               else if(team.fint=='1')
-               trackk='FinTech';
-               else if(team.clen=='1')
-               trackk='Clean Energy';
-               else
-               trackk='not found';
-             %>
-          <tr>
-            <td><a href="/team/show/<%=team.teamName%>" class="underline-wala"><%=team.teamName%></a></td>
-            <td><%=trackk%></td>
-            <td><%=team.memberAccepted.length%></td>
-            <td><%=team.description%></td>
-            <td><a href="/user/show/<%=team.teamAdmin%>" class="underline-wala"><%=team.teamAdmin%></a></td>
-          </tr>
-          <% }); %>
-        
-       </tbody>
-     </table>
-   </div>
- </div>
-</div>
+            var trackk='';
+            if(team.arvr=='1')
+            trackk='AR/VR';
+            else if(team.helc=='1')
+            trackk='Health Care';
+            else if(team.fint=='1')
+            trackk='FinTech';
+            else if(team.clen=='1')
+            trackk='Clean Energy';
+            else
+            trackk='not found';
+            %>
+            <tr>
+              <td><a href="/team/show/<%=team.teamName%>" class="underline-wala"><%=team.teamName%></a></td>
+              <td><%=trackk%></td>
+              <td><%=team.memberAccepted.length%></td>
+              <td><%=team.description%></td>
+              <td><a href="/user/show/<%=team.teamAdmin%>" class="underline-wala"><%=team.teamAdmin%></a></td>
+            </tr>
+            <% }); %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
 
-<%- partial('../partials/footer.ejs') %>
-<%- partial('../partials/commonScripts.ejs') %>
+  <%- partial('../partials/footer.ejs') %>
+  <%- partial('../partials/commonScripts.ejs') %>
 
   <script type="text/javascript">
    <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
     sweetAlert("Error", "<%=flash.err%>", "error");
     <% } %>
     <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
-    sweetAlert("success", "<%=flash.success%>", "success");
-    <% } %>
-  </script>
+      sweetAlert("success", "<%=flash.success%>", "success");
+      <% } %>
+    </script>
+

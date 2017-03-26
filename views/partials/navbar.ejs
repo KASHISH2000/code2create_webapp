@@ -1,7 +1,3 @@
-  <!-- Preloader -->
-  <div id="preloader">
-    <div id="status">&nbsp;</div>
-  </div>
   <!--NAV START-->
   <ul id="dropdown1" class="dropdown-content">
     <li>
@@ -67,7 +63,7 @@
        <% if(active=='teamViewrequest'){ %>
        nav-active
        <% } %>
-       ">View Requests</a>
+       ">View Invites</a>
      </li>
      <!-- Dropdown Trigger -->
      <li><a class="dropdown-button active-colour" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-2x" aria-hidden="true"></i><i class="material-icons right margin-left-0">arrow_drop_down</i></a></li>
@@ -83,36 +79,36 @@
   </li>
   <li><a class="navlink a-home" href="/user/showall">All Members</a>
   </li>
-  <li><a class="navlink a-home" href="/viewrequests">View Requests</a>
+  <li><a class="navlink a-home" href="/viewrequests">View Invites</a>
   </li>
-     <li>
-         <a href="/user/edit">
-             <div class="user-info-nav
-        <% if(active=='userEdit'){ %>
-        active-colour
-        <% } %>
-        ">
-                 <i class="fa fa-user fa-2x ver-align-middle" aria-hidden="true"></i>
-                 <span id="usernameField"></span>
-             </div>
-         </a>
-     </li>
-     <li class="my_team_li">
-         <a href="/team/myteam"
-                 <% if(active=='myteam'){ %>
-            class='active-colour'
-                 <% } %>
-         ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="myteam_span"></span></a>
-     </li>
-     <li class="create_a_team_li"><a href="/team/new"
-             <% if(active=='teamNew'){ %>
-                                     class='active-colour'
-         <% } %>
-         ">
-         <i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a>
-     </li>
-     <li class="divider"></li>
-     <li><a href="/session/destroy">Logout</a></li>
+  <li>
+   <a href="/user/edit">
+     <div class="user-info-nav
+     <% if(active=='userEdit'){ %>
+     active-colour
+     <% } %>
+     ">
+     <i class="fa fa-user fa-2x ver-align-middle" aria-hidden="true"></i>
+     <span id="usernameField"></span>
+   </div>
+ </a>
+</li>
+<li class="my_team_li">
+ <a href="/team/myteam"
+ <% if(active=='myteam'){ %>
+ class='active-colour'
+ <% } %>
+ ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="myteam_span"></span></a>
+</li>
+<li class="create_a_team_li"><a href="/team/new"
+ <% if(active=='teamNew'){ %>
+ class='active-colour'
+ <% } %>
+ ">
+ <i class="fa fa-plus" aria-hidden="true"></i> Create a Team</a>
+</li>
+<li class="divider"></li>
+<li><a href="/session/destroy">Logout</a></li>
 </ul>
 </div>
 </nav>

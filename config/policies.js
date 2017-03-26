@@ -38,6 +38,9 @@ module.exports.policies = {
   session : {
     'new' : "flash",
     create : "flash"
+  },
+  contact:{
+    'create' : "flash"
   }
 
 

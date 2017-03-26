@@ -7,9 +7,10 @@ body,html{
 	overflow-x: hidden !important;
 }
 body{
-	/*background-image: url('/images/background.png') !important;
-	background-size: cover;
-	background-repeat: repeat;*/
+	background-image: url('/images/background.png');
+	background-size: contain;
+	background-repeat: repeat;
+	background-attachment: fixed;
 }
 .margin-0{
 	margin: 0px !important;
@@ -52,7 +53,7 @@ nav {
 }
 
 .nav-wrap {
-z-index: 10 !important;
+	z-index: 10 !important;
 }
 nav .nav-wrapper {
 	position: relative;
@@ -199,15 +200,15 @@ table.striped>tbody>tr:nth-child(odd) {
 	background-color: #2b2b2b;
 }
 @media(max-width: 991px){
-.th-skills-td{
-	display: none !important;
-}
-table.bordered>tbody>tr {
-	border-right: 1px solid #484848 !important;
-}
-.skills-td{
-	display: none !important;
-}
+	.th-skills-td{
+		display: none !important;
+	}
+	table.bordered>tbody>tr {
+		border-right: 1px solid #484848 !important;
+	}
+	.skills-td{
+		display: none !important;
+	}
 }
 @media(min-width: 992px){
 	.th-skills-td{
@@ -240,12 +241,12 @@ table.bordered>tbody>tr {
 	color: #fff;
 }
 .social-facebook:hover .fa {
-  color: #3b5998; }
+	color: #3b5998; }
 
-.social-twitter:hover .fa {
-  color: #00abf1; }
+	.social-twitter:hover .fa {
+		color: #00abf1; }
 
-.social-github:hover .fa {
-  color: #d32f2f; }
-  .social-linkedin:hover .fa {
-  color: #0077B5; }
+		.social-github:hover .fa {
+			color: #d32f2f; }
+			.social-linkedin:hover .fa {
+				color: #0077B5; }

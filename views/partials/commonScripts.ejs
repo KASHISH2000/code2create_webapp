@@ -11,7 +11,7 @@
 	<script type="text/javascript">
 //get the info of currently logged in user
 var cur_is_admin=false;
-$.get("http://c2c.acmvit.in/navbar/getinfo", function (data, status) {
+$.get("http://localhost:1337/navbar/getinfo", function (data, status) {
 	var username_togive="undefined";
 	if (!data || !data.username)
 		console.log("Failure!", "Couldn't fetch navbar/getinfo");

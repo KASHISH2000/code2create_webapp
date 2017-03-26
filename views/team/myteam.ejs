@@ -165,7 +165,7 @@
           </div>
           <div class="rank-disp" id="rank1">
           </div>
-          <img src="/images/tracks/ar.png" class="track-img responsive-img">
+          <img src="/images/tracks/track_arvr.png" class="track-img responsive-img">
         </div>
         <div class="col m3 s6 track-col" id="track-col_helc">
          <input type="hidden" name="helc" class="inp_track">
@@ -174,7 +174,7 @@
         </div>
         <div class="rank-disp">
         </div>
-        <img src="/images/tracks/helc.jpg" class="track-img responsive-img">
+        <img src="/images/tracks/track_helc.png" class="track-img responsive-img">
       </div>
       <div class="col m3 s6 track-col" id="track-col_fint">
        <input type="hidden" name="fint" class="inp_track">
@@ -183,7 +183,7 @@
       </div>
       <div class="rank-disp">
       </div>
-      <img src="/images/tracks/fintech.jpg" class="track-img responsive-img">
+      <img src="/images/tracks/track_fint.png" class="track-img responsive-img">
     </div>
     <div class="col m3 s6 track-col" id="track-col_clen">
      <input type="hidden" name="clen" class="inp_track">
@@ -192,7 +192,7 @@
     </div>
     <div class="rank-disp">
     </div>
-    <img src="/images/tracks/clen.jpg" class="track-img responsive-img">
+    <img src="/images/tracks/track_clen.png" class="track-img responsive-img">
   </div>
 </div>
 <div class="input-field col s12 m12">
@@ -228,8 +228,9 @@
   <br>
   <form action="/team/removemember" method="POST">
     <input type="hidden" name="uid" value="<%=team.admin%>" >
-    <button type="submit" name="submit" value="Destroyteam" class="red btn waves-effect waves-light">
-      <i class="fa fa-trash-o" aria-hidden="true"></i> Destroy Team
+    <button type="submit" id="leave_<%=team.admin%>" class="hide" name="submit" value="leave">Leave true</button>
+    <button type="button" class="red btn waves-effect waves-light" onclick='confirm_submit("leave_<%=team.admin%>","Are you sure you want to Delete the team ?","The Team will be removed. However, you must remove all the members before deleting the team","Delete Team")'>
+      <i class="fa fa-trash-o" aria-hidden="true"></i> Delete Team</button>
     </form>
   </div>
   <% } %>
@@ -239,71 +240,75 @@
     <br>
     <form action="/team/leaveteam" method="POST">
       <input type="hidden" name="id" value="<%=team.id%>">
-      <button type="submit" name="submit" value="Destroyteam" class="red btn waves-effect waves-light">
+      <button id="leave_<%=team.id%>" class="hide" type="submit" name="submit" value="leave">Leave true</button>
+      <button type="button" class="red btn waves-effect waves-light" onclick='confirm_submit("leave_<%=team.id%>","Are you sure you want to leave the team ?","Once you leave the team, you can create your own team or accept Invitation from others","Leave Team")'>
         <i class="fa fa-sign-out" aria-hidden="true"></i> Leave Team
-      </form>
-    </div>
-    <% } %>
-    <div class="col s12">
-      <h5 class="left-align color-theme-green">Team Members:</h5>
-      <table class="bordered striped responsive-table white-text">
-        <thead>
-          <th>userID</th>
-          <th>Name</th>
-          <th>Skills</th>
-          <th>Status</th>
-          <% if(admin){ %>
-          <th>Remove</th>
-          <% } %>
-        </thead>
-        <tbody>
-          <% _.each(team.memberAccepted,function(memberid){ %>
-          <tr>
-           <td><a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
-            <span id="<%=memberid%>_username"></span>
-            <% if(memberid==team.admin){ %>
-            <img src="/images/admin.png" class="admin-img">
-            <%}%></a></td>
-            <td> <span id="<%=memberid%>_name"></span></td>
-            <td> <span id="<%=memberid%>_description"></span></td>
-            <td><span class="team-status team-status-joined">Joined</span></td>
-            <% if(admin && !(memberid==team.admin)) {%>
-            <td>
-              <form action="/team/removemember" method="POST">
-                <input type="hidden" name="uid" value="<%=memberid%>">
-                <button type="submit" class="team-status team-remove" value="remove"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
-              </form>
-            </td>
-            <% } %>
-            <script type="text/javascript">
-              getUserDetails("<%=memberid%>");
-            </script>
-          </tr>
-
-          <% }); %>
-          <% _.each(team.memberSend,function(memberid){ %>
-          <tr>
-            <td>
-              <a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
-                <span id="<%=memberid%>_username"></span>
-              </a>
-            </td>
-            <td> <span id="<%=memberid%>_name"></span></td>
-            <td> <span id="<%=memberid%>_description"></span></td>
-            <td><span class="team-status team-status-requested">requested</span></td>
-            <% if(admin && !(memberid==team.admin)) {%>
-            <td>
-            </td>
-            <% } %>
-            <script type="text/javascript">
-              getUserDetails("<%=memberid%>");
-            </script>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-    </div>
+      </button>
+    </form>
   </div>
+  <% } %>
+  <div class="col s12">
+    <h5 class="left-align color-theme-green">Team Members:</h5>
+    <table class="bordered striped responsive-table white-text">
+      <thead>
+        <th>userID</th>
+        <th>Name</th>
+        <th>Skills</th>
+        <th>Status</th>
+        <% if(admin && team.memberAccepted>1){ %>
+        <th>Remove</th>
+        <% } %>
+      </thead>
+      <tbody>
+        <!-- for members accepted -->
+        <% _.each(team.memberAccepted,function(memberid){ %>
+        <tr>
+         <td><a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
+          <span id="<%=memberid%>_username"></span>
+          <% if(memberid==team.admin){ %>
+          <img src="/images/admin.png" class="admin-img">
+          <%}%></a></td>
+          <td> <span id="<%=memberid%>_name"></span></td>
+          <td> <span id="<%=memberid%>_description"></span></td>
+          <td><span class="team-status team-status-joined">Joined</span></td>
+          <% if(admin && !(memberid==team.admin)) {%>
+          <td>
+            <form action="/team/removemember" method="POST">
+              <input type="hidden" name="uid" value="<%=memberid%>" >
+              <button type="submit" class="hide" value="remove" id="remove_<%=memberid%>">Sure Remove</button>
+              <button type="button" class="team-status team-remove" value="remove" onclick='confirm_submit("remove_<%=memberid%>","Are you sure you want to remove this member ?","Once you remove the member, they can already be added back if you send them an Invite and they accept it ","Remove member")'><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+            </form>
+          </td>
+          <% } %>
+          <script type="text/javascript">
+            getUserDetails("<%=memberid%>");
+          </script>
+        </tr>
+
+        <% }); %>
+        <% _.each(team.memberSend,function(memberid){ %>
+        <tr>
+          <td>
+            <a id="<%=memberid%>_anchor" class="ver-align-middlee underline-wala">
+              <span id="<%=memberid%>_username"></span>
+            </a>
+          </td>
+          <td> <span id="<%=memberid%>_name"></span></td>
+          <td> <span id="<%=memberid%>_description"></span></td>
+          <td><span class="team-status team-status-requested">requested</span></td>
+          <% if(admin && !(memberid==team.admin)) {%>
+          <td>
+          </td>
+          <% } %>
+          <script type="text/javascript">
+            getUserDetails("<%=memberid%>");
+          </script>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>
 <% } %>
 <% if(typeof team == 'undefined' || !team){ %>
@@ -372,11 +377,28 @@
     rank[r4]=true;
   </script>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
    <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
     sweetAlert("Error", "<%=flash.err%>", "error");
     <% } %>
     <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
-    sweetAlert("success", "<%=flash.success%>", "success");
-    <% } %>
-  </script>
+      sweetAlert("success", "<%=flash.success%>", "success");
+      <% } %>
+    </script>
+
+    <script type="text/javascript">
+      function confirm_submit(sub_but_id,heading,message,confirmButton){
+        swal({
+          title: heading,
+          text: message,
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: confirmButton,
+          closeOnConfirm: true
+        },
+        function(){
+          $("#"+sub_but_id).click();
+        });
+      }
+    </script>

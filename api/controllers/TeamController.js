@@ -525,13 +525,13 @@ module.exports = {
 
         if (err) {
           req.session.flash = {
-            err: "Create your team first, to send requests"
+            err: "Create your team first, to send Invites"
           };
           return res.redirect('/user/showall');
         }
         if (!team) {
           req.session.flash = {
-            err: "Create your team first, to send requests"
+            err: "Create your team first, to send Invites"
           };
           return res.redirect('/user/showall');
         }
@@ -553,7 +553,7 @@ module.exports = {
                   }
                   else {
                     req.session.flash = {
-                      err: "Admin cannot send request to himself"
+                      err: "Admin cannot send Invitation to himself"
                     };
                     return res.redirect('/user/showall');
 
@@ -563,7 +563,7 @@ module.exports = {
                 else {
 
                   req.session.flash = {
-                    err: "Already sent request to this person"
+                    err: "Already send Invitation to this person"
                   };
                   return res.redirect('/user/showall');
 
@@ -577,7 +577,7 @@ module.exports = {
                 }
                 else {
                   req.session.flash = {
-                    err: "Admin cannot send request to himself"
+                    err: "Admin cannot send Invitation to himself"
                   };
                   return res.redirect('/user/showall');
 
@@ -594,7 +594,7 @@ module.exports = {
             else{
 
               req.session.flash = {
-                err: "Cannot send request to himself"
+                err: "Cannot send Invitation to himself"
               };
               return res.redirect('/user/showall');
 
@@ -606,7 +606,7 @@ module.exports = {
       //return res.status(200).json(team);
 
       req.session.flash = {
-        success: "successfully Send Request"
+        success: "successfully Send Invitation"
       };
       return res.redirect('/user/showall');
 
@@ -645,7 +645,7 @@ module.exports = {
 
 
         res.view({
-          err : "You have received no request for joining team",
+          err : "You have received no Invitations for joining team",
           requestview : requestview
         });
       }
