@@ -141,10 +141,11 @@ module.exports = {
         return;
       }
       if (!user) {
+        console.log("No user found");
         req.session.flash = {
           err : "Sorry, No user found"
         };
-        res.view();
+        res.redirect('/user/showall');
         return;
       }
 
@@ -154,9 +155,8 @@ module.exports = {
     });
      return;
 
-   }).fail({
+   })
 
-    });
   },
 
   //this is for backend.

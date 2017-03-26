@@ -233,6 +233,7 @@ module.exports = {
     }).exec(function(err, team) {
 
 
+
       if (err) {
         req.session.flash = {
           err : "Sorry, Error in finding team"
