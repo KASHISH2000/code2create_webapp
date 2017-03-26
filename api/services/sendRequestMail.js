@@ -12,7 +12,7 @@ module.exports.sendWelcomeMail = function(email) {
         },
         {
             to: email,
-            subject: "Welcome to Code2Create"
+            subject: "New Invitation in Code2Create"
         },
 
         function(err) {
@@ -21,7 +21,7 @@ module.exports.sendWelcomeMail = function(email) {
             }
             else {
                 console.log("It worked!");
-                console.log(obj.email);
+                // console.log(obj.email);
             }
         }
     )
