@@ -248,16 +248,16 @@ module.exports = {
   showall : function (req, res, next) {
 
 
-    console.log("Entered into showall");
     var iduser = 0;
     var count = 0;
     var final = 0;
     var memberarray = [];
     Team.find(function foundTeams(err, teams) {
       if (err) {
-        console.log("HEre is the error");
-        console.log(err);
-        return next(err);
+        req.session.flash = {
+          err : "Sorry, Error in finding users"
+        };
+        return res.redirect('/user/showall');
       }
       User.find(function foundUsers(err, users) {
         users.forEach(function (user) {
@@ -273,9 +273,6 @@ module.exports = {
 
           });
 
-
-
-          console.log("Value of final is " + final);
           if(teams.length === final){
             memberarray.push(user);
           }
@@ -363,7 +360,6 @@ module.exports = {
 
     };
 
-    console.log()
 
     User.update({
       id : user.id
