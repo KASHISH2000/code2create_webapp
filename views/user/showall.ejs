@@ -72,7 +72,7 @@
             <%=user.college_name %>
             <% } %>
             <% if(user.internal_external=='internal'){ %>
-            VIT University
+            VIT University, Vellore
             <% } %>
           </td>
 
@@ -80,14 +80,14 @@
             <% if(eli){ %>
             <form action="/team/sendRequest" method="POST">
               <input type="hidden" name="reciever" value="<%=user.id%>">
-               <input type="hidden" name="email" value="<%=user.email%>">
-               <input type="hidden" name="name" value="<%=user.name%>">
+              <input type="hidden" name="email" value="<%=user.email%>">
+              <input type="hidden" name="name" value="<%=user.name%>">
               <button type="submit" class="send-req-but smooth-transition hide" id="sub_<%=user.id%>" >Invite</button>
-              <button type="button" class="send-req-but smooth-transition" onclick="confirm_send_invite('sub_<%=user.id%>')" id="but_sended_req_<%=user.id%>">Invite</button>
+              <button type="button" class="send-req-but smooth-transition" data-uid="sub_<%=user.id%>" id="but_sended_req_<%=user.id%>">Invite</button>
             </form>
             <%}%>
             <% if(!eli){ %>
-            <a class="send-req-but smooth-transition disabled disabled-in-team">in team</a>
+            <a class="send-req-but smooth-transition disabled disabled-in-team">admin</a>
             <%}%>
           </td>
         </tr>
@@ -111,7 +111,7 @@
   </script>
   <script type="text/javascript">
     $(".disabled-in-team").click(function(){
-     sweetAlert("Not Allowed", "This person is already in a team, so you cannot send Invite", "error");
+     sweetAlert("Not Allowed", "This person is an admin of a Team, so you cannot send Invite", "error");
    })
  </script>
  <script type="text/javascript">
@@ -136,20 +136,31 @@
    if(!is_admin){
     $(".send-req-but").addClass('disabled');
     $(".send-req-but").addClass('must_admin');
-      //sweetAlert("Not Allowed", "You must be an admin of a team to send Invite", "error");
+    $(".must_admin").click(function(){
+      sweetAlert("Not Allowed", "You must be an admin of a team to send Invite", "error");
+    });
+  }
+  else{
+    $(".send-req-but").click(function(){
+      if($(this).hasClass("already-sended-request"))
+      {
+        sweetAlert("Not Allowed", "You have already send Invite to this person", "error");
+      }
+      else{
+        console.log("The id is"+$(this).attr("data-uid"));
+        confirm_send_invite($(this).attr("data-uid"));
+      }
+    });
   }
 </script>
 <script type="text/javascript">
   function confirm_send_invite(sub_but_id){
+    sub_but_id=String(sub_but_id);
     var useridd=sub_but_id.substring(4);
-    for(var i=0;i<sendRequest.length;i++){
-     if(useridd==sendRequest[i]){
-       sweetAlert("Not Allowed", "You have already send Invite to this person", "error");
-       return false;
-     }
+    if($("but_sended_req_"+useridd).hasClass("already-sended-request")){
+     sweetAlert("Not Allowed", "You have already send Invite to this person", "error");
+     return false;
    }
-
-   console.log(useridd);
    if(is_admin){
     swal({
       title: "Are you sure to send an Invite ?",
