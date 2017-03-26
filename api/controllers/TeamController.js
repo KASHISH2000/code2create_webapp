@@ -429,7 +429,7 @@ module.exports = {
         req.session.flash = {
           success: "Successfully left team"
         };
-        return res.redirect('team/myteam');
+        return res.redirect('team/showall');
         return;
         //res.status(200).json(team);
 
@@ -505,8 +505,9 @@ module.exports = {
 
     var temp = [];
     var l=0;
-    useremail = req.param('email');
-
+    var useremail = req.param('email');
+    var sendername = req.session.User.name;
+    var receivername = req.param('name');
     user = req.session.User;
 
     Team.update({
@@ -595,7 +596,7 @@ module.exports = {
                     req.session.flash = {
                         success: "successfully Send Invitation"
                     };
-                    sendRequestMail.sendWelcomeMail(useremail);
+                    sendRequestMail.sendWelcomeMail(sendername, receivername, useremail);
 
                     return res.redirect('/user/showall');                }
                 );

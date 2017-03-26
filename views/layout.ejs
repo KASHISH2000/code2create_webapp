@@ -43,7 +43,7 @@ Developed by:
     <link rel="apple-touch-icon" href="/images/c_only.png">
     <!-- Place favicon.ico in the root directory -->
     <!--END SEO-->
-    <link rel="stylesheet" type="text/css" href="/styles/preloader.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/styles/preloader.css"> -->
     <link rel="stylesheet" type="text/css" href="/materialize/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
@@ -58,13 +58,13 @@ Developed by:
     </script>
   </head>
   <body>
-    <div id="loader-wrapper">
+   <!--  <div id="loader-wrapper">
       <div id="loader"></div>
 
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
 
-    </div>
+    </div> -->
     <%- body %>
 
 
@@ -75,13 +75,13 @@ Developed by:
   //   $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
   //   $('body').delay(350).css({'overflow':'visible'});
   // });
-  $(document).ready(function() {
+  // $(document).ready(function() {
 
-    setTimeout(function(){
-      $('body').addClass('loaded');
-    }, 100);
+  //   setTimeout(function(){
+  //     $('body').addClass('loaded');
+  //   }, 100);
 
-  });
+  // });
   //]]>
 </script>
 <script type="text/javascript">

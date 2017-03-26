@@ -1,4 +1,4 @@
-module.exports.sendWelcomeMail = function(email) {
+module.exports.sendWelcomeMail = function(sendername, receivername, useremail) {
 
     console.log("Successfully reached");
 
@@ -6,13 +6,14 @@ module.exports.sendWelcomeMail = function(email) {
     sails.hooks.email.send(
         "sendRequestEmail",
         {
-            Name : email
-
+            sendername : sendername,
+            receivername : receivername,
+            useremail : useremail
 
         },
         {
-            to: email,
-            subject: "New Invitation in Code2Create"
+            to: useremail,
+            subject: "New Invitation for joining team in Code2Create"
         },
 
         function(err) {
@@ -24,6 +25,6 @@ module.exports.sendWelcomeMail = function(email) {
                 // console.log(obj.email);
             }
         }
-    )
+        )
 };
 
