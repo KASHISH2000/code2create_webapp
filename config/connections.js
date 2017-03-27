@@ -35,8 +35,8 @@ module.exports.connections = {
   MongoConnection_mlab: {
      adapter: 'sails-mongo',
     //adapter: 'sails-hook-mongo-auto-index',
-    // url:'mongodb://vinit_harshit:vinitharshit@ds141950.mlab.com:41950/heroku_jv8g4jvd'
-    url:'mongodb://tempuser:tempuser@ds143000.mlab.com:43000/localhost'
+    url:'mongodb://vinit_harshit:vinitharshit@ds141950.mlab.com:41950/heroku_jv8g4jvd'
+    //url:'mongodb://tempuser:tempuser@ds143000.mlab.com:43000/localhost'
 
   }
 

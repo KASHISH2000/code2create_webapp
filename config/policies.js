@@ -42,9 +42,9 @@ module.exports.policies = {
   },
   contact:{
     'create' : "flash"
-  }
+  },
 
-
+  test:''
 
   // user:{
   //   'new' : "flash",
