@@ -13,7 +13,7 @@
         $("#"+memberid+"_name").text(data[0].name);
         $("#"+memberid+"_description").text(data[0].description);
         if(data[0].internal_external=='internal')
-          $("#"+memberid+"_college_name").text("VIT University");
+          $("#"+memberid+"_college_name").text("VIT, Vellore");
         else
          $("#"+memberid+"_college_name").text(data[0].college_name);
      }
@@ -80,7 +80,7 @@ trackk='not found';
         <%=team.teamName%>
       </p>
     </div>
-    <div class="col m6">
+    <div class="col s12 m6">
       <p class="detail-title">
         Team Track
       </p>

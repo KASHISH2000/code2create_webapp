@@ -36,6 +36,11 @@
         background-color: #5a5a5a !important;
         opacity: 0.8;
       }
+      @media(min-width: 769px){
+        .invite-head-td{
+          width: 120px;
+        }
+      }
     </style>
 
     <%- partial('../partials/navbar.ejs',{active: 'userShowall'}) %>
@@ -51,7 +56,7 @@
           <td>Name</td>
           <td class="th-skills-td">Skills</td>
           <td>University</td>
-          <td class="show_if_I_admin" title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
+          <td class="show_if_I_admin invite-head-td" title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
         </thead>
         <tbody>
           <% _.each(users, function(user) {
@@ -72,7 +77,7 @@
             <%=user.college_name %>
             <% } %>
             <% if(user.internal_external=='internal'){ %>
-            VIT University, Vellore
+            VIT, Vellore
             <% } %>
           </td>
 
@@ -131,6 +136,12 @@
         $("#but_sended_req_"+sendRequest[i]).addClass("disabled");
         $("#but_sended_req_"+sendRequest[i]).html("Invited");
       }
+      memberAccepted=data.team.memberAccepted;
+      for(i=0;i<memberAccepted.length;i++){
+        $("#but_sended_req_"+memberAccepted[i]).addClass("already-in-team");
+        $("#but_sended_req_"+memberAccepted[i]).addClass("disabled");
+        $("#but_sended_req_"+memberAccepted[i]).html("accepted");
+      }
     }
   });
    if(!is_admin){
@@ -146,8 +157,10 @@
       {
         sweetAlert("Not Allowed", "You have already send Invite to this person", "error");
       }
+      else if($(this).hasClass("already-in-team")){
+        sweetAlert("Not Allowed", "This Person is Already in your team", "error");
+      }
       else{
-        console.log("The id is"+$(this).attr("data-uid"));
         confirm_send_invite($(this).attr("data-uid"));
       }
     });

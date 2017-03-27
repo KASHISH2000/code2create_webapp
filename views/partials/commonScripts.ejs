@@ -17,7 +17,7 @@ $.get("<%=defaultUrl.url()%>navbar/getinfo", function (data, status) {
 	else {
 		console.log("successfully fetched navbar/getinfo");
 		username_togive=data.username;
-		console.log("The username is:"+username_togive);
+		//console.log("The username is:"+username_togive);
 		$(".usernameField").text(username_togive);
 		var is_team=data.anotherTeam;
 		var is_admin=data.admin;

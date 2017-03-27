@@ -241,7 +241,7 @@
   <br>
   <form action="/team/removemember" method="POST">
     <input type="hidden" name="uid" value="<%=team.admin%>" >
-    <button type="submit" id="leave_<%=team.admin%>" class="hide" name="submit" value="leave">Leave true</button>
+    <button type="submit" id="leave_<%=team.admin%>" class="hide" name="submit" value="leave">delete true</button>
     <button type="button" class="red btn waves-effect waves-light" onclick='confirm_submit("leave_<%=team.admin%>","Are you sure you want to Delete the team ?","The Team will be removed. However, you must remove all the members before deleting the team","Delete Team")'>
       <i class="fa fa-trash-o" aria-hidden="true"></i> Delete Team</button>
     </form>
@@ -287,7 +287,7 @@
           <% if(admin && !(memberid==team.admin)) {%>
           <td>
             <form action="/team/removemember" method="POST">
-              <input type="hidden" name="uid" value="<%=memberid%>" >
+              <input type="hidden" name="uid" value="<%=memberid%>">
               <button type="submit" class="hide" value="remove" id="remove_<%=memberid%>">Sure Remove</button>
               <button type="button" class="team-status team-remove" value="remove" onclick='confirm_submit("remove_<%=memberid%>","Are you sure you want to remove this member ?","Once you remove the member, they can already be added back if you send them an Invite and they accept it ","Remove member")'><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
             </form>
