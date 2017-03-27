@@ -26,6 +26,7 @@ module.exports = {
       email : true,
       required: true,
       unique : true
+
     },
 
     username : {
@@ -41,13 +42,13 @@ module.exports = {
 
     college_name : {
       type : 'string',
-      required : false,
+      required : false
 
     },
 
      college_city : {
       type : 'string',
-      required : false,
+      required : false
 
     },
 
@@ -67,7 +68,7 @@ module.exports = {
 
     description : {
       type : 'text',
-      required : false,
+      required : false
 
     },
 

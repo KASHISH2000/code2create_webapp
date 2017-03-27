@@ -89,7 +89,7 @@ module.exports = {
         User.create(params_needed, function userCreated(err, user) {
           if (err) {
             req.session.flash = {
-              err: "Error: Could not register"
+              err: "Please use different username or email."
             };
             return res.redirect('/register');
           }
@@ -120,7 +120,7 @@ module.exports = {
       }
       else {
         req.session.flash = {
-          err: "Error: Couldn't Verify ReCaptcha"
+          err: "Error: Could not Verify ReCaptcha"
         };
         return res.redirect('/register');
       }
