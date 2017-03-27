@@ -96,12 +96,12 @@
           <label for="regno">College Registration number <span class="required">*</span></label>
         </div>
         <div class="input-field col s12 m6">
-          <div class="hide-on-med-and-down">
+         <!--  <div class="hide-on-med-and-down">
             <input id="phoneno" type="text" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
-          </div>
-          <div class="hide-on-large-only">
-            <input id="phoneno" type="number" class="validate" required maxlength="13" minlength="10" name="phoneno">
+          </div> -->
+          <div class="hide-on-large-onlyy">
+            <input id="phoneno" type="number" class="validate" pattern="[0-9]*" title="Mobile no" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
         </div>
@@ -237,7 +237,11 @@
 </div>
 <%- partial('../partials/footer.ejs') %>
 <%- partial('../partials/commonScripts.ejs') %>
-<script type="text/javascript" src="/js/nav_fade_scroll.js"></script>
+<script type="text/javascript">
+  if($( window ).width() > 769){
+    $("#phoneno").attr("type","text");
+  }
+</script>
 <script>
   $("#errors").hide();
 //TO SHOW VITIAN OR EXTERNAL
