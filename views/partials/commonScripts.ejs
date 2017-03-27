@@ -1,0 +1,48 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('select').material_select();
+		});
+	</script>
+	<script type="text/javascript">
+//get the info of currently logged in user
+var cur_is_admin=false;
+$.get("<%=defaultUrl.url()%>navbar/getinfo", function (data, status) {
+	var username_togive="undefined";
+	if (!data || !data.username)
+		console.log("Failure!", "Couldn't fetch navbar/getinfo");
+	else {
+		console.log("successfully fetched navbar/getinfo");
+		username_togive=data.username;
+		//console.log("The username is:"+username_togive);
+		$(".usernameField").text(username_togive);
+		var is_team=data.anotherTeam;
+		var is_admin=data.admin;
+		cur_is_admin=is_admin;
+		if(is_team)
+		{
+
+			$(".create_a_team_li").hide();
+			$(".my_team_li").show();
+			if(is_admin){
+
+				$(".myteam_span").html("My Team <img src='/images/admin.png' class='admin-img display-inline-block ver-align-middle' style='margin-top:-10px'>");
+			}
+			else{
+				$(".send-req-but").addClass('disabled');
+				$(".send-req-but").addClass('must_admin');
+				$(".myteam_span").html("My Team");
+			}
+		}
+		else{
+			$(".create_a_team_li").show();
+			$(".my_team_li").hide();
+		}
+
+	}
+});
+</script>
+<script type="text/javascript" src="/js/sweetalert.min.js"></script>

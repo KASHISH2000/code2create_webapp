@@ -1,0 +1,792 @@
+    <link rel="stylesheet" type="text/css" href="/styles/hamburger.min.css">
+    <link rel="stylesheet" href="/styles/home_slider.css">
+    <link rel="stylesheet" type="text/css" href="/styles/team.css">
+    <link rel="stylesheet" type="text/css" href="/styles/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/styles/owl.theme.green.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+    <style>
+      .error {
+        border: solid 1px red;
+        color: red;
+        padding: 10px;
+      }
+      .success {
+        border: solid 1px green;
+        color: green;
+        padding: 10px;
+      }
+    </style>
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="hero-div-baap" id="home">
+    <div class="hero-div">
+      <ul class="cb-slideshow">
+        <li><span>Image 01</span></li>
+        <li><span>Image 02</span></li>
+        <li><span>Image 03</span></li>
+        <li><span>Image 04</span></li>
+        <li><span>Image 05</span></li>
+        <li><span>Image 06</span></li>
+      </ul>
+      <div class="container-fluidd hero-content">
+        <div class="row center">
+          <br>
+          <img src="/images/logowhite.png" class="logo-c2c wow fadeInDown" data-wow-delay="0.5s">
+        </div>
+        <div class="row center white-text" style="margin-top: -20px;">
+          <h5 class="moto center hide-on-small-only">
+            <i class="fa fa-calendar smooth-transition hero-fa" aria-hidden="true"></i>
+            13-15th April &nbsp;| &nbsp;
+            ACM-VIT<span class="">&nbsp; | &nbsp;</span>
+            <i class="fa fa-map-marker smooth-transition hero-fa" aria-hidden="true"></i> VIT University
+          </h5>
+          <h5 class="moto center hide-on-med-and-up">
+            ACM-VIT
+            <br>
+            <i class="fa fa-calendar smooth-transition hero-fa" aria-hidden="true"></i>
+            13-15th April &nbsp;| &nbsp;
+            <i class="fa fa-map-marker smooth-transition hero-fa" aria-hidden="true"></i> VIT University
+          </h5>
+        </div>
+        <h4 class="center white-text">Create. Innovate. Learn.</h4>
+        <div class="row type-row">
+          <div class="container">
+            <div class="type-div center" id="type1">
+              <!--    <span class="type-no" id="type_no"></span> -->
+              <span class="type-text" id="type_text"></span>
+            </div>
+
+          </div>
+        </div>
+        <div class="row register-but-div center">
+          <a href="/register">
+          
+            <button class="hero-register-but waves-effect smooth-transition" style="margin:10px;">Register</button>
+          </a>
+        
+           <a href="/login">
+          
+            <button class="hero-register-but waves-effect smooth-transition" style="margin:10px;">Login</button>
+          </a>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="nav-wrap">
+    <div class="nav-placeholder">
+    </div>
+    <nav class="smooth-transition navelem">
+      <div class="nav-wrapper">
+        <a class="brand-logo" onclick="$('html, body').animate({scrollTop: $('#home').offset().top}, 1000);"><img src="images/c_only.png" class="responsive-img"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="navlink a-home" onclick="$('html, body').animate({scrollTop: $('#home').offset().top}, 1000);">Home</a>
+          </li>
+          <li><a class="navlink a-about"
+           onclick="$('html, body').animate({scrollTop: $('#about').offset().top-60}, 1000);">About</a>
+         </li>
+         <li><a class="navlink a-faqs"
+           onclick="$('html, body').animate({scrollTop: $('#faqs').offset().top-60}, 1000);">FAQs</a>
+         </li>
+         <li><a class="navlink a-sponsors"
+           onclick="$('html, body').animate({scrollTop: $('#sponsors').offset().top-60}, 1000);">Sponsors</a>
+         </li>
+         <li><a class="navlink a-organisers"
+           onclick="$('html, body').animate({scrollTop: $('#organisers').offset().top-60}, 1000);">Organisers</a></li>
+           <li><a class="navlink a-contactus"
+             onclick="$('html, body').animate({scrollTop: $('#contactus').offset().top-60}, 1000);">Contact
+             Us</a></li>
+             <li><a class="navlink btn waves-effect waves-light nav-reg-but" href="/register">Register</a></li>
+           </ul>
+           <ul class="side-nav" id="mobile-demo">
+            <li><a class="navlink a-home" onclick="$('html, body').animate({scrollTop: $('#home').offset().top}, 1000);">Home</a>
+            </li>
+            <li><a class="navlink a-about"
+             onclick="$('html, body').animate({scrollTop: $('#about').offset().top-60}, 1000);">About</a>
+           </li>
+           <li><a class="navlink a-faqs"
+             onclick="$('html, body').animate({scrollTop: $('#faqs').offset().top-60}, 1000);">FAQs</a>
+           </li>
+           <li><a class="navlink a-sponsors"
+             onclick="$('html, body').animate({scrollTop: $('#sponsors').offset().top-60}, 1000);">Sponsors</a>
+           </li>
+           <li><a class="navlink a-organisers"
+             onclick="$('html, body').animate({scrollTop: $('#organisers').offset().top-60}, 1000);">Organisers</a></li>
+             <li><a class="navlink a-contactus"
+               onclick="$('html, body').animate({scrollTop: $('#contactus').offset().top-60}, 1000);">Contact
+               Us</a></li>
+               <li><a class="navlink btn waves-effect waves-light nav-reg-but" href="/register">Register / Login</a></li>
+             </ul>
+           </div>
+         </nav>
+       </div>
+       <div class="about-wrap" id="about">
+        <div class="container container-little-big">
+          <div class="row">
+            <div class="col s12 center wow fadeInUp">
+              <h3 class="heading white-text center">About</h3>
+            </div>
+            <div class="col s12">
+              <br>
+              <br><br>
+            </div>
+            <div class="about-box smooth-transition about-c2c col m5 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="center">
+                <h4 class="heading center">Code 2 Create</h4>
+              </div>
+              <p class="center" id="about-box-c2c">A thrilling tech sprint awaited by all techies, this April will see an explosion of technicality. Code2Create is all about designing, building and creating; a place where graphic designers, software developers, app developers and web developers collaborate intensively on projects. Code2Create is all about designing, building and creating. It is an outburst of technology, a tech marathon – it is Code2Create.
+              </p>
+            </div>
+            <div class="col s12 hide-on-med-and-up">
+              <br>
+            </div>
+            <div class="about-box smooth-transition about-acm col m5 offset-m2 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="center">
+                <h4 class="heading center">ACM</h4>
+              </div>
+              <p class="center" id="about-box-acm">Right from our conception in 2009, ACM VIT has been organising and conducting successful technical events, quizzes, seminars and a lot more. We are a team of professionals in app development, web development and machine learning. The websites “All About VIT” and “VIT Cab Share” are some of the treasured creations of members of ACM VIT. Technology is our cause and education is our objective. We are the Association for Computing Machinery, VIT University, Vellore.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="faqs-wrap" id="faqs">
+        <div class="container-little-big container">
+          <div class="row">
+            <div class="col s12 center wow fadeInDown">
+              <h3 class="heading white-text center">FAQs</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m6 center">
+              <div class="faqs-div-wrap wow fadeInUp" id="faqs-div-wrap-1">
+                <div class="faq-wrapper" data-id="1">
+                  <div class="faq-div left-align smooth-transition">
+                    <div class="faq-question">
+                      Who all can register?
+                    </div>
+                    <button class="hamburger hamburger--slider right" type="button">
+                      <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="faq-details left-align white-text">
+                    <div class="faq-details-inner">
+                      <p>
+                        Any and all students from all over the country can register. We welcome you all!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-wrapper" data-id="2">
+                  <div class="faq-div left-align smooth-transition">
+                    <div class="faq-question">
+                      What are the Registration fees?
+                    </div>
+                    <button class="hamburger hamburger--slider right" type="button">
+                      <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="faq-details left-align white-text">
+                    <div class="faq-details-inner">
+                      <p>
+                        Nothing, it’s absolutely free!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-wrapper" data-id="3">
+                  <div class="faq-div left-align smooth-transition">
+                    <div class="faq-question">
+                     How many people can I have on my team?
+                   </div>
+                   <button class="hamburger hamburger--slider right" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                  </button>
+                </div>
+                <div class="faq-details left-align white-text">
+                  <div class="faq-details-inner">
+                    <p>
+                      You can have 2 to 4 people per team. You should either <a href="/team/new" target="_blank">create</a> your own team or accept invitations from other team admins.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="faq-wrapper" data-id="4">
+                <div class="faq-div left-align smooth-transition">
+                  <div class="faq-question">
+                   What tracks does this hack include?
+                 </div>
+                 <button class="hamburger hamburger--slider right" type="button">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                </button>
+              </div>
+              <div class="faq-details left-align white-text">
+                <div class="faq-details-inner">
+                  <p>
+                   Code2Create incorporates four main areas of interest-
+                   <br>
+                   Fin tech,
+                   <br>
+                    AR/VR,
+                    <br> Clean energy,
+                    <br>
+                     Health Care.
+                 </p>
+               </div>
+             </div>
+           </div>
+           <div class="faq-wrapper" data-id="5">
+            <div class="faq-div left-align smooth-transition">
+              <div class="faq-question">
+               How do I choose my track?
+             </div>
+             <button class="hamburger hamburger--slider right" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+          </div>
+          <div class="faq-details left-align white-text">
+            <div class="faq-details-inner">
+              <p>
+               When you <a href="/register" target="_blank">register</a> we will take your preferences for each track and allot your track on a first-come-first-served basis. You will also select a problem statement from a given set.
+             </p>
+           </div>
+         </div>
+       </div>
+</div>
+</div>
+<div class="col s12 m6 center">
+    <div class="faqs-div-wrap wow fadeInUp" id="faqs-div-wrap-2">
+     <div class="faq-wrapper" data-id="6">
+      <div class="faq-div left-align smooth-transition">
+        <div class="faq-question">
+         How do I qualify for the pitching round?
+       </div>
+       <button class="hamburger hamburger--slider right" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+    <div class="faq-details left-align white-text">
+      <div class="faq-details-inner">
+        <p>
+         There will be two inspections conducted during the hack. After the first inspection, we will put the bottom 25 teams on the red list. If these teams do not show any improvement by the second inspection, they will be eliminated. Around 35 teams will pitch their ideas.
+       </p>
+     </div>
+   </div>
+ </div>
+ <div class="faq-wrapper" data-id="7">
+  <div class="faq-div left-align smooth-transition">
+    <div class="faq-question">
+     What is the quiz about ?
+   </div>
+   <button class="hamburger hamburger--slider right" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+</div>
+<div class="faq-details left-align white-text">
+  <div class="faq-details-inner">
+   <p> The Quiz is for determining the final pitching order. It is based on GK and your Googling skills.
+   </p>
+ </div>
+</div>
+</div>
+<div class="faq-wrapper" data-id="8">
+  <div class="faq-div left-align smooth-transition">
+    <div class="faq-question">
+     What happens if I rank last during the quiz?
+   </div>
+   <button class="hamburger hamburger--slider right" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+</div>
+<div class="faq-details left-align white-text">
+  <div class="faq-details-inner">
+   <p> Don’t worry! We will simply ask you to pitch your idea first. We hope you are fast with powerpoint.  
+   </p>
+ </div>
+</div>
+</div>
+<div class="faq-wrapper" data-id="9">
+  <div class="faq-div left-align smooth-transition">
+    <div class="faq-question">
+      What all can I win?
+    </div>
+    <button class="hamburger hamburger--slider right" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
+  <div class="faq-details left-align white-text">
+    <div class="faq-details-inner">
+     <p>Cash prizes and Internships for first three teams, T-Shirts, Certificates for participants, Digital Ocean credits, and Stickers.
+     </p>
+   </div>
+ </div>
+</div>
+<div class="faq-wrapper" data-id="10">
+  <div class="faq-div left-align smooth-transition">
+    <div class="faq-question">
+     What if I get hungry or need internet connection?
+   </div>
+   <button class="hamburger hamburger--slider right" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+</div>
+<div class="faq-details left-align white-text">
+  <div class="faq-details-inner">
+   <p> We’ll provide you with delicious food at regular intervals (breakfast, lunch, dinner and snacks) along with beverages. Also, You will be provided with free access to our beloved internet facility, VOLSBB.
+   </p>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ <br><br>
+<div class="sponsors-wrap" id="sponsors">
+  <div class="container">
+    <div class="col s1 center wow fadeInUp">
+      <h4 class="heading white-text">Sponsors</h4>
+    </div>
+    <div class="col s12">
+      <br>
+    </div>
+    <div class="row">
+      <div class="col m5 offset-m1 s12">
+        <img src="/images/sponsors/aisec_tt.png" class="sponsors-pic wow fadeInDown responsive-img">
+      </div>
+      <div class="col m5 s12" style="vertical-align: middle;">
+        <img src="/images/sponsors/oil_t.png" class="sponsors-pic wow fadeInDown responsive-img">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m6 center">
+        <h5 class="center white-text">Cloud Partner</h5>
+        <img src="/images/sponsors/digitalocean.png" class="sponsors-pic responsive-img wow fadeInLeft">
+      </div>
+      <div class="col s12 m6 center">
+        <h5 class="center white-text">Online Partner</h5>
+        <img src="/images/sponsors/hackerrank.png" class="sponsors-pic responsive-img wow fadeInRight">
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col s12 center wow fadeInLeft">
+        <h5 class="center display-inline-block white-text">Interested to sponsor our event? Have a look at our &nbsp;</h5>
+        <a href="codetocreate.pdf" target="_blank">
+          <button class="ghost-btn">Sponsorship Brochure
+            <span class="coming-arrow">&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<div class="organisers-wrap" id="organisers">
+  <div class="container container-little-big">
+    <div class="col s12 center wow fadeInUp">
+      <h4 class="heading white-text">Organisers</h4>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col s12 wow fadeInUp">
+        <div class="col m4 center">
+          <img src="/images/acmwhite.png" class="responsive-img">
+        </div>
+        <div class="col m4 center">
+          <h4 class="center in-association-text">In Association with</h4>
+        </div>
+        <div class="col m4 center">
+          <br class="hide-on-small-only">
+          <img src="/images/site.png" class="responsive-img site-logo">
+        </div>
+      </div>
+    </div>
+    <div class="row faculty-div">
+      <div class="col s12 center wow fadeInDown">
+        <h4 class="center white-text heading">Faculty Organisers</h4>
+        <br><br>
+      </div>
+      <div class="col s12 m4 offset-m2 wow fadeInUp">
+        <div class="member-card">
+          <img src="/images/people/dean_site.png" class="member-card-img smooth-transition-fast">
+          <div class="member-info smooth-transition-fast">
+            <div class="member-name-div">
+              <h5 class="member-name">Dr Aswani Kumar</h5>
+            </div>
+            <h5 class="member-position">Deann SITE</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col s0 m1">
+        &nbsp;
+      </div>
+      <div class="col s12 m3 hrv-col wow fadeInUp">
+        <div class="member-card hrv-member-card">
+          <img src="/images/people/hrv.png" class="member-card-img smooth-transition-fast">
+          <div class="member-info smooth-transition-fast">
+           <div class="member-name-div">
+            <h5 class="member-name">Dr Hari Ram Vishwakarma</h5>
+          </div>
+          <h5 class="member-position">Faculty Coordinator</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row students-div">
+    <div class="center wow fadeInDown">
+     <h4 class="center white-text heading">Student Organisers</h4>
+   </div>
+   <br><br>
+   <div class="owl-carousel owl-theme wow fadeInUp">
+    <div class="owl-element-wrap">
+     <div class="member-card">
+      <img src="/images/people/abhinav.png" class="member-card-img smooth-transition-fast">
+      <div class="member-info smooth-transition-fast">
+       <div class="member-name-div">
+         <h5 class="member-name">Abhinav Das</h5>
+       </div>
+       <h5 class="member-position">President</h5>
+
+       <div class="member-social-links text-center">
+        <a href="https://www.facebook.com/jordiie09?fref=hovercard" target="_blank" class="nodecoration" >
+          <i class="smooth-transition-fast fa fa-2x fa-facebook"
+          aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/abhinav-adtechs" target="_blank" class="nodecoration">
+          <i class="smooth-transition-fast fa fa-2x fa-github"
+          aria-hidden="true"></i>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/pranay.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Pranay Gupta</h5>
+  </div>
+  <h5 class="member-position">Vice President</h5>
+
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/pranay.gupta.3597" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/ashwini.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Ashwini Purohit</h5>
+  </div>
+  <h5 class="member-position">Technical Head</h5>
+
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/purohit.ashwini" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+    <a href="https://github.com/ashwini0529" target="_blank" class="nodecoration">
+      <i class="smooth-transition-fast fa fa-2x fa-github"
+      aria-hidden="true"></i>
+    </a>
+
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/rahul.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Rahul Nigam</h5>
+  </div>
+  <h5 class="member-position">Design Head</h5>
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/rahulnigam95?fref=pb_other" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/rishi.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Rishi Raj</h5>
+  </div>
+  <h5 class="member-position">Deputy Technical Head</h5>
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/rishirajloyola" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+    <a href="https://github.com/rishiraj824" target="_blank" class="nodecoration">
+      <i class="smooth-transition-fast fa fa-2x fa-github"
+      aria-hidden="true"></i>
+    </a>
+
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/mugdha.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Mugdha Pandya</h5>
+  </div>
+  <h5 class="member-position">General Secretary</h5>
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/mugdha.pandya.3?fref=ts" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/tanish.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Tanish Noah</h5>
+  </div>
+  <h5 class="member-position">Treasurer</h5>
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/tanishnoah?fref=pb_other" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/aarti.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Aarti Susan</h5>
+  </div>
+  <h5 class="member-position">Communication Head</h5>
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/AartiSusanKuruvilla?fref=ts" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/mallika.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Mallika Rai</h5>
+  </div>
+  <h5 class="member-position">University Relations</h5>
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/mallika.rai.96" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+<div class="owl-element-wrap">
+ <div class="member-card">
+  <img src="/images/people/lekhani.png" class="member-card-img smooth-transition-fast">
+  <div class="member-info smooth-transition-fast">
+   <div class="member-name-div">
+    <h5 class="member-name">Lekhani Ray</h5>
+  </div>
+  <h5 class="member-position">Membership Coordinator</h5>
+  <div class="member-social-links text-center">
+    <a href="https://www.facebook.com/lekhani.ray?fref=pb_other" target="_blank" class="nodecoration" >
+      <i class="smooth-transition-fast fa fa-2x fa-facebook"
+      aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br><br>
+<div class="contactus-wrap" id="contactus">
+  <div class="container">
+    <div class="col s12 center wow fadeInUp">
+      <h4 class="heading white-text">Contact Us</h4>
+    </div>
+    <br><br>
+    <div class="row center contactus-info">
+      <div class="addressdiv col s12 m4 center"><i class="fa fa-map-marker smooth-transition" aria-hidden="true"></i>
+        &nbsp;VIT
+        University, Vellore
+      </div>
+      <div class="emaildiv col s12 m4 center">
+        <i class="fa fa-envelope smooth-transition" aria-hidden="true"></i>&nbsp;<a
+        href="mailto:outreach@acmvit.in" class="" target="_blank">outreach@acmvit.in</a>
+      </div>
+      <div class="phndiv col s12 m4 center">
+        <i class="fa fa-phone-square smooth-transition" aria-hidden="true"></i>&nbsp;+91
+        97910 85772
+      </div>
+    </div>
+    <div class="row wow fadeIn">
+      <form action="/contact/create" method="post">
+        <div class="col s12">
+          <div class="input-field col s12 m6">
+            <input id="name_contact" type="text" name="name" required>
+            <label for="name_contact">Name</label>
+          </div>
+          <div class="input-field col m6 s12">
+            <input id="email_contact" type="email" name="email" required data-success="seems good"
+            data-error="something is wrong">
+            <label for="email_contact">Email</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="text" name="subject" required id="subject">
+            <label for="subject">Subject</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="message_contact" class="materialize-textarea" name="message" required></textarea>
+            <label for="message_contact">Message</label>
+          </div>
+          <input type="hidden" name="_csrf" value="<%= _csrf %>">
+          <div class="col s12 center-align">
+            <button class="btn waves-effect waves-light contact-sub-but" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<%- partial('./partials/footer.ejs') %>
+<%- partial('./partials/commonScripts.ejs') %>
+<script type="text/javascript" src="/js/vendor/typewriter.js"></script>
+<script type="text/javascript" src="/js/type.js"></script>
+<script type="text/javascript" src="/js/nav.js"></script>
+<script type="text/javascript" src="/js/faq.js"></script>
+<script type="text/javascript" src="/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/js/owl.navigation.js"></script>
+<script type="text/javascript">
+  function set_height() {
+    var hero_div_ht = $(".hero-div").height();
+    $(".cb-slideshow").css("min-height", hero_div_ht + 'px');
+  }
+  $(window).ready(function () {
+    set_height();
+
+    $(window).resize(function () {
+      set_height();
+    });
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('.owl-carousel').owlCarousel({
+    loop:false,
+    margin:10,
+    nav:true,
+    responsive:{
+      0:{
+        items:1
+      },
+      600:{
+        items:3
+      },
+      1000:{
+        items:4
+      }
+    }
+  })
+ });
+</script>
+
+<script type="text/javascript">
+
+ var c2c_h= $("#about-box-c2c").height();
+ var acm_h= $("#about-box-acm").height();
+ set_height_box();
+ $(window).resize(function(){
+  set_height_box();
+});
+ function set_height_box(){
+  if(window.innerWidth>769){
+    if(c2c_h>acm_h){
+      $("#about-box-acm").height(c2c_h);
+    }
+    else{
+      $("#about-box-c2c").height(acm_h);
+    }
+  }
+}
+
+</script>
+   <script type="text/javascript">
+   <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+    sweetAlert("Error", "<%=flash.err%>", "error");
+    <% } %>
+    <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>

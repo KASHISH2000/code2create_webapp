@@ -1,0 +1,63 @@
+<!--
+       444444444       000000000      333333333333333
+      4::::::::4     00:::::::::00   3:::::::::::::::33
+     4:::::::::4   00:::::::::::::00 3::::::33333::::::3
+    4::::44::::4  0:::::::000:::::::03333333     3:::::3
+   4::::4 4::::4  0::::::0   0::::::0            3:::::3
+  4::::4  4::::4  0:::::0     0:::::0            3:::::3
+ 4::::4   4::::4  0:::::0     0:::::0    33333333:::::3
+4::::444444::::4440:::::0 000 0:::::0    3:::::::::::3
+4::::::::::::::::40:::::0 000 0:::::0    33333333:::::3
+4444444444:::::4440:::::0     0:::::0            3:::::3
+          4::::4  0:::::0     0:::::0            3:::::3
+          4::::4  0::::::0   0::::::0            3:::::3
+          4::::4  0:::::::000:::::::03333333     3:::::3
+        44::::::44 00:::::::::::::00 3::::::33333::::::3
+        4::::::::4   00:::::::::00   3:::::::::::::::33
+        4444444444     000000000      333333333333333
+  This is the default "403: Forbidden" page.
+  User agents that don't "Accept" HTML will see a JSON version instead.
+  You can customize the control logic for your needs in `config/403.js`
+  You can trigger this response from one of your controllers or policies with:
+  `return res.forbidden( msg );`
+  (where `msg` is an optional error message to include in the response)
+-->
+   
+
+    <div class="fourohfour">
+      <div class="ocean center">
+      <a href="/login">
+        <img class="fishy responsive-img" src="/images/logowhite.png" style="width: 500px;">
+        </a>
+      </div>
+
+      <div class="main center white-text">
+        <h1>
+          403 Page Forbidden
+        </h1>
+        <h4 class="color-theme-green center">
+          <% if (typeof data!== 'undefined') { %>
+          <%= data %>
+          <% } else { %>
+          The page you were trying to reach is forbidden.
+          <% } %>
+        </h4>
+       
+      </div>
+      <div class="logo center">
+        
+      </div>
+    </div>
+
+
+  <%- partial('partials/footer.ejs') %>
+  <%- partial('partials/commonScripts.ejs') %>
+
+  <script type="text/javascript">
+    <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+      sweetAlert("Error", "<%=flash.err%>", "error");
+      <% } %>
+      <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+        sweetAlert("success", "<%=flash.success%>", "success");
+        <% } %>
+      </script>

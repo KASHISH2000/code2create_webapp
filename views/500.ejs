@@ -1,0 +1,66 @@
+<!--
+555555555555555555      000000000          000000000
+5::::::::::::::::5    00:::::::::00      00:::::::::00
+5::::::::::::::::5  00:::::::::::::00  00:::::::::::::00
+5:::::555555555555 0:::::::000:::::::00:::::::000:::::::0
+5:::::5            0::::::0   0::::::00::::::0   0::::::0
+5:::::5            0:::::0     0:::::00:::::0     0:::::0
+5:::::5555555555   0:::::0     0:::::00:::::0     0:::::0
+5:::::::::::::::5  0:::::0 000 0:::::00:::::0 000 0:::::0
+555555555555:::::5 0:::::0 000 0:::::00:::::0 000 0:::::0
+            5:::::50:::::0     0:::::00:::::0     0:::::0
+            5:::::50:::::0     0:::::00:::::0     0:::::0
+5555555     5:::::50::::::0   0::::::00::::::0   0::::::0
+5::::::55555::::::50:::::::000:::::::00:::::::000:::::::0
+ 55:::::::::::::55  00:::::::::::::00  00:::::::::::::00
+   55:::::::::55      00:::::::::00      00:::::::::00
+     555555555          000000000          000000000
+  This is the default "500: Server Error" page.
+  User agents that don't "Accept" HTML will see a JSON version instead.
+  You can customize the control logic for your needs in `config/500.js`
+  Sails considers a request in a "500: Server Error" state when
+  your app throws a catchable error (not inside of an asynchronous callback).
+  You can also trigger this response from one of your controllers or policies with:
+  `return res.serverError( e );`
+  (where `e` is an optional message, error, or array of errors to include in the response)
+-->
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+   
+
+    <div class="fourohfour">
+      <div class="ocean center">
+      <a href="/login">
+        <img class="fishy responsive-img" src="/images/logowhite.png" style="width: 500px;">
+        </a>
+      </div>
+
+      <div class="main center white-text">
+        <h1>
+          505 Page Unknown
+        </h1>
+        <h4 class="color-theme-green center">
+          <% if (typeof data!== 'undefined') { %>
+          <%= data %>
+          <% } else { %>
+          The page you were trying to reach doesn't exist.
+          <% } %>
+        </h4>
+       
+      </div>
+      <div class="logo center">
+        
+      </div>
+    </div>
+
+
+  <%- partial('partials/footer.ejs') %>
+  <%- partial('partials/commonScripts.ejs') %>
+
+  <script type="text/javascript">
+    <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+      sweetAlert("Error", "<%=flash.err%>", "error");
+      <% } %>
+      <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+        sweetAlert("success", "<%=flash.success%>", "success");
+        <% } %>
+      </script>

@@ -1,0 +1,192 @@
+    <link rel="stylesheet" href="/styles/app_common.css">
+    <style>
+      #submit_mock {
+        margin-top: 20px;
+      }
+      .error {
+        border: solid 1px red;
+        color: red;
+        padding: 10px;
+      }
+      .success {
+        border: solid 1px green;
+        color: green;
+        padding: 10px;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+        border: 2px solid #1eb76e;
+      }
+      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+        background-color: #1eb76e;
+      }
+      .send-req-but{
+        padding: 0.5rem 0.9rem;
+        border: none !important;
+        box-shadow: none !important;
+        background-color: #1eb76e !important;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .send-req-but:hover{
+        background-color: #10844c !important;
+      }
+      .send-req-but.disabled{
+        cursor: not-allowed;
+        background-color: #5a5a5a !important;
+        opacity: 0.8;
+      }
+      @media(min-width: 769px){
+        .invite-head-td{
+          width: 120px;
+        }
+      }
+    </style>
+
+    <%- partial('../partials/navbar.ejs',{active: 'userShowall'}) %>
+    <div class="container">
+     <div class="heading-bg">
+       <h5 class="left-align white-text main-heading">All Members (<%=users.length%>)</h5>
+       <p class="margin-bottom-0 white-text">List of all members</p>
+     </div>
+     <div class="my-main-card hoverable">
+      <table class="bordered striped responsive-table white-text">
+        <thead>
+          <td>UserName</td>
+          <td>Name</td>
+          <td class="th-skills-td">Skills</td>
+          <td>University</td>
+          <td class="show_if_I_admin invite-head-td" title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
+        </thead>
+        <tbody>
+          <% _.each(users, function(user) {
+          var eli=false;
+          _.each(memberarray, function(mem){
+          if(mem.id==user.id)
+          eli=true;
+        });
+
+        %>
+
+        <tr>
+          <td><a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%= user.username %></a></td>
+          <td><%=user.name%></td>
+          <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=user.description %></td>
+          <td>
+            <% if(user.internal_external=='external'){ %>
+            <%=user.college_name %>
+            <% } %>
+            <% if(user.internal_external=='internal'){ %>
+            VIT, Vellore
+            <% } %>
+          </td>
+
+          <td class="center show_if_I_admin">
+            <% if(eli){ %>
+            <form action="/team/sendRequest" method="POST">
+              <input type="hidden" name="reciever" value="<%=user.id%>">
+              <input type="hidden" name="email" value="<%=user.email%>">
+              <input type="hidden" name="name" value="<%=user.name%>">
+              <button type="submit" class="send-req-but smooth-transition hide" id="sub_<%=user.id%>" >Invite</button>
+              <button type="button" class="send-req-but smooth-transition" data-uid="sub_<%=user.id%>" id="but_sended_req_<%=user.id%>">Invite</button>
+            </form>
+            <%}%>
+            <% if(!eli){ %>
+            <a class="send-req-but smooth-transition disabled disabled-in-team">admin</a>
+            <%}%>
+          </td>
+        </tr>
+
+        <%});%>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>
+  <script type="text/javascript">
+    $(".disabled-in-team").click(function(){
+     sweetAlert("Not Allowed", "This person is an admin of a Team, so you cannot send Invite", "error");
+   })
+ </script>
+ <script type="text/javascript">
+   var is_admin=false;
+   var sendRequest=[];
+   $.ajax({
+    url: "<%=defaultUrl.url()%>navbar/myteam",
+    dataType: 'json',
+    async: false,
+    success: function(data) {
+      console.log(JSON.stringify(data));
+      if(typeof data.admin !=='undefined' && data.admin)
+        is_admin=true;
+      sendRequest=data.team.memberSend;
+      for(i=0;i<sendRequest.length;i++){
+        $("#but_sended_req_"+sendRequest[i]).addClass("already-sended-request");
+        $("#but_sended_req_"+sendRequest[i]).addClass("disabled");
+        $("#but_sended_req_"+sendRequest[i]).html("Invited");
+      }
+      memberAccepted=data.team.memberAccepted;
+      for(i=0;i<memberAccepted.length;i++){
+        $("#but_sended_req_"+memberAccepted[i]).addClass("already-in-team");
+        $("#but_sended_req_"+memberAccepted[i]).addClass("disabled");
+        $("#but_sended_req_"+memberAccepted[i]).html("accepted");
+      }
+    }
+  });
+   if(!is_admin){
+    $(".send-req-but").addClass('disabled');
+    $(".send-req-but").addClass('must_admin');
+    $(".must_admin").click(function(){
+      sweetAlert("Not Allowed", "You must be an admin of a team to send Invite", "error");
+    });
+  }
+  else{
+    $(".send-req-but").click(function(){
+      if($(this).hasClass("already-sended-request"))
+      {
+        sweetAlert("Not Allowed", "You have already send Invite to this person", "error");
+      }
+      else if($(this).hasClass("already-in-team")){
+        sweetAlert("Not Allowed", "This Person is Already in your team", "error");
+      }
+      else{
+        confirm_send_invite($(this).attr("data-uid"));
+      }
+    });
+  }
+</script>
+<script type="text/javascript">
+  function confirm_send_invite(sub_but_id){
+    sub_but_id=String(sub_but_id);
+    var useridd=sub_but_id.substring(4);
+    if($("but_sended_req_"+useridd).hasClass("already-sended-request")){
+     sweetAlert("Not Allowed", "You have already send Invite to this person", "error");
+     return false;
+   }
+   if(is_admin){
+    swal({
+      title: "Are you sure to send an Invite ?",
+      text: "The person will receive an Invitation to join your Team. If they accept it, then they will be a part of your team!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Send Invite",
+      closeOnConfirm: true
+    },
+    function(){
+      $("#"+sub_but_id).click();
+    });
+  }
+}
+</script>

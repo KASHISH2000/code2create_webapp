@@ -1,0 +1,63 @@
+<!--
+       444444444       000000000            444444444
+      4::::::::4     00:::::::::00         4::::::::4
+     4:::::::::4   00:::::::::::::00      4:::::::::4
+    4::::44::::4  0:::::::000:::::::0    4::::44::::4
+   4::::4 4::::4  0::::::0   0::::::0   4::::4 4::::4
+  4::::4  4::::4  0:::::0     0:::::0  4::::4  4::::4
+ 4::::4   4::::4  0:::::0     0:::::0 4::::4   4::::4
+4::::444444::::4440:::::0 000 0:::::04::::444444::::444
+4::::::::::::::::40:::::0 000 0:::::04::::::::::::::::4
+4444444444:::::4440:::::0     0:::::04444444444:::::444
+          4::::4  0:::::0     0:::::0          4::::4
+          4::::4  0::::::0   0::::::0          4::::4
+          4::::4  0:::::::000:::::::0          4::::4
+        44::::::44 00:::::::::::::00         44::::::44
+        4::::::::4   00:::::::::00           4::::::::4
+        4444444444     000000000             4444444444
+  This is the default "404: Not Found" page.
+  User agents that don't "Accept" HTML will see a JSON version instead.
+  You can customize the control logic for your needs in `config/404.js`
+  Sails considers a request to be in a "404: Not Found" state when a user
+  requests a URL which doesn't match any of your app's routes or blueprints.
+  You can also trigger this response from one of your controllers or policies with:
+  `return res.notFound();`
+-->
+
+    <div class="fourohfour">
+      <div class="ocean center">
+      <a href="/login">
+        <img class="fishy responsive-img" src="/images/logowhite.png" style="width: 500px;">
+        </a>
+      </div>
+
+      <div class="main center white-text">
+        <h1>
+          404 Page Not found
+        </h1>
+        <h4 class="color-theme-green center">
+          <% if (typeof data!== 'undefined') { %>
+          <%= data %>
+          <% } else { %>
+          The page you were trying to reach doesn't exist.
+          <% } %>
+        </h4>
+       
+      </div>
+      <div class="logo center">
+        
+      </div>
+    </div>
+
+
+  <%- partial('partials/footer.ejs') %>
+  <%- partial('partials/commonScripts.ejs') %>
+
+  <script type="text/javascript">
+    <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+      sweetAlert("Error", "<%=flash.err%>", "error");
+      <% } %>
+      <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+        sweetAlert("success", "<%=flash.success%>", "success");
+        <% } %>
+      </script>

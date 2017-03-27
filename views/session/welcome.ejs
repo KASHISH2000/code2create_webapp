@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/styles/app_common.css">
+<style>
+  #submit_mock {
+    margin-top: 20px;
+  }
+  .error {
+    border: solid 1px red;
+    color: red;
+    padding: 10px;
+  }
+  .success {
+    border: solid 1px green;
+    color: green;
+    padding: 10px;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1eb76e;
+  }
+  [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #1eb76e;
+  }
+  .my-main-card{
+    font-size: 16px;
+  }
+  .btn-def{
+    margin: 10px;
+  }
+  .btn-create{
+    background-color: #F44336 !important;
+
+  }
+  .btn-accept{
+    background-color: #19a562 !important;
+  }
+  .btn-def:hover{
+   background-color: rgba(0,0,0,0.5);
+ }
+</style>
+
+
+<%- partial('../partials/navbar.ejs', {active: 'userEdit'}) %>
+
+<div class="container">
+ <div class="heading-bg">
+   <h5 class="left-align white-text main-heading">Welcome</h5>
+ </div>
+ <div class="my-main-card hoverable">
+   <p class="center">
+    <a href="/team/new" target="_blank">
+    <button class="waves-effect btn btn-def btn-create"><i class="fa fa-plus ver-align-middle" aria-hidden="true"></i> Create a Team</button>
+   </a>
+   <a href="/team/viewrequest" target="_blank">
+     <button class="waves-effect btn btn-def btn-accept"><i class="fa fa-sign-in" aria-hidden="true"></i> Join a team</button>
+   </a>
+ </p>
+ <p class="white-text">
+   Welcome to Code2Create Internal Web App! This Web App is made to register yourself as teams.
+   <br>
+   Upon logging in, you will have two options - <a href="/team/new" target="_blank" class="underline-wala">create</a> a team or join a team by accepting Invite. If you create a team, you become the admin of the team, and can invite other participants to join your team. Participants can either accept or ignore your request.
+ </p>
+ <p class="white-text">
+   If you accept a team admin's invite, you become a member of his/her team. However, you are free to leave the team before the hack begins(on 13th April).
+ </p>
+ <p class="white-text">
+   If you wish to join a different team, you must first leave the team you are a part of. You can be a part of only one team.
+ </p>
+</div>
+</div>
+
+<%- partial('../partials/footer.ejs') %>
+<%- partial('../partials/commonScripts.ejs') %>
+
+<script type="text/javascript">
+ <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+  sweetAlert("Error", "<%=flash.err%>", "error");
+  <% } %>
+  <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+    sweetAlert("success", "<%=flash.success%>", "success");
+    <% } %>
+  </script>
