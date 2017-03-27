@@ -93,7 +93,6 @@ module.exports = {
         (array).push(user.id);
         team.memberAccepted = array;
 
-        console.log("HEre is the array");
 
         team.save(
           function (err) {
@@ -265,7 +264,6 @@ module.exports = {
     var temphelc = req.param('helc');
     var tempfint = req.param('fint');
     var tempclen = req.param('clen');
-    var team_description = req.param('description');
 
 
     var update_params_needed = {
@@ -273,24 +271,29 @@ module.exports = {
       helc : temphelc,
       fint : tempfint,
       clen : tempclen,
-      description : team_description
-
     };
 
 
-      if((!temparvr) || (!temphelc) || (!tempfint) || (!tempclen)){
-          req.session.flash = {
-              err: "Please select all the tracks according to your priority."
-          };
-          return res.redirect('/team/new');
-      }
+    if((!temparvr) || (!temphelc) || (!tempfint) || (!tempclen)){
+      req.session.flash = {
+        err: "Please select all the tracks according to your priority."
+      };
+      return res.redirect('/team/myteam');
+    }
+
+    if((temparvr === "0") || (temphelc === "0") || (tempfint === "0") || (tempclen === "0")){
+      req.session.flash = {
+        err: "Please select all the tracks according to your priority."
+      };
+      return res.redirect('/team/myteam');
+    }
 
 
     if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
       req.session.flash = {
         err: "Cannot select two same priorities."
       };
-      return res.redirect('/team/new');
+      return res.redirect('/team/myteam');
     }
 
 
@@ -424,19 +427,19 @@ module.exports = {
         }
         team.save(
           function (err) {
-            console.log('saving records for team');
+            req.session.flash = {
+              success: "Successfully left team"
+            };
+            User.findOne({
+              id : team.admin
+            }, function foundTeam(err, tempuser) {
+              LeftTeam.sendWelcomeMail(tempuser, user);
+            });
+            return res.redirect('team/showall');
+            return;
           }
           );
-        req.session.flash = {
-          success: "Successfully left team"
-        };
-        User.findOne({
-          id : team.admin
-        }, function foundTeam(err, tempuser) {
-          LeftTeam.sendWelcomeMail(tempuser, user);
-        });
-      return res.redirect('team/showall');
-        return;
+
         //res.status(200).json(team);
 
 
@@ -446,14 +449,14 @@ module.exports = {
 
   removemember : function(req,res,next) {
 
-    user = req.session.User;
-    usernameDeleted = req.param('name');
-    useremailDeleted = req.param('email');
+    sessionuser = req.session.User;
+
 
     Team.findOne({
-      admin : user.id
+      admin : sessionuser.id
     }, function foundTeam(err, team) {
       User.findOne(req.param('uid'), function foundUser(err, user) {
+
 
         if (team.admin === (user.uid)) {
           //if admin wants to delete itself
@@ -489,17 +492,18 @@ module.exports = {
           function (err) {
             if(err){
               req.session.flash = {
-                success : "Successfully removed!"
+                err : "Something went wrong.Please try again!"
               };
               return res.redirect('/team/myteam');
             }
             req.session.flash = {
               success : "Successfully removed!"
             };
-            RemoveMember.sendWelcomeMail(user, usernameDeleted, useremailDeleted);
+            RemoveMember.sendWelcomeMail(sessionuser , user);
 
-            return res.redirect('/team/myteam');          }
-          );
+            return res.redirect('/team/myteam');
+          }
+        );
 
 
       })
@@ -604,8 +608,9 @@ module.exports = {
                     };
                     sendRequestMail.sendWelcomeMail(sendername, receivername, useremail);
 
-                    return res.redirect('/user/showall');                }
-                );
+                    return res.redirect('/user/showall');
+                }
+              );
             }
             else{
 

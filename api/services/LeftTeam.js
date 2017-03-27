@@ -1,10 +1,5 @@
 module.exports.sendWelcomeMail = function(teamobj, userobj) {
 
-  console.log("Successfully reached");
-
-  console.log(teamobj);
-  console.log(userobj);
-
   sails.hooks.email.send(
     "leftTeamEmail",
     {

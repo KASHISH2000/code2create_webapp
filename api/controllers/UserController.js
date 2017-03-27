@@ -135,7 +135,6 @@ module.exports = {
       username : req.param('id')
     }).exec(function(err, user) {
 
-      //console.log(user);
 
       if (err) {
         req.session.flash = {
@@ -144,7 +143,6 @@ module.exports = {
         return;
       }
       if (!user) {
-        console.log("No user found");
         req.session.flash = {
           err : "Sorry, No user found"
         };
@@ -188,23 +186,18 @@ module.exports = {
   // showall : function (req, res, next) {
   //
   //
-  //   console.log("Entered into showall");
   //   var iduser = 0;
   //   var count = 0;
   //   var final = 0;
   //   var memberarray = [];
   //   Team.find(function foundTeams(err, teams) {
   //     if (err) {
-  //       console.log("HEre is the error");
-  //       console.log(err);
   //       return next(err);
   //     }
   //     User.find(function foundUsers(err, users) {
   //       users.forEach(function (user) {
   //         teams.forEach(function (team) {
   //
-  //           console.log("Here is the team :");
-  //           console.log(team);
   //
   //           for(var i=0 ; i<team.memberAccepted.length; i++){
   //
@@ -248,16 +241,16 @@ module.exports = {
   showall : function (req, res, next) {
 
 
-    console.log("Entered into showall");
     var iduser = 0;
     var count = 0;
     var final = 0;
     var memberarray = [];
     Team.find(function foundTeams(err, teams) {
       if (err) {
-        console.log("HEre is the error");
-        console.log(err);
-        return next(err);
+        req.session.flash = {
+          err : "Sorry, Error in finding users"
+        };
+        return res.redirect('/user/showall');
       }
       User.find(function foundUsers(err, users) {
         users.forEach(function (user) {
@@ -273,9 +266,6 @@ module.exports = {
 
           });
 
-
-
-          console.log("Value of final is " + final);
           if(teams.length === final){
             memberarray.push(user);
           }
@@ -283,7 +273,6 @@ module.exports = {
 
 
         });
-        //console.log(memberarray);
 
         // return res.status(200).json(memberarray);
         res.view({
@@ -363,7 +352,6 @@ module.exports = {
 
     };
 
-    console.log()
 
     User.update({
       id : user.id
@@ -402,7 +390,6 @@ module.exports = {
   //
   //     if(user){
   //       //Mailer.sendWelcomeMail(user);
-  //       console.log(user);
   //       res.status(200).json({
   //         user:  user,
   //         message : "Check your email"
