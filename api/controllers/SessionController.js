@@ -12,7 +12,7 @@ module.exports = {
   'new': function (req, res) {
    if(req.session.authenticated)
    {
-    res.redirect('/session/welcome');
+    res.redirect('/welcome');
     return;
   }
   res.view();
@@ -51,10 +51,10 @@ module.exports = {
           if (!user) {
             var noAccountError = {
               name: 'noAccount',
-              message: 'The email address ' + req.param('email') + ' not found.'
+              message: 'The email address not found.'
             };
             req.session.flash = {
-              err: 'The email address ' + req.param('email') + ' not found.'
+              err: 'The email address ' + req.param('email_username') + ' not found.'
             };
             res.redirect('/session/new');
             return;

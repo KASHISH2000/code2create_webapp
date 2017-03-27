@@ -114,7 +114,7 @@ module.exports = {
             };
           Mailer.sendWelcomeMail(user);
           //return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
-          return res.redirect('/session/welcome');
+          return res.redirect('/welcome');
         }
         );
       }
