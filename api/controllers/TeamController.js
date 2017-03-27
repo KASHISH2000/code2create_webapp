@@ -237,13 +237,13 @@ module.exports = {
         req.session.flash = {
           err : "Sorry, Error in finding team"
         };
-        return;
+        return res.redirect('/team/showall');;
       }
       if (!team) {
         req.session.flash = {
           err : "Sorry, No team found"
         };
-        return;
+        return res.redirect('/team/showall');
       }
 
       //return res.status(200).json(team);

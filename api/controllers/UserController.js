@@ -256,14 +256,9 @@ module.exports = {
         users.forEach(function (user) {
           teams.forEach(function (team) {
 
-
-
               if(team.admin != user.id){
                 final = final + 1;
               }
-
-
-
           });
 
           if(teams.length === final){
