@@ -3,12 +3,14 @@ body{
 	background-color: #262a2d;
 	overflow-y: auto !important;
   /*font-family: 'Lato', sans-serif !important;*/
- 
+
 }
 body,html{
  font-family: 'Lato', sans-serif;
 }
-
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #000000 !important;
+}
 .color-theme-green{
   color: #1eb76e !important;
 }

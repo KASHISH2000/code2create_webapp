@@ -42,8 +42,10 @@ module.exports.policies = {
   },
   contact:{
     'create' : "flash"
-  }
-
+  },
+test:{
+  '*':"flash"
+}
 
 
   // user:{
