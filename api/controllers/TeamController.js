@@ -75,7 +75,7 @@ module.exports = {
       Team.create(req.params.all(), function teamCreated(err, team) {
         if (err) {
           req.session.flash = {
-            err: "Please fill all the details properly"
+            err: "Please fill all the details properly or try with different teamname."
           };
 
           return res.redirect('/team/new');
