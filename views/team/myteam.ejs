@@ -114,6 +114,9 @@
   .team-remove:hover{
     background-color: #bf291d !important;
   }
+  .invite-others-but{
+    margin-left: 10px;
+  }
   @media(min-width: 601px){
     .track-col{
      height: 210px;
@@ -124,6 +127,9 @@
  @media(max-width: 769px){
   .track-col .overlay{
     opacity: 1;
+  }
+   .invite-others-but{
+    margin-top: 10px;
   }
  }
 
@@ -245,7 +251,7 @@
     <button type="button" class="red btn waves-effect waves-light" onclick='confirm_submit("leave_<%=team.admin%>","Are you sure you want to Delete the team ?","The Team will be removed. However, you must remove all the members before deleting the team","Delete Team")'>
       <i class="fa fa-trash-o" aria-hidden="true"></i> Delete Team</button>
     </form>
-    <a href="/user/showall" class="green btn waves-effect waves-light" style="margin-left:20px;"><i class="fa fa-search" aria-hidden="true"></i> Invite others to Join My team</a>
+    <a href="/user/showall" class="green btn waves-effect waves-light invite-others-but"><i class="fa fa-search" aria-hidden="true"></i> Invite others to Join My team</a>
   </div>
   <% } %>
   <!-- FOR LEAVE TEAM -->
