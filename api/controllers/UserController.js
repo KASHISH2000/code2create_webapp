@@ -98,7 +98,6 @@ module.exports = {
           user.token = sailsTokenAuth.issueToken(user.id);
           user.save(
             function (err) {
-              console.log('saving records for user');
             }
             );
 

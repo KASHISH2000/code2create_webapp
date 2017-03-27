@@ -141,10 +141,8 @@ module.exports = {
 
   //this will display all the members to whom admin can send requests.
   showall : function (req, res, next) {
-
-
     var temp = 0;
-
+    var harshit = 0;
     var iduser = 0;
     var count = 0;
     var final = 0;
