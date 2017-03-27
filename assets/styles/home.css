@@ -113,9 +113,7 @@ nav .nav-wrapper {
   .brand-logo img {
     height: 70px; } }
 /*ABOUT */
-@media (min-width: 993px) {
-  .container-little-big {
-    width: 80%; } }
+
 .about-box {
   background-color: #373d41;
   padding: 10px;

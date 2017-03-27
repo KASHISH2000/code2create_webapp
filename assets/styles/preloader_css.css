@@ -111,7 +111,7 @@ Enjoy responsibly!
         bottom: 15px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: #f9c922;
+        border-top-color: #1eb76e;
 
         -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
           animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -147,7 +147,7 @@ Enjoy responsibly!
         top: 0;
         width: 51%;
         height: 100%;
-        background: #222222;
+        background: #262a2d;
         z-index: 1000;
         -webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
         -ms-transform: translateX(0);  /* IE 9 */

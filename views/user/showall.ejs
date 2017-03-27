@@ -36,6 +36,12 @@
         background-color: #5a5a5a !important;
         opacity: 0.8;
       }
+      #searchinput{
+
+      }
+      #counter_box{
+        display: none;
+      }
       @media(min-width: 769px){
         .invite-head-td{
           width: 120px;
@@ -45,20 +51,38 @@
 
     <%- partial('../partials/navbar.ejs',{active: 'userShowall'}) %>
     <div class="container">
-     <div class="heading-bg">
+      <br><br><br>
+
+      <div class="heading-bg" style="margin-top:0px;">
        <h5 class="left-align white-text main-heading">All Members (<%=users.length%>)</h5>
-       <p class="margin-bottom-0 white-text">List of all members</p>
+       <p class="margin-bottom-0 white-text">You can send Invite to a person only if the person is not a part of any team or a non-admin of their team.</p>
      </div>
-     <div class="my-main-card hoverable">
+     <div class="my-main-card hoverable" >
+      <div class="row">
+        <div class="search-box-div">
+          <div class="search-box">
+            <div class="input-field col s12 m10 offset-m1">
+              <i class="material-icons prefix color-theme-green" style="margin-top: 10px;">search</i>
+              <input type="text" name="search" class="" id="searchinput" onkeyup="myFunction()" onChange="onChangeInput()">
+              <label for="searchinput">Search by Name, Skills, or College....</label>
+            </div>
+          </div>
+        </div>
+        <div id="counter_box" class="white-text center col s12"><span id="counter" class="color-theme-green"></span></div>
+      </div>
+
+
       <table class="bordered striped responsive-table white-text">
         <thead>
-          <td>UserName</td>
-          <td>Name</td>
-          <td class="th-skills-td">Skills</td>
-          <td>University</td>
-          <td class="show_if_I_admin invite-head-td" title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
+          <tr>
+            <td>UserName</td>
+            <td>Name</td>
+            <td class="th-skills-td">Skills</td>
+            <td>University</td>
+            <td class="show_if_I_admin invite-head-td" title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
+          </tr>
         </thead>
-        <tbody>
+        <tbody id="usersTableBody">
           <% _.each(users, function(user) {
           var eli=false;
           _.each(memberarray, function(mem){
@@ -69,15 +93,15 @@
         %>
 
         <tr>
-          <td><a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%= user.username %></a></td>
+          <td><a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><span class="td_content"><%= user.username %></span></a></td>
           <td><%=user.name%></td>
-          <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=user.description %></td>
+          <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><span class="td_content"><%=user.description %></span></td>
           <td>
             <% if(user.internal_external=='external'){ %>
-            <%=user.college_name %>
+            <span class="td_content"><%=user.college_name %></span>
             <% } %>
             <% if(user.internal_external=='internal'){ %>
-            VIT, Vellore
+            <span class="td_content">VIT, Vellore</span>
             <% } %>
           </td>
 
@@ -88,11 +112,11 @@
               <input type="hidden" name="email" value="<%=user.email%>">
               <input type="hidden" name="name" value="<%=user.name%>">
               <button type="submit" class="send-req-but smooth-transition hide" id="sub_<%=user.id%>" >Invite</button>
-              <button type="button" class="send-req-but smooth-transition" data-uid="sub_<%=user.id%>" id="but_sended_req_<%=user.id%>">Invite</button>
+              <button type="button" class="send-req-but smooth-transition" data-uid="sub_<%=user.id%>" id="but_sended_req_<%=user.id%>"><span class="td_content">Invite</span></button>
             </form>
             <%}%>
             <% if(!eli){ %>
-            <a class="send-req-but smooth-transition disabled disabled-in-team">admin</a>
+            <a class="send-req-but smooth-transition disabled disabled-in-team"><span class="td_content">admin</span></a>
             <%}%>
           </td>
         </tr>
@@ -127,7 +151,7 @@
     dataType: 'json',
     async: false,
     success: function(data) {
-      console.log(JSON.stringify(data));
+      // console.log(JSON.stringify(data));
       if(typeof data.admin !=='undefined' && data.admin)
         is_admin=true;
       sendRequest=data.team.memberSend;
@@ -188,5 +212,63 @@
       $("#"+sub_but_id).click();
     });
   }
+}
+</script>
+<script>
+  var input, filter, table, tr, td_id, td_name, td_skills, td_college, i;
+  function myFunction() {
+  // Declare variables 
+  
+  input = document.getElementById("searchinput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("usersTableBody");
+  tr = table.getElementsByTagName("tr");
+  // Loop through all table rows, and hide those who don't match the search query
+  var count=0;
+  for (i = 0; i < tr.length; i++) {
+    td_id = tr[i].getElementsByTagName("td")[0];
+    td_name = tr[i].getElementsByTagName("td")[1];
+    td_skills = tr[i].getElementsByTagName("td")[2];
+    td_college = tr[i].getElementsByTagName("td")[3];
+    if (td_id || td_name || td_skills || td_college) {
+      var td_id_content=td_id.getElementsByClassName("td_content")[0];
+      var td_name_content=td_name.getElementsByClassName("td_content")[0];
+      var td_skills_content=td_skills.getElementsByClassName("td_content")[0];
+      var td_college_content=td_college.getElementsByClassName("td_content")[0];
+      if (td_id.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        count++;
+      }     
+      else if (td_name.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        count++;
+      }
+      else if (td_skills.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        count++;
+      }
+      else if (td_college.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        count++;
+      }
+      else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+  if(input.value != "")
+  {
+    if(count>1)
+      document.getElementById('counter').innerHTML=count + " Members Matched";
+    else
+      document.getElementById('counter').innerHTML=count + " Member Matched";
+    document.getElementById('counter_box').style.display="block";
+  }
+  else
+ $('#counter_box').hide();
+}
+
+function onChangeInput(){
+  console.log("onChange");
 }
 </script>

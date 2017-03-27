@@ -8,9 +8,9 @@ body{
 body,html{
  font-family: 'Lato', sans-serif;
 }
-.dropdown-content li>a, .dropdown-content li>span {
-  color: #000000 !important;
-}
+@media (min-width: 993px) {
+  .container-little-big {
+    width: 80%; } }
 .color-theme-green{
   color: #1eb76e !important;
 }

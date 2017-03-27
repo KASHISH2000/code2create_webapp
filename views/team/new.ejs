@@ -140,10 +140,10 @@
       <div class="input-field col s12 m10 offset-m1">
         <i class="material-icons prefix">people_outline</i>
         <input id="teamid" type="text" class="validate" required name="teamName" tabindex="1">
-        <label for="teamid">teamid (Choose a teamid) <span class="required">*</span></label>
+        <label for="teamid">TeamName (Choose a TeamName) <span class="required">*</span></label>
       </div>
       <div class="row">
-        <div class="col s12">
+        <div class="col offset-s1 s11">
           <h5 class="left-align grey-colour">Assign priority for each Track:</h5>
         </div>
         <div class="col m3 s6 track-col">
@@ -265,6 +265,6 @@
   sweetAlert("Error", "<%=flash.err%>", "error");
   <% } %>
   <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
-    sweetAlert("success", "<%=flash.success%>", "success");
+    sweetAlert("<%=flash.success%>", "Now you can see All Members and Send Invites to them for joining your team.", "success");
     <% } %>
   </script>
