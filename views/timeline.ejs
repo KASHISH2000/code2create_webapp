@@ -1,0 +1,213 @@
+ <link rel="stylesheet" href="/styles/app_common.css">
+<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css">
+ <style>
+  .nav-day{
+    display: inline-block;
+  }
+  .tabs{
+    background-color: #313131;
+  }
+  .tab a{
+    color: #fff !important;
+  }
+  thead{
+    border-bottom: none;
+  }
+  .time-td{
+    color: #1eb76e;
+  }
+  .desc-td{
+    color: #fff;
+  }
+  .table{
+  }
+  .right-align{
+    text-align: right !important;
+  }
+  .left-align{
+    text-align: left !important;
+  }
+  .indicator{
+    /*display: none;*/
+  }
+  .nav-row{
+    border-bottom: 3px #1eb76e solid;
+
+  }
+  .nav-day{
+    width: 33.1%;
+    color: #fff !important;
+    padding: 4px;
+    border:1px solid #4c4c4c;
+    border-bottom: none;
+    margin: 0px;
+    cursor: pointer;
+  }
+  .nav-day:nth-child(1){
+
+  }
+  .nav-day.active{
+    background-color: #1eb76e;
+    color: red;
+  }
+  thead{
+    border-bottom: none !important;
+  }
+  thead tr{
+   border-bottom: none !important;
+ }
+ .time-td{
+  border-right: 1px solid #484848;
+  padding-right: 1rem;
+}
+.desc-td{
+  padding-left: 1rem;
+}
+@media(max-width: 769px){
+  .nav-day{
+    width: 100%;
+  }
+}
+</style>
+
+<% if(req.session.authenticated) { %>
+<%- partial('./partials/navbar.ejs',{active: 'timeline'}) %>
+<% } %>
+<% if(!(req.session.authenticated)) { %>
+<%- partial('./partials/without_login_navbar.ejs',{active: 'timeline'}) %>
+<% } %>
+
+<div class="container">
+  <div class="heading-bg">
+   <h5 class="left-align white-text main-heading">Timeline</h5>
+ </div>
+ <div class="my-main-card hoverable">
+   <br>
+   <div class="nav-row center">
+     <div class="nav-day nav-day1 active" id="navday1">
+       13th April, Thursday
+     </div>
+     <div class="nav-day nav-day2" id="navday2">
+       14th April, Friday
+     </div>
+     <div class="nav-day nav-day2" id="navday3">
+       15th April, Saturday
+     </div>
+   </div>
+   <div class="timeline-content" id="day1">
+    <table class="table centered">
+      <thead>
+        <td></td>
+        <td></td>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-td right-align">7:00 PM</td>
+          <td class="desc-td left-align">Commencement</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">9:00 PM</td>
+          <td class="desc-td left-align">Introduction</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">10:00 PM</td>
+          <td class="desc-td left-align">Hack Begins</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">12:00 Midnight</td>
+          <td class="desc-td left-align">Beverage Period</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="timeline-content" id="day2">
+    <table class="table centered">
+      <thead>
+        <td></td>
+        <td></td>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-td right-align">9:00 AM</td>
+          <td class="desc-td left-align">Breakfast break</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">11:30 AM</td>
+          <td class="desc-td left-align">Fun activity</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">1:00 PM</td>
+          <td class="desc-td left-align">Lunch Break</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">12:00 Midnight</td>
+          <td class="desc-td left-align">Technical Inspection - 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="timeline-content" id="day3">
+    <table class="table centered">
+      <thead>
+        <td></td>
+        <td></td>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-td right-align">9:00 AM</td>
+          <td class="desc-td left-align">Breakfast break</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">11:30 AM</td>
+          <td class="desc-td left-align">Fun activity</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">1:00 PM</td>
+          <td class="desc-td left-align">Lunch Break</td>
+        </tr>
+        <tr>
+          <td class="time-td right-align">12:00 Midnight</td>
+          <td class="desc-td left-align">Technical Inspection - 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+
+<%- partial('./partials/footer.ejs') %>
+<%- partial('./partials/commonScripts.ejs') %>
+<script type="text/javascript">
+  $("#day2").hide();
+  $("#day3").hide();
+  $("#navday1").click(function(){
+    $("#navday1").addClass('active');
+    $("#navday2").removeClass('active');
+    $("#navday3").removeClass('active');
+
+    $("#day1").show();
+    $("#day2").hide();
+    $("#day3").hide();
+  });
+  $("#navday2").click(function(){
+    $("#navday2").addClass('active');
+    $("#navday1").removeClass('active');
+    $("#navday3").removeClass('active');
+
+    $("#day2").show();
+    $("#day1").hide();
+    $("#day3").hide();
+  });
+  $("#navday3").click(function(){
+    $("#navday3").addClass('active');
+    $("#navday1").removeClass('active');
+    $("#navday2").removeClass('active');
+
+    $("#day3").show();
+    $("#day1").hide();
+    $("#day2").hide();
+  });
+</script>

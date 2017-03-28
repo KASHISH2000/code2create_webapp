@@ -62,7 +62,7 @@ body,html{
   height: 1px; 
 }
 footer{
-  background-color: #262a2d !important;
+  /*background-color: #262a2d !important;*/
   padding-bottom: 20px;
   padding-top: 20px;
 }

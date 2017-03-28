@@ -1,0 +1,30 @@
+ <link rel="stylesheet" href="/styles/app_common.css">
+ <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css">
+ <style>
+
+ </style>
+
+ <% if(req.session.authenticated) { %>
+ <%- partial('./partials/navbar.ejs',{active: 'prizes'}) %>
+ <% } %>
+ <% if(!(req.session.authenticated)) { %>
+ <%- partial('./partials/without_login_navbar.ejs',{active: 'prizes'}) %>
+ <% } %>
+
+ <div class="container">
+ 	<div class="heading-bg">
+ 		<h5 class="left-align white-text main-heading">Prizes and Perks</h5>
+ 	</div>
+ 	<div class="my-main-card hoverable">
+ 		<br>
+ 		<div class="nav-row center">
+
+ 		</div>
+ 	</div>
+ 	<br><br><br>
+ </div>
+
+
+ <%- partial('./partials/footer.ejs') %>
+ <%- partial('./partials/commonScripts.ejs') %>
+

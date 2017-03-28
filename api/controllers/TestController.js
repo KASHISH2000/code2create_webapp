@@ -9,7 +9,7 @@
  	mail : function (req, res) {
  		user={
  			name:"harshit kedia",
- 			email: "harshit.kedia2015@vit.ac.in"
+ 			email: "pranaygupta08@gmail.com"
  		};
  		Mailer.sendWelcomeMail(user);
  		res.view();

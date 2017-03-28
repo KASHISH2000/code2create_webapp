@@ -1,31 +1,18 @@
     <link rel="stylesheet" href="/styles/app_common.css">
+<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css">
     <style>
-      #submit_mock {
-        margin-top: 20px;
-      }
-      .error {
-        border: solid 1px red;
-        color: red;
-        padding: 10px;
-      }
-      .success {
-        border: solid 1px green;
-        color: green;
-        padding: 10px;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
-        border: 2px solid #1eb76e;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
-        background-color: #1eb76e;
-      }
       .track-img{
        margin-top: 5%;
        width: 100%;
      }
    </style>
 
-   <%- partial('./partials/navbar.ejs', {active: 'agenda'}) %>
+   <% if(req.session.authenticated) { %>
+  <%- partial('./partials/navbar.ejs',{active: 'agenda'}) %>
+  <% } %>
+  <% if(!(req.session.authenticated)) { %>
+  <%- partial('./partials/without_login_navbar.ejs',{active: 'agenda'}) %>
+  <% } %>
    <div class="container">
     <div class="heading-bg">
      <h5 class="left-align white-text main-heading">About Tracks</h5>
