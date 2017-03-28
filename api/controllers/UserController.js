@@ -14,7 +14,9 @@ module.exports = {
       res.redirect('/session/welcome');
       return;
     }
-    res.view();
+    res.view({
+      title: "Register | Code2Create"
+    });
 
   },
 
@@ -98,22 +100,23 @@ module.exports = {
           user.token = sailsTokenAuth.issueToken(user.id);
           user.save(
             function (err) {
+              console.log('saving records for user');
             }
             );
 
 
-            req.session.authenticated = true;
-            req.session.User = user;
+          req.session.authenticated = true;
+          req.session.User = user;
 
 
-            req.session.flash = {
-              success: "Successfully Registered!",
-              ip: us_ip,
-              response: us_response
-            };
+          req.session.flash = {
+            success: "Successfully Registered!",
+            ip: us_ip,
+            response: us_response
+          };
           Mailer.sendWelcomeMail(user);
           //return res.json({user: user, token: sailsTokenAuth.issueToken(user.id)});
-          return res.redirect('/session/welcome');
+          return res.redirect('/welcome');
         }
         );
       }
@@ -151,7 +154,8 @@ module.exports = {
 
      // return res.status(200).json(user);
      res.view({
-      user : user
+      user : user,
+      title: "Show User | Code2Create"
     });
      return;
 
@@ -255,9 +259,9 @@ module.exports = {
         users.forEach(function (user) {
           teams.forEach(function (team) {
 
-              if(team.admin != user.id){
-                final = final + 1;
-              }
+            if(team.admin != user.id){
+              final = final + 1;
+            }
           });
 
           if(teams.length === final){
@@ -271,7 +275,8 @@ module.exports = {
         // return res.status(200).json(memberarray);
         res.view({
           users : users,
-          memberarray : memberarray
+          memberarray : memberarray,
+          title: "All Members | Code2Create"
         });
         return;
 
@@ -295,20 +300,23 @@ module.exports = {
         req.session.flash = {
           err : "Sorry, Error in finding user"
         };
-        res.view();
+        res.view({
+          title: "Your Profile | Code2Create"
+        });
         return;
       }
       if (!user) {
         req.session.flash = {
           err : "Sorry, No user found"
         };
-         res.view();
+        res.view();
         return;
       }
 
      // return res.status(200).json(user);
      res.view({
-      user : user
+      user : user,
+      title: "Your Profile | Code2Create"
     });
      return;
 

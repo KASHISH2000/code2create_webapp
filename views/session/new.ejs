@@ -32,9 +32,15 @@
       max-height: 95%;
       cursor: pointer; 
     }
-       .active{
-        color: #fff !important;
-      }
+    .active{
+      color: #fff !important;
+    }
+
+
+    input:-webkit-autofill {
+      -webkit-box-shadow:0 0 0px 1000px #2d2d2d inset !important;
+      -webkit-text-fill-color: #fff !important;
+    }
   </style>
 
   <div class="nav-wrap">
@@ -73,7 +79,7 @@
           <div class="input-field col s12 m12">
             <i class="material-icons prefix">account_circle</i>
             <input id="email_username" type="text" class="validate" required name="email_username">
-            <label for="email_username">email/Username <span class="required">*</span></label>
+            <label for="email_username">Email/Username <span class="required">*</span></label>
           </div>
           <div class="input-field col s12 m12">
             <i class="material-icons prefix">lock</i>

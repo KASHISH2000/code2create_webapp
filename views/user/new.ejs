@@ -36,9 +36,13 @@
       .active{
         color: #fff !important;
       }
+      .dropdown-content li>a, .dropdown-content li>span {
+        color: #000000 !important;
+      }
+      
       input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 1000px #313131 inset !important;
-        -webkit-color: #fff !important;
+        -webkit-box-shadow:0 0 0px 1000px #2d2d2d inset !important;
+        -webkit-text-fill-color: #fff !important;
       }
     </style>
 
@@ -88,16 +92,16 @@
           <label for="name">Name <span class="required">*</span></label>
         </div>
         <div class="input-field col s12 m6">
-          <input id="regno" type="text" class="validate" required name="regno" minlength="8" maxlength="10" pattern="^([0-9]{2})([a-zA-Z]{3})([0-9]{3,4})$">
+          <input id="regno" type="text" class="validate" required name="regno">
           <label for="regno">College Registration number <span class="required">*</span></label>
         </div>
         <div class="input-field col s12 m6">
-          <div class="hide-on-med-and-down">
+         <!--  <div class="hide-on-med-and-down">
             <input id="phoneno" type="text" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
-          </div>
-          <div class="hide-on-large-only">
-            <input id="phoneno" type="number" class="validate" required maxlength="13" minlength="10" name="phoneno">
+          </div> -->
+          <div class="hide-on-large-onlyy">
+            <input id="phoneno" type="number" class="validate" pattern="[0-9]*" title="Mobile no" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
         </div>
@@ -233,7 +237,11 @@
 </div>
 <%- partial('../partials/footer.ejs') %>
 <%- partial('../partials/commonScripts.ejs') %>
-<script type="text/javascript" src="/js/nav_fade_scroll.js"></script>
+<script type="text/javascript">
+  if($( window ).width() > 769){
+    $("#phoneno").attr("type","text");
+  }
+</script>
 <script>
   $("#errors").hide();
 //TO SHOW VITIAN OR EXTERNAL
@@ -284,8 +292,6 @@ $("input[name='living']").change(function () {
       errors.push('Name cannot be blank');
     if (!regno)
       errors.push('Registration number cannot be blank');
-    else if (!isRegno(regno))
-      errors.push('Please Enter a Valid Registration number');
     if (!phoneno)
       errors.push('Phone number cannot be blank');
     else if (phoneno.length !=10 || (isNaN(phoneno)))
@@ -313,32 +319,34 @@ $("input[name='living']").change(function () {
     //Below is for internal
     if(internal_external=='internal')
     {
-      if (!living)
-        errors.push('Please Select Hostler or Dayscholar');
-      if (living == 'hostler' && (!block || !roomno))
-        errors.push('Please enter block and room no');
-    }
-    if (errors.length > 0) {
-      var all_errors_swal="<ul>";
-      for (var i = 0; i < errors.length; i++)
-        all_errors_swal+=('<li>' + errors[i] + '</li>');
-      all_errors_swal+="</ul>";
-      swal({
-        title: "Please fill all the details",
-        text: all_errors_swal,
-        type: "error",
-        html: true
-      });
-      return true;
-    }
+     if (!isRegno(regno))
+      errors.push('Please Enter a Valid VIT Registration number');
+    if (!living)
+      errors.push('Please Select Hostler or Dayscholar');
+    if (living == 'hostler' && (!block || !roomno))
+      errors.push('Please enter block and room no');
+  }
+  if (errors.length > 0) {
+    var all_errors_swal="<ul>";
+    for (var i = 0; i < errors.length; i++)
+      all_errors_swal+=('<li>' + errors[i] + '</li>');
+    all_errors_swal+="</ul>";
+    swal({
+      title: "Please fill all the details",
+      text: all_errors_swal,
+      type: "error",
+      html: true
+    });
+    return true;
+  }
 
-    return false;
-  }
-  function onSubmit() {
-    $("#real_submit").click();
-  }
-  function submit_try() {
-    if (checkerrors() == false)
+  return false;
+}
+function onSubmit() {
+  $("#real_submit").click();
+}
+function submit_try() {
+  if (checkerrors() == false)
     //if(true)
   $("#submit").click();
 }
