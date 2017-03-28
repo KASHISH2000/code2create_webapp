@@ -100,7 +100,7 @@
             <input id="phoneno" type="text" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div> -->
-          <div class="hide-on-large-onlyy">
+          <div class="">
             <input id="phoneno" type="number" class="validate" pattern="[0-9]*" title="Mobile no" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
@@ -294,8 +294,6 @@ $("input[name='living']").change(function () {
       errors.push('Registration number cannot be blank');
     if (!phoneno)
       errors.push('Phone number cannot be blank');
-    else if (phoneno.length !=10 || (isNaN(phoneno)))
-      errors.push('Please Enter a valid Phone no');
     if (!email)
       errors.push('Email cannot be blank');
     else if (!isEmail(email))
