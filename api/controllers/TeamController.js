@@ -23,7 +23,9 @@ module.exports = {
       });
       if(count === teams.length){
 
-        res.view();
+        res.view({
+         title: "Create a Team | Code2Create"
+       });
         return;
       }
       else{
@@ -57,18 +59,18 @@ module.exports = {
 
 
     if((!temparvr) || (!temphelc) || (!tempfint) || (!tempclen)){
-        req.session.flash = {
-            err: "Please select all the tracks according to your priority."
-        };
-        return res.redirect('/team/new');
+      req.session.flash = {
+        err: "Please select all the tracks according to your priority."
+      };
+      return res.redirect('/team/new');
     }
 
     if ((temparvr === temphelc) || (temparvr === tempfint) || (temparvr === tempclen) || (temphelc === tempfint) || (temphelc === tempclen) || (tempfint === tempclen)) {
-        req.session.flash = {
-          err: "Cannot select two same priorities."
-        };
-        return res.redirect('/team/new');
-      }
+      req.session.flash = {
+        err: "Cannot select two same priorities."
+      };
+      return res.redirect('/team/new');
+    }
 
 
     if(user) {
@@ -166,15 +168,15 @@ module.exports = {
       });
       if(temp === 1){
 
-          User.find(function foundUsers(err, users) {
-            users.forEach(function (user) {
-              teams.forEach(function (team) {
+        User.find(function foundUsers(err, users) {
+          users.forEach(function (user) {
+            teams.forEach(function (team) {
 
-                for(var i=0 ; i<team.memberAccepted.length; i++){
+              for(var i=0 ; i<team.memberAccepted.length; i++){
 
-                  if(team.memberAccepted[i] != user.id){
-                    count = count + 1;
-                  }
+                if(team.memberAccepted[i] != user.id){
+                  count = count + 1;
+                }
                   //   }
                   if(count === team.memberAccepted.length){
                     final = final + 1;
@@ -185,10 +187,10 @@ module.exports = {
 
               });
 
-              if(teams.length === final){
-                memberarray.push(user);
-              }
-              final = 0;
+            if(teams.length === final){
+              memberarray.push(user);
+            }
+            final = 0;
               // else{
               // }
 
@@ -204,19 +206,21 @@ module.exports = {
             res.view({
               membersarray : memberarray,
               teams : teams,
-              admin : true
+              admin : true,
+              title: "All Teams | Code2Create"
             })
           })
 
 
-        }
-        else{
+      }
+      else{
         // return res.status(200).json({
         //   admin : false
         // });
         res.view({
           teams : teams,
-          admin : false
+          admin : false,
+             title: "All Teams | Code2Create"
         })
       }
     })
@@ -248,7 +252,8 @@ module.exports = {
 
       //return res.status(200).json(team);
       res.view({
-        team : team
+        team : team,
+           title: "Show Team | Code2Create"
       });
       return;
     });
@@ -341,7 +346,8 @@ module.exports = {
 
         res.view({
           team: team,
-          admin: true
+          admin: true,
+             title: "My Team | Code2Create"
         });
         return;
 
@@ -356,10 +362,10 @@ module.exports = {
             count = count + 1;
             for (var k = 0; k < team.memberAccepted.length; k++) {
 
-                if (team.memberAccepted[k] === (userid)) {
-                  if (team.admin != (userid)) {
-                    temp = 3;
-                    count = 100000000;
+              if (team.memberAccepted[k] === (userid)) {
+                if (team.admin != (userid)) {
+                  temp = 3;
+                  count = 100000000;
 
 
 
@@ -373,7 +379,8 @@ module.exports = {
 
                     res.view({
                       team: team,
-                      admin: false
+                      admin: false,
+                         title: "My Team | Code2Create"
                     });
                     return
                     break;
@@ -390,13 +397,13 @@ module.exports = {
 
           if (count === teams.length) {
 
-              req.session.flash = {
-                  err: "You dont have any team."
-              };
-              return res.redirect('/user/showall');
+            req.session.flash = {
+              err: "You dont have any team."
+            };
+            return res.redirect('/user/showall');
 
-            }
-          });
+          }
+        });
           //
         }
       });
@@ -503,7 +510,7 @@ module.exports = {
 
             return res.redirect('/team/myteam');
           }
-        );
+          );
 
 
       })
@@ -603,14 +610,14 @@ module.exports = {
               //undefined while entering the first entry
               team.save(
                 function (err) {
-                    req.session.flash = {
-                        success: "successfully Send Invitation"
-                    };
-                    sendRequestMail.sendWelcomeMail(sendername, receivername, useremail);
+                  req.session.flash = {
+                    success: "successfully Send Invitation"
+                  };
+                  sendRequestMail.sendWelcomeMail(sendername, receivername, useremail);
 
-                    return res.redirect('/user/showall');
+                  return res.redirect('/user/showall');
                 }
-              );
+                );
             }
             else{
 
@@ -661,8 +668,9 @@ module.exports = {
 
 
         res.view({
-          err : "You have received no Invitations for joining team",
-          requestview : requestview
+          err : "You have received no invitations for joining team",
+          requestview : requestview,
+             title: "View Invites| Code2Create"
         });
       }
 
@@ -682,9 +690,9 @@ module.exports = {
     Team.findOne(req.param('id'), function foundTeam(err, team) {
 
 
-          Team.find(function foundTeams(err, teams) {
+      Team.find(function foundTeams(err, teams) {
 
-            if(teams) {
+        if(teams) {
             //sails.models.team.checkmembers(user.id)
 
             teams.forEach(function (tempteam) {
@@ -771,7 +779,7 @@ module.exports = {
             //})
           }
         });
-        });
+    });
 
   },
   //here uid is id of that person, who is accepting that team request.

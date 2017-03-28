@@ -5,7 +5,9 @@ var senderid;
 module.exports = {
 
   'welcome': function (req, res) {
-    res.view();
+    res.view({
+         title: "Welcome | Code2Create"
+    });
     return;
   },
 
@@ -15,7 +17,9 @@ module.exports = {
     res.redirect('/welcome');
     return;
   }
-  res.view();
+  res.view({
+       title: "Login | Code2Create"
+  });
   },
 
   create: function (req, res, next) {

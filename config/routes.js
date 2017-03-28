@@ -35,27 +35,39 @@
   '/': {
     view: 'homepage'
   },
-   '/user' : {
+  '/user' : {
     view : '404'
-   },
-   '/team' : {
-     view : '404'
-   },
-  '/register' : 'UserController.new',
-  '/login' : 'SessionController.new',
-  '/rules' : {
-    view: 'rules'
   },
-  '/agenda' : {
-    view: 'tracks'
-  },
-  '/tracks' : {
-    view: 'tracks'
-  },
-   '/contact' : {
-    view : 'tracks'
-   },
-   '/welcome' : 'SessionController.welcome'
+  '/team' : {
+   view : '404'
+ },
+ '/register' : 'UserController.new',
+ '/login' : 'SessionController.new',
+ '/rules' : {
+  view: 'rules',
+  locals: {
+    title: 'Rules | Code2Create'
+  }
+},
+'/agenda' : {
+  view: 'tracks',
+  locals: {
+    title: 'Tracks | Code2Create'
+  }
+},
+'/tracks' : {
+  view: 'tracks',
+  locals: {
+    title: 'Tracks | Code2Create'
+  }
+},
+'/contact' : {
+  view : 'tracks',
+  locals: {
+    title: 'Tracks | Code2Create'
+  }
+},
+'/welcome' : 'SessionController.welcome'
 
   /***************************************************************************
   *                                                                          *
