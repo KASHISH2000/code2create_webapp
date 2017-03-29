@@ -1,5 +1,5 @@
  <link rel="stylesheet" href="/styles/app_common.css">
-<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css">
+ <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css">
  <style>
   .nav-day{
     display: inline-block;
@@ -22,7 +22,7 @@
   .table{
   }
   .right-align{
-    text-align: right !important;
+    text-align: left !important;
   }
   .left-align{
     text-align: left !important;
@@ -68,6 +68,32 @@
     width: 100%;
   }
 }
+
+.time-div{
+  color: #1eb76e !important;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.timeline-content{
+  padding: 1rem;
+  padding-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.desc-div{
+  margin-left: auto;
+  margin-right: auto;
+  
+  display: inline-block;
+  color: #fff !important;
+}
+.timeline-row{
+  margin-top: 1rem;
+  
+}
 </style>
 
 <% if(req.session.authenticated) { %>
@@ -95,85 +121,121 @@
      </div>
    </div>
    <div class="timeline-content" id="day1">
-    <table class="table centered">
-      <thead>
-        <td></td>
-        <td></td>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="time-td right-align">7:00 PM</td>
-          <td class="desc-td left-align">Commencement</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">9:00 PM</td>
-          <td class="desc-td left-align">Introduction</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">10:00 PM</td>
-          <td class="desc-td left-align">Hack Begins</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">12:00 Midnight</td>
-          <td class="desc-td left-align">Beverage Period</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="timeline-row row">
+      <div class="col s12 m4 offset-m4">
+       <div class="time-div right-align col s4 m5">7:00 PM</div>
+       <div class="desc-div left-align s8 m7">Commencement</div>
+     </div>
+   </div>
+   <div class="timeline-row row">
+    <div class="col s12 m4 offset-m4">
+      <div class="time-div right-align col s4 m5">9:00 PM</div>
+      <div class="desc-div left-align s8 m7">Introduction</div>
+    </div>
   </div>
+  <div class="timeline-row row">
+   <div class="col s12 m4 offset-m4">
+    <div class="time-div right-align col s4 m5">10:00 PM</div>
+    <div class="desc-div left-align s8 m7">Hack begins</div>
+  </div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">12:00 Midnight</div>
+  <div class="desc-div left-align s8 m7">Beverage period</div>
+</div>
+</div>
+</div>
 
-  <div class="timeline-content" id="day2">
-    <table class="table centered">
-      <thead>
-        <td></td>
-        <td></td>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="time-td right-align">9:00 AM</td>
-          <td class="desc-td left-align">Breakfast break</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">11:30 AM</td>
-          <td class="desc-td left-align">Fun activity</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">1:00 PM</td>
-          <td class="desc-td left-align">Lunch Break</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">12:00 Midnight</td>
-          <td class="desc-td left-align">Technical Inspection - 1</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="timeline-content" id="day2">
+  <div class="timeline-row row">
+    <div class="col s12 m4 offset-m4">
+     <div class="time-div right-align col s4 m5">9:00 AM</div>
+     <div class="desc-div left-align s8 m7">Breakfast break</div>
+   </div>
+ </div>
+ <div class="timeline-row row">
+  <div class="col s12 m4 offset-m4">
+    <div class="time-div right-align col s4 m5">11:30 AM</div>
+    <div class="desc-div left-align s8 m7">Fun activity</div>
   </div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">1:00 PM</div>
+  <div class="desc-div left-align s8 m7">Lunch break</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">3:00 PM</div>
+  <div class="desc-div left-align s8 m7">Technical inspection - 1</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">5:00 PM</div>
+  <div class="desc-div left-align s8 m7">Red List Announcement</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">6:00 PM</div>
+  <div class="desc-div left-align s8 m7">Snacks break</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">7:30 PM</div>
+  <div class="desc-div left-align s8 m7">Fun activity</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">9:00 PM</div>
+  <div class="desc-div left-align s8 m7">Dinner break</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">10:00 PM</div>
+  <div class="desc-div left-align s8 m7">Sponsor presentation</div>
+</div>
+</div>
+</div>
 
-  <div class="timeline-content" id="day3">
-    <table class="table centered">
-      <thead>
-        <td></td>
-        <td></td>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="time-td right-align">9:00 AM</td>
-          <td class="desc-td left-align">Breakfast break</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">11:30 AM</td>
-          <td class="desc-td left-align">Fun activity</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">1:00 PM</td>
-          <td class="desc-td left-align">Lunch Break</td>
-        </tr>
-        <tr>
-          <td class="time-td right-align">12:00 Midnight</td>
-          <td class="desc-td left-align">Technical Inspection - 1</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="timeline-content" id="day3">
+  <div class="timeline-row row">
+    <div class="col s12 m4 offset-m4">
+     <div class="time-div right-align col s4 m5">2:00 AM</div>
+     <div class="desc-div left-align s8 m7">Technical inspection - 2</div>
+   </div>
+ </div>
+ <div class="timeline-row row">
+  <div class="col s12 m4 offset-m4">
+    <div class="time-div right-align col s4 m5">5:00 AM</div>
+    <div class="desc-div left-align s8 m7">Final pitching list</div>
   </div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">6:00 AM</div>
+  <div class="desc-div left-align s8 m7">Pitch trivia</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">8:30 AM</div>
+  <div class="desc-div left-align s8 m7">Final pitch</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">12:00 Noon</div>
+  <div class="desc-div left-align s8 m7">Hack ends</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

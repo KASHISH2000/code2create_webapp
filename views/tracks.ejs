@@ -8,10 +8,10 @@
    </style>
 
    <% if(req.session.authenticated) { %>
-  <%- partial('./partials/navbar.ejs',{active: 'agenda'}) %>
+  <%- partial('./partials/navbar.ejs',{active: 'tracks'}) %>
   <% } %>
   <% if(!(req.session.authenticated)) { %>
-  <%- partial('./partials/without_login_navbar.ejs',{active: 'agenda'}) %>
+  <%- partial('./partials/without_login_navbar.ejs',{active: 'tracks'}) %>
   <% } %>
    <div class="container">
     <div class="heading-bg">

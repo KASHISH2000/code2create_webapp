@@ -10,20 +10,18 @@
  *
  */
 
-module.exports = {
+ module.exports = {
 
   port: process.env.port,
-  hookTimeout: 300000
+  hookTimeout: 300000,
 
   /***************************************************************************
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
-
-  // models: {
-  //   connection: 'someMysqlServer'
-  // },
-
+   models: {
+    connection: 'MongoConnection_mlab'
+  }
   /***************************************************************************
    * Set the port in the production environment to 80                        *
    ***************************************************************************/

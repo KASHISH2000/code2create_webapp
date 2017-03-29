@@ -237,7 +237,15 @@ nav .nav-wrapper {
   .ghost-btn:hover {
     padding-right: 30px;
     background-color: #1eb76e !important; }
-
+@media(max-width: 769px){
+.row-onlybig{
+  margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.max100-mobile{
+  width: 100% !important;
+}
+}
 /* Organisers */
 .divider-line {
   width: 5px;

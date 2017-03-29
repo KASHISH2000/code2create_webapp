@@ -18,6 +18,12 @@ body,html{
 	position: relative;
 	display: inline-block;
 }
+.margin-bottom-0{
+  margin-bottom: 0px !important;
+}
+.width100{
+  width: 100% !important;
+}
 .heading::before {
 	content: "";
 	background: #1eb76e;
