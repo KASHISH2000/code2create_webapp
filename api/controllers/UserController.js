@@ -155,7 +155,7 @@ module.exports = {
      // return res.status(200).json(user);
      res.view({
       user : user,
-      title: "Show User | Code2Create"
+      title: user.name + " | Code2Create"
     });
      return;
 

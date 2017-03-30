@@ -253,7 +253,7 @@ module.exports = {
       //return res.status(200).json(team);
       res.view({
         team : team,
-           title: "Show Team | Code2Create"
+           title: team.teamName + " | Code2Create"
       });
       return;
     });
