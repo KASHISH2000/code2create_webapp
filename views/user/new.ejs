@@ -1,6 +1,11 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <link rel="stylesheet" type="text/css" href="/styles/register.css?1100">
     <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+    <style type="text/css">
+      .dropdown-content li>a, .dropdown-content li>span {
+        color: #000000;
+      }
+    </style>
     <%- partial('../partials/without_login_navbar.ejs',{active: 'register'}) %>
     <br>
     <div class="container">
@@ -45,7 +50,7 @@
         </div>
         <div class="input-field col s12 m12">
           <i class="material-icons prefix">account_circle</i>
-          <input id="username" type="text" class="validate" required name="username">
+          <input id="username" type="text" class="validate" required name="username" maxlength="15">
           <label for="username">UserName (Choose a username) <span class="required">*</span></label>
         </div>
         <div class="input-field col s12 m6">
