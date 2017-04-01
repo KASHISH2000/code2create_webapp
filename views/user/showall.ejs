@@ -186,6 +186,9 @@
       else if($(this).hasClass("already-in-team")){
         sweetAlert("Not Allowed", "This Person is Already in your team", "error");
       }
+      else if($(this).hasClass("disabled-in-team")){
+        sweetAlert("Not Allowed", "This Person is admin of a team", "error");
+      }
       else{
         confirm_send_invite($(this).attr("data-uid"));
       }
