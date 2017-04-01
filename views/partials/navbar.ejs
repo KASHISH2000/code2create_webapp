@@ -77,36 +77,60 @@
    </li>
  </ul>
  <ul class="side-nav" id="mobile-demo">
-  <li><a class="navlink a-home" href="/rules">Rules</a>
-  </li>
-  <li><a class="navlink a-home" href="/tracks">Tracks</a>
-  </li>
-  <li><a class="navlink a-home" href="/timeline">Timeline</a>
-  </li>
-  <li><a class="navlink a-home" href="/team/showall">All Teams</a>
-  </li>
-  <li><a class="navlink a-home" href="/user/showall">All Members</a>
-  </li>
-  <li><a class="navlink a-home" href="/team/viewrequest">View Invites</a>
-  </li>
-  <li>
-   <a href="/user/edit">
-     <div class="user-info-nav
-     <% if(active=='userEdit'){ %>
-     active-colour
+   <li><a class="navlink a-home
+     <% if(active=='rules'){ %>
+     nav-active
      <% } %>
-     ">
-     <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-     <span class="usernameField"></span>
-   </div>
- </a>
+     " href="/rules">Rules</a>
+   </li>
+   <li><a class="navlink a-home
+     <% if(active=='tracks'){ %>
+     nav-active
+     <% } %>
+     " href="/tracks">Tracks</a>
+   </li>
+   <li><a class="navlink a-home
+     <% if(active=='timeline'){ %>
+     nav-active
+     <% } %>
+     " href="/timeline">Timeline</a>
+   </li>
+   <li><a class="navlink a-home
+     <% if(active=='teamShowall'){ %>
+     nav-active
+     <% } %>
+     " href="/team/showall">All Teams</a>
+   </li>
+   <li><a class="navlink a-home
+    <% if(active=='userShowall'){ %>
+    nav-active
+    <% } %>
+    " href="/user/showall">All Members</a>
+  </li>
+  <li><a href="/team/viewrequest" class="navlink a-home
+   <% if(active=='teamViewrequest'){ %>
+   nav-active
+   <% } %>
+   ">View Invites</a>
+ </li>
+ <li>
+  <a href="/user/edit">
+    <div class="user-info-nav
+    <% if(active=='userEdit'){ %>
+    active-colour
+    <% } %>
+    ">
+    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+    <span class="usernameField"></span>
+  </div>
+</a>
 </li>
 <li class="my_team_li">
- <a href="/team/myteam"
- <% if(active=='myteam'){ %>
- class='active-colour'
- <% } %>
- ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="myteam_span"></span></a>
+  <a href="/team/myteam"
+  <% if(active=='myteam'){ %>
+  class='active-colour'
+  <% } %>
+  ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="myteam_span"></span></a>
 </li>
 <li class="create_a_team_li"><a href="/team/new"
  <% if(active=='teamNew'){ %>
