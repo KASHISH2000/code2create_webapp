@@ -10,13 +10,18 @@ body,html{
 }
 @media (min-width: 993px) {
   .container-little-big {
-    width: 80%; } }
+    width: 80%;
+  }
+  .container-little-little-big {
+    width: 75%; 
+  }
+}
 .color-theme-green{
   color: #1eb76e !important;
 }
 .heading{
-	position: relative;
-	display: inline-block;
+ position: relative;
+ display: inline-block;
 }
 .margin-bottom-0{
   margin-bottom: 0px !important;
@@ -25,37 +30,37 @@ body,html{
   width: 100% !important;
 }
 .heading::before {
-	content: "";
-	background: #1eb76e;
-	/*background: #ef5e4e;*/
-	left: -5%;
+ content: "";
+ background: #1eb76e;
+ /*background: #ef5e4e;*/
+ left: -5%;
 
-	position: absolute;
-	top: calc(100% + 10px);
-	width: 50%;
-	z-index: 2;
-	height: 1px;
+ position: absolute;
+ top: calc(100% + 10px);
+ width: 50%;
+ z-index: 2;
+ height: 1px;
 }
 .heading::after {
-	position: absolute;
-	content: "";
-	background: #525151;
-	left: -5%;
-	top: calc(100% + 10px);
-	width: 110%;
-	height: 1px;
+ position: absolute;
+ content: "";
+ background: #525151;
+ left: -5%;
+ top: calc(100% + 10px);
+ width: 110%;
+ height: 1px;
 }
 .smooth-transition{
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
+ -webkit-transition: all 0.5s ease;
+ -moz-transition: all 0.5s ease;
+ -o-transition: all 0.5s ease;
+ transition: all 0.5s ease;
 }
 .display-inline-block{
-	display: inline-block !important;
+ display: inline-block !important;
 }
 .display-block{
-	display: block !important;
+ display: block !important;
 }
 .text-justify{
   text-align: justify !important;
