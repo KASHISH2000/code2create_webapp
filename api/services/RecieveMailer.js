@@ -12,7 +12,7 @@ module.exports.sendWelcomeMail = function(obj) {
 
     },
     {
-      to: "hackathon.acmvit@gmail.com",
+      to: "vituacm@gmail.com",
       subject: obj.subject
 
     },
