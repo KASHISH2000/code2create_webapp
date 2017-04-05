@@ -143,7 +143,8 @@
       else {
         console.log("successfully in getting info user");
         $("#"+memberid+"_username").text(data[0].username);
-        var lin="/user/show/"+data[0].username;
+         var  namecode=encode(encodeURI(data[0].username));
+        var lin="/user/show/"+namecode;
         $("#"+memberid+"_anchor").attr('href',lin);
         $("#"+memberid+"_name").text(data[0].name);
         $("#"+memberid+"_description").text(data[0].description);
@@ -170,7 +171,7 @@
           </p>
           <p class="detail-answer margin-bottom-0">
            <i class="material-icons prefix ver-align-middle white-text">account_circle</i>
-           <span class="ver-align-middle"><a href="/team/show/<%=team.teamName%>" class="underline-wala"><%=team.teamName%></a></span>
+           <span class="ver-align-middle"><a href="/team/show/<%=defaultUrl.encode(encodeURI(team.teamName))%>" class="underline-wala"><%=team.teamName%></a></span>
          </p>
        </div>
        <div class="row">
