@@ -67,14 +67,14 @@
           %>
           <tr>
             <td>
-              <a href="/team/show/<%=reqview.teamName%>" class="ver-align-middlee underline-wala"><%=reqview.teamName%></a>
+              <a href="/team/show/<%=defaultUrl.encode(encodeURI(reqview.teamName))%>" class="ver-align-middlee underline-wala"><%=reqview.teamName%></a>
             </td>
             <td><%=trackk%></td>
            <!--  <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><%=reqview.description%>
 
             </td> -->
             <td>
-              <a href="/team/show/<%=reqview.teamAdmin%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
+              <a href="/team/show/<%=defaultUrl.encode(encodeURI(reqview.teamAdmin))%>" class="ver-align-middlee underline-wala"><%=reqview.teamAdmin%></a>
             </td>
             <td class="">
               <form action="/team/acceptedRequest">

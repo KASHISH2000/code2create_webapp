@@ -125,9 +125,9 @@ $.get("<%=defaultUrl.url()%>navbar/anyuserteam/<%=user.id%>", function (data, st
    if(data.team){
     $("#noteamname").hide();
     $("#teamname_a").show();
-    $("#teamname_a").attr("href","<%=defaultUrl.url()%>team/show/"+data.team.teamName);
+    $("#teamname_a").attr("href","<%=defaultUrl.url()%>team/show/"+encode(encodeURI(data.team.teamName)));
     console.log(data.team.teamName);
-    $("#teamname").html(data.team.teamName);
+    $("#teamname").text(data.team.teamName);
   }
   else{
     $("#noteamname").show();

@@ -94,7 +94,7 @@
         %>
 
         <tr>
-          <td class="username_head_td"><a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><span class="td_content"><%= user.username %></span></a></td>
+          <td class="username_head_td"><a href="/user/show/<%=defaultUrl.encode(encodeURI(user.username))%>" class="ver-align-middlee underline-wala"><span class="td_content"><%= user.username %></span></a></td>
           <td><%=user.name%></td>
           <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><span class="td_content"><%=user.description %></span></td>
           <td>

@@ -48,21 +48,31 @@ Developed by:
     <!--END SEO-->
     <link rel="stylesheet" type="text/css" href="/styles/preloader_cube.css?11111">
     <link rel="stylesheet" type="text/css" href="/materialize/css/materialize.min.css">
-    <link href="/styles/materializeicons.css?100" rel="stylesheet">
+    <link href="/styles/materializeicons.css?111" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/styles/animate.css">
     <link rel="stylesheet" type="text/css" href="/styles/sweetalert.css">
-    <link rel="stylesheet" href="/styles/main.css?2904">
+    <link rel="stylesheet" href="/styles/main.css?2104">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" type="text/javascript"></script>
     <script>
       new WOW().init();
     </script>
     <script type="text/javascript">
-   
-    </script>
-  </head>
-  <body>
+    function encode(urrl){
+      var newurl="";
+      for(var i=0;i<urrl.length;i++){
+        var c=urrl[i];
+        if(c=='/')
+          newurl+="%2F";
+        else
+          newurl+=c;
+      }
+      return newurl;
+    }
+  </script>
+</head>
+<body>
    <!--  <div id="loader-wrapper">
       <div id="loader"></div>
 
