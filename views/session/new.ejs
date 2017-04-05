@@ -1,5 +1,13 @@
   <link rel="stylesheet" type="text/css" href="/styles/register.css?1100">
-<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+  <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+  <style type="text/css">
+    .forgot_password{
+      text-align: right;
+    }
+    .forgot_password .forgot_text{
+      cursor: pointer;
+    }
+  </style>
 
   <%- partial('../partials/without_login_navbar.ejs',{active: 'login'}) %>
   <br>
@@ -16,7 +24,7 @@
           <div class="input-field col s12 m12">
             <i class="material-icons prefix">account_circle</i>
             <input id="email_username" type="text" class="validate" required name="email_username">
-            <label for="email_username">Email/Username <span class="required">*</span></label>
+            <label for="email_username">Email/UserName <span class="required">*</span></label>
           </div>
           <div class="input-field col s12 m12">
             <i class="material-icons prefix">lock</i>
@@ -34,6 +42,9 @@
           </div>
         </form>
       </div>
+    </div>
+    <div class="forgot_password">
+    <a class="forgot_text">Forgot password?</a>
     </div>
   </div>
 </div>
@@ -66,4 +77,16 @@
   <% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
     sweetAlert("success", "<%=flash.success%>", "success");
     <% } %>
+  </script>
+  <script type="text/javascript">
+  $(".forgot_password .forgot_text").click(function(){
+    forgot();
+  });
+    function forgot(){
+      swal({
+        title: "Contact Us<br> to recover your account",
+        text: "If you have forgotten your password, you may <a href='http://c2c.acmvit.in/#contactus'>contact us</a> to reset your password",
+        html: true
+      });
+    }
   </script>
