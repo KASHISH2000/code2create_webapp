@@ -414,11 +414,10 @@ module.exports = {
   leaveteam : function(req,res,next) {
 
     user = req.session.User;
-
     Team.findOne(req.param('id'), function foundTeam(err, team) {
 
-      for (var i = 0; i < 3; i++) {
-        if (team.memberAccepted[i] === (user.uid)) {
+      for (var i = 0; i < 4; i++) {
+        if (team.memberAccepted[i] == (user.uid)) {
           if((user.uid) != team.admin) {
             (team.memberAccepted).splice(i, 1);
           }
@@ -488,7 +487,7 @@ module.exports = {
       }
       else {
           //if admin wants to delete another user.
-          for (var i = 0; i < 3; i++) {
+          for (var i = 0; i < 4; i++) {
             if (team.memberAccepted[i] === (user.uid)) {
               (team.memberAccepted).splice(i, 1);
             }
@@ -828,7 +827,3 @@ module.exports = {
 
 
 };
-
-
-
-
