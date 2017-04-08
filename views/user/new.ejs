@@ -1,75 +1,20 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <link rel="stylesheet" type="text/css" href="/styles/register.css">
-    <style>
-      #submit_mock {
-        margin-top: 20px;
-      }
-      .error {
-        border: solid 1px red;
-        color: red;
-        padding: 10px;
-      }
-      .success {
-        border: solid 1px green;
-        color: green;
-        padding: 10px;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
-        border: 2px solid #1eb76e;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
-        background-color: #1eb76e;
-      }
-      /*nav*/
-      nav {
-        background-color: #332e2e;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-        z-index: 10 !important;
-      }
-      .brand-logo img {
-        height: 50px;
-        margin-left: 10px;
-        margin-top: 5px;
-        max-height: 95%;
-        cursor: pointer; 
-      }
-      .active{
-        color: #fff !important;
-      }
+    <link rel="stylesheet" type="text/css" href="/styles/register.css?1100">
+    <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+    <style type="text/css">
       .dropdown-content li>a, .dropdown-content li>span {
-        color: #000000 !important;
+        color: #000000;
       }
-      
-      input:-webkit-autofill {
-        -webkit-box-shadow:0 0 0px 1000px #2d2d2d inset !important;
-        -webkit-text-fill-color: #fff !important;
+      .nospecial{
+        color: #cecece;
+        margin-top: 5px;
+        margin-left: 40px;
+        display: inline-block;;
       }
     </style>
-
-    <div class="nav-wrap">
-      <nav class="smooth-transition navelem">
-        <div class="nav-wrapper">
-          <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="/register" class="navlink a-register btn waves-effect waves-light nav-reg-but"
-              >Register</a>
-            </li>
-            <li><a href="/login" class="navlink a-login active btn waves-effect waves-light nav-reg-but"
-              >Login</a>
-            </li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-           <li><a href="/register" class="navlink a-register">Register</a>
-           </li>
-           <li><a href="/login" class="navlink a-login">Login</a>
-           </li>
-         </ul>
-       </div>
-     </nav>
-   </div>
-   <br>
-   <div class="container">
+    <%- partial('../partials/without_login_navbar.ejs',{active: 'register'}) %>
+    <br>
+    <div class="container">
      <div class="heading-bg">
        <h5 class="left-align white-text main-heading">Register</h5>
      </div>
@@ -100,7 +45,7 @@
             <input id="phoneno" type="text" class="validate" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div> -->
-          <div class="hide-on-large-onlyy">
+          <div class="">
             <input id="phoneno" type="number" class="validate" pattern="[0-9]*" title="Mobile no" required maxlength="13" minlength="10" name="phoneno">
             <label for="phoneno">Phone number <span class="required">*</span></label>
           </div>
@@ -111,9 +56,10 @@
         </div>
         <div class="input-field col s12 m12">
           <i class="material-icons prefix">account_circle</i>
-          <input id="username" type="text" class="validate" required name="username">
+          <input id="username" type="text" class="validate margin-bottom-0" required name="username" maxlength="15">
           <label for="username">UserName (Choose a username) <span class="required">*</span></label>
         </div>
+
         <div class="input-field col s12 m6">
           <input id="password" type="password" class="validate" required name="password">
           <label for="password">Password <span class="required">*</span></label>
@@ -294,8 +240,6 @@ $("input[name='living']").change(function () {
       errors.push('Registration number cannot be blank');
     if (!phoneno)
       errors.push('Phone number cannot be blank');
-    else if (phoneno.length !=10 || (isNaN(phoneno)))
-      errors.push('Please Enter a valid Phone no');
     if (!email)
       errors.push('Email cannot be blank');
     else if (!isEmail(email))
@@ -360,6 +304,9 @@ function isRegno(regno) {
 }
 </script>
 <script type="text/javascript">
+  $("#username").on("keydown", function (e) {
+    return (e.which !== 32) && (e.which!== 35) && (e.which!== 36) && (e.which!== 37) && (e.which!== 38) ;
+  });
 </script>
 
 <script type="text/javascript">

@@ -237,8 +237,32 @@ nav .nav-wrapper {
   .ghost-btn:hover {
     padding-right: 30px;
     background-color: #1eb76e !important; }
-
+@media(max-width: 769px){
+.row-onlybig{
+  margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.max100-mobile{
+  width: 100% !important;
+}
+}
 /* Organisers */
+#owlCarousel_sponsors img{
+  max-height: 150px;
+  min-height: 120px;
+}
+
+#owlCarousel_sponsors .owl-stage-outer{
+  /*padding: 1.5rem;*/
+   /* background-color: #202427;*/
+}
+
+/*@media (min-width: 993px){
+.sponsors-slider-row{
+  margin-left: -5rem;
+  margin-right: -5rem;
+}
+}*/
 .divider-line {
   width: 5px;
   background-color: #1eb76e;

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/styles/app_common.css">
+<link rel="stylesheet" href="/styles/app_common.css?1100">
 <style>
   #submit_mock {
     margin-top: 20px;
@@ -36,7 +36,7 @@
           </p>
 
           <p class="detail-answer white-text">
-            <i class="material-icons ver-align-middle">account_circle</i> &nbsp;<a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><%=user.username%></a>
+            <i class="material-icons ver-align-middle">account_circle</i> &nbsp;<a href="/user/show/<%=defaultUrl.encode(encodeURI(user.username))%>" class="ver-align-middlee underline-wala"><%=user.username%></a>
           </p>
         </div>
 

@@ -8,7 +8,9 @@
       else {
         console.log("successfully in getting info user");
         $("#"+memberid+"_username").text(data[0].username);
-        var lin="/user/show/"+data[0].username;
+        var  namecode=encode(encodeURI(data[0].username));
+        var lin="/user/show/"+namecode;
+      
         $("#"+memberid+"_anchor").attr('href',lin);
         $("#"+memberid+"_name").text(data[0].name);
         $("#"+memberid+"_description").text(data[0].description);
@@ -20,7 +22,7 @@
    });
   }
 </script>
-<link rel="stylesheet" href="/styles/app_common.css">
+<link rel="stylesheet" href="/styles/app_common.css?1100">
 <style>
   #submit_mock {
     margin-top: 20px;
@@ -105,7 +107,7 @@ trackk='not found';
  <div class="my-main-card hoverable">
   <table class="bordered striped responsive-table white-text">
     <thead>
-      <td>userid</td>
+      <td>UserName</td>
       <td>Name</td>
       <td>Skills</td>
       <td>University</td>

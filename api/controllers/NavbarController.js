@@ -105,8 +105,8 @@
              count = count + 1;
              for (var k = 0; k < team.memberAccepted.length; k++) {
 
-               if (team.memberAccepted[k] === parseInt(userid)) {
-                 if (team.admin != parseInt(userid)) {
+               if (team.memberAccepted[k] == (userid)) {
+                 if (team.admin != (userid)) {
                    temp = 3;
                    count = 100000000;
                    res.status(200).json({
@@ -195,8 +195,8 @@
              count = count + 1;
              for (var k = 0; k < team.memberAccepted.length; k++) {
 
-               if (team.memberAccepted[k] === parseInt(userid)) {
-                 if (team.admin != parseInt(userid)) {
+               if (team.memberAccepted[k] ==(userid)) {
+                 if (team.admin != (userid)) {
                    temp = 3;
                    count = 100000000;
                    res.status(200).json({

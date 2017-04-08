@@ -1,0 +1,92 @@
+  <div class="nav-wrap">
+    <nav class="smooth-transition navelem">
+      <div class="nav-wrapper">
+        <a class="brand-logo" href="http://c2c.acmvit.in/"><img src="/images/logowhite_t.png" class="responsive-img"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+         <% if(active=='rules'){ %>
+         <li>
+           <a href="/rules" class="nav-active">Rules</a>
+         </li>
+         <% } %>
+         <% if(active!='rules'){ %>
+         <li>
+           <a href="/rules">Rules</a>
+         </li>
+         <% } %>
+         <% if(active=='tracks'){ %>
+         <li>
+          <a href="/tracks" class="nav-active">Tracks</a>
+        </li>
+        <% } %>
+        <% if(active!='tracks'){ %>
+        <li>
+          <a href="/tracks">Tracks</a>
+        </li>
+        <% } %>
+        <% if(active=='timeline'){ %>
+        <li>
+          <a href="/timeline" class="nav-active">Timeline</a>
+        </li>
+        <% } %>
+        <% if(active!='timeline'){ %>
+        <li>
+          <a href="/timeline" class="">Timeline</a>
+        </li>
+        <% } %>
+        <% if(active!='register') { %>
+        <li>
+          <a href="/register" class="navlink active a-register btn waves-effect waves-light nav-reg-but">Register</a>
+        </li>
+        <% } %>
+        <% if(active!='login') { %>
+        <li>
+          <a href="/login" class="navlink a-login active btn waves-effect waves-light nav-reg-but">Login</a>
+        </li>
+        <% } %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+       <% if(active=='rules'){ %>
+       <li>
+         <a href="/rules" class="nav-active">Rules</a>
+       </li>
+       <% } %>
+       <% if(active!='rules'){ %>
+       <li>
+         <a href="/rules">Rules</a>
+       </li>
+       <% } %>
+       <% if(active=='tracks'){ %>
+       <li>
+        <a href="/tracks" class="nav-active">Tracks</a>
+      </li>
+      <% } %>
+      <% if(active!='tracks'){ %>
+      <li>
+        <a href="/tracks">Tracks</a>
+      </li>
+      <% } %>
+      <% if(active=='timeline'){ %>
+      <li>
+        <a href="/timeline" class="nav-active">Timeline</a>
+      </li>
+      <% } %>
+      <% if(active!='timeline'){ %>
+      <li>
+        <a href="/timeline" class="">Timeline</a>
+      </li>
+      <% } %>
+      <% if(active!='register') { %>
+      <li>
+        <a href="/register" class="navlink active a-register btn waves-effect waves-light nav-reg-but">Register</a>
+      </li>
+      <% } %>
+      <% if(active!='login') { %>
+      <li>
+        <a href="/login" class="navlink a-login active btn waves-effect waves-light nav-reg-but">Login</a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
+</div>

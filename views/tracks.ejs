@@ -1,38 +1,25 @@
-    <link rel="stylesheet" href="/styles/app_common.css">
+    <link rel="stylesheet" href="/styles/app_common.css?1100">
+<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
     <style>
-      #submit_mock {
-        margin-top: 20px;
-      }
-      .error {
-        border: solid 1px red;
-        color: red;
-        padding: 10px;
-      }
-      .success {
-        border: solid 1px green;
-        color: green;
-        padding: 10px;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
-        border: 2px solid #1eb76e;
-      }
-      [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
-        background-color: #1eb76e;
-      }
       .track-img{
        margin-top: 5%;
        width: 100%;
      }
    </style>
 
-   <%- partial('./partials/navbar.ejs', {active: 'agenda'}) %>
+   <% if(req.session.authenticated) { %>
+  <%- partial('./partials/navbar.ejs',{active: 'tracks'}) %>
+  <% } %>
+  <% if(!(req.session.authenticated)) { %>
+  <%- partial('./partials/without_login_navbar.ejs',{active: 'tracks'}) %>
+  <% } %>
    <div class="container">
     <div class="heading-bg">
      <h5 class="left-align white-text main-heading">About Tracks</h5>
    </div>
    <div class="my-main-card hoverable">
      <div class="tracks-wrap">
-      <p class="white-text">Tracks differentiate the fields to which our various problem statements belong. We have four tracks - AR/VR, Clean Energy, FinTech and Health Care. Based on the track finally allotted to them, teams will be able to pick their problem statements.</p>
+      <p class="white-text">Tracks differentiate the fields to which our various challenges belong. We have four tracks - AR/VR, Clean Energy, FinTech and Health Care. Based on the track finally allotted to them, teams will be able to pick their challenges.</p>
       <div class="row wow fadeInUp">
         <div class="track-wrap">
           <div class="col m3">

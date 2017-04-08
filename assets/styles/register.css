@@ -1,3 +1,12 @@
+
+
+body{background-color: #182022 !important;
+	background-image: url('/images/bg3.svg');
+	background-repeat: repeat;
+	background-size: cover;
+	background-size: 1081px 1922px;
+}
+
 .hero-img-div{
 	height: 380px;
 	width: 100%;
@@ -20,10 +29,10 @@
 	margin-bottom: -20px;
 }
 @media(max-width: 769px){
-  .hero-logo-c2c {
-    margin-top:40px;
-  }
-  }
+	.hero-logo-c2c {
+		margin-top:40px;
+	}
+}
 
 
 /* NAVBAR */
@@ -119,5 +128,5 @@ input:active,input:focus,textarea:focus{
 }
 
 body,html{
-  overflow-x:hidden !important;
+	overflow-x:hidden !important;
 }

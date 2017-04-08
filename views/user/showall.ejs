@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="/styles/app_common.css">
+    <link rel="stylesheet" href="/styles/app_common.css?1110">
     <style>
       #submit_mock {
         margin-top: 20px;
@@ -42,6 +42,7 @@
       #counter_box{
         display: none;
       }
+     
       @media(min-width: 769px){
         .invite-head-td{
           width: 120px;
@@ -50,7 +51,7 @@
     </style>
 
     <%- partial('../partials/navbar.ejs',{active: 'userShowall'}) %>
-    <div class="container">
+    <div class="container container-little-little-big">
       <br><br><br>
 
       <div class="heading-bg" style="margin-top:0px;">
@@ -71,11 +72,11 @@
         <div id="counter_box" class="white-text center col s12"><span id="counter" class="color-theme-green"></span></div>
       </div>
 
-
+<div class="container-fluid">
       <table class="bordered striped responsive-table white-text">
         <thead>
           <tr>
-            <td>UserName</td>
+            <td class="username_head_td">UserName</td>
             <td>Name</td>
             <td class="th-skills-td">Skills</td>
             <td>University</td>
@@ -93,7 +94,7 @@
         %>
 
         <tr>
-          <td><a href="/user/show/<%=user.username%>" class="ver-align-middlee underline-wala"><span class="td_content"><%= user.username %></span></a></td>
+          <td class="username_head_td"><a href="/user/show/<%=defaultUrl.encode(encodeURI(user.username))%>" class="ver-align-middlee underline-wala"><span class="td_content"><%= user.username %></span></a></td>
           <td><%=user.name%></td>
           <td class="skills-td" title="Send Invitation to a member to join your team(you should be an admin)"><span class="td_content"><%=user.description %></span></td>
           <td>
@@ -124,6 +125,7 @@
         <%});%>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 
@@ -183,6 +185,9 @@
       }
       else if($(this).hasClass("already-in-team")){
         sweetAlert("Not Allowed", "This Person is Already in your team", "error");
+      }
+      else if($(this).hasClass("disabled-in-team")){
+        sweetAlert("Not Allowed", "This Person is admin of a team", "error");
       }
       else{
         confirm_send_invite($(this).attr("data-uid"));

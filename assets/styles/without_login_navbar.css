@@ -1,0 +1,42 @@
+ 
+    #submit_mock {
+      margin-top: 20px;
+    }
+    .error {
+      border: solid 1px red;
+      color: red;
+      padding: 10px;
+    }
+    .success {
+      border: solid 1px green;
+      color: green;
+      padding: 10px;
+    }
+    [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+      border: 2px solid #1eb76e;
+    }
+    [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+      background-color: #1eb76e;
+    }
+    /*nav*/
+    nav {
+      background-color: #332e2e;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 10 !important;
+    }
+    .brand-logo img {
+      height: 50px;
+      margin-left: 10px;
+      margin-top: 5px;
+      max-height: 95%;
+      cursor: pointer; 
+    }
+    .active{
+      color: #fff !important;
+    }
+
+
+    input:-webkit-autofill {
+      -webkit-box-shadow:0 0 0px 1000px #2d2d2d inset !important;
+      -webkit-text-fill-color: #fff !important;
+    }

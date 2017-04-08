@@ -1,0 +1,695 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--[if IE]><html xmlns="http://www.w3.org/1999/xhtml" class="ie"><![endif]--><!--[if !IE]><!--><html style="margin: 0;padding: 0;" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
+    <meta name="viewport" content="width=device-width"><style type="text/css">
+@media only screen and (min-width: 620px){.wrapper{min-width:600px !important}.wrapper h1{}.wrapper h1{font-size:26px !important;line-height:34px !important}.wrapper h2{}.wrapper h2{font-size:20px !important;line-height:28px !important}.wrapper h3{}.column{}.wrapper .size-8{font-size:8px !important;line-height:14px !important}.wrapper .size-9{font-size:9px !important;line-height:16px !important}.wrapper .size-10{font-size:10px !important;line-height:18px !important}.wrapper .size-11{font-size:11px !important;line-height:19px !important}.wrapper .size-12{font-size:12px !important;line-height:19px !important}.wrapper .size-13{font-size:13px !important;line-height:21px !important}.wrapper .size-14{font-size:14px !important;line-height:21px !important}.wrapper .size-15{font-size:15px !important;line-height:23px !important}.wrapper .size-16{font-size:16px !important;line-height:24px 
+!important}.wrapper .size-17{font-size:17px !important;line-height:26px !important}.wrapper .size-18{font-size:18px !important;line-height:26px !important}.wrapper .size-20{font-size:20px !important;line-height:28px !important}.wrapper .size-22{font-size:22px !important;line-height:31px !important}.wrapper .size-24{font-size:24px !important;line-height:32px !important}.wrapper .size-26{font-size:26px !important;line-height:34px !important}.wrapper .size-28{font-size:28px !important;line-height:36px !important}.wrapper .size-30{font-size:30px !important;line-height:38px !important}.wrapper .size-32{font-size:32px !important;line-height:40px !important}.wrapper .size-34{font-size:34px !important;line-height:43px !important}.wrapper .size-36{font-size:36px !important;line-height:43px !important}.wrapper .size-40{font-size:40px !important;line-height:47px !important}.wrapper 
+.size-44{font-size:44px !important;line-height:50px !important}.wrapper .size-48{font-size:48px !important;line-height:54px !important}.wrapper .size-56{font-size:56px !important;line-height:60px !important}.wrapper .size-64{font-size:64px !important;line-height:63px !important}}
+</style>
+    <style type="text/css">
+body {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+* {
+  line-height: inherit;
+}
+[x-apple-data-detectors],
+[href^="tel"],
+[href^="sms"] {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.wrapper .footer__share-button a:hover,
+.wrapper .footer__share-button a:focus {
+  color: #ffffff !important;
+}
+.btn a:hover,
+.btn a:focus,
+.footer__share-button a:hover,
+.footer__share-button a:focus,
+.email-footer__links a:hover,
+.email-footer__links a:focus {
+  opacity: 0.8;
+}
+.preheader,
+.header,
+.layout,
+.column {
+  transition: width 0.25s ease-in-out, max-width 0.25s ease-in-out;
+}
+.layout,
+div.header {
+  max-width: 400px !important;
+  -fallback-width: 95% !important;
+  width: calc(100% - 20px) !important;
+}
+div.preheader {
+  max-width: 360px !important;
+  -fallback-width: 90% !important;
+  width: calc(100% - 60px) !important;
+}
+.snippet,
+.webversion {
+  Float: none !important;
+}
+.column {
+  max-width: 400px !important;
+  width: 100% !important;
+}
+.fixed-width.has-border {
+  max-width: 402px !important;
+}
+.fixed-width.has-border .layout__inner {
+  box-sizing: border-box;
+}
+.snippet,
+.webversion {
+  width: 50% !important;
+}
+.ie .btn {
+  width: 100%;
+}
+.ie .column,
+[owa] .column,
+.ie .gutter,
+[owa] .gutter {
+  display: table-cell;
+  float: none !important;
+  vertical-align: top;
+}
+.ie div.preheader,
+[owa] div.preheader,
+.ie .email-footer,
+[owa] .email-footer {
+  max-width: 560px !important;
+  width: 560px !important;
+}
+.ie .snippet,
+[owa] .snippet,
+.ie .webversion,
+[owa] .webversion {
+  width: 280px !important;
+}
+.ie div.header,
+[owa] div.header,
+.ie .layout,
+[owa] .layout,
+.ie .one-col .column,
+[owa] .one-col .column {
+  max-width: 600px !important;
+  width: 600px !important;
+}
+.ie .fixed-width.has-border,
+[owa] .fixed-width.has-border,
+.ie .has-gutter.has-border,
+[owa] .has-gutter.has-border {
+  max-width: 602px !important;
+  width: 602px !important;
+}
+.ie .two-col .column,
+[owa] .two-col .column {
+  max-width: 300px !important;
+  width: 300px !important;
+}
+.ie .three-col .column,
+[owa] .three-col .column,
+.ie .narrow,
+[owa] .narrow {
+  max-width: 200px !important;
+  width: 200px !important;
+}
+.ie .wide,
+[owa] .wide {
+  width: 400px !important;
+}
+.ie .two-col.has-gutter .column,
+[owa] .two-col.x_has-gutter .column {
+  max-width: 290px !important;
+  width: 290px !important;
+}
+.ie .three-col.has-gutter .column,
+[owa] .three-col.x_has-gutter .column,
+.ie .has-gutter .narrow,
+[owa] .has-gutter .narrow {
+  max-width: 188px !important;
+  width: 188px !important;
+}
+.ie .has-gutter .wide,
+[owa] .has-gutter .wide {
+  max-width: 394px !important;
+  width: 394px !important;
+}
+.ie .two-col.has-gutter.has-border .column,
+[owa] .two-col.x_has-gutter.x_has-border .column {
+  max-width: 292px !important;
+  width: 292px !important;
+}
+.ie .three-col.has-gutter.has-border .column,
+[owa] .three-col.x_has-gutter.x_has-border .column,
+.ie .has-gutter.has-border .narrow,
+[owa] .has-gutter.x_has-border .narrow {
+  max-width: 190px !important;
+  width: 190px !important;
+}
+.ie .has-gutter.has-border .wide,
+[owa] .has-gutter.x_has-border .wide {
+  max-width: 396px !important;
+  width: 396px !important;
+}
+.ie .fixed-width .layout__inner {
+  border-left: 0 none white !important;
+  border-right: 0 none white !important;
+}
+.ie .layout__edges {
+  display: none;
+}
+.mso .layout__edges {
+  font-size: 0;
+}
+.layout-fixed-width,
+.mso .layout-full-width {
+  background-color: #ffffff;
+}
+@media only screen and (min-width: 620px) {
+  .column,
+  .gutter {
+    display: table-cell;
+    Float: none !important;
+    vertical-align: top;
+  }
+  div.preheader,
+  .email-footer {
+    max-width: 560px !important;
+    width: 560px !important;
+  }
+  .snippet,
+  .webversion {
+    width: 280px !important;
+  }
+  div.header,
+  .layout,
+  .one-col .column {
+    max-width: 600px !important;
+    width: 600px !important;
+  }
+  .fixed-width.has-border,
+  .fixed-width.ecxhas-border,
+  .has-gutter.has-border,
+  .has-gutter.ecxhas-border {
+    max-width: 602px !important;
+    width: 602px !important;
+  }
+  .two-col .column {
+    max-width: 300px !important;
+    width: 300px !important;
+  }
+  .three-col .column,
+  .column.narrow {
+    max-width: 200px !important;
+    width: 200px !important;
+  }
+  .column.wide {
+    width: 400px !important;
+  }
+  .two-col.has-gutter .column,
+  .two-col.ecxhas-gutter .column {
+    max-width: 290px !important;
+    width: 290px !important;
+  }
+  .three-col.has-gutter .column,
+  .three-col.ecxhas-gutter .column,
+  .has-gutter .narrow {
+    max-width: 188px !important;
+    width: 188px !important;
+  }
+  .has-gutter .wide {
+    max-width: 394px !important;
+    width: 394px !important;
+  }
+  .two-col.has-gutter.has-border .column,
+  .two-col.ecxhas-gutter.ecxhas-border .column {
+    max-width: 292px !important;
+    width: 292px !important;
+  }
+  .three-col.has-gutter.has-border .column,
+  .three-col.ecxhas-gutter.ecxhas-border .column,
+  .has-gutter.has-border .narrow,
+  .has-gutter.ecxhas-border .narrow {
+    max-width: 190px !important;
+    width: 190px !important;
+  }
+  .has-gutter.has-border .wide,
+  .has-gutter.ecxhas-border .wide {
+    max-width: 396px !important;
+    width: 396px !important;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .fblike {
+    background-image: url(https://i3.createsend1.com/static/eb/master/13-the-blueprint-3/images/fblike@2x.png) !important;
+  }
+  .tweet {
+    background-image: url(https://i4.createsend1.com/static/eb/master/13-the-blueprint-3/images/tweet@2x.png) !important;
+  }
+  .linkedinshare {
+    background-image: url(https://i6.createsend1.com/static/eb/master/13-the-blueprint-3/images/lishare@2x.png) !important;
+  }
+  .forwardtoafriend {
+    background-image: url(https://i5.createsend1.com/static/eb/master/13-the-blueprint-3/images/forward@2x.png) !important;
+  }
+}
+@media (max-width: 321px) {
+  .fixed-width.has-border .layout__inner {
+    border-width: 1px 0 !important;
+  }
+  .layout,
+  .column {
+    min-width: 320px !important;
+    width: 320px !important;
+  }
+  .border {
+    display: none;
+  }
+}
+.mso div {
+  border: 0 none white !important;
+}
+.mso .w560 .divider {
+  Margin-left: 260px !important;
+  Margin-right: 260px !important;
+}
+.mso .w360 .divider {
+  Margin-left: 160px !important;
+  Margin-right: 160px !important;
+}
+.mso .w260 .divider {
+  Margin-left: 110px !important;
+  Margin-right: 110px !important;
+}
+.mso .w160 .divider {
+  Margin-left: 60px !important;
+  Margin-right: 60px !important;
+}
+.mso .w354 .divider {
+  Margin-left: 157px !important;
+  Margin-right: 157px !important;
+}
+.mso .w250 .divider {
+  Margin-left: 105px !important;
+  Margin-right: 105px !important;
+}
+.mso .w148 .divider {
+  Margin-left: 54px !important;
+  Margin-right: 54px !important;
+}
+.mso .footer__share-button p {
+  margin: 0;
+}
+.mso .size-8,
+.ie .size-8 {
+  font-size: 8px !important;
+  line-height: 14px !important;
+}
+.mso .size-9,
+.ie .size-9 {
+  font-size: 9px !important;
+  line-height: 16px !important;
+}
+.mso .size-10,
+.ie .size-10 {
+  font-size: 10px !important;
+  line-height: 18px !important;
+}
+.mso .size-11,
+.ie .size-11 {
+  font-size: 11px !important;
+  line-height: 19px !important;
+}
+.mso .size-12,
+.ie .size-12 {
+  font-size: 12px !important;
+  line-height: 19px !important;
+}
+.mso .size-13,
+.ie .size-13 {
+  font-size: 13px !important;
+  line-height: 21px !important;
+}
+.mso .size-14,
+.ie .size-14 {
+  font-size: 14px !important;
+  line-height: 21px !important;
+}
+.mso .size-15,
+.ie .size-15 {
+  font-size: 15px !important;
+  line-height: 23px !important;
+}
+.mso .size-16,
+.ie .size-16 {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+.mso .size-17,
+.ie .size-17 {
+  font-size: 17px !important;
+  line-height: 26px !important;
+}
+.mso .size-18,
+.ie .size-18 {
+  font-size: 18px !important;
+  line-height: 26px !important;
+}
+.mso .size-20,
+.ie .size-20 {
+  font-size: 20px !important;
+  line-height: 28px !important;
+}
+.mso .size-22,
+.ie .size-22 {
+  font-size: 22px !important;
+  line-height: 31px !important;
+}
+.mso .size-24,
+.ie .size-24 {
+  font-size: 24px !important;
+  line-height: 32px !important;
+}
+.mso .size-26,
+.ie .size-26 {
+  font-size: 26px !important;
+  line-height: 34px !important;
+}
+.mso .size-28,
+.ie .size-28 {
+  font-size: 28px !important;
+  line-height: 36px !important;
+}
+.mso .size-30,
+.ie .size-30 {
+  font-size: 30px !important;
+  line-height: 38px !important;
+}
+.mso .size-32,
+.ie .size-32 {
+  font-size: 32px !important;
+  line-height: 40px !important;
+}
+.mso .size-34,
+.ie .size-34 {
+  font-size: 34px !important;
+  line-height: 43px !important;
+}
+.mso .size-36,
+.ie .size-36 {
+  font-size: 36px !important;
+  line-height: 43px !important;
+}
+.mso .size-40,
+.ie .size-40 {
+  font-size: 40px !important;
+  line-height: 47px !important;
+}
+.mso .size-44,
+.ie .size-44 {
+  font-size: 44px !important;
+  line-height: 50px !important;
+}
+.mso .size-48,
+.ie .size-48 {
+  font-size: 48px !important;
+  line-height: 54px !important;
+}
+.mso .size-56,
+.ie .size-56 {
+  font-size: 56px !important;
+  line-height: 60px !important;
+}
+.mso .size-64,
+.ie .size-64 {
+  font-size: 64px !important;
+  line-height: 63px !important;
+}
+.footer__share-button p {
+  margin: 0;
+}
+</style>
+    
+  <!--[if !mso]><!--><style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,700,400italic|Lato:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400);
+</style><link href="https://fonts.googleapis.com/css?family=Bitter:400,700,400italic|Lato:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400" rel="stylesheet" type="text/css"><!--<![endif]--><style type="text/css">
+body{background-color:#f2f6f7}.logo a:hover,.logo a:focus{color:#859bb1 !important}.mso .layout-has-border{border-top:1px solid #b3cad0;border-bottom:1px solid #b3cad0}.mso .layout-has-bottom-border{border-bottom:1px solid #b3cad0}.mso .border,.ie .border{background-color:#b3cad0}.mso h1,.ie h1{}.mso h1,.ie h1{font-size:26px !important;line-height:34px !important}.mso h2,.ie h2{}.mso h2,.ie h2{font-size:20px !important;line-height:28px !important}.mso h3,.ie h3{}.mso .layout__inner,.ie .layout__inner{}
+</style><meta name="robots" content="noindex,nofollow"></meta>
+<meta property="og:title" content="Invitation to Code2Create - A national level hackathon."></meta>
+</head>
+<!--[if mso]>
+  <body class="mso">
+<![endif]-->
+<!--[if !mso]><!-->
+  <body class="half-padding" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;">
+<!--<![endif]-->
+    <table class="wrapper" style="border-collapse: collapse;table-layout: fixed;min-width: 320px;width: 100%;background-color: #f2f6f7;" cellpadding="0" cellspacing="0" role="presentation"><tbody><tr><td>
+      <div role="banner">
+        <div class="preheader" style="Margin: 0 auto;max-width: 560px;min-width: 280px; width: 280px;width: calc(28000% - 167440px);">
+          <div style="border-collapse: collapse;display: table;width: 100%;">
+          <!--[if (mso)|(IE)]><table align="center" class="preheader" cellpadding="0" cellspacing="0" role="presentation"><tr><td style="width: 280px" valign="top"><![endif]-->
+            <div class="snippet" style="display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 140px; width: 140px;width: calc(14000% - 78120px);padding: 10px 0 5px 0;color: #99b0b8;font-family: Open Sans,sans-serif;">
+              
+            </div>
+          <!--[if (mso)|(IE)]></td><td style="width: 280px" valign="top"><![endif]-->
+            <div class="webversion" style="display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 139px; width: 139px;width: calc(14100% - 78680px);padding: 10px 0 5px 0;text-align: right;color: #99b0b8;font-family: Open Sans,sans-serif;">
+              
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+          </div>
+        </div>
+        <div class="header" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);" id="emb-email-header-container">
+        <!--[if (mso)|(IE)]><table align="center" class="header" cellpadding="0" cellspacing="0" role="presentation"><tr><td style="width: 600px"><![endif]-->
+          <div class="logo emb-logo-margin-box" style="font-size: 26px;line-height: 32px;Margin-top: 6px;Margin-bottom: 20px;color: #c3ced9;font-family: Roboto,sans-serif;Margin-left: 20px;Margin-right: 20px;" align="center">
+            <div class="logo-center" align="center" id="emb-email-header"><img style="display: block;height: auto;width: 100%;border: 0;max-width: 174px;" src="https://i1.createsend1.com/ei/d/DB/A98/309/230928/csfinal/logo2.png" alt="" width="174"></div>
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+      <div role="section">
+      <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+        <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
+        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
+          <div class="column" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 12px;">
+      <div style="line-height:10px;font-size:1px">&nbsp;</div>
+    </div>
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;">
+      <div style="line-height:5px;font-size:1px">&nbsp;</div>
+    </div>
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;">
+      <h1 style="Margin-top: 0;Margin-bottom: 20px;font-style: normal;font-weight: normal;color: #58595b;font-size: 22px;line-height: 31px;font-family: lato,tahoma,sans-serif;text-align: center;"><span class="font-lato">Code2Create - Create. Innovate. Learn.</span></h1>
+    </div>
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;">
+      <div class="divider" style="display: block;font-size: 2px;line-height: 2px;Margin-left: auto;Margin-right: auto;width: 40px;background-color: #b3cad0;Margin-bottom: 20px;">&nbsp;</div>
+    </div>
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;">
+      <p style="Margin-top: 0;Margin-bottom: 0;">Dear all,</p><p style="Margin-top: 20px;Margin-bottom: 0;">ACM VIT and School of Information Technology and Engineering, VIT University, Vellore extend warm greetings to you all!<br>
+With great excitement, we would like to announce that we are hosting <strong>Code2Create</strong>, <strong>a thrilling, </strong><strong>36 hour</strong><strong> hackathon at VIT University, Vellore</strong> from the <strong>13th of April, 2017 to the 15th of April, 2017</strong>.</p><p style="Margin-top: 20px;Margin-bottom: 0;text-align: left;"><strong>Code2Create</strong> will be an outburst of technology, ideas, and innovation, with students from all over the country participating to find solutions to problems through the computer science domain. We have four tracks in this hack &#8211;<br>
+<strong>-</strong>&nbsp;<strong><span style="color:#1eb76e">FinTech</span><br>
+-</strong>&nbsp;<span style="color:#1eb76e"><strong>AR/VR</strong></span><br>
+<strong>-</strong>&nbsp;<strong><span style="color:#1eb76e">Clean Energy</span><br>
+-&nbsp;<span style="color:#1eb76e">Health Care</span></strong></p><p style="Margin-top: 20px;Margin-bottom: 0;text-align: left;">&nbsp;</p><p style="Margin-top: 20px;Margin-bottom: 0;">During registration, teams will be asked to enter their <strong>preference</strong> for each track. In case of an overwhelming number of registrations, we will shortlist around 60 teams based on their skillsets and profiles. As we will take 15 teams per track, we will allot the track to each shortlisted team based on a first-come-first-served basis. The team will then be asked to pick their challenge.</p><p style="Margin-top: 20px;Margin-bottom: 0;">The hack includes <strong>two inspections</strong>. After the first inspection, the bottom 25 teams will be put on the <strong>red list</strong>. During the second inspection, we will <strong>eliminate</strong> 
+those teams that have shown no, or little, progress.</p><p style="Margin-top: 20px;Margin-bottom: 0;">&nbsp;</p><p style="Margin-top: 20px;Margin-bottom: 0;"><strong>Code2Create</strong> is a <strong>free</strong> event, with alluring cash prizes worth <strong>INR 30,000</strong> to be won. We will provide food, drinks and exciting goodies to all participants. For details, you can check out our website ( <a style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #60686b;" href="http://c2c.acmvit.in/">c2c.acmvit.in</a>&nbsp;) or our Facebook page ( <a style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #60686b;" href="https://www.facebook.com/code2create2k17">www.facebook.com/code2create2k17</a> 
+). You will find the <strong>rules and regulations</strong> of the hack below.</p><p style="Margin-top: 20px;Margin-bottom: 0;">We cordially invite your chapter and friends to participate in this hack. We expect your chapter members to compete with vigour and determination.</p><p style="Margin-top: 20px;Margin-bottom: 0;">For any further queries, please feel free to contact us at the number provided below.</p><p style="Margin-top: 20px;Margin-bottom: 0;">We look forward to hearing from you!</p><p style="Margin-top: 20px;Margin-bottom: 20px;">On behalf of ACM VIT,<br>
+Pranay Gupta<br>
+Vice President<br>
+(+91 9791085772)</p>
+    </div>
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;">
+      <div style="line-height:10px;font-size:1px">&nbsp;</div>
+    </div>
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-bottom: 12px;">
+      <div style="line-height:15px;font-size:1px">&nbsp;</div>
+    </div>
+        
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+  
+      <div style="line-height:20px;font-size:20px;">&nbsp;</div>
+  
+      <div class="layout two-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+        <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
+        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" emb-background-style><td style="width: 300px" valign="top" class="w260"><![endif]-->
+          <div class="column" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;Float: left;max-width: 320px;min-width: 300px; width: 320px;width: calc(12300px - 2000%);">
+          
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 12px;Margin-bottom: 12px;">
+      <div class="btn fullwidth btn--shadow btn--large" style="text-align: center;">
+        <![if !mso]><a style="border-radius: 4px;display: block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px 13px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #60686b;box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);background-color: #1eb76e; color: #ffffff; font-family: 'Open Sans', sans-serif !important;font-family: Open Sans,sans-serif;" href="http://c2c.acmvit.in/">Visit Website</a><![endif]>
+      <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://acmvit.createsend1.com/t/d-l-hkvkhy-l-j/" style="width:260px" arcsize="9%" fillcolor="#1EB76E" stroke="f"><v:shadow on="t" color="#189258" offset="0,2px"></v:shadow><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,10px"><center style="font-size:14px;line-height:24px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Visit Website</center></v:textbox></v:roundrect><![endif]--></div>
+    </div>
+          
+          </div>
+        <!--[if (mso)|(IE)]></td><td style="width: 300px" valign="top" class="w260"><![endif]-->
+          <div class="column" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;Float: left;max-width: 320px;min-width: 300px; width: 320px;width: calc(12300px - 2000%);">
+          
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 12px;Margin-bottom: 12px;">
+      <div class="btn fullwidth btn--shadow btn--large" style="text-align: center;">
+        <![if !mso]><a style="border-radius: 4px;display: block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px 13px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #60686b;box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);background-color: #3b5998; color: #ffffff; font-family: 'Open Sans', sans-serif !important;font-family: Open Sans,sans-serif;" href="https://www.facebook.com/code2create2k17">Facebook Page</a><![endif]>
+      <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://acmvit.createsend1.com/t/d-l-hkvkhy-l-t/" style="width:260px" arcsize="9%" fillcolor="#3B5998" stroke="f"><v:shadow on="t" color="#2F477A" offset="0,2px"></v:shadow><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,10px"><center style="font-size:14px;line-height:24px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Facebook Page</center></v:textbox></v:roundrect><![endif]--></div>
+    </div>
+          
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+  
+      <div style="line-height:20px;font-size:20px;">&nbsp;</div>
+  
+      <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+        <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
+        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
+          <div class="column" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 12px;Margin-bottom: 12px;">
+      <p style="Margin-top: 0;Margin-bottom: 0;"><strong>Rules and Regulations</strong></p><p style="Margin-top: 20px;Margin-bottom: 0;">1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Participants must register in teams of 2,3 or 4.<br>
+2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Participants must register on or before 11th April, 2017 at c2c.acmvit.in<br>
+3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The organisers reserve the right to modify the rules of the hackathon at any &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;given time without prior notice.<br>
+4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The decision of the judges is final and binding.<br>
+5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Any and all forms of malpractice will result in immediate disqualification.</p><p style="Margin-top: 20px;Margin-bottom: 0;">&#8203;</p>
+    </div>
+        
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+  
+      <div style="line-height:20px;font-size:20px;">&nbsp;</div>
+  
+      <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+        <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
+        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
+          <div class="column" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 12px;Margin-bottom: 12px;">
+      <p style="Margin-top: 0;Margin-bottom: 0;"><strong>Scoring</strong></p><p style="Margin-top: 20px;Margin-bottom: 0;">1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Teams will be judged on a number of parameters<br>
+2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The organisers reserve the right to refrain from disclosing these parameters</p><p style="Margin-top: 20px;Margin-bottom: 0;">&#8203;</p>
+    </div>
+        
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+  
+      <div style="line-height:20px;font-size:20px;">&nbsp;</div>
+  
+      <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+        <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
+        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
+          <div class="column" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
+        
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 12px;Margin-bottom: 12px;">
+      <p style="Margin-top: 0;Margin-bottom: 0;"><strong>Prizes</strong></p><p style="Margin-top: 20px;Margin-bottom: 0;">1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prize money worth INR 30,000 will be awarded to the top 3 teams<br>
+2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Certificates will be provided to all participants</p><p style="Margin-top: 20px;Margin-bottom: 0;">&#8203;</p>
+    </div>
+        
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+  
+      <div style="line-height:20px;font-size:20px;">&nbsp;</div>
+  
+      <div class="layout fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+        <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" emb-background-style>
+        <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" emb-background-style><td style="width: 400px" valign="top" class="w360"><![endif]-->
+          <div class="column wide" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);">
+          
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 12px;">
+      <p style="Margin-top: 0;Margin-bottom: 20px;"><strong>About Us</strong><br>
+Right from our conception in 2009, ACM VIT has been organising and conducting successful technical events, quizzes, seminars and a lot more. We are a team of professionals in app development, web development and machine learning. The websites &#8220;All About VIT&#8221; and &#8220;VIT Cab Share&#8221; are some of the treasured creations of members of ACM VIT. Technology is our cause and education is our objective. We are the Association for Computing Machinery, VIT University, Vellore.</p>
+    </div>
+          
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-bottom: 12px;">
+      <div style="line-height:20px;font-size:1px">&nbsp;</div>
+    </div>
+          
+          </div>
+        <!--[if (mso)|(IE)]></td><td style="width: 200px" valign="top" class="w160"><![endif]-->
+          <div class="column narrow" style="text-align: left;color: #808285;font-size: 14px;line-height: 21px;font-family: Open Sans,sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);">
+          
+        <div style="font-size: 12px;font-style: normal;font-weight: normal;" align="center">
+          <img class="gnd-corner-image gnd-corner-image-center gnd-corner-image-top gnd-corner-image-bottom" style="border: 0;display: block;height: auto;width: 100%;max-width: 452px;" alt="" width="200" src="https://i1.createsend1.com/ei/d/DB/A98/309/230928/csfinal/acm.png">
+        </div>
+      
+          </div>
+        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </div>
+      </div>
+  
+      <div style="line-height:20px;font-size:20px;">&nbsp;</div>
+  
+      
+      <div role="contentinfo">
+        <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+          <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;">
+          <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-email-footer"><td style="width: 400px;" valign="top" class="w360"><![endif]-->
+            <div class="column wide" style="text-align: left;font-size: 12px;line-height: 19px;color: #99b0b8;font-family: Open Sans,sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);">
+              <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
+                <table class="email-footer__links emb-web-links" style="border-collapse: collapse;table-layout: fixed;" role="presentation"><tbody><tr role="navigation">
+                <td class="emb-web-links" style="padding: 0;width: 26px;"><a style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #99b0b8;" href="http://acmvit.createsend1.com/t/d-l-hkvkhy-l-h/"><img style="border: 0;" src="https://i8.createsend1.com/static/eb/master/13-the-blueprint-3/images/facebook.png" width="26" height="26"></a></td>
+                </tr></tbody></table>
+                <div style="font-size: 12px;line-height: 19px;Margin-top: 20px;">
+                  <div>ACM VIT | Because Technology Matters</div>
+                </div>
+                <div style="font-size: 12px;line-height: 19px;Margin-top: 18px;">
+                  
+                </div>
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" class="w160"><![endif]-->
+            <div class="column narrow" style="text-align: left;font-size: 12px;line-height: 19px;color: #99b0b8;font-family: Open Sans,sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);">
+              <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
+                <div class="footer__share-button">
+                  <!--[if mso]><p style="line-height:0;">&nbsp;</p><![endif]-->
+                  
+                  
+                  
+                  
+<p style="Margin-top: 0;Margin-bottom: 5px;font-size: 11px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a class="forwardtoafriend" style="background-image: url(https://i10.createsend1.com/static/eb/master/13-the-blueprint-3/images/forward.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #797b7c;" href="http://acmvit.forwardtomyfriend.com/d-l-2AD73FFF-hkvkhy-l-k" left-align-text="true" lang="en">Forward</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://acmvit.forwardtomyfriend.com/d-l-2AD73FFF-hkvkhy-l-k" style="width:85px" arcsize="8%" fill="t" stroke="f"><v:fill type="tile" 
+src="https://i10.createsend1.com/static/eb/master/13-the-blueprint-3/images/forward.png" color="#797B7C"></v:fill><v:textbox style="mso-fit-shape-to-text:t" inset="27px,7px,0,6px"><p style="font-size:11px;line-height:11px;color:#FFFFFF;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:-1px">Forward</p></v:textbox></v:roundrect><![endif]--></p>
+                </div>
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+          </div>
+        </div>
+        <div class="layout one-col email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+          <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;">
+          <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-email-footer"><td style="width: 600px;" class="w560"><![endif]-->
+            <div class="column" style="text-align: left;font-size: 12px;line-height: 19px;color: #99b0b8;font-family: Open Sans,sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
+              <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
+                <div style="font-size: 12px;line-height: 19px;">
+                  <a style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #99b0b8;" href="http://acmvit.createsend1.com/t/d-u-hkvkhy-l-u/">Unsubscribe</a>
+                </div>
+              </div>
+            </div>
+          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+          </div>
+        </div>
+      </div>
+      <div style="line-height:40px;font-size:40px;">&nbsp;</div>
+    </div></td></tr></tbody></table>
+  <img style="overflow: hidden;position: fixed;visibility: hidden !important;display: block !important;height: 1px !important;width: 1px !important;border: 0 !important;margin: 0 !important;padding: 0 !important;" src="https://acmvit.createsend1.com/t/d-o-hkvkhy-l/o.gif" width="1" height="1" border="0" alt="">
+</body></html>

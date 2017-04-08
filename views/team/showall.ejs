@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="/styles/app_common.css">
+    <link rel="stylesheet" href="/styles/app_common.css?1100">
     <style>
       #submit_mock {
         margin-top: 20px;
@@ -55,7 +55,7 @@
             trackk='not found';
             %>
             <tr>
-              <td><a href="/team/show/<%=team.teamName%>" class="underline-wala"><%=team.teamName%></a></td>
+              <td><a href="/team/show/<%=defaultUrl.encode(encodeURI(team.teamName))%>" class="underline-wala"><%=team.teamName%></a></td>
               <td><%=trackk%></td>
               <td><%=team.memberAccepted.length%></td>
             <!--   <td><%=team.description%></td> -->

@@ -7,10 +7,11 @@ body,html{
 	overflow-x: hidden !important;
 }
 body{
-	/*background-image: url('/images/background.png');
-	background-size: contain;
+	background-color: #182022 !important;
+	background-image: url('/images/bg3.svg');
 	background-repeat: repeat;
-	background-attachment: fixed;*/
+	background-size: cover;
+	background-size: 1081px 1922px;
 }
 .margin-0{
 	margin: 0px !important;
@@ -201,13 +202,13 @@ table.striped>tbody>tr:nth-child(odd) {
 }
 @media(max-width: 991px){
 	.th-skills-td{
-		display: none !important;
+		/*display: none !important;*/
 	}
 	table.bordered>tbody>tr {
 		border-right: 1px solid #484848 !important;
 	}
 	.skills-td{
-		display: none !important;
+		/*display: none !important;*/
 	}
 }
 @media(min-width: 992px){

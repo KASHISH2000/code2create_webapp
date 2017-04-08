@@ -61,10 +61,16 @@
     title: 'Tracks | Code2Create'
   }
 },
-'/contact' : {
-  view : 'tracks',
+'/timeline' : {
+  view : 'timeline',
   locals: {
-    title: 'Tracks | Code2Create'
+    title: 'Timeline | Code2Create'
+  }
+},
+'/prizes' : {
+  view : 'prizes',
+  locals: {
+    title: 'Prizes and Perks | Code2Create'
   }
 },
 '/welcome' : 'SessionController.welcome'

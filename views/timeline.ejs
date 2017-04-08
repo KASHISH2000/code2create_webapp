@@ -1,0 +1,281 @@
+ <link rel="stylesheet" href="/styles/app_common.css?1100">
+ <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+ <style>
+  .nav-day{
+    display: inline-block;
+  }
+  .tabs{
+    background-color: #313131;
+  }
+  .tab a{
+    color: #fff !important;
+  }
+  thead{
+    border-bottom: none;
+  }
+  .time-td{
+    color: #1eb76e;
+  }
+  .desc-td{
+    color: #fff;
+  }
+  .table{
+  }
+  .right-align{
+    text-align: left !important;
+  }
+  .left-align{
+    text-align: left !important;
+  }
+  .indicator{
+    /*display: none;*/
+  }
+  .nav-row{
+    border-bottom: 3px #1eb76e solid;
+
+  }
+  .nav-day{
+    width: 33.1%;
+    color: #fff !important;
+    padding: 4px;
+    border:1px solid #4c4c4c;
+    border-bottom: none;
+    margin: 0px;
+    cursor: pointer;
+  }
+  .nav-day:nth-child(1){
+
+  }
+  .nav-day.active{
+    background-color: #1eb76e;
+    color: red;
+  }
+  thead{
+    border-bottom: none !important;
+  }
+  thead tr{
+   border-bottom: none !important;
+ }
+ .time-td{
+  border-right: 1px solid #484848;
+  padding-right: 1rem;
+}
+.desc-td{
+  padding-left: 1rem;
+}
+@media(max-width: 769px){
+  .nav-day{
+    width: 100%;
+  }
+}
+
+.time-div{
+  color: #1eb76e !important;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.timeline-content{
+  padding: 1rem;
+  padding-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.desc-div{
+  margin-left: auto;
+  margin-right: auto;
+  
+  display: inline-block;
+  color: #fff !important;
+}
+.timeline-row{
+  margin-top: 1rem;
+  
+}
+</style>
+
+<% if(req.session.authenticated) { %>
+<%- partial('./partials/navbar.ejs',{active: 'timeline'}) %>
+<% } %>
+<% if(!(req.session.authenticated)) { %>
+<%- partial('./partials/without_login_navbar.ejs',{active: 'timeline'}) %>
+<% } %>
+
+<div class="container">
+  <div class="heading-bg">
+   <h5 class="left-align white-text main-heading">Timeline</h5>
+ </div>
+ <div class="my-main-card hoverable">
+   <br>
+   <div class="nav-row center">
+     <div class="nav-day nav-day1 active" id="navday1">
+       13th April, Thursday
+     </div>
+     <div class="nav-day nav-day2" id="navday2">
+       14th April, Friday
+     </div>
+     <div class="nav-day nav-day2" id="navday3">
+       15th April, Saturday
+     </div>
+   </div>
+   <div class="timeline-content" id="day1">
+    <div class="timeline-row row">
+      <div class="col s12 m4 offset-m4">
+       <div class="time-div right-align col s4 m5">7:00 PM</div>
+       <div class="desc-div left-align s8 m7">Registration</div>
+     </div>
+   </div>
+   <div class="timeline-row row">
+    <div class="col s12 m4 offset-m4">
+      <div class="time-div right-align col s4 m5">9:00 PM</div>
+      <div class="desc-div left-align s8 m7">Introduction</div>
+    </div>
+  </div>
+  <div class="timeline-row row">
+   <div class="col s12 m4 offset-m4">
+    <div class="time-div right-align col s4 m5">10:00 PM</div>
+    <div class="desc-div left-align s8 m7">Hack begins</div>
+  </div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">11:30 PM</div>
+  <div class="desc-div left-align s8 m7">Dinner</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">12:00 Midnight</div>
+  <div class="desc-div left-align s8 m7">Beverage period</div>
+</div>
+</div>
+</div>
+
+<div class="timeline-content" id="day2">
+  <div class="timeline-row row">
+    <div class="col s12 m4 offset-m4">
+     <div class="time-div right-align col s4 m5">9:00 AM</div>
+     <div class="desc-div left-align s8 m7">Breakfast break</div>
+   </div>
+ </div>
+ <div class="timeline-row row">
+  <div class="col s12 m4 offset-m4">
+    <div class="time-div right-align col s4 m5">11:30 AM</div>
+    <div class="desc-div left-align s8 m7">Fun activity</div>
+  </div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">1:00 PM</div>
+  <div class="desc-div left-align s8 m7">Lunch break</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">3:00 PM</div>
+  <div class="desc-div left-align s8 m7">Technical inspection - 1</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">5:00 PM</div>
+  <div class="desc-div left-align s8 m7">Red List Announcement</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">6:00 PM</div>
+  <div class="desc-div left-align s8 m7">Snacks break</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">7:30 PM</div>
+  <div class="desc-div left-align s8 m7">Fun activity</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">9:00 PM</div>
+  <div class="desc-div left-align s8 m7">Dinner break</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">10:00 PM</div>
+  <div class="desc-div left-align s8 m7">Sponsor presentation</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">11:30 PM</div>
+  <div class="desc-div left-align s8 m7">Quiz</div>
+</div>
+</div>
+</div>
+
+<div class="timeline-content" id="day3">
+  <div class="timeline-row row">
+    <div class="col s12 m4 offset-m4">
+     <div class="time-div right-align col s4 m5">2:00 AM</div>
+     <div class="desc-div left-align s8 m7">Technical inspection - 2</div>
+   </div>
+ </div>
+ <div class="timeline-row row">
+  <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">6:00 AM</div>
+    <div class="desc-div left-align s8 m7">Final pitch list</div>
+  </div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">8:30 AM</div>
+  <div class="desc-div left-align s8 m7">Final pitch</div>
+</div>
+</div>
+<div class="timeline-row row">
+ <div class="col s12 m4 offset-m4">
+  <div class="time-div right-align col s4 m5">12:00 Noon</div>
+  <div class="desc-div left-align s8 m7">Hack ends</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<%- partial('./partials/footer.ejs') %>
+<%- partial('./partials/commonScripts.ejs') %>
+<script type="text/javascript">
+  $("#day2").hide();
+  $("#day3").hide();
+  $("#navday1").click(function(){
+    $("#navday1").addClass('active');
+    $("#navday2").removeClass('active');
+    $("#navday3").removeClass('active');
+
+    $("#day1").show();
+    $("#day2").hide();
+    $("#day3").hide();
+  });
+  $("#navday2").click(function(){
+    $("#navday2").addClass('active');
+    $("#navday1").removeClass('active');
+    $("#navday3").removeClass('active');
+
+    $("#day2").show();
+    $("#day1").hide();
+    $("#day3").hide();
+  });
+  $("#navday3").click(function(){
+    $("#navday3").addClass('active');
+    $("#navday1").removeClass('active');
+    $("#navday2").removeClass('active');
+
+    $("#day3").show();
+    $("#day1").hide();
+    $("#day2").hide();
+  });
+</script>
