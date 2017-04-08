@@ -27,7 +27,7 @@ module.exports = {
         success: "Successfully Send Message!"
       };
       //console.log(contact);
-      //RecieveMailer.sendWelcomeMail(contact);
+      RecieveMailer.sendWelcomeMail(contact);
       //return res.status(200).json(contact);
        return res.redirect('/contact/view');
     });
