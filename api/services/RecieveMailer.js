@@ -13,7 +13,8 @@ module.exports.sendWelcomeMail = function(obj) {
     },
     {
       to: "vituacm@gmail.com",
-      subject: obj.subject
+      subject: obj.subject,
+      reply-to:obj.email
 
     },
 
