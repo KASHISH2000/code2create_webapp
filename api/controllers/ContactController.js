@@ -22,16 +22,17 @@ module.exports = {
         req.session.flash = {
           err: "Error: Couldn't send message"
         };
-        return res.redirect('/');
       }
       req.session.flash = {
         success: "Successfully Send Message!"
       };
       //console.log(contact);
-      RecieveMailer.sendWelcomeMail(contact);
+      //RecieveMailer.sendWelcomeMail(contact);
       //return res.status(200).json(contact);
-       return res.redirect('/');
+       return res.redirect('/contact/view');
     });
+  },
+  view:function(req,res,next){
+    res.redirect('/');
   }
 };
-

@@ -45,6 +45,9 @@ module.exports.policies = {
   },
 test:{
   '*':"flash"
+},
+contact:{
+  '*':"flash"
 }
 
 
