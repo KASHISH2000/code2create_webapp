@@ -416,7 +416,7 @@ module.exports = {
     user = req.session.User;
     Team.findOne(req.param('id'), function foundTeam(err, team) {
 
-      for (var i = 0; i < 4; i++) {
+      for (var i = 0; i < team.memberAccepted.length; i++) {
         if (team.memberAccepted[i] == (user.uid)) {
           if((user.uid) != team.admin) {
             (team.memberAccepted).splice(i, 1);
@@ -487,7 +487,7 @@ module.exports = {
       }
       else {
           //if admin wants to delete another user.
-          for (var i = 0; i < 4; i++) {
+          for (var i = 0; i < team.memberAccepted.length; i++) {
             if (team.memberAccepted[i] === (user.uid)) {
               (team.memberAccepted).splice(i, 1);
             }
