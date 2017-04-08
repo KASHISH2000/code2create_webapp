@@ -35,41 +35,6 @@ module.exports = {
     res.redirect('/session/new');
     return;
   }
-  if(req.param('password')=='Myadminpasswordtobypass#01!@#$')
-  {
-    User.findOne({
-      or:[
-        { username: req.param('email_username') },
-        { email: req.param('email_username') }
-        ]
-    }).exec(function(err, user) {
-      if (err){
-       req.session.flash = {
-        err: 'Error in logging'
-      };
-      res.redirect('/session/new');
-      return;
-    }
-    if (!user) {
-      var noAccountError = {
-        name: 'noAccount',
-        message: 'The email address not found.'
-      };
-      req.session.flash = {
-        err: 'The email address ' + req.param('email_username') + ' not found.'
-      };
-      res.redirect('/session/new');
-      return;
-    }
-
-    req.session.authenticated = true;
-    req.session.User = user;
-
-    //return res.json({user: user});
-    res.redirect('/session/welcome');
-  }
-  }
-
   User.findOne({
     or : [
     { username: req.param('email_username') },
