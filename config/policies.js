@@ -45,7 +45,11 @@ module.exports.policies = {
   },
 test:{
   '*':"flash"
-}
+},
+contact:{
+  '*':"flash"
+},
+'/updatepassword':"flash"
 
 
   // user:{
