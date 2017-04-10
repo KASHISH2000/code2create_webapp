@@ -123,6 +123,7 @@ module.exports = {
 
   beforeUpdate: function(values, next) {
     console.log(values.password);
+
     if(values.password) {
       require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
         if (err) return next(err);

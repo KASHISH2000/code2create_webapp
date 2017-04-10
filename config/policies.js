@@ -33,6 +33,9 @@ module.exports.policies = {
   user:{
     'new' : "flash",
     create : "flash",
+    'editpassword':"flash",
+    updatepassword : "flash"
+
 
   },
 
@@ -49,7 +52,7 @@ test:{
 contact:{
   '*':"flash"
 },
-'/updatepassword':"flash"
+
 
 
   // user:{

@@ -74,9 +74,7 @@
   }
 },
 '/welcome' : 'SessionController.welcome',
-'/updatepassword':{
-  view:'updatepassword'
-}
+
 
   /***************************************************************************
   *                                                                          *

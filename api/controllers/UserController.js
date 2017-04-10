@@ -372,23 +372,29 @@ module.exports = {
     });
   },
 
-  updatepassword :  function(req,res,next){
-    console.log("Entered into updatepassword");
 
+
+  'editpassword' : function (req, res) {
+    res.view();
+  },
+
+
+  updatepassword :  function(req,res,next){
     User.update(req.param('id'),req.params.all(), function userUpdated(err){
       if(err){
         req.session.flash = {
           err : "Sorry, cannot update password."
         };
-        return res.redirect('/user/updatepassword' + req.param('id'));
+        return res.redirect('/user/updatepassword/' + req.param('id'));
       }
-      return res.status(200).json({
-        message : "Successfullly updated password"
-      });
-      // req.session.flash = {
-      //   success : "Successfully updated password."
-      // };
-      // return res.redirect('/user/updatepassword' + req.param('id'));
+
+      // return res.status(200).json({
+      //   message : "Successfullly updated password"
+      // });
+      req.session.flash = {
+        success : "Successfully updated password."
+      };
+      return res.redirect('/session/new');
     });
 
 
