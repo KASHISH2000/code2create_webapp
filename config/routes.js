@@ -73,7 +73,10 @@
     title: 'Prizes and Perks | Code2Create'
   }
 },
-'/welcome' : 'SessionController.welcome'
+'/welcome' : 'SessionController.welcome',
+'/updatepassword':{
+  view:'updatepassword'
+}
 
   /***************************************************************************
   *                                                                          *

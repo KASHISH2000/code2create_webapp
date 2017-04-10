@@ -48,7 +48,8 @@ test:{
 },
 contact:{
   '*':"flash"
-}
+},
+'/updatepassword':"flash"
 
 
   // user:{
