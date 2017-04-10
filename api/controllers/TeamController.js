@@ -824,7 +824,25 @@ module.exports = {
 
     });
 
+  },
+
+  noofteams : function (req, res, next) {
+    var temparray = [];
+
+    Team.find(function foundTeams(err, teams) {
+
+      teams.forEach(function (team) {
+        if(team.clen === "1"){
+          temparray.push(team);
+        }
+
+      });
+      console.log(temparray.length);
+
+
+    });
   }
+
 
 
 };

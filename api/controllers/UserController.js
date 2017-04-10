@@ -350,7 +350,7 @@ module.exports = {
       phoneno: us_phone,
       description: us_description,
       github: us_github,
-      linkedin: us_linkedin,
+      linkedin: us_linkedin
 
     };
 
@@ -370,7 +370,29 @@ module.exports = {
       };
       return res.redirect('/user/edit/'+ user.username);
     });
-  }
+  },
+
+  updatepassword :  function(req,res,next){
+    console.log("Entered into updatepassword");
+
+    User.update(req.param('id'),req.params.all(), function userUpdated(err){
+      if(err){
+        req.session.flash = {
+          err : "Sorry, cannot update password."
+        };
+        return res.redirect('/user/updatepassword' + req.param('id'));
+      }
+      return res.status(200).json({
+        message : "Successfullly updated password"
+      });
+      // req.session.flash = {
+      //   success : "Successfully updated password."
+      // };
+      // return res.redirect('/user/updatepassword' + req.param('id'));
+    });
+
+
+      },
 
   // forgetPasswordd : function (req, res, next) {
   //
@@ -413,6 +435,189 @@ module.exports = {
   //
   //
   // }
+
+  external : function (req, res, next) {
+
+    var temparray = [];
+    var namearray = [];
+    var emailarray = [];
+
+    console.log("Entered");
+    User.find({
+      internal_external : 'external'
+    },function foundUsers(err, users){
+      if(err) return next(err);
+      users.forEach(function(user){
+        temparray.push(user.phoneno);
+        namearray.push(user.name);
+        emailarray.push(user.email);
+      });
+
+      console.log(temparray);
+      console.log(namearray);
+      console.log(emailarray);
+
+
+    });
+  },
+
+  admin : function (req, res, next) {
+
+    var namearray = [];
+    var emailarray = [];
+    var phonenoarray = [];
+    var singlemember = [];
+    var multiplemember = [];
+    var clenarray = [];
+    var helcarray = [];
+    var fintarray = [];
+
+    var arvrteam = [];
+    var cleanteam = [];
+    var helcteam = [];
+    var fintteam = [];
+    var arvrarray = [];
+    var userdetails = [];
+
+    var tempclean = [];
+    var tempfint = [];
+    var temphelc = [];
+    var temparvr = [];
+
+    console.log("Enteredddd");
+
+    Team.find(function foundTeams(err, teams){
+      User.find(function foundUsers(err, users){
+
+      if(err) return next(err);
+
+      teams.forEach(function(team){
+            // console.log(team.memberAccepted[0]);
+
+            for(var i=0; i < team.memberAccepted.length; i++){
+              users.forEach(function(user) {
+                if(team.memberAccepted[i] === user.id){
+                  namearray.push(user);
+                }
+
+              });
+
+            }
+
+
+            // singlemember.push("Length is " + namearray.length);
+
+        if(team.clen === "1"){
+          cleanteam.push(team);
+
+            users.forEach(function(user) {
+              if(team.admin === user.id){
+                cleanteam.push(user);
+              }
+            });
+            tempclean.push(cleanteam);
+            // tempclean.push(userdetails);
+            cleanteam = [];
+            userdetails = [];
+
+          }
+
+        if(team.fint === "1"){
+          fintteam.push(team);
+
+          users.forEach(function(user) {
+            if(team.admin === user.id){
+              fintteam.push(user);
+            }
+          });
+          tempfint.push(fintteam);
+          fintteam = [];
+          userdetails = [];
+
+        }
+
+        if(team.helc === "1"){
+          helcteam.push(team);
+
+          users.forEach(function(user) {
+            if(team.admin === user.id){
+              helcteam.push(user);
+            }
+          });
+          temphelc.push(helcteam);
+          helcteam = [];
+          userdetails = [];
+
+        }
+
+        if(team.arvr === "1"){
+          arvrteam.push(team);
+
+          users.forEach(function(user) {
+            if(team.admin === user.id){
+              arvrteam.push(user);
+            }
+          });
+          temparvr.push(arvrteam);
+          arvrteam = [];
+          userdetails = [];
+
+        }
+
+        //
+        // if(team.helc === "1"){
+        //   helcarray.push(team);
+        // }
+        // if(team.fint === "1"){
+        //   fintarray.push(team)
+        // }
+        // if(team.arvr === "1"){
+        //   arvrarray.push(team)
+        // }
+
+
+
+        if(namearray.length === 1){
+          //singlemember.push(namearray);
+        }
+        else{
+          //multiplemember.push(namearray);
+
+
+        }
+        // console.log(temparray.length);
+
+            namearray = [];
+
+          });
+        return res.status(200).json({
+          tempclean : tempclean,
+          tempfint : tempfint,
+          temphelc : temphelc,
+          temparvr : temparvr,
+          cleanteam : cleanteam,
+          clenarray : clenarray.length,
+          helcarray : helcarray.length,
+          fintarray : fintarray.length,
+          arvrarray : arvrarray.length
+          // singlemember : singlemember,
+          // multiplemember : multiplemember
+
+        });
+
+        });
+
+
+      });
+
+
+
+
+    //});
+  }
+
+
+
 };
 
 
