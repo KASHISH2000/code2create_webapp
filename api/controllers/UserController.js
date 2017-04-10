@@ -26,7 +26,7 @@ module.exports = {
     var us_name = req.param('name');
     var us_regno = req.param('regno');
     var us_phoneno = req.param('phoneno');
-    var us_email = req.param('email')
+    var us_email = req.param('email');
     var us_username = req.param('username');
     var us_internal_external = req.param('internal_external');
     var us_college_name = req.param('college_name');
@@ -467,23 +467,77 @@ module.exports = {
     });
   },
 
-  admin : function (req, res, next) {
+  singlemultiple : function (req, res, next) {
 
     var namearray = [];
-    var emailarray = [];
-    var phonenoarray = [];
     var singlemember = [];
     var multiplemember = [];
-    var clenarray = [];
-    var helcarray = [];
-    var fintarray = [];
+
+
+    console.log("Enteredddd");
+
+    Team.find(function foundTeams(err, teams){
+      User.find(function foundUsers(err, users){
+
+        if(err) return next(err);
+
+        teams.forEach(function(team){
+          // console.log(team.memberAccepted[0]);
+
+          for(var i=0; i < team.memberAccepted.length; i++){
+            users.forEach(function(user) {
+              if(team.memberAccepted[i] === user.id){
+                namearray.push(user);
+              }
+
+            });
+
+          }
+          if(namearray.length === 1){
+            singlemember.push(namearray);
+          }
+          else{
+            multiplemember.push(namearray);
+
+
+          }
+          // console.log(temparray.length);
+
+          namearray = [];
+
+        });
+        return res.status(200).json({
+          // tempclean : tempclean,
+          // tempfint : tempfint,
+          // temphelc : temphelc,
+          // temparvr : temparvr,
+          // cleanteam : cleanteam,
+          // clenarray : clenarray.length,
+          // helcarray : helcarray.length,
+          // fintarray : fintarray.length,
+          // arvrarray : arvrarray.length
+          singlemember : singlemember,
+          multiplemember : multiplemember
+
+        });
+
+      });
+
+
+    });
+
+
+
+
+    //});
+  },
+
+  tracks : function (req, res, next) {
 
     var arvrteam = [];
     var cleanteam = [];
     var helcteam = [];
     var fintteam = [];
-    var arvrarray = [];
-    var userdetails = [];
 
     var tempclean = [];
     var tempfint = [];
@@ -495,26 +549,12 @@ module.exports = {
     Team.find(function foundTeams(err, teams){
       User.find(function foundUsers(err, users){
 
-      if(err) return next(err);
+        if(err) return next(err);
 
-      teams.forEach(function(team){
-            // console.log(team.memberAccepted[0]);
+        teams.forEach(function(team){
 
-            for(var i=0; i < team.memberAccepted.length; i++){
-              users.forEach(function(user) {
-                if(team.memberAccepted[i] === user.id){
-                  namearray.push(user);
-                }
-
-              });
-
-            }
-
-
-            // singlemember.push("Length is " + namearray.length);
-
-        if(team.clen === "1"){
-          cleanteam.push(team);
+          if(team.clen === "1"){
+            cleanteam.push(team);
 
             users.forEach(function(user) {
               if(team.admin === user.id){
@@ -524,103 +564,60 @@ module.exports = {
             tempclean.push(cleanteam);
             // tempclean.push(userdetails);
             cleanteam = [];
-            userdetails = [];
+          }
+
+          if(team.fint === "1"){
+            fintteam.push(team);
+
+            users.forEach(function(user) {
+              if(team.admin === user.id){
+                fintteam.push(user);
+              }
+            });
+            tempfint.push(fintteam);
+            fintteam = [];
 
           }
 
-        if(team.fint === "1"){
-          fintteam.push(team);
+          if(team.helc === "1"){
+            helcteam.push(team);
 
-          users.forEach(function(user) {
-            if(team.admin === user.id){
-              fintteam.push(user);
-            }
-          });
-          tempfint.push(fintteam);
-          fintteam = [];
-          userdetails = [];
+            users.forEach(function(user) {
+              if(team.admin === user.id){
+                helcteam.push(user);
+              }
+            });
+            temphelc.push(helcteam);
+            helcteam = [];
+          }
 
-        }
+          if(team.arvr === "1"){
+            arvrteam.push(team);
 
-        if(team.helc === "1"){
-          helcteam.push(team);
+            users.forEach(function(user) {
+              if(team.admin === user.id){
+                arvrteam.push(user);
+              }
+            });
+            temparvr.push(arvrteam);
+            arvrteam = [];
+          }
 
-          users.forEach(function(user) {
-            if(team.admin === user.id){
-              helcteam.push(user);
-            }
-          });
-          temphelc.push(helcteam);
-          helcteam = [];
-          userdetails = [];
-
-        }
-
-        if(team.arvr === "1"){
-          arvrteam.push(team);
-
-          users.forEach(function(user) {
-            if(team.admin === user.id){
-              arvrteam.push(user);
-            }
-          });
-          temparvr.push(arvrteam);
-          arvrteam = [];
-          userdetails = [];
-
-        }
-
-        //
-        // if(team.helc === "1"){
-        //   helcarray.push(team);
-        // }
-        // if(team.fint === "1"){
-        //   fintarray.push(team)
-        // }
-        // if(team.arvr === "1"){
-        //   arvrarray.push(team)
-        // }
-
-
-
-        if(namearray.length === 1){
-          //singlemember.push(namearray);
-        }
-        else{
-          //multiplemember.push(namearray);
-
-
-        }
-        // console.log(temparray.length);
-
-            namearray = [];
-
-          });
+        });
         return res.status(200).json({
           tempclean : tempclean,
           tempfint : tempfint,
           temphelc : temphelc,
-          temparvr : temparvr,
-          cleanteam : cleanteam,
-          clenarray : clenarray.length,
-          helcarray : helcarray.length,
-          fintarray : fintarray.length,
-          arvrarray : arvrarray.length
-          // singlemember : singlemember,
-          // multiplemember : multiplemember
-
+          temparvr : temparvr
         });
-
-        });
-
 
       });
 
 
+    });
 
-
-    //});
   }
+
 
 
 
