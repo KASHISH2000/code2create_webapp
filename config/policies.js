@@ -44,7 +44,7 @@ module.exports.policies = {
     leaveteam : ["userCanSeeProfile","flash","notAllowed"],
     removemember : ["userCanSeeProfile","flash","notAllowed"],
     sendRequest : ["userCanSeeProfile","flash","notAllowed"],
-    viewrequest : ["userCanSeeProfile","flash","notAllowed"],
+    viewrequest : ["userCanSeeProfile","flash"],
     acceptedRequest : ["userCanSeeProfile","flash","notAllowed"],
     destroyyTeam : ["userCanSeeProfile","flash","notAllowed"]
   },
