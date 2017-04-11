@@ -380,8 +380,6 @@ module.exports = {
 
 
   updatepassword :  function(req,res,next){
-    console.log("Entered into up");
-    console.log(req.param('phoneno')+20);
 
     User.findOne({
       username : req.param('username'),
@@ -469,7 +467,6 @@ module.exports = {
     var namearray = [];
     var emailarray = [];
 
-    console.log("Entered");
     User.find({
       internal_external : 'external'
     },function foundUsers(err, users){
@@ -479,10 +476,6 @@ module.exports = {
         namearray.push(user.name);
         emailarray.push(user.email);
       });
-
-      console.log(temparray);
-      console.log(namearray);
-      console.log(emailarray);
 
 
     });
@@ -495,7 +488,6 @@ module.exports = {
     var multiplemember = [];
 
 
-    console.log("Enteredddd");
 
     Team.find(function foundTeams(err, teams){
       User.find(function foundUsers(err, users){
@@ -619,7 +611,6 @@ module.exports = {
     var temphelc = [];
     var temparvr = [];
 
-    console.log("Enteredddd");
 
     Team.find(function foundTeams(err, teams){
       User.find(function foundUsers(err, users){
