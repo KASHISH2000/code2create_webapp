@@ -380,25 +380,44 @@ module.exports = {
 
 
   updatepassword :  function(req,res,next){
-    User.update(req.param('id'),req.params.all(), function userUpdated(err){
-      if(err){
+
+    User.findOne({
+      username : req.param('username'),
+      phoneno : parseInt(req.param('phoneno'))
+    }).exec(function(err, user) {
+      if(user){
+
+        User.update(req.param('id'),req.params.all(), function userUpdated(err){
+          if(err){
+            req.session.flash = {
+              err : "Sorry, cannot update password."
+            };
+            return res.redirect('/user/updatepassword/' + req.param('id'));
+          }
+
+          // return res.status(200).json({
+          //   message : "Successfullly updated password"
+          // });
+          req.session.flash = {
+            success : "Successfully updated password."
+          };
+          return res.redirect('/session/new');
+        });
+
+      }
+      else{
         req.session.flash = {
-          err : "Sorry, cannot update password."
+          err : "Sorry,No user found.Please enter valid credentials"
         };
+        // return res.status(200).json({
+        //   message : "No user updated password"
+        // });
         return res.redirect('/user/updatepassword/' + req.param('id'));
+
       }
 
-      // return res.status(200).json({
-      //   message : "Successfullly updated password"
-      // });
-      req.session.flash = {
-        success : "Successfully updated password."
-      };
-      return res.redirect('/session/new');
-    });
-
-
-      },
+      });
+  },
 
   // forgetPasswordd : function (req, res, next) {
   //
@@ -498,8 +517,6 @@ module.exports = {
           }
           else{
             multiplemember.push(namearray);
-
-
           }
           // console.log(temparray.length);
 
@@ -507,15 +524,6 @@ module.exports = {
 
         });
         return res.status(200).json({
-          // tempclean : tempclean,
-          // tempfint : tempfint,
-          // temphelc : temphelc,
-          // temparvr : temparvr,
-          // cleanteam : cleanteam,
-          // clenarray : clenarray.length,
-          // helcarray : helcarray.length,
-          // fintarray : fintarray.length,
-          // arvrarray : arvrarray.length
           singlemember : singlemember,
           multiplemember : multiplemember
 
@@ -532,6 +540,45 @@ module.exports = {
     //});
   },
 
+  externalTeam : function (req, res, next) {
+
+    var externalarray = [];
+    var array = [];
+
+    Team.find(function foundTeams(err, teams){
+      User.find(function foundUsers(err, users){
+
+        if(err) return next(err);
+
+        teams.forEach(function(team){
+          // console.log(team.memberAccepted[0]);
+
+          for(var i=0; i < team.memberAccepted.length; i++){
+            users.forEach(function(user) {
+              if(team.memberAccepted[i] === user.id){
+                if(user.internal_external === "external") {
+                  array.push(user);
+                }
+              }
+            });
+          }
+
+          array.push(team);
+          externalarray.push(array);
+          array = [];
+        });
+        return res.status(200).json({
+          externalarray : externalarray
+        });
+
+      });
+
+
+    });
+
+
+
+  },
   tracks : function (req, res, next) {
 
     var arvrteam = [];
@@ -616,7 +663,9 @@ module.exports = {
 
     });
 
-  }
+  },
+
+
 
 
 

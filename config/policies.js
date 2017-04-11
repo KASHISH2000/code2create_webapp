@@ -27,31 +27,31 @@ module.exports.policies = {
   ***************************************************************************/
 
 
-
-  '*': ["userCanSeeProfile","flash"],
-
-  user:{
-    'new' : "flash",
-    create : "flash",
-    'editpassword':"flash",
-    updatepassword : "flash"
-
-
-  },
-
-  session : {
-    'new' : "flash",
-    create : "flash"
-  },
-  contact:{
-    'create' : "flash"
-  },
-test:{
-  '*':"flash"
-},
-contact:{
-  '*':"flash"
-},
+//
+//   '*': ["userCanSeeProfile","flash"],
+//
+//   user:{
+//     'new' : "flash",
+//     create : "flash",
+//     'editpassword':"flash",
+//     updatepassword : "flash"
+//
+//
+//   },
+//
+//   session : {
+//     'new' : "flash",
+//     create : "flash"
+//   },
+//   contact:{
+//     'create' : "flash"
+//   },
+// test:{
+//   '*':"flash"
+// },
+// contact:{
+//   '*':"flash"
+// },
 
 
 

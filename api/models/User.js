@@ -125,7 +125,7 @@ module.exports = {
     console.log(values.password);
 
     if(values.password) {
-      require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+      require('bcryptjs').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
         if (err) return next(err);
         values.encryptedPassword = encryptedPassword;
         next();
