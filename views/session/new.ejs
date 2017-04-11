@@ -28,7 +28,7 @@
           </div>
           <div class="input-field col s12 m12">
             <i class="material-icons prefix">lock</i>
-            <input id="password" type="password" class="validate" required name="password">
+            <input id="password" type="password" class="validate" name="password">
             <label for="password">Password <span class="required">*</span></label>
           </div>
           <input type="hidden" name="_csrf" value="<%= _csrf %>">
@@ -56,9 +56,9 @@
   function checkerrors(){
     var email_username=$("#email_username").val();
     var password=$("#password").val();
-    if(email_username && password)
-      return false;
-    return true;//means there is some error
+    // if(email_username && password)
+       return false;
+    //return true;//means there is some error
   }
   function onSubmit() {
     $("#real_submit").click();

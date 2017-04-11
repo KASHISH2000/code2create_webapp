@@ -107,10 +107,10 @@ module.exports = {
               var usernamePasswordMismatchError = [{
                 name: 'usernamePasswordMismatch',
                 message: 'Invalid username and password combination.'
-              }]
+              }];
               req.session.flash = {
                 err: 'Invalid username and password combination.'
-              }
+              };
               res.redirect('/session/new');
               return;
             }
