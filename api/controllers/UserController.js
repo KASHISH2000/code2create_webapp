@@ -380,10 +380,12 @@ module.exports = {
 
 
   updatepassword :  function(req,res,next){
+    console.log("Entered into up");
+    console.log(req.param('phoneno')+20);
 
     User.findOne({
       username : req.param('username'),
-      phoneno : parseInt(req.param('phoneno'))
+      phoneno : (req.param('phoneno'))
     }).exec(function(err, user) {
       if(user){
 
