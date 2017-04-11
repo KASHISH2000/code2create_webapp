@@ -394,7 +394,7 @@ module.exports = {
             req.session.flash = {
               err : "Sorry, cannot update password."
             };
-            return res.redirect('/user/updatepassword/' + req.param('id'));
+            return res.redirect('/user/editpassword/' + req.param('id'));
           }
 
           // return res.status(200).json({
@@ -414,7 +414,7 @@ module.exports = {
         // return res.status(200).json({
         //   message : "No user updated password"
         // });
-        return res.redirect('/user/updatepassword/' + req.param('id'));
+        return res.redirect('/user/editpassword/' + req.param('id'));
 
       }
 
