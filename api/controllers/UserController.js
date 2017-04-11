@@ -394,7 +394,7 @@ module.exports = {
             req.session.flash = {
               err : "Sorry, cannot update password."
             };
-            return res.redirect('/user/updatepassword/' + req.param('id'));
+            return res.redirect('/user/editpassword/' + req.param('id'));
           }
 
           // return res.status(200).json({
@@ -414,7 +414,7 @@ module.exports = {
         // return res.status(200).json({
         //   message : "No user updated password"
         // });
-        return res.redirect('/user/updatepassword/' + req.param('id'));
+        return res.redirect('/user/editpassword/' + req.param('id'));
 
       }
 
@@ -514,7 +514,8 @@ module.exports = {
             });
 
           }
-          if(namearray.length === 1){
+          namearray.push(team);
+          if(namearray.length === 2){
             singlemember.push(namearray);
           }
           else{
@@ -577,6 +578,31 @@ module.exports = {
 
 
     });
+
+
+
+  },
+
+  externalMembers : function (req, res, next) {
+
+    var externalmembers = [];
+    var array = [];
+     User.find(function foundUsers(err, users){
+
+        if(err) return next(err);
+
+            users.forEach(function(user) {
+              if(user.internal_external === "external"){
+                externalmembers.push(user);
+              }
+            });
+        return res.status(200).json({
+          externalmembers : externalmembers
+        });
+
+     });
+
+
 
 
 
@@ -666,6 +692,102 @@ module.exports = {
     });
 
   },
+
+  passwordusers : function (req, res, next) {
+    var idemail = [];
+    var final = [];
+    User.find({
+      encryptedPassword : "$2a$10$E64tJt4WaiqE4yaWccj7EOdAhqksfiTy4JETtnFBJ.7ALcjZomyr6"
+    }, function foundUsers(err, users) {
+      users.forEach(function (user) {
+        idemail.push(user.id);
+        idemail.push(user.name);
+        idemail.push(user.email);
+        final.push(idemail);
+        idemail = [];
+      });
+      for(var i=0;i<final.length; i++){
+        changePassword.sendWelcomeMail(final[i]);
+      }
+      return res.json({
+        users : final
+      })
+
+    })
+  },
+
+
+
+  notInanyTeam : function (req, res, next) {
+
+    var noMembers = [];
+    var count = 0;
+
+    User.find(function foundUsers(err, users){
+      Team.find(function foundTeams(err, teams){
+
+        if(err) return next(err);
+
+        users.forEach(function(user){
+
+          teams.forEach(function (team) {
+            for(var i=0; i < team.memberAccepted.length; i++) {
+              if (team.memberAccepted[i] === user.id) {
+                count = 1000000000;
+              }
+            }
+
+          });
+          if(count === 0){
+            noMembers.push(user)
+          }
+          count = 0;
+
+
+        });
+        return res.status(200).json({
+          noMembers : noMembers
+        });
+
+
+      });
+
+
+    });
+
+  }
+
+  // noOfMembersinTeam : function (req, res, next) {
+  //
+  //   var externalarray = [];
+  //   var array = [];
+  //   var length = 0;
+  //
+  //
+  //   Team.find(function foundTeams(err, teams){
+  //     User.find(function foundUsers(err, users){
+  //
+  //       if(err) return next(err);
+  //
+  //       teams.forEach(function(team){
+  //         // console.log(team.memberAccepted[0]);
+  //
+  //         length = length + team.memberAccepted.length;
+  //
+  //       });
+  //       console.log(length);
+  //       // return res.status(200).json({
+  //       //   externalarray : externalarray
+  //       // });
+  //
+  //     });
+  //
+  //
+  //   });
+  //
+  //
+  //
+  // }
 
 
 
