@@ -10,10 +10,10 @@ body,html{
 }
 @media (min-width: 993px) {
   .container-little-big {
-    width: 80%;
+    width: 85%;
   }
   .container-little-little-big {
-    width: 75%; 
+    width: 80%; 
   }
 }
 .color-theme-green{
