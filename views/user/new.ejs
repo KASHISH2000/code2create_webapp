@@ -30,10 +30,12 @@
 
       </ul> -->
     </div>
+      <% if(!defaultUrl.enableteam()) { %>
     <div class="row">
-    <h3 class="center" style="color: red;">Registration is closed</h3>
+    <h4 class="center" style="color: red;">Registration is closed</h4>
     </div>
-    <% if(false) { %>
+    <% } %>
+    <% if(defaultUrl.enableteam()) { %>
     <div class="row">
       <form action="/user/create" method="POST" id="registerForm" autocomplete="on" novalidate="true">
         <div class="input-field col s12 m6">
