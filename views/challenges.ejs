@@ -1,26 +1,257 @@
     <link rel="stylesheet" href="/styles/app_common.css?1100">
-<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+    <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+    <%- partial('./partials/challenges_resources.ejs') %>
     <style>
-      
-   </style>
+      .kc-nav-button.active{
+        color: #1eb76e !important;
+        background-color: #1eb76e !important;
+      }
+    </style>
 
-   <% if(req.session.authenticated) { %>
-  <%- partial('./partials/navbar.ejs',{active: 'challenges'}) %>
-  <% } %>
-  <% if(!(req.session.authenticated)) { %>
-  <%- partial('./partials/without_login_navbar.ejs',{active: 'challenges'}) %>
-  <% } %>
-   <div class="container">
-    <div class="heading-bg">
-     <h5 class="left-align white-text main-heading">Challenges</h5>
-   </div>
-   <div class="my-main-card hoverable">
-     <div class="challenges-wrap">
-     
+    <% if(req.session.authenticated) { %>
+    <%- partial('./partials/navbar.ejs',{active: 'challenges'}) %>
+    <% } %>
+    <% if(!(req.session.authenticated)) { %>
+    <%- partial('./partials/without_login_navbar.ejs',{active: 'challenges'}) %>
+    <% } %>
+    <div class="container container-little-little-big">
+      <div class="heading-bg">
+       <h5 class="left-align white-text main-heading">Challenges</h5>
+     </div>
+     <div class="my-main-card hoverable">
+      <div class="challenges-wrap">
+        <div class='row'>
+          <div class="col s12">
+
+
+            <div class = "kc-wrap">
+              <!-- Carousel items follow -->
+
+              <div class="kc-item">
+                <img src="/images/tracks/track_arvr.png" title ="AR/VR" alt = "AR/VR"
+                data-desc="Easy to use lens zoom for high resolution images.">
+
+              </div> 
+
+              <div class="kc-item" >
+
+                <img src="/images/tracks/track_clen.png" title ="Clean Energy" alt = "Clean Energy" 
+                data-desc="Hugely popular fly-out image zoom for high-resolution images.">
+
+              </div>
+
+              <div class="kc-item">
+
+               <img src="/images/tracks/track_fint.png" title="Financial Technology" alt = "Financial Technology"
+               data-desc="Powerful 2d/3d responsive carousel.">
+
+             </div>
+             <div class="kc-item">
+               <img src="/images/tracks/track_helc.png" title ="Health Care" alt = "Health Care"
+               data-desc="Zoom for very high resolution images 100 megapixels+">                                                  
+
+             </div>
+
+
+           </div>
+         </div>
+       </div>
+       <div class="row">
+        <h3 id="plugin-name" class="color-theme-green center">&nbsp;</h3>
+      </div>
+      <!-- AR/VR -->
+      <div class="row" id="arvr">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">A Virtual Reality Glass</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">A Virtual Computer</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">A Virtual Reality Glasses</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Clen -->
+      <div class="row" id="clen">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">A smart app for managing transport</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">A smart app for managing transport</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">A smart app for managing transport</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- FinTech -->
+      <div class="row" id="fint">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">A Banking Management System</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">An app to visualize financial data</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Banking app</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Health Care -->
+      <div class="row" id="helc">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">A Hospital Management System</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">An app to visualize Health data</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Hospital app</span></h5>
+            <p class="white-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
 
 <%- partial('./partials/footer.ejs') %>
-<%- partial('./partials/commonScripts.ejs') %>
+<%- partial('./partials/commonScripts.ejs', {nojquery:true}) %>
+<script type="text/javascript">
+var div_unl;
+function hide_unlin(){
+  var divs=$("div");
+  for(i=0;i<divs.length;i++){
+    var inn=divs[i].innerHTML;
+    if(inn=="Unlicensed Killer Carousel"){
+      div_unl=divs[i];
+      $(divs[i]).hide();
+    }
+  }
+}
+  setInterval(function(){
+    hide_unlin();
+  },100);
+  var tracks=["arvr","clen","fint","helc"];
+
+  function hideallex(tt){
+    tt-=1;
+    var i=0;
+    for(i=0;i<4;i++){
+      if(i!=tt)
+        $("#"+tracks[i]).fadeOut();
+      else
+        $("#"+tracks[i]).fadeIn();
+    }
+  }
+  hideallex('all');
+
+
+  setInterval(function(){
+    var isactive=$(".kc-front-item");
+    var activekey=$(isactive).attr("data-cc-item-key");
+    hideallex(parseInt(activekey));
+  }, 100);
+</script>
