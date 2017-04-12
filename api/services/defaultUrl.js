@@ -18,6 +18,6 @@ encode: function(urrl){
 },
 
 enableteam: function(){
-	return false;//disable
+	return false;// false for disable
 }
 }

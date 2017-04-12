@@ -75,6 +75,13 @@
 },
 '/welcome' : 'SessionController.welcome',
 
+'/challenges' : {
+  view : 'challenges',
+  locals : {
+    title: 'Challenges | Code2Create'
+  }
+}
+
 
   /***************************************************************************
   *                                                                          *

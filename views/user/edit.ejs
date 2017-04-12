@@ -68,15 +68,7 @@
  <%=user.regno%>
 </p>
 </div>
-<div class="input-field col s12 m6">
- <p class="detail-title">
-  Email
-</p>
-<p class="detail-answer white-text">
- <%=user.email%>
-</p>
-</div>
-<div class="input-field col s12 m6">
+<div class="input-field col s12 m12">
   <p class="detail-title">
     College
   </p>
@@ -184,7 +176,9 @@
         to_return=to_return.concat(", "+blockk+" Block");
       }
       else{
-        var blockk=block.substring(3,4);
+        var blockk=block.substring(0,1);
+       
+           blockk=blockk.toUpperCase();
         to_return=to_return.concat(", "+blockk+" Annex");
       }
       document.getElementById("set_hostel").innerHTML= to_return;

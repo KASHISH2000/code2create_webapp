@@ -1,0 +1,26 @@
+    <link rel="stylesheet" href="/styles/app_common.css?1100">
+<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+    <style>
+      
+   </style>
+
+   <% if(req.session.authenticated) { %>
+  <%- partial('./partials/navbar.ejs',{active: 'challenges'}) %>
+  <% } %>
+  <% if(!(req.session.authenticated)) { %>
+  <%- partial('./partials/without_login_navbar.ejs',{active: 'challenges'}) %>
+  <% } %>
+   <div class="container">
+    <div class="heading-bg">
+     <h5 class="left-align white-text main-heading">Challenges</h5>
+   </div>
+   <div class="my-main-card hoverable">
+     <div class="challenges-wrap">
+     
+    </div>
+  </div>
+</div>
+
+
+<%- partial('./partials/footer.ejs') %>
+<%- partial('./partials/commonScripts.ejs') %>
