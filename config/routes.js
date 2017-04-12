@@ -75,7 +75,7 @@
 },
 '/welcome' : 'SessionController.welcome',
 
-'/challenges' : {
+'/challenges-test' : {
   view : 'challenges',
   locals : {
     title: 'Challenges | Code2Create'
