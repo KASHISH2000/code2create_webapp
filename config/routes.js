@@ -80,6 +80,13 @@
   locals : {
     title: 'Challenges | Code2Create'
   }
+},
+
+'/privacy-policy' : {
+  view : 'privacy-policy',
+  locals : {
+    title: 'Privacy Policy | Code2Create'
+  }
 }
 
 
