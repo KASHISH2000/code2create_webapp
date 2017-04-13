@@ -13,11 +13,28 @@
       .kc-nav-wrap{
         bottom: 0px !important;
       }
-      @media(min-width: 769px){
-      .problem-wrap p{
-        padding-left: 2rem;
+      .problem-wrap h5{
+        position: relative;  
+        min-width: 17rem;
       }
-    }
+      .powered{
+        position: absolute;
+        bottom: -30px;
+        left: 10px;
+        color: #1eb76e;
+        font-size: 1rem;
+      }
+      .powered-h5{
+        margin-bottom: 1.5rem;
+      }
+      @media(min-width: 769px){
+        .problem-wrap p{
+          padding-left: 2rem;
+        }
+        .powered{
+          left: 30px;
+        }
+      }
     </style>
 
     <% if(req.session.authenticated) { %>
@@ -75,30 +92,38 @@
       <div class="row" id="arvr">
         <div class="col s12 m10 offset-m1 white-text">
           <div class="problem-wrap">
-            <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">VR based application to join a concert
-            </span></h5>
-            <p class="white-text">
+            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">VR based application to join a concert
+            </span>
+            <span class="powered">(powered by Metavrse)</span>
+          </h5>
+          <p class="white-text">
             Prototype a VR based app where users can join a concert ( DJ Night, music Performance) as either an audience or the show's stop ( DJ, Singer, Instrument Player )
             <br>
-            Come up with Monetisation plan as well.(Powered by Metavrse)
-           </p>
-         </div>
-         <div class="problem-wrap">
-          <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">Solution to virtually attend lectures</span></h5>
-          <p class="white-text">
-            Lot of people cannot afford to study at coaching institutes due to some or the other reason. Bring out a solution that gives such students a platform to attend lectures without being there. (Powered by Winuall)
+            Come up with Monetisation plan as well.
           </p>
         </div>
         <div class="problem-wrap">
-          <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">problem solving using AR application</span></h5>
+          <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">Solution to virtually attend lectures</span>
+            <span class="powered">(powered by Winuall)</span>
+            </h5>
           <p class="white-text">
-            Design and Develop mobile device based AR application for real time collaborative problem solving using doodles and annotations. (Powered by Metavrse)
+            Lot of people cannot afford to study at coaching institutes due to some or the other reason. Bring out a solution that gives such students a platform to attend lectures without being there.
           </p>
         </div>
-          <div class="problem-wrap">
-          <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">social networking using AR/VR</span></h5>
+        <div class="problem-wrap">
+          <h5 class="color-theme-green display-inline-block powered-h5">3. <span class="color-theme-green">problem solving using AR application</span>
+            <span class="powered">(powered by Metavrse)</span>
+            </h5>
           <p class="white-text">
-            Reimagining Social Networking and Media using AR/VR. (Powered by Vicara)
+            Design and Develop mobile device based AR application for real time collaborative problem solving using doodles and annotations.
+          </p>
+        </div>
+        <div class="problem-wrap">
+          <h5 class="color-theme-green display-inline-block powered-h5">4. <span class="color-theme-green">social networking using AR/VR</span>
+            <span class="powered">(powered by Vicara)</span>
+            </h5>
+          <p class="white-text">
+            Reimagining Social Networking and Media using AR/VR.
           </p>
         </div>
       </div>
@@ -122,63 +147,67 @@
         <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">Make green transportation more appealing</span></h5>
         <p class="white-text">
          Making forms of transportation such as walking and biking more appealing is important for clean transportation alternatives. Hardware/software solutions that use on-street installations to improve bike and pedestrian safety can be an important part of that appeal.
-        </p>
-      </div>
-      <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Record my energy footprints</span></h5>
-        <p class="white-text">
-         Gas and other gaseous products are the main energy source of India.And the reserve of gas is decreasing extensively. But the economic development will be affected if energy demand cannot be met. So, the rate of progress in energy efficiency has to be doubled by the year of 2030. System loss or illegal connection has to be eliminated to zero. At the same time, proper steps should be taken in energy research and technology expansion among common people. And people should make aware of this. Come up with a solution so that people can record their energy footprints and also track their progress over days and months. 
-        </p>
-      </div>
-        <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Renewable energy</span></h5>
-        <p class="white-text">
-       Renewables - Making Solar PV and Wind energy predictable (firming) is a huge challenge DERs(Distributed Energy Resources) are facing. There is vast material available on the internet regarding forecasting, storage etc and many strategies to make Solar PV and Wind power a smooth, predictable power source.
-        </p>
-      </div>
-    </div>
-  </div>
-  <!-- FinTech -->
-  <div class="row" id="fint">
-    <div class="col s12 m10 offset-m1 white-text">
-      <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">How do you enable micro payments for online platforms?
-        </span></h5>
-        <p class="white-text">
-         One could be running a blog or video site on their personal domain or using hosted third party solutions.
-         How do you empower the author/creator to collect payments for selective blog posts or a specific short
-         film?
-         Please do note it would not be a subscription on a recurring or monthly basis but mostly one off
-         purchases.
-         To give an example, you might be running a website publishing several posts or short films or a music
-         video. Most of the posts/film/music may be free to access, however as a publisher/creator, might decide
-         to charge for specific content. How to let the user pay for it?
-         Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a>  (Powered by PayPal)
        </p>
      </div>
      <div class="problem-wrap">
-      <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">How do you enable Offline Payments in a digital manner, when there is no internet connectivity?</span></h5>
+      <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Record my energy footprints</span></h5>
       <p class="white-text">
-       There are scenario where we do not have internet connectivity, in airplanes, during natural disasters
-       and in remote areas. How do we enable digital payments in such offline scenarios? Possible permutation
-       and combinations do include
-       1) Buyer not connected to Internet; Seller not connected to Internet
-       2) Buyer not connected to Internet; Seller connected to Internet
-       3) Buyer connected to Internet; Seller not connected to Internet
-       Please do note, buyer and seller would get connected to internet at some point of time and the
-       transactions should be enabled
-       Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a> (Powered by PayPal)
-
+       Gas and other gaseous products are the main energy source of India.And the reserve of gas is decreasing extensively. But the economic development will be affected if energy demand cannot be met. So, the rate of progress in energy efficiency has to be doubled by the year of 2030. System loss or illegal connection has to be eliminated to zero. At the same time, proper steps should be taken in energy research and technology expansion among common people. And people should make aware of this. Come up with a solution so that people can record their energy footprints and also track their progress over days and months. 
      </p>
    </div>
    <div class="problem-wrap">
-    <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Solution using AML</span></h5>
+    <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Renewable energy</span></h5>
     <p class="white-text">
-     AML is a process that is common across the financial industry. For example, to remit an international payment from a payor company to a beneficiary company, sanction screening is performed by the payor, the payor’s bank, the correspondent bank for payor, correspondent bank for the beneficiary, and the beneficiary’s bank.
-     Develop a solution that would leverage a common international platform and infrastructure. This solution could be made available to industry players through a subscription service.
+     Renewables - Making Solar PV and Wind energy predictable (firming) is a huge challenge DERs(Distributed Energy Resources) are facing. There is vast material available on the internet regarding forecasting, storage etc and many strategies to make Solar PV and Wind power a smooth, predictable power source.
+   </p>
+ </div>
+</div>
+</div>
+<!-- FinTech -->
+<div class="row" id="fint">
+  <div class="col s12 m10 offset-m1 white-text">
+    <div class="problem-wrap">
+      <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">How do you enable micro payments for online platforms?
+      </span>
+       <span class="powered">(powered by PayPal)</span>
+       </h5>
+      <p class="white-text">
+       One could be running a blog or video site on their personal domain or using hosted third party solutions.
+       How do you empower the author/creator to collect payments for selective blog posts or a specific short
+       film?
+       Please do note it would not be a subscription on a recurring or monthly basis but mostly one off
+       purchases.
+       To give an example, you might be running a website publishing several posts or short films or a music
+       video. Most of the posts/film/music may be free to access, however as a publisher/creator, might decide
+       to charge for specific content. How to let the user pay for it?
+       Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a>
+     </p>
+   </div>
+   <div class="problem-wrap">
+    <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">How do you enable Offline Payments in a digital manner, when there is no internet connectivity?</span>
+     <span class="powered">(powered by PayPal)</span>
+     </h5>
+    <p class="white-text">
+     There are scenario where we do not have internet connectivity, in airplanes, during natural disasters
+     and in remote areas. How do we enable digital payments in such offline scenarios? Possible permutation
+     and combinations do include
+     1) Buyer not connected to Internet; Seller not connected to Internet
+     2) Buyer not connected to Internet; Seller connected to Internet
+     3) Buyer connected to Internet; Seller not connected to Internet
+     Please do note, buyer and seller would get connected to internet at some point of time and the
+     transactions should be enabled
+     Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a>
+
    </p>
  </div>
  <div class="problem-wrap">
+  <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Solution using AML</span></h5>
+  <p class="white-text">
+   AML is a process that is common across the financial industry. For example, to remit an international payment from a payor company to a beneficiary company, sanction screening is performed by the payor, the payor’s bank, the correspondent bank for payor, correspondent bank for the beneficiary, and the beneficiary’s bank.
+   Develop a solution that would leverage a common international platform and infrastructure. This solution could be made available to industry players through a subscription service.
+ </p>
+</div>
+<div class="problem-wrap">
   <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Game/App to provide financial literacy</span></h5>
   <p class="white-text">
     Develop a creative and engaging tool, game or app that provides financial literacy education at strategic points in a person’s early life.
@@ -191,30 +220,33 @@
 <div class="row" id="helc">
   <div class="col s12 m10 offset-m1 white-text">
     <div class="problem-wrap">
-      <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">Gamification</span></h5>
+      <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">Gamification</span>
+       <span class="powered">(powered by Cardea Labs)</span>
+       </h5>
       <p class="white-text">
-        Gamification using the voltage inputs from miBeat by cardea (Powered by Cardea Labs)
+        Gamification using the voltage inputs from miBeat by cardea
       </p>
     </div>
     <div class="problem-wrap">
-      <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">Consultancy portal</span></h5>
+      <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">Bridge between doctors and patients</span>
+      </h5>
       <p class="white-text">
-        A medical consultancy portal where doctors can doodle on ECG graphs and send it to the patients via the portal (Powered by Cardea Labs)
+      People in remote areas can't access good doctors , because of which they can't match their problems with any particular disease's symptoms , and hence they came to know when its too late. So ,bring out a solution through which could assure them weather  their problems are really disease prone or not!
       </p>
     </div>
     <div class="problem-wrap">
       <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Safeguarding patient's privacy</span></h5>
       <p class="white-text">
-      Patient privacy issues (including concerns about data breeches) will continue to be top-of-mind for providers, payers, and consumers, especially with ongoing data breeches in the news. Providers and payers will need to step up data security to avoid the type of Health Insurance Portability and Accountability Act (HIPAA) violations that can negatively impact an organization.
+        Patient privacy issues (including concerns about data breeches) will continue to be top-of-mind for providers, payers, and consumers, especially with ongoing data breeches in the news. Providers and payers will need to step up data security to avoid the type of Health Insurance Portability and Accountability Act (HIPAA) violations that can negatively impact an organization.
       </p>
     </div>
-     <div class="problem-wrap">
+    <div class="problem-wrap">
       <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Solution for Juvenile delinquents</span></h5>
       <p class="white-text">
-     The risk factors and co-occurring issues for girls who are identified as at-risk for juvenile delinquent and/or sexually risky behavior. Develop a solution for this problem.
-      </p>
-    </div>
-  </div>
+       The risk factors and co-occurring issues for girls who are identified as at-risk for juvenile delinquent and/or sexually risky behavior. Develop a solution for this problem.
+     </p>
+   </div>
+ </div>
 </div>
 
 </div>
