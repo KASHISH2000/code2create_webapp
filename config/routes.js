@@ -81,6 +81,12 @@
     title: 'Challenges | Code2Create'
   }
 },
+'/challenges' : {
+  view : 'challenges',
+  locals : {
+    title: 'Challenges | Code2Create'
+  }
+},
 
 '/privacy-policy' : {
   view : 'privacy-policy',
