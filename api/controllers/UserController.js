@@ -506,8 +506,8 @@ module.exports = {
             });
 
           }
-          namearray.push(team);
-          if(namearray.length === 2){
+          //namearray.push(team);
+          if(namearray.length === 1){
             singlemember.push(namearray);
           }
           else{
@@ -599,6 +599,36 @@ module.exports = {
 
 
   },
+
+  genderUsers : function (req, res, next) {
+
+    var malearray = [];
+    var femalearray = [];
+    User.find(function foundUsers(err, users){
+
+      if(err) return next(err);
+
+      users.forEach(function(user) {
+        if(user.gender === "male"){
+          malearray.push(user);
+        }
+        else{
+          femalearray.push(user);
+        }
+      });
+      return res.status(200).json({
+        maleUsers : malearray,
+        femaleUsers : femalearray
+      });
+
+    });
+
+
+
+
+
+  },
+
   tracks : function (req, res, next) {
 
     var arvrteam = [];
@@ -730,7 +760,9 @@ module.exports = {
 
           });
           if(count === 0){
-            noMembers.push(user)
+            if(user.internal_external === "internal") {
+              noMembers.push(user)
+            }
           }
           count = 0;
 
@@ -746,7 +778,26 @@ module.exports = {
 
     });
 
-  }
+  },
+
+
+  teamsAccToTracks : function(req, res, next){
+    var teamarray = [];
+
+    Team.find(function foundTeams(err, teams) {
+      teams.forEach(function(team){
+        if(team.memberAccepted.length > 1) {
+          teamarray.push(team);
+        }
+      });
+      return res.status(200).json({
+        allteams : teamarray
+      });
+    });
+
+    },
+
+
 
   // noOfMembersinTeam : function (req, res, next) {
   //
