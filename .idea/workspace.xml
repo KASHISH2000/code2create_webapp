@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8509ca-efdd-44fc-b707-eea704422688" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/TeamController.js" afterPath="$PROJECT_DIR$/api/controllers/TeamController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/UserController.js" afterPath="$PROJECT_DIR$/api/controllers/UserController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/models/Team.js" afterPath="$PROJECT_DIR$/api/models/Team.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/models/User.js" afterPath="$PROJECT_DIR$/api/models/User.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/policies.js" afterPath="$PROJECT_DIR$/config/policies.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="policies.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="policies.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/policies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            <state relative-caret-position="79">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="65" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -44,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeamController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TeamController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="403">
@@ -169,11 +165,11 @@
         <option value="$PROJECT_DIR$/api/services/changePassword.js" />
         <option value="$PROJECT_DIR$/config/email.js" />
         <option value="$PROJECT_DIR$/api/policies/notAllowed.js" />
-        <option value="$PROJECT_DIR$/config/policies.js" />
         <option value="$PROJECT_DIR$/api/controllers/UserController.js" />
         <option value="$PROJECT_DIR$/api/models/User.js" />
         <option value="$PROJECT_DIR$/api/models/Team.js" />
         <option value="$PROJECT_DIR$/api/controllers/TeamController.js" />
+        <option value="$PROJECT_DIR$/config/policies.js" />
       </list>
     </option>
   </component>
@@ -387,12 +383,12 @@
       <workItem from="1490630267901" duration="7489000" />
       <workItem from="1491654580489" duration="32071000" />
       <workItem from="1492177112086" duration="425000" />
-      <workItem from="1492189000734" duration="4001000" />
+      <workItem from="1492189000734" duration="4057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102886000" />
+    <option name="totallyTimeSpent" value="102942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -761,14 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/policies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/models/User.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
@@ -789,6 +777,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="910" column="33" lean-forward="false" selection-start-line="910" selection-start-column="33" selection-end-line="910" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/policies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="65" selection-end-column="3" />
           <folding />
         </state>
       </provider>
