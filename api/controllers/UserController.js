@@ -380,8 +380,6 @@ module.exports = {
 
 
   updatepassword :  function(req,res,next){
-    console.log("Entered into up");
-    console.log(req.param('phoneno')+20);
 
     User.findOne({
       username : req.param('username'),
@@ -469,7 +467,6 @@ module.exports = {
     var namearray = [];
     var emailarray = [];
 
-    console.log("Entered");
     User.find({
       internal_external : 'external'
     },function foundUsers(err, users){
@@ -479,10 +476,6 @@ module.exports = {
         namearray.push(user.name);
         emailarray.push(user.email);
       });
-
-      console.log(temparray);
-      console.log(namearray);
-      console.log(emailarray);
 
 
     });
@@ -495,7 +488,6 @@ module.exports = {
     var multiplemember = [];
 
 
-    console.log("Enteredddd");
 
     Team.find(function foundTeams(err, teams){
       User.find(function foundUsers(err, users){
@@ -514,6 +506,7 @@ module.exports = {
             });
 
           }
+          //namearray.push(team);
           if(namearray.length === 1){
             singlemember.push(namearray);
           }
@@ -581,6 +574,61 @@ module.exports = {
 
 
   },
+
+  externalMembers : function (req, res, next) {
+
+    var externalmembers = [];
+    var array = [];
+     User.find(function foundUsers(err, users){
+
+        if(err) return next(err);
+
+            users.forEach(function(user) {
+              if(user.internal_external === "external"){
+                externalmembers.push(user);
+              }
+            });
+        return res.status(200).json({
+          externalmembers : externalmembers
+        });
+
+     });
+
+
+
+
+
+  },
+
+  genderUsers : function (req, res, next) {
+
+    var malearray = [];
+    var femalearray = [];
+    User.find(function foundUsers(err, users){
+
+      if(err) return next(err);
+
+      users.forEach(function(user) {
+        if(user.gender === "male"){
+          malearray.push(user);
+        }
+        else{
+          femalearray.push(user);
+        }
+      });
+      return res.status(200).json({
+        maleUsers : malearray,
+        femaleUsers : femalearray
+      });
+
+    });
+
+
+
+
+
+  },
+
   tracks : function (req, res, next) {
 
     var arvrteam = [];
@@ -593,7 +641,6 @@ module.exports = {
     var temphelc = [];
     var temparvr = [];
 
-    console.log("Enteredddd");
 
     Team.find(function foundTeams(err, teams){
       User.find(function foundUsers(err, users){
@@ -666,6 +713,123 @@ module.exports = {
     });
 
   },
+
+  passwordusers : function (req, res, next) {
+    var idemail = [];
+    var final = [];
+    User.find({
+      encryptedPassword : "$2a$10$E64tJt4WaiqE4yaWccj7EOdAhqksfiTy4JETtnFBJ.7ALcjZomyr6"
+    }, function foundUsers(err, users) {
+      users.forEach(function (user) {
+        idemail.push(user.id);
+        idemail.push(user.name);
+        idemail.push(user.email);
+        final.push(idemail);
+        idemail = [];
+      });
+      for(var i=0;i<final.length; i++){
+        changePassword.sendWelcomeMail(final[i]);
+      }
+      return res.json({
+        users : final
+      })
+
+    })
+  },
+
+
+
+  notInanyTeam : function (req, res, next) {
+
+    var noMembers = [];
+    var count = 0;
+
+    User.find(function foundUsers(err, users){
+      Team.find(function foundTeams(err, teams){
+
+        if(err) return next(err);
+
+        users.forEach(function(user){
+
+          teams.forEach(function (team) {
+            for(var i=0; i < team.memberAccepted.length; i++) {
+              if (team.memberAccepted[i] === user.id) {
+                count = 1000000000;
+              }
+            }
+
+          });
+          if(count === 0){
+            if(user.internal_external === "internal") {
+              noMembers.push(user)
+            }
+          }
+          count = 0;
+
+
+        });
+        return res.status(200).json({
+          noMembers : noMembers
+        });
+
+
+      });
+
+
+    });
+
+  },
+
+
+  teamsAccToTracks : function(req, res, next){
+    var teamarray = [];
+
+    Team.find(function foundTeams(err, teams) {
+      teams.forEach(function(team){
+        if(team.memberAccepted.length > 1) {
+          teamarray.push(team);
+        }
+      });
+      return res.status(200).json({
+        allteams : teamarray
+      });
+    });
+
+    },
+
+
+
+  // noOfMembersinTeam : function (req, res, next) {
+  //
+  //   var externalarray = [];
+  //   var array = [];
+  //   var length = 0;
+  //
+  //
+  //   Team.find(function foundTeams(err, teams){
+  //     User.find(function foundUsers(err, users){
+  //
+  //       if(err) return next(err);
+  //
+  //       teams.forEach(function(team){
+  //         // console.log(team.memberAccepted[0]);
+  //
+  //         length = length + team.memberAccepted.length;
+  //
+  //       });
+  //       console.log(length);
+  //       // return res.status(200).json({
+  //       //   externalarray : externalarray
+  //       // });
+  //
+  //     });
+  //
+  //
+  //   });
+  //
+  //
+  //
+  // }
 
 
 

@@ -61,13 +61,37 @@ module.exports = {
       required : false
     },
 
-    //to whom i am sending request
+    problemStatement : {
+      type : "text"
 
-    checkmembers : function (userid) {
+    },
+
+    uniqueness : {
+      type : "integer"
+    },
+
+    feasibility : {
+      type : "integer"
+    },
 
 
+    implementation : {
+      type : "integer"
+    },
 
 
+    solution : {
+      type : "integer"
+    },
+
+
+    presentation : {
+      type : "integer"
+    },
+
+
+    ui : {
+      type : "integer"
     }
 
 

@@ -1,4 +1,4 @@
-module.exports = function(req, res, next) {
+module.exports = function(req, res, ok) {
 
   var sessionUserMatchesId = (req.session.User);
   // The requested id does not match the user's id,
@@ -16,6 +16,5 @@ module.exports = function(req, res, next) {
     err: "Sorry, everything is closed!"
   };
   return res.redirect('/user/showall');
-  //next();
 
 };

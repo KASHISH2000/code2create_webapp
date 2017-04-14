@@ -825,6 +825,88 @@ module.exports = {
 
   },
 
+
+  'enter_problem' : function (req, res) {
+    return res.view();
+  },
+
+  update_problem_statement : function (req, res, next) {
+
+    var problemStatement = req.param('problemStatement');
+
+    Team.findOne({
+      teamName : req.param('id')
+    }).exec(function(err, team) {
+      team.problemStatement = problemStatement;
+      team.save(function (err) {
+        if(err){
+          req.session.flash = {
+            err: "Some problem in updating"
+          };
+          return res.redirect('/team/enter_problem');
+        }
+         if(!team){
+          req.session.flash = {
+            err: "Team not found"
+          };
+          return res.redirect('/team/enter_problem');
+        }
+        req.session.flash = {
+          success: "Successfully updated problem statement."
+        };
+        return res.redirect('/team/enter_problem');
+      })
+    });
+  },
+
+
+  score : function (req, res, next) {
+
+    var uniqueness = req.param('uniqueness');
+    var feasibility = req.param('feasibility');
+    var implementation = req.param('implementation');
+    var solution = req.param('solution');
+    var presentation = req.param('presentation');
+    var ui = req.param('ui');
+
+
+    Team.findOne({
+      teamName : req.param('id')
+    }).exec(function(err, team) {
+      team.uniqueness = uniqueness;
+      team.feasibility = feasibility;
+      team.implementation = implementation;
+      team.solution = solution;
+      team.presentation = presentation;
+      team.ui = ui;
+
+
+      team.save(function (err) {
+        if(err){
+          return res.status(200).json({
+            message : "Sorry, something went wrong while saving problem statement"
+          })
+        }
+        return res.status(200).json({
+          message : "Successfully saved problem Statement"
+        })
+      })
+    });
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   noofteams : function (req, res, next) {
     var temparray = [];
 
