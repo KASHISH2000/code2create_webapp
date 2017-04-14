@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="/styles/app_common.css?1100">
+ <link rel="stylesheet" type="text/css" href="/styles/register.css?1100">
 <style>
+ .dropdown-content li>a, .dropdown-content li>span {
+        color: #000000;
+      }
 </style>
 
 
@@ -16,11 +20,61 @@
 					<label for="teamname">teamName</label>
 				</div>
 				<div class="input-field col s12">
-					<input type="text" name="problemStatement" class="validate" id="problemStatement">
-					<label for="problemStatement">problem heading</label>
+					<input class="with-gap" name="track" type="radio" id="arvr" value="arvr"/>
+					<label for="arvr">AR/VR</label>
+					<input class="with-gap" name="track" type="radio" id="clen" value="clen"/>
+					<label for="clen">Clean Energy</label>
+					<input class="with-gap" name="track" type="radio" id="fint" value="fint"/>
+					<label for="fint">FinTech</label>
+					<input class="with-gap" name="track" type="radio" id="helc" value="helc"/>
+					<label for="helc">Health Care</label>
+					<br>
+				</div>
+				<div class="col s12 m12">
+					<br>
+				</div>
+				<div class="input-field col s12 m12" id="arvr_wrap">
+					<select name="problemStatement" id="problemStatement" class="validate">
+						<option value="" disabled selected>select an option..</option>
+						<option value="VR based application to join a concert">1. VR based application to join a concert</option>
+						<option value="Solution to virtually attend lectures">2. Solution to virtually attend lectures</option>
+						<option value="problem solving using AR application">3. problem solving using AR application</option>
+						<option value="social networking using AR/VR">4. social networking using AR/VR</option>
+					</select>
+					<label>Problem statement(AR/VR)</label>
+				</div>
+				<div class="input-field col s12 m12" id="clen_wrap">
+					<select name="problemStatement" id="problemStatement" class="validate">
+						<option value="" disabled selected>select an option..</option>
+						<option value="Information drive to convey benefits of various forms of clean energy">1. Information drive to convey benefits of various forms of clean energy</option>
+						<option value="Make green transportation more appealing">2. Make green transportation more appealing</option>
+						<option value="Record my energy footprints">3. Record my energy footprints</option>
+						<option value="Renewable energy">4. Renewable energy</option>
+					</select>
+					<label>Problem statement(Clean Energy)</label>
+				</div>
+				<div class="input-field col s12 m12" id="fint_wrap">
+					<select name="problemStatement" id="problemStatement" class="validate">
+						<option value="" disabled selected>select an option..</option>
+						<option value="How do you enable micro payments for online platforms?">1. How do you enable micro payments for online platforms?</option>
+						<option value="How do you enable Offline Payments in a digital manner, when there is no internet connectivity?">2. How do you enable Offline Payments in a digital manner, when there is no internet connectivity?</option>
+						<option value="Solution using AML">3. Solution using AML</option>
+						<option value="Game/App to provide financial literacy">4. Game/App to provide financial literacy</option>
+					</select>
+					<label>Problem statement(FinTech)</label>
+				</div>
+					<div class="input-field col s12 m12" id="helc_wrap">
+					<select name="problemStatement" id="problemStatement" class="validate">
+						<option value="" disabled selected>select an option..</option>
+						<option value="Gamification">1. Gamification</option>
+						<option value="Bridge between doctors and patients">2. Bridge between doctors and patients</option>
+						<option value="Safeguarding patient's privacy">3. Safeguarding patient's privacy</option>
+						<option value="Solution for Juvenile delinquents">4. Solution for Juvenile delinquents</option>
+					</select>
+					<label>Problem statement(Health Care)</label>
 				</div>
 				<div class="col s12 center">
-					<button type="submit" class="btn">Submit</button>
+					<button type="submit" class="waves-effect btn sub-but">Submit</button>
 				</div>
 			</form>
 		</div>
@@ -37,4 +91,38 @@
 		<% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
 			sweetAlert("success", "<%=flash.success%>", "success");
 			<% } %>
+		</script>
+
+		<script type="text/javascript">
+			$("#arvr_wrap").hide();
+			$("#clen_wrap").hide();
+			$("#fint_wrap").hide();
+			$("#helc_wrap").hide();
+			$("input[name='track']").change(function () {
+				if ($("input[name='track']:checked").val() == 'arvr') {
+					$("#arvr_wrap").show();
+					$("#clen_wrap").hide();
+					$("#fint_wrap").hide();
+					$("#helc_wrap").hide();
+				}
+				else if ($("input[name='track']:checked").val() == 'clen') {
+					$("#arvr_wrap").hide();
+					$("#clen_wrap").show();
+					$("#fint_wrap").hide();
+					$("#helc_wrap").hide();
+				}
+				else if ($("input[name='track']:checked").val() == 'fint') {
+					$("#arvr_wrap").hide();
+					$("#clen_wrap").hide();
+					$("#fint_wrap").show();
+					$("#helc_wrap").hide();
+				}
+				else if ($("input[name='track']:checked").val() == 'helc') {
+					$("#arvr_wrap").hide();
+					$("#clen_wrap").hide();
+					$("#fint_wrap").hide();
+					$("#helc_wrap").show();
+				}
+
+			});
 		</script>
