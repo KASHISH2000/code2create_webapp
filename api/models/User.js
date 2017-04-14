@@ -98,6 +98,11 @@ module.exports = {
       type: 'string'
     },
 
+    admin : {
+      type : "boolean",
+      defaultsTo : true
+    },
+
 
 
     toJSON: function() {
