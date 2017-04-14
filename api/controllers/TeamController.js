@@ -842,6 +842,7 @@ module.exports = {
   update_problem_statement : function (req, res, next) {
 
     var problemStatement = req.param('problemStatement');
+    var track = req.param('track');
 
     Team.findOne({
       teamName : req.param('id')
@@ -854,6 +855,7 @@ module.exports = {
       }
 
       team.problemStatement = problemStatement;
+      team.track = track;
       team.save(function (err) {
         if(err){
           req.session.flash = {

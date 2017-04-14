@@ -56,6 +56,10 @@ module.exports = {
        unique: true
     },
 
+    track : {
+      type : "string"
+    },
+
     description : {
       type : 'text',
       required : false

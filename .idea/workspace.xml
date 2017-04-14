@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8509ca-efdd-44fc-b707-eea704422688" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/TeamController.js" afterPath="$PROJECT_DIR$/api/controllers/TeamController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/models/Team.js" afterPath="$PROJECT_DIR$/api/models/Team.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/policies.js" afterPath="$PROJECT_DIR$/config/policies.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,8 +35,8 @@
       <file leaf-file-name="Team.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/models/Team.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+            <state relative-caret-position="183">
+              <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -45,8 +45,8 @@
       <file leaf-file-name="TeamController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="864" column="31" lean-forward="false" selection-start-line="864" selection-start-column="31" selection-end-line="864" selection-end-column="31" />
+            <state relative-caret-position="120">
+              <caret line="845" column="0" lean-forward="true" selection-start-line="845" selection-start-column="0" selection-end-line="845" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -164,8 +164,8 @@
         <option value="$PROJECT_DIR$/config/email.js" />
         <option value="$PROJECT_DIR$/api/policies/notAllowed.js" />
         <option value="$PROJECT_DIR$/api/controllers/UserController.js" />
-        <option value="$PROJECT_DIR$/api/models/Team.js" />
         <option value="$PROJECT_DIR$/config/policies.js" />
+        <option value="$PROJECT_DIR$/api/models/Team.js" />
         <option value="$PROJECT_DIR$/api/controllers/TeamController.js" />
       </list>
     </option>
@@ -365,7 +365,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96551000" />
+    <option name="totallyTimeSpent" value="96716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -761,14 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/models/Team.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/policies.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -777,10 +769,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/models/Team.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="864" column="31" lean-forward="false" selection-start-line="864" selection-start-column="31" selection-end-line="864" selection-end-column="31" />
+        <state relative-caret-position="120">
+          <caret line="845" column="0" lean-forward="true" selection-start-line="845" selection-start-column="0" selection-end-line="845" selection-end-column="0" />
           <folding />
         </state>
       </provider>
