@@ -62,8 +62,8 @@ module.exports = {
     },
 
     problemStatement : {
-      type : "text"
-
+      type : "text",
+      defaultsTo : "a"
     },
 
     uniqueness : {

@@ -826,8 +826,17 @@ module.exports = {
   },
 
 
+
   'enter_problem' : function (req, res) {
     return res.view();
+  },
+
+  all_teams : function (req, res, next) {
+    Team.find(function foundTeams(err, teams) {
+      return res.status(200).json({
+        teams : teams
+      })
+    });
   },
 
   update_problem_statement : function (req, res, next) {
@@ -837,24 +846,34 @@ module.exports = {
     Team.findOne({
       teamName : req.param('id')
     }).exec(function(err, team) {
+      if(!team){
+        req.session.flash = {
+          err: " Team not found. Please fill it again"
+        };
+        return res.redirect('/team/enter_problem');
+      }
+
       team.problemStatement = problemStatement;
       team.save(function (err) {
         if(err){
           req.session.flash = {
-            success: "Successfully updated problem statement."
+            success: "Oops! Something went wrong while updating team."
           };
           return res.redirect('/team/enter_problem');
         }
         req.session.flash = {
           success: "Successfully updated problem statement."
         };
+        // return res.json({
+        //   success: "Successfully updated problem statement."
+        // });
         return res.redirect('/team/enter_problem');
       })
     });
   },
 
 
-  score : function (req, res, next) {
+  update_score : function (req, res, next) {
 
     var uniqueness = req.param('uniqueness');
     var feasibility = req.param('feasibility');
