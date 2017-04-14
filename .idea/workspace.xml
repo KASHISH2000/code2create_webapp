@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8509ca-efdd-44fc-b707-eea704422688" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/TeamController.js" afterPath="$PROJECT_DIR$/api/controllers/TeamController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/UserController.js" afterPath="$PROJECT_DIR$/api/controllers/UserController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/models/Team.js" afterPath="$PROJECT_DIR$/api/models/Team.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/policies.js" afterPath="$PROJECT_DIR$/config/policies.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,17 +25,9 @@
       <file leaf-file-name="policies.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/policies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-              <folding>
-                <marker date="1492153625000" expanded="true" signature="668:3094" ph="{...}" />
-                <marker date="1492153625000" expanded="true" signature="1194:1304" ph="{&quot;new&quot;: &quot;flash&quot;...}" />
-                <marker date="1492153625000" expanded="true" signature="1316:1864" ph="{...}" />
-                <marker date="1492153625000" expanded="true" signature="2010:2031" ph="{&quot;*&quot;: &quot;flash&quot;...}" />
-                <marker date="1492153625000" expanded="true" signature="2106:2577" ph="/** Here's an example of mapping some policies to run before a controller ...*/" />
-                <marker date="1492153625000" expanded="true" signature="2796:2927" ph="//..." />
-                <marker date="1492153625000" expanded="true" signature="2931:3092" ph="//..." />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,31 +35,28 @@
       <file leaf-file-name="Team.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/models/Team.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="66" column="6" lean-forward="false" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
-              <folding>
-                <marker date="1492115533000" expanded="true" signature="18:1246" ph="{...}" />
-                <marker date="1492115533000" expanded="true" signature="35:1243" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeamController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3016">
-              <caret line="664" column="4" lean-forward="true" selection-start-line="664" selection-start-column="4" selection-end-line="664" selection-end-column="4" />
+            <state relative-caret-position="183">
+              <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TeamController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="845" column="0" lean-forward="true" selection-start-line="845" selection-start-column="0" selection-end-line="845" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/UserController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1014">
-              <caret line="732" column="23" lean-forward="false" selection-start-line="732" selection-start-column="23" selection-end-line="732" selection-end-column="23" />
+            <state relative-caret-position="737">
+              <caret line="815" column="4" lean-forward="true" selection-start-line="815" selection-start-column="4" selection-end-line="815" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -102,7 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>conso</find>
       <find>unique</find>
       <find>session/new</find>
       <find>encode</find>
@@ -132,6 +117,7 @@
       <find>registerMail</find>
       <find>EDITPAS</find>
       <find>console.log</find>
+      <find>teams</find>
     </findStrings>
     <replaceStrings>
       <replace>http://c2c.acmvit.in/</replace>
@@ -164,12 +150,10 @@
         <option value="$PROJECT_DIR$/api/services/Mailer.js" />
         <option value="$PROJECT_DIR$/api/services/LeftTeam.js" />
         <option value="$PROJECT_DIR$/api/services/defaultUrl.js" />
-        <option value="$PROJECT_DIR$/api/models/Team.js" />
         <option value="$PROJECT_DIR$/config/connections.js" />
         <option value="$PROJECT_DIR$/views/layout.ejs" />
         <option value="$PROJECT_DIR$/views/session/new.ejs" />
         <option value="$PROJECT_DIR$/api/controllers/SessionController.js" />
-        <option value="$PROJECT_DIR$/api/controllers/TeamController.js" />
         <option value="$PROJECT_DIR$/views/updatepassword.ejs" />
         <option value="$PROJECT_DIR$/config/routes.js" />
         <option value="$PROJECT_DIR$/views/user/updatepassword.ejs" />
@@ -178,9 +162,11 @@
         <option value="$PROJECT_DIR$/api/emailTemplates/passwordChange/html.ejs" />
         <option value="$PROJECT_DIR$/api/services/changePassword.js" />
         <option value="$PROJECT_DIR$/config/email.js" />
-        <option value="$PROJECT_DIR$/config/policies.js" />
         <option value="$PROJECT_DIR$/api/policies/notAllowed.js" />
         <option value="$PROJECT_DIR$/api/controllers/UserController.js" />
+        <option value="$PROJECT_DIR$/config/policies.js" />
+        <option value="$PROJECT_DIR$/api/models/Team.js" />
+        <option value="$PROJECT_DIR$/api/controllers/TeamController.js" />
       </list>
     </option>
   </component>
@@ -244,11 +230,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -263,24 +245,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code2create" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code2create" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -401,7 +365,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94523000" />
+    <option name="totallyTimeSpent" value="96716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -646,17 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/models/Team.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="66" column="6" lean-forward="false" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
-          <folding>
-            <marker date="1492115533000" expanded="true" signature="18:1246" ph="{...}" />
-            <marker date="1492115533000" expanded="true" signature="35:1243" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/session/new.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -676,6 +629,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -791,22 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/policies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <marker date="1492153625000" expanded="true" signature="668:3094" ph="{...}" />
-            <marker date="1492153625000" expanded="true" signature="1194:1304" ph="{&quot;new&quot;: &quot;flash&quot;...}" />
-            <marker date="1492153625000" expanded="true" signature="1316:1864" ph="{...}" />
-            <marker date="1492153625000" expanded="true" signature="2010:2031" ph="{&quot;*&quot;: &quot;flash&quot;...}" />
-            <marker date="1492153625000" expanded="true" signature="2106:2577" ph="/** Here's an example of mapping some policies to run before a controller ...*/" />
-            <marker date="1492153625000" expanded="true" signature="2796:2927" ph="//..." />
-            <marker date="1492153625000" expanded="true" signature="2931:3092" ph="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/policies/notAllowed.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -815,18 +753,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
+    <entry file="file://$PROJECT_DIR$/api/controllers/UserController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3016">
-          <caret line="664" column="4" lean-forward="true" selection-start-line="664" selection-start-column="4" selection-end-line="664" selection-end-column="4" />
+        <state relative-caret-position="737">
+          <caret line="815" column="4" lean-forward="true" selection-start-line="815" selection-start-column="4" selection-end-line="815" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/controllers/UserController.js">
+    <entry file="file://$PROJECT_DIR$/config/policies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1014">
-          <caret line="732" column="23" lean-forward="false" selection-start-line="732" selection-start-column="23" selection-end-line="732" selection-end-column="23" />
+        <state relative-caret-position="120">
+          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/models/Team.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="845" column="0" lean-forward="true" selection-start-line="845" selection-start-column="0" selection-end-line="845" selection-end-column="0" />
           <folding />
         </state>
       </provider>

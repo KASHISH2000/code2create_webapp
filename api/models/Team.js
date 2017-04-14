@@ -56,14 +56,18 @@ module.exports = {
        unique: true
     },
 
+    track : {
+      type : "string"
+    },
+
     description : {
       type : 'text',
       required : false
     },
 
     problemStatement : {
-      type : "text"
-
+      type : "text",
+      defaultsTo : "a"
     },
 
     uniqueness : {

@@ -28,42 +28,42 @@ module.exports.policies = {
 
 
 
-  '*': ["userCanSeeProfile","flash"],
-
-  user:{
-    'new' : "flash",
-    create : "notAllowed",
-    'editpassword':"flash",
-    updatepassword : "flash"
-  },
-
-  team : {
-    new : ["userCanSeeProfile","flash","notAllowed"],
-    create : ["userCanSeeProfile","flash","notAllowed"],
-    update : ["userCanSeeProfile","flash","notAllowed"],
-    leaveteam : ["userCanSeeProfile","flash","notAllowed"],
-    removemember : ["userCanSeeProfile","flash","notAllowed"],
-    sendRequest : ["userCanSeeProfile","flash","notAllowed"],
-    viewrequest : ["userCanSeeProfile","flash","notAllowed"],
-    acceptedRequest : ["userCanSeeProfile","flash","notAllowed"],
-    destroyyTeam : ["userCanSeeProfile","flash","notAllowed"]
-  },
-
-
-
-  session : {
-    'new' : "flash",
-    create : "flash"
-  },
-  contact:{
-    'create' : "flash"
-  },
-  test:{
-    '*':"flash"
-  },
-  contact:{
-    '*':"flash"
-  }
+  // '*': ["userCanSeeProfile","flash"],
+  //
+  // user:{
+  //   'new' : "flash",
+  //   create : "notAllowed",
+  //   'editpassword':"flash",
+  //   updatepassword : "flash"
+  // },
+  //
+  // team : {
+  //   new : ["userCanSeeProfile","flash","notAllowed"],
+  //   create : ["userCanSeeProfile","flash","notAllowed"],
+  //   update : ["userCanSeeProfile","flash","notAllowed"],
+  //   leaveteam : ["userCanSeeProfile","flash","notAllowed"],
+  //   removemember : ["userCanSeeProfile","flash","notAllowed"],
+  //   sendRequest : ["userCanSeeProfile","flash","notAllowed"],
+  //   viewrequest : ["userCanSeeProfile","flash","notAllowed"],
+  //   acceptedRequest : ["userCanSeeProfile","flash","notAllowed"],
+  //   destroyyTeam : ["userCanSeeProfile","flash","notAllowed"]
+  // },
+  //
+  //
+  //
+  // session : {
+  //   'new' : "flash",
+  //   create : "flash"
+  // },
+  // contact:{
+  //   'create' : "flash"
+  // },
+  // test:{
+  //   '*':"flash"
+  // },
+  // contact:{
+  //   '*':"flash"
+  // }
 
 
 
