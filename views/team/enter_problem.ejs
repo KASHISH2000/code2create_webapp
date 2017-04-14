@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/styles/app_common.css?1100">
+<style>
+</style>
+
+
+<br><br><br><br>
+<div class="container">
+	<div class="heading-bg">
+		<h5 class="left-align white-text main-heading">Team details enter</h5>
+	</div>
+	<div class="my-main-card hoverable white-text">
+		<div class="row margin-bottom-0">
+			<form action="/team/update_problem_statement" method="POST">
+				<div class="input-field col s12">
+					<input type="text" name="teamname" class="validate" id="teamname">
+					<label for="teamname">teamName</label>
+				</div>
+				<div class="input-field col s12">
+					<input type="text" name="problemStatement" class="validate" id="problemStatement">
+					<label for="problemStatement">problem heading</label>
+				</div>
+				<div class="col s12 center">
+					<button type="submit" class="btn">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<br><br><br><br>
+<%- partial('../partials/commonScripts.ejs') %>
+
+<%- partial('../partials/footer.ejs') %>
+<script type="text/javascript">
+	<% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
+		sweetAlert("Error", "<%=flash.err%>", "error");
+		<% } %>
+		<% if(typeof flash !== 'undefined' && typeof flash.success !== 'undefined' && flash.success){ %>
+			sweetAlert("success", "<%=flash.success%>", "success");
+			<% } %>
+		</script>
