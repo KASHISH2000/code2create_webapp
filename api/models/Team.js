@@ -99,8 +99,13 @@ module.exports = {
     },
 
     judge : {
-      type : "string"
-    }
+      type : "array"
+    },
+
+    Score : {
+      type : 'array',
+      required : false
+    },
 
 
   }

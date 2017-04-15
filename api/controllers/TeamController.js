@@ -3,7 +3,17 @@ var passport = require('passport');
 var i = 0;
 var priorityarray = ["1","2","3","4"];
 
+
+var overall = [];
+var temp = [];
+var array = [];
+
+
 module.exports = {
+
+
+
+
 
   new : function (req, res) {
     var count = 0;
@@ -877,6 +887,8 @@ module.exports = {
 
   update_score : function (req, res, next) {
 
+    console.log("entered inot update_score");
+
     var uniqueness = req.param('uniqueness');
     var feasibility = req.param('feasibility');
     var implementation = req.param('implementation');
@@ -888,33 +900,49 @@ module.exports = {
 
 
     User.findOne({
-      username : req.param('username')
+      username: req.param('username')
     }).exec(function(err, user) {
 
+      if (!user) {
+
+        return res.json({
+          message: "No user"
+        });
+
+        req.session.flash = {
+          success: "Sorry! Wrong username or password."
+        };
+        return res.redirect('/team/enter_problem');
+      }
+
+
       Team.findOne({
-        teamName : req.param('id')
-      }).exec(function(err, team) {
+        teamName: req.param('id')
+      }).exec(function (err, team) {
 
 
-        if(!user){
-          req.session.flash = {
-            success: "Sorry! Wrong username."
-          };
-          return res.redirect('/team/enter_problem');
-
-
-        }
         console.log(user.admin);
 
-        if(user.admin) {
+        if (user.admin) {
 
-          team.judge = user.name;
-          team.uniqueness = uniqueness;
-          team.feasibility = feasibility;
-          team.implementation = implementation;
-          team.solution = solution;
-          team.presentation = presentation;
-          team.ui = ui;
+          console.log("User is ");
+          console.log(user.name);
+
+          user.uniqueness = uniqueness;
+          user.feasibility = feasibility;
+          user.implementation = implementation;
+          user.solution = solution;
+          user.presentation = presentation;
+          user.ui = ui;
+          user.teamname = team.teamName;
+
+
+
+
+          if(team.judge){
+            temp.push(user);
+            (team.judge) = temp;
+          }
 
 
           team.save(function (err) {
@@ -925,36 +953,31 @@ module.exports = {
               };
               return res.redirect('/team/enter_problem');
             }
+
+
             console.log("Successfully updated");
+            // return res.json({
+            //   team : team,
+            // });
+
             req.session.flash = {
               success: "Successfully uploaded."
             };
             return res.redirect('/team/enter_problem');
 
           })
+
+
         }
-        else{
+        else {
           req.session.flash = {
             success: "Sorry you are not admin."
           };
           return res.redirect('/team/enter_problem');
         }
       });
-      });
+    });
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   noofteams : function (req, res, next) {
