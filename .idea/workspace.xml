@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b8509ca-efdd-44fc-b707-eea704422688" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/TeamController.js" afterPath="$PROJECT_DIR$/api/controllers/TeamController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/models/Team.js" afterPath="$PROJECT_DIR$/api/models/Team.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/models/User.js" afterPath="$PROJECT_DIR$/api/models/User.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/policies.js" afterPath="$PROJECT_DIR$/config/policies.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +20,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="policies.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/policies.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TeamController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="964" column="14" lean-forward="true" selection-start-line="964" selection-start-column="14" selection-end-line="964" selection-end-column="14" />
+            <state relative-caret-position="626">
+              <caret line="967" column="12" lean-forward="true" selection-start-line="967" selection-start-column="12" selection-end-line="967" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -102,9 +108,9 @@
       <find>User.finOne</find>
       <find>score</find>
       <find>push</find>
-      <find>array</find>
       <find>team</find>
       <find>score is</find>
+      <find>array</find>
     </findStrings>
     <replaceStrings>
       <replace>http://c2c.acmvit.in/</replace>
@@ -386,12 +392,12 @@
       <workItem from="1491654580489" duration="32071000" />
       <workItem from="1492177112086" duration="425000" />
       <workItem from="1492189000734" duration="7912000" />
-      <workItem from="1492213802643" duration="5708000" />
+      <workItem from="1492213802643" duration="5910000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112505000" />
+    <option name="totallyTimeSpent" value="112707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -755,14 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/policies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="29" column="2" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/UserController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -787,10 +785,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/policies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/TeamController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="964" column="14" lean-forward="true" selection-start-line="964" selection-start-column="14" selection-end-line="964" selection-end-column="14" />
+        <state relative-caret-position="626">
+          <caret line="967" column="12" lean-forward="true" selection-start-line="967" selection-start-column="12" selection-end-line="967" selection-end-column="12" />
           <folding />
         </state>
       </provider>

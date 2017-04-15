@@ -963,7 +963,7 @@ module.exports = {
             req.session.flash = {
               success: "Successfully uploaded."
             };
-            return res.redirect('/team/enter_problem');
+            return res.redirect('/team/all_teams');
 
           })
 
