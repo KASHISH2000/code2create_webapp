@@ -96,6 +96,10 @@ module.exports = {
 
     ui : {
       type : "integer"
+    },
+
+    judge : {
+      type : "string"
     }
 
 

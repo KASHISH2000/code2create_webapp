@@ -29,14 +29,14 @@ module.exports.policies = {
 
 
   '*': ["userCanSeeProfile","flash"],
-  
+
   user:{
     'new' : "flash",
     create : "notAllowed",
     'editpassword':"flash",
     updatepassword : "flash"
   },
-  
+
   team : {
     new : ["userCanSeeProfile","flash","notAllowed"],
     create : ["userCanSeeProfile","flash","notAllowed"],
@@ -48,9 +48,9 @@ module.exports.policies = {
     acceptedRequest : ["userCanSeeProfile","flash","notAllowed"],
     destroyyTeam : ["userCanSeeProfile","flash","notAllowed"]
   },
-  
-  
-  
+
+
+
   session : {
     'new' : "flash",
     create : "flash"
@@ -63,15 +63,15 @@ module.exports.policies = {
   },
   contact:{
     '*':"flash"
-  },
-
-
-
-  user:{
-    'new' : "flash",
-    create : "flash"
-
   }
+
+
+
+  // user:{
+  //   'new' : "flash",
+  //   create : "flash"
+
+  // }
 
   /***************************************************************************
   *                                                                          *

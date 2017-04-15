@@ -885,29 +885,64 @@ module.exports = {
     var ui = req.param('ui');
 
 
-    Team.findOne({
-      teamName : req.param('id')
-    }).exec(function(err, team) {
-      team.uniqueness = uniqueness;
-      team.feasibility = feasibility;
-      team.implementation = implementation;
-      team.solution = solution;
-      team.presentation = presentation;
-      team.ui = ui;
 
 
-      team.save(function (err) {
-        if(err){
-          return res.status(200).json({
-            message : "Sorry, something went wrong while saving problem statement"
+    User.findOne({
+      username : req.param('username')
+    }).exec(function(err, user) {
+
+      Team.findOne({
+        teamName : req.param('id')
+      }).exec(function(err, team) {
+
+
+        if(!user){
+          req.session.flash = {
+            success: "Sorry! Wrong username."
+          };
+          return res.redirect('/team/enter_problem');
+
+
+        }
+        console.log(user.admin);
+
+        if(user.admin) {
+
+          team.judge = user.name;
+          team.uniqueness = uniqueness;
+          team.feasibility = feasibility;
+          team.implementation = implementation;
+          team.solution = solution;
+          team.presentation = presentation;
+          team.ui = ui;
+
+
+          team.save(function (err) {
+            if (err) {
+
+              req.session.flash = {
+                success: "Sorry problem in updating team."
+              };
+              return res.redirect('/team/enter_problem');
+            }
+            console.log("Successfully updated");
+            req.session.flash = {
+              success: "Successfully uploaded."
+            };
+            return res.redirect('/team/enter_problem');
+
           })
         }
-        return res.status(200).json({
-          message : "Successfully saved problem Statement"
-        })
-      })
-    });
-  },
+        else{
+          req.session.flash = {
+            success: "Sorry you are not admin."
+          };
+          return res.redirect('/team/enter_problem');
+        }
+      });
+      });
+    },
+
 
 
 

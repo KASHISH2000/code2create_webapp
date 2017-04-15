@@ -389,6 +389,7 @@ module.exports = {
 
         User.update(req.param('id'),req.params.all(), function userUpdated(err){
           if(err){
+
             req.session.flash = {
               err : "Sorry, cannot update password."
             };
