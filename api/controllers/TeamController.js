@@ -7,6 +7,7 @@ var priorityarray = ["1","2","3","4"];
 var overall = [];
 var temp = [];
 var array = [];
+var newarray = [];
 
 
 module.exports = {
@@ -841,12 +842,65 @@ module.exports = {
     return res.view();
   },
 
+  entered_or_not : function (req, res,next) {
+
+    var bool = false;
+
+    user = req.session.User;
+    if(user.admin) {
+      Team.find(function foundTeams(err, teams) {
+        teams.forEach(function (team) {
+
+
+          if (team.judge) {
+            for (var i = 0; i < team.judge.length; i++) {
+              if (team.judge) {
+                console.log(team.judge[i].username);
+                if (team.judge[i].username === user.username) {
+                  return res.json({
+                    bool : true,
+                    teams : teams
+                  })
+                }
+              }
+            }
+          }
+
+        });
+      });
+    }
+    else{
+      req.session.flash = {
+        success: "Successfully updated problem statement."
+      };
+      return res.view("team/all_teams");
+    }
+
+
+
+
+
+
+    },
+
+
   all_teams : function (req, res, next) {
-    Team.find(function foundTeams(err, teams) {
-      return res.status(200).json({
-        teams : teams
-      })
-    });
+    user = req.session.User;
+    var bool = false;
+
+    if(user.admin) {
+      Team.find(function foundTeams(err, teams) {
+        return res.json({
+          teams: teams
+        })
+      });
+    }
+    else{
+      req.session.flash = {
+        success: "Successfully updated problem statement."
+      };
+      return res.view("team/all_teams");
+    }
   },
 
   update_problem_statement : function (req, res, next) {
@@ -921,6 +975,8 @@ module.exports = {
       }).exec(function (err, team) {
 
 
+
+
         console.log(user.admin);
 
         if (user.admin) {
@@ -943,6 +999,10 @@ module.exports = {
             temp.push(user);
             (team.judge) = temp;
           }
+          else{
+            newarray.push(user);
+            team.judge = newarray;
+          }
 
 
           team.save(function (err) {
@@ -956,9 +1016,9 @@ module.exports = {
 
 
             console.log("Successfully updated");
-            // return res.json({
-            //   team : team,
-            // });
+            return res.json({
+              team : team,
+            });
 
             req.session.flash = {
               success: "Successfully uploaded."
@@ -995,8 +1055,49 @@ module.exports = {
 
 
     });
+  },
+
+
+
+  pairs : function (req, res, next) {
+
+    var lol = [];
+
+    Team.find(function foundTeams(err, teams){
+
+      teams.forEach(function (team) {
+          if (team.judge) {
+            for (var i = 0; i < team.judge.length; i++) {
+              if(team.judge[i].teamname === "Zenith") {
+                lol.push(team.judge);
+              }
+            }
+          }
+
+      });
+
+      console.log(lol);
+    });
+
+
+
+
   }
 
 
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+

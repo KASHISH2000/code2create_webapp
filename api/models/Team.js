@@ -71,41 +71,47 @@ module.exports = {
     },
 
     uniqueness : {
-      type : "integer"
+      type : "float"
     },
 
     feasibility : {
-      type : "integer"
+      type : "float"
     },
 
 
     implementation : {
-      type : "integer"
+      type : "float"
     },
 
 
     solution : {
-      type : "integer"
+      type : "float"
     },
 
 
     presentation : {
-      type : "integer"
+      type : "float"
     },
 
 
     ui : {
-      type : "integer"
+      type : "float"
     },
 
     judge : {
-      type : "array"
+      type : "array",
+      defaultsTo : [],
     },
 
     Score : {
       type : 'array',
       required : false
     },
+
+    bool : {
+      type : "boolean",
+      defaultsTo : false
+    }
 
 
   }
