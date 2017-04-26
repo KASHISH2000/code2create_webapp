@@ -24,4 +24,3 @@ module.exports.sendWelcomeMail = function(sendername, receivername, useremail) {
         }
         )
 };
-
