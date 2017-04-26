@@ -30,6 +30,12 @@
 
       </ul> -->
     </div>
+      <% if(!defaultUrl.enableteam()) { %>
+    <div class="row">
+    <h4 class="center" style="color: red;">Registration is closed</h4>
+    </div>
+    <% } %>
+    <% if(defaultUrl.enableteam()) { %>
     <div class="row">
       <form action="/user/create" method="POST" id="registerForm" autocomplete="on" novalidate="true">
         <div class="input-field col s12 m6">
@@ -179,6 +185,7 @@
   </div>
 </form>
 </div>
+<% } %>
 </div>
 </div>
 <%- partial('../partials/footer.ejs') %>

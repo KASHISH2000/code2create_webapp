@@ -1,0 +1,96 @@
+ <!-- Include jQuery -->
+    <script type="text/javascript" src="sites/starplugins/js/jquery.js"></script>
+<!-- Include KillerCarousel JavaScript -->
+    <script type="text/javascript" src="/sites/starplugins/js/killercarousel/killercarousel3f56.js?v=11"></script>
+    <!-- Include KillerCarousel CSS -->
+    <link href="/sites/starplugins/js/killercarousel/killercarousel7b30.css?v=4" type="text/css" rel="stylesheet" />
+
+   
+    <!-- Include Cloud Zoom CSS -->
+    <link href="/sites/starplugins/js/cloudzoom/cloudzoom7b30.css?v=4" type="text/css" rel="stylesheet" />
+    <!-- Include Cloud Zoom JavaScript -->
+    <script type="text/javascript" src="/sites/starplugins/js/cloudzoom/cloudzoom5059.js?v=20"></script>
+
+    <script type="text/javascript" src="/sites/starplugins/js/thumbelina/thumbelina3860.js?v=1"></script>
+
+    <link href="/sites/starplugins/js/jetzoom/jetzoom30f4.css?v=3" type="text/css" rel="stylesheet" />
+    <!-- Include Jet Zoom JavaScript -->
+    <script type="text/javascript" src="/sites/starplugins/js/jetzoom/jetzoom8e0e.js?v=8"></script>
+    <script type="text/javascript" src="/sites/starplugins/js/starzoomae52.js?v=5"></script>
+    <link href="/sites/starplugins/js/starzoom30f4.css?v=3" type="text/css" rel="stylesheet" />
+
+
+    <script type="text/javascript" src="/sites/starplugins/js/fancy/jquery.fancybox5e1f.js?v=2"></script>
+    <link rel="stylesheet" href="/sites/starplugins/js/fancy/jquery.fancybox4c03.css??v=1" type="text/css" media="screen" />
+
+    <link href="/sites/starplugins/js/thumbelina/thumbelina.css" type="text/css" rel="stylesheet" />
+
+
+    <!-- Various page styles. -->
+
+
+<script type = "text/javascript">
+    $(function() {
+
+        $('.kc-wrap').KillerCarousel({
+                   // Width of carousel.
+                   width: 800,
+                   // Item spacing in 3d (CSS3 3d) mode.
+                   spacing3d: 400,
+                   // Item spacing in 2d (no CSS3 3d) mode. 
+                   spacing2d: 300,
+                   // Path to images for shadows etc.
+                   imagePath: "/sites/starplugins/js/killercarousel/",
+                   showShadow: false,
+                   showReflection: true,
+                   // Looping mode.
+                   infiniteLoop: true,
+                   // Scale at 75% of parent element.
+                   autoScale:80,
+                   showNavigation: true,
+                   frontItemIndex:1
+
+               });
+
+        var kc = $('.kc-wrap').data('KillerCarousel');
+
+
+
+        setInterval( function(){
+          var i = kc.getFrontItemIndex();
+          var $ele = $('img',kc.getItemElement(i));
+          $('#plugin-name').text( $ele.attr('title'));
+          $('#plugin-description').text( $ele.attr('data-desc'));
+      },250);
+    });
+</script>
+
+
+<style type="text/css">
+
+  .kc-wrap {
+    background-image:none;
+  }
+
+  .kc-item {
+    width:355px;
+    height:290px;
+    text-align:center;
+  }
+
+  .kc-item img {
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+</style>
+
+
+<script type="text/javascript">
+
+        CloudZoom.quickStart(); // cz
+        JetZoom.quickStart();
+        StarZoom.quickStart();
+    </script>

@@ -135,6 +135,12 @@
    <h5 class="left-align white-text main-heading">Create A Team</h5>
  </div>
  <div class="my-main-card hoverable">
+<% if(!defaultUrl.enableteam()){ %>
+<div class="row">
+<h3 class="center" style="color: red;">Creating team is now closed</h3>
+</div>
+<% } %>
+ <% if(defaultUrl.enableteam()) {%>
   <div class="row">
     <form action="/team/create" method="POST" id="teamForm" autocomplete="on">
       <div class="input-field col s12 m10 offset-m1">
@@ -198,6 +204,7 @@
 </div>
 </form>
 </div>
+<% } %>
 </div>
 </div>
 

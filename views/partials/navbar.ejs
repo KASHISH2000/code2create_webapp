@@ -42,6 +42,12 @@
          " href="/rules">Rules</a>
        </li>
        <li><a class="navlink a-home
+         <% if(active=='challenges'){ %>
+         nav-active
+         <% } %>
+         " href="/challenges">Challenges</a>
+       </li>
+       <li><a class="navlink a-home
          <% if(active=='tracks'){ %>
          nav-active
          <% } %>
@@ -82,6 +88,12 @@
      nav-active
      <% } %>
      " href="/rules">Rules</a>
+   </li>
+   <li><a class="navlink a-home
+     <% if(active=='challenges'){ %>
+     nav-active
+     <% } %>
+     " href="/challenges">Challenges</a>
    </li>
    <li><a class="navlink a-home
      <% if(active=='tracks'){ %>

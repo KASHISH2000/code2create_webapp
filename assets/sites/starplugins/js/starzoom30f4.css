@@ -1,0 +1,30 @@
+/* 
+    (c)2012-2014 Star Plugins
+    This css is used to style the dashboard buttons.
+    Change the CSS and/or image to suit the style of your website.
+*/
+
+.starzoom-reset-but, .starzoom-in-but,.starzoom-out-but { 
+    background-image: url("dashboard.png");
+    background-color: #f90;
+    height:32px;
+    width:32px;
+    border:1px solid #444;
+    border-radius: 5px;
+    float:left;
+    margin-right:10px;
+    
+}
+.starzoom-reset-but {
+    background-position: -0px 0px;
+}
+.starzoom-in-but {
+    background-position: -64px 0px;
+}
+.starzoom-out-but {
+    background-position: -32px 0px;
+}
+
+.starzoom-blank {
+    background-image: url("blank.png");
+}

@@ -75,6 +75,26 @@
 },
 '/welcome' : 'SessionController.welcome',
 
+'/challenges-test' : {
+  view : 'challenges',
+  locals : {
+    title: 'Challenges | Code2Create'
+  }
+},
+'/challenges' : {
+  view : 'challenges',
+  locals : {
+    title: 'Challenges | Code2Create'
+  }
+},
+
+'/privacy-policy' : {
+  view : 'privacy-policy',
+  locals : {
+    title: 'Privacy Policy | Code2Create'
+  }
+}
+
 
   /***************************************************************************
   *                                                                          *

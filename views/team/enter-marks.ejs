@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="/styles/app_common.css?1100">
+<style>
+</style>
+
+
+<%- partial('../partials/navbar.ejs',{active: 'teamNew'}) %>
+<div class="container">
+	<div class="heading-bg">
+		<h5 class="left-align white-text main-heading">Enter marks</h5>
+	</div>
+	<div class="my-main-card hoverable">
+
+		<div class="row">
+			<div class="col s12 m10 offset-m1">
+				<div class="card container-card" style="background-color:#2b2b2b;">
+					<div class="card-content white-text">
+						<span class="card-title" style="font-size:20px;">Team Name</span>
+						<span>
+							<button data-target="modal1" class=" waves-effect waves-dark btn modal-trigger">Evaluate</button>
+						</span>
+
+						<hr style="border-color:#19A562;">
+						<table style="border:1px solid white;">
+							<tr>
+								<th>Track</th>
+								<th class="separator">:</th>
+								<td>Health care</td>
+							</tr>
+							<tr>
+								<th>Problem statement</th>
+								<th class="separator">:</th>
+								<td>Health care</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div id="modal1" class="modal">
+					<div class="modal-content">
+						<span class="card-title" style="font-size:20px;">Team Name</span>
+						<span>
+							<form action="" method="POST">
+								<div class="x shift medium"><b></b><b></b><b></b><b></b>
+								</div>
+								<span>
+									<hr style="border-color:#19A562;">
+									<div>
+										<table class="criteria">
+											<tr>
+												<th>Uniqueness<br>(0-10)</th>
+												<th class="separator">:</th>
+												<td>
+													<div class="input-field col s6">
+														<input id="plagiarism" type="text" class="validate" min="1" max="10">
+														<label for="plagiarism">Plagiarism check</label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>Feasibility<br>(0-10)</th>
+												<th class="separator">:</th>
+												<td>
+													<div class="input-field col s6">
+														<input id="feasibility" type="text" class="validate" min="1" max="10">
+														<label for="feasibility">Whether the solution is possible to implement</label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>Implementation<br>(0-20)</th>
+												<th class="separator">:</th>
+												<td>
+													<div class="input-field col s6">
+														<input id="implementation" type="text" class="validate" min="1" max="20">
+														<label for="implementation">Execution of the suggested solution</label>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>Problem's solution<br>(0-20)</th>
+												<th class="separator">:</th>
+												<td>
+													<div class="input-field col s6">
+														<input id="solution" type="text" class="validate" min="1" max="20">
+														<label for="solution">Validity of the solution</label>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<th>Presentation<br>(0-20)</th>
+												<th class="separator">:</th>
+												<td>
+													<div class="input-field col s6">
+														<input id="presentation" type="text" class="validate" min="1" max="20">
+														<label for="presentation">Quality of the presentation or pitch</label>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<th>User Interface<br>(0-20)</th>
+												<th class="separator">:</th>
+												<td>
+													<div class="input-field col s6">
+														<input id="ui" type="text" class="validate" min="1" max="20">
+														<label for="ui">Quality of the user interface of the product</label>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</span>
+								<div class="modal-footer center">
+									<button type="submit" class="waves-effect waves-green btn">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>

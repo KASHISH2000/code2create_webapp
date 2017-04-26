@@ -15,5 +15,9 @@ encode: function(urrl){
 			newurl+=c;
 	}
 	return newurl;
+},
+
+enableteam: function(){
+	return false;// false for disable
 }
 }

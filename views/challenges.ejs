@@ -1,0 +1,294 @@
+    <link rel="stylesheet" href="/styles/app_common.css?1100">
+    <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+    <%- partial('./partials/challenges_resources.ejs') %>
+    <style>
+      .kc-nav-button.active{
+        color: #1eb76e !important;
+        background-color: #1eb76e !important;
+      }
+      .kc-nav-button{
+        width: 12px !important;
+        height: 12px !important;
+      }
+      .kc-nav-wrap{
+        bottom: 0px !important;
+      }
+      .problem-wrap h5{
+        position: relative;  
+        min-width: 17rem;
+      }
+      .powered{
+        position: absolute;
+        bottom: -30px;
+        left: 10px;
+        color: #1eb76e;
+        font-size: 1rem;
+      }
+      .powered-h5{
+        margin-bottom: 1.5rem;
+      }
+      @media(min-width: 769px){
+        .problem-wrap p{
+          padding-left: 2rem;
+        }
+        .powered{
+          left: 30px;
+        }
+      }
+    </style>
+
+    <% if(req.session.authenticated) { %>
+    <%- partial('./partials/navbar.ejs',{active: 'challenges'}) %>
+    <% } %>
+    <% if(!(req.session.authenticated)) { %>
+    <%- partial('./partials/without_login_navbar.ejs',{active: 'challenges'}) %>
+    <% } %>
+    <div class="container container-little-little-big">
+      <div class="heading-bg">
+       <h5 class="left-align white-text main-heading">Challenges</h5>
+     </div>
+     <div class="my-main-card hoverable">
+      <div class="challenges-wrap">
+        <div class='row'>
+          <div class="col s12">
+
+
+            <div class = "kc-wrap">
+              <!-- Carousel items follow -->
+
+              <div class="kc-item">
+                <img src="/images/tracks/track_arvr.png" title ="AR/VR" alt = "AR/VR"
+                data-desc="Easy to use lens zoom for high resolution images.">
+
+              </div> 
+
+              <div class="kc-item" >
+
+                <img src="/images/tracks/track_clen.png" title ="Clean/Green Energy" alt = "Clean Energy" 
+                data-desc="Hugely popular fly-out image zoom for high-resolution images.">
+
+              </div>
+
+              <div class="kc-item">
+
+               <img src="/images/tracks/track_fint.png" title="Financial Technology" alt = "Financial Technology"
+               data-desc="Powerful 2d/3d responsive carousel.">
+
+             </div>
+             <div class="kc-item">
+               <img src="/images/tracks/track_helc.png" title ="Health Care" alt = "Health Care"
+               data-desc="Zoom for very high resolution images 100 megapixels+">                                                  
+
+             </div>
+
+
+           </div>
+         </div>
+       </div>
+       <div class="row">
+        <h3 id="plugin-name" class="color-theme-green center">&nbsp;</h3>
+      </div>
+      <!-- AR/VR -->
+      <div class="row" id="arvr">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">VR based application to join a concert
+            </span>
+            <span class="powered">(powered by Metavrse)</span>
+          </h5>
+          <p class="white-text">
+            Prototype a VR based app where users can join a concert ( DJ Night, music Performance) as either an audience or the show's stop ( DJ, Singer, Instrument Player )
+            <br>
+            Come up with Monetisation plan as well.
+          </p>
+        </div>
+        <div class="problem-wrap">
+          <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">Solution to virtually attend lectures</span>
+            <span class="powered">(powered by Winuall)</span>
+            </h5>
+          <p class="white-text">
+            Lot of people cannot afford to study at coaching institutes due to some or the other reason. Bring out a solution that gives such students a platform to attend lectures without being there.
+          </p>
+        </div>
+        <div class="problem-wrap">
+          <h5 class="color-theme-green display-inline-block powered-h5">3. <span class="color-theme-green">problem solving using AR application</span>
+            <span class="powered">(powered by Metavrse)</span>
+            </h5>
+          <p class="white-text">
+            Design and Develop mobile device based AR application for real time collaborative problem solving using doodles and annotations.
+          </p>
+        </div>
+        <div class="problem-wrap">
+          <h5 class="color-theme-green display-inline-block powered-h5">4. <span class="color-theme-green">social networking using AR/VR</span>
+            <span class="powered">(powered by Vicara)</span>
+            </h5>
+          <p class="white-text">
+            Reimagining Social Networking and Media using AR/VR.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Clen -->
+    <div class="row" id="clen">
+      <div class="col s12 m10 offset-m1 white-text">
+        <div class="problem-wrap">
+          <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">Information drive to convey benefits of various forms of clean energy</span></h5>
+          <p class="white-text">
+           Clean energy has been the driving force of many countries since many years but India hasn't been able to utilise its resources to the maximum. The conventional fossil fuels used are depleting fast and the economy is severely hit when fuel and energy demands cannot be met by the Government. Due to this, clean energy use has to be doubled by the year 2030.
+           To do so, an information drive has to be started where we have to inform people, specially in villages where people still use fuels than can harm health.
+           The benefits of various forms of clean energy should be told.
+           The harmful effects of fossil fuels have to be highlighted.
+           Clean energy products that can be used for daily needs and agriculture should be made accessible to them by providing seller info.
+           Curb of conventional energy is also necessary and appliances not being used should be shut down.
+           The information drive plan and means should be implemented.
+         </p>
+       </div>
+       <div class="problem-wrap">
+        <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">Make green transportation more appealing</span></h5>
+        <p class="white-text">
+         Making forms of transportation such as walking and biking more appealing is important for clean transportation alternatives. Hardware/software solutions that use on-street installations to improve bike and pedestrian safety can be an important part of that appeal.
+       </p>
+     </div>
+     <div class="problem-wrap">
+      <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Record my energy footprints</span></h5>
+      <p class="white-text">
+       Gas and other gaseous products are the main energy source of India.And the reserve of gas is decreasing extensively. But the economic development will be affected if energy demand cannot be met. So, the rate of progress in energy efficiency has to be doubled by the year of 2030. System loss or illegal connection has to be eliminated to zero. At the same time, proper steps should be taken in energy research and technology expansion among common people. And people should make aware of this. Come up with a solution so that people can record their energy footprints and also track their progress over days and months. 
+     </p>
+   </div>
+   <div class="problem-wrap">
+    <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Renewable energy</span></h5>
+    <p class="white-text">
+     Renewables - Making Solar PV and Wind energy predictable (firming) is a huge challenge DERs(Distributed Energy Resources) are facing. There is vast material available on the internet regarding forecasting, storage etc and many strategies to make Solar PV and Wind power a smooth, predictable power source.
+   </p>
+ </div>
+</div>
+</div>
+<!-- FinTech -->
+<div class="row" id="fint">
+  <div class="col s12 m10 offset-m1 white-text">
+    <div class="problem-wrap">
+      <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">How do you enable micro payments for online platforms?
+      </span>
+       <span class="powered">(powered by PayPal)</span>
+       </h5>
+      <p class="white-text">
+       One could be running a blog or video site on their personal domain or using hosted third party solutions.
+       How do you empower the author/creator to collect payments for selective blog posts or a specific short
+       film?
+       Please do note it would not be a subscription on a recurring or monthly basis but mostly one off
+       purchases.
+       To give an example, you might be running a website publishing several posts or short films or a music
+       video. Most of the posts/film/music may be free to access, however as a publisher/creator, might decide
+       to charge for specific content. How to let the user pay for it?
+       Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a>
+     </p>
+   </div>
+   <div class="problem-wrap">
+    <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">How do you enable Offline Payments in a digital manner, when there is no internet connectivity?</span>
+     <span class="powered">(powered by PayPal)</span>
+     </h5>
+    <p class="white-text">
+     There are scenario where we do not have internet connectivity, in airplanes, during natural disasters
+     and in remote areas. How do we enable digital payments in such offline scenarios? Possible permutation
+     and combinations do include
+     1) Buyer not connected to Internet; Seller not connected to Internet
+     2) Buyer not connected to Internet; Seller connected to Internet
+     3) Buyer connected to Internet; Seller not connected to Internet
+     Please do note, buyer and seller would get connected to internet at some point of time and the
+     transactions should be enabled
+     Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a>
+
+   </p>
+ </div>
+ <div class="problem-wrap">
+  <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Solution using AML</span></h5>
+  <p class="white-text">
+   AML is a process that is common across the financial industry. For example, to remit an international payment from a payor company to a beneficiary company, sanction screening is performed by the payor, the payor’s bank, the correspondent bank for payor, correspondent bank for the beneficiary, and the beneficiary’s bank.
+   Develop a solution that would leverage a common international platform and infrastructure. This solution could be made available to industry players through a subscription service.
+ </p>
+</div>
+<div class="problem-wrap">
+  <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Game/App to provide financial literacy</span></h5>
+  <p class="white-text">
+    Develop a creative and engaging tool, game or app that provides financial literacy education at strategic points in a person’s early life.
+    The technology could include secondary school curriculum modules, or game style tools that teach basic financial skills such as opening bank accounts, as well as more elaborate financial concepts such as budgeting, savings, credit, interest, debt, financial planning or even basics on markets and how these work and interact.
+  </p>
+</div>
+</div>
+</div>
+<!-- Health Care -->
+<div class="row" id="helc">
+  <div class="col s12 m10 offset-m1 white-text">
+    <div class="problem-wrap">
+      <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">Gamification</span>
+       <span class="powered">(powered by Cardea Labs)</span>
+       </h5>
+      <p class="white-text">
+        Gamification using the voltage inputs from miBeat by cardea
+      </p>
+    </div>
+    <div class="problem-wrap">
+      <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">Bridge between doctors and patients</span>
+      </h5>
+      <p class="white-text">
+      People in remote areas can't access good doctors, because of which they can't match their problems with any particular disease's symptoms, and hence they came to know when its too late. So, bring out a solution through which could assure them whether their problems are really disease prone or not!
+      </p>
+    </div>
+    <div class="problem-wrap">
+      <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Safeguarding patient's privacy</span></h5>
+      <p class="white-text">
+        Patient privacy issues (including concerns about data breeches) will continue to be top-of-mind for providers, payers, and consumers, especially with ongoing data breeches in the news. Providers and payers will need to step up data security to avoid the type of Health Insurance Portability and Accountability Act (HIPAA) violations that can negatively impact an organization.
+      </p>
+    </div>
+    <div class="problem-wrap">
+      <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Solution for Juvenile delinquents</span></h5>
+      <p class="white-text">
+       The risk factors and co-occurring issues for girls who are identified as at-risk for juvenile delinquent and/or sexually risky behavior. Develop a solution for this problem.
+     </p>
+   </div>
+ </div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<%- partial('./partials/footer.ejs') %>
+<%- partial('./partials/commonScripts.ejs', {nojquery:true}) %>
+<script type="text/javascript">
+  var div_unl;
+  function hide_unlin(){
+    var divs=$("div");
+    for(i=0;i<divs.length;i++){
+      var inn=divs[i].innerHTML;
+      if(inn=="Unlicensed Killer Carousel"){
+        div_unl=divs[i];
+        $(divs[i]).hide();
+      }
+    }
+  }
+  setInterval(function(){
+    hide_unlin();
+  },100);
+  var tracks=["arvr","clen","fint","helc"];
+
+  function hideallex(tt){
+    tt-=1;
+    var i=0;
+    for(i=0;i<4;i++){
+      if(i!=tt)
+        $("#"+tracks[i]).fadeOut();
+      else
+        $("#"+tracks[i]).fadeIn();
+    }
+  }
+  hideallex('all');
+
+
+  setInterval(function(){
+    var isactive=$(".kc-front-item");
+    var activekey=$(isactive).attr("data-cc-item-key");
+    hideallex(parseInt(activekey));
+  }, 100);
+</script>

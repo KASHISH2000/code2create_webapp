@@ -41,7 +41,12 @@
        <p class="margin-bottom-0 white-text">This is a list of invitations you have received from various teams.</p>
      </div>
      <div class="my-main-card hoverable">
-
+     <% if(!defaultUrl.enableteam()) { %>
+     <div class="row">
+     <h4 class="center" style="color: red;">accepting invitations are closed now</h4>
+     </div>
+     <% } %>
+<% if(defaultUrl.enableteam()) { %>
       <% if(typeof err == 'undefined' || !err){ %>
       <table class="bordered striped responsive-table white-text">
         <thead>
@@ -90,6 +95,7 @@
       <% if(typeof err !== 'undefined' && err){ %>
       <h5 class="center white-text"><%=err%></h5>
       <h6 class="center white-text">Contact the admin of the team you wish to join</h6>
+      <% } %>
       <% } %>
     </div>
   </div>

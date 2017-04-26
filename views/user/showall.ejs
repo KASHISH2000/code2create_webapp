@@ -80,7 +80,9 @@
             <td>Name</td>
             <td class="th-skills-td">Skills</td>
             <td>University</td>
-            <td class="show_if_I_admin invite-head-td" title="Send Invitation to a member to join your team (you should be an admin)">Invite to Team</td>
+            <% if (defaultUrl.enableteam()){ %>
+            <td class="show_if_I_admin invite-head-td" title="Send Invitation to a member to join your team (you should be an admin)">Invite to team</td>
+            <% } %>
           </tr>
         </thead>
         <tbody id="usersTableBody">
@@ -105,7 +107,7 @@
             <span class="td_content">VIT, Vellore</span>
             <% } %>
           </td>
-
+          <% if(defaultUrl.enableteam()){ %>
           <td class="center show_if_I_admin">
             <% if(eli){ %>
             <form action="/team/sendRequest" method="POST">
@@ -120,6 +122,7 @@
             <a class="send-req-but smooth-transition disabled disabled-in-team"><span class="td_content">admin</span></a>
             <%}%>
           </td>
+          <% } %>
         </tr>
 
         <%});%>
