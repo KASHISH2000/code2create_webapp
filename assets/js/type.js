@@ -22,10 +22,10 @@ function type_str(){
 	.pauseFor(2500)
 	.deleteAll()
 	.pauseFor(1000)
-	.typeString('₹30k Prize Money')
+	.typeString('Many Cash Prizes')
 	.pauseFor(2500)
-	.deleteChars(5)
-	.typeString('Money')
+	.deleteChars(11)
+	.typeString('Goodies')
 	.pauseFor(2500)
 	.start();
 }
