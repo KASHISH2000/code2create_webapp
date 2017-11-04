@@ -320,5 +320,11 @@ input:active, input:focus, textarea:focus {
 /*# sourceMappingURL=home.css.map */
 
 .sponPad{
-  padding: 25px;
+  /* padding: 25px; */
+}
+
+.sponsors-pic{
+  width: 200px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
