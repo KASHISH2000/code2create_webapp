@@ -35,6 +35,9 @@
   '/': {
     view: 'homepage'
   },
+  '/comingSoon': {
+    view: 'comingSoon'
+  },
   '/user' : {
     view : '404'
   },
