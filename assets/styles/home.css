@@ -342,14 +342,14 @@ input:active, input:focus, textarea:focus {
 	font-weight:bold;
 	padding:16px 31px;
   text-decoration:none;
-  transition: background-color 0.4s;
-  transition: color 0.4s;
+  transition: background-color 1s;
+  transition: color 1s;
 	/* text-shadow:0px 1px 3px #2f6627; */
 }
 .myButton:hover {
-  transition: background-color 0.5s;
+  transition: background-color 1s;
+  transition: color 1s; 
   background-color:#add8ca;
-  transition: color 0.4s;
   color: #2b854c;
 }
 .myButton:active {
@@ -370,14 +370,14 @@ input:active, input:focus, textarea:focus {
 	font-weight:bold;
 	padding:16px 31px;
   text-decoration:none;
-  transition: background-color 0.4s;
-  transition: color 0.4s;
+  transition: background-color 0.8s;
+  transition: color 0.8s;
 	/* text-shadow:0px 1px 3px #2f6627; */
 }
 .myButtonSM:hover {
-  transition: background-color 0.5s;
+  transition: background-color 0.8s;
   background-color:#add8ca;
-  transition: color 0.4s;
+  transition: color 0.8s;
   color: #2b854c;
 }
 .myButtonSM:active {

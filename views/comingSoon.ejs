@@ -1,9 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <!-- Coming Soon Page By - MADHAV BAHL github: https://github.com/MadhavBahlMD -->
-        <meta charset="utf-8">
         <title>
             Code2Create - The most spectacular hackathon is coming soon!
         </title><!-- Behavioral Meta Data -->
@@ -30,10 +24,16 @@
             <link rel="stylesheet" type="text/css" href="css/ie.css" />
         <![endif]-->
         <!-- Javascript -->
-
         <script src="js/jquery.js"></script>
-    </head>
-    <body>
+
+            <div class="css-preloader-wrapper">
+                <div class="cssload-thecube">
+                    <div class="cssload-cube cssload-c1"></div>
+                    <div class="cssload-cube cssload-c2"></div>
+                    <div class="cssload-cube cssload-c4"></div>
+                    <div class="cssload-cube cssload-c3"></div>
+                </div>
+            </div>
 
         <!-- <div class="preloader">
             <div class="loading">
@@ -93,6 +93,13 @@
         <script src="js/plugins.js"></script> 
         <script src="js/jquery.countdown.min.js"></script> 
         <script src="js/cSoon.js"></script>
-
-    </body>
-</html>
+        <script type="text/javascript">
+            
+            $(document).ready(function() {
+              setTimeout(function(){
+                $("body").addClass('loaded');
+                $('.css-preloader-wrapper').hide();
+              }, 100);
+            });
+          
+        </script>
