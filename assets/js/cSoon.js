@@ -56,7 +56,7 @@ $(window).load(function(){
 
 
 $('#countdown').countdown({
-	date: "December 20, 2017 00:00:00",
+	date: "January 01, 2018 00:00:00",
 	render: function(data) {
 	  var el = $(this.el);
 	  el.empty()
