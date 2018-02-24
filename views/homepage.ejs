@@ -659,7 +659,7 @@
         <h4 class="center white-text heading">Faculty Organisers</h4>
         <br><br>
       </div>
-      <div class="col s12 m3 offset-m2 wow fadeInUp">
+      <div class="col s12 m3 offset-m2 wow fadeInUp" style="padding-top:5px;">
         <div class="member-card hrv-member-card">
           <img src="/images/people/dean_site.png" class="member-card-img smooth-transition-fast">
           <div class="member-info smooth-transition-fast">
@@ -815,7 +815,7 @@
 </div>
 </div>
 </div>
-<div class="owl-element-wrap">
+<!-- <div class="owl-element-wrap">
  <div class="member-card">
   <img src="/images/people/vinit.jpg" class="member-card-img smooth-transition-fast">
   <div class="member-info smooth-transition-fast">
@@ -835,8 +835,8 @@
   </div>
 </div>
 </div>
-</div>
-<div class="owl-element-wrap">
+</div> -->
+<!-- <div class="owl-element-wrap">
  <div class="member-card">
   <img src="/images/people/shivam.jpg" class="member-card-img smooth-transition-fast">
   <div class="member-info smooth-transition-fast">
@@ -856,7 +856,7 @@
   </div>
 </div>
 </div>
-</div>
+</div> -->
 <div class="owl-element-wrap">
  <div class="member-card">
   <img src="/images/people/ri.jpg" class="member-card-img smooth-transition-fast">
@@ -1003,6 +1003,30 @@
     </iframe>
     
 </div> -->
+<div class="gallery-wrapper center-align">
+     <div class="col s12 center wow fadeInUp">
+      <h4 class="heading white-text" style="margin-top: 80px;">INSIGHTS</h4>
+    </div>
+    
+     <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="/images/insights/1.jpg" style="height: 250px;
+    width: auto;"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/insights/2.jpg" style="height: 250px;
+    width: auto;"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/insights/3.jpg" style="height: 250px;
+    width: auto;"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/insights/4.jpg" style="height: 250px;
+    width: auto;"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/insights/5.jpg" style="height: 250px;
+    width: auto;"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/insights/6.jpg" style="height: 250px;
+    width: auto;"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/insights/7.jpg" style="height: 250px;
+    width: auto;"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/insights/8.jpg" style="height: 250px;
+    width: auto;"></a>
+      </div>
+</div>
 
 <%- partial('./partials/footer.ejs') %>
 <%- partial('./partials/commonScripts.ejs') %>
@@ -1085,6 +1109,11 @@
   }
 }
 
+</script>
+<script type="text/javascript">
+     $(document).ready(function(){
+      $('.carousel').carousel();
+    });
 </script>
 <script type="text/javascript">
  <% if(typeof flash !== 'undefined' && typeof flash.err !== 'undefined' && flash.err){ %>
