@@ -99,10 +99,13 @@ footer{
 }
 
 .social-github:hover .fa {
-  color: #d32f2f; 
+  color: #000; 
 }
 .social-linkedin:hover .fa {
   color: #0077B5; 
+}
+.social-instagram:hover .fa {
+  color: #3f729b;
 }
 
 .footer-follow-text {

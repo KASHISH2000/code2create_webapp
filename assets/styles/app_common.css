@@ -248,6 +248,6 @@ table.striped>tbody>tr:nth-child(odd) {
 		color: #00abf1; }
 
 		.social-github:hover .fa {
-			color: #d32f2f; }
+			color: #000; }
 			.social-linkedin:hover .fa {
 				color: #0077B5; }
