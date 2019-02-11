@@ -35,6 +35,12 @@
   '/': {
     view: 'homepage'
   },
+  '/conduct': {
+    view: 'conduct',
+    locals: {
+      title: 'Code Of Conduct | Code2Create'
+    }
+  },
   '/comingSoon': {
     view: 'comingSoon'
   },

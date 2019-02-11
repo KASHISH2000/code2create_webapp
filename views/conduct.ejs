@@ -1,0 +1,145 @@
+<link rel="stylesheet" type="text/css" href="/styles/hamburger.min.css">
+<!-- <link rel="stylesheet" href="/styles/app_common.css?1100"> -->
+<link rel="stylesheet" type="text/css" href="/styles/home.css?1220">
+<!-- <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100"> -->
+<style>
+    .conduct-ul li{
+    		list-style: initial !important;
+
+    		margin: 1rem;
+    	}
+    li>b {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 1rem;
+        font-size: 16px;
+    }
+
+    .mail-link {
+        display: inline-block;
+    }
+    
+    .mail-link:after {
+        content: '';
+        width: 0px;
+        height: 1px;
+        display: block;
+        background: #1eb76e;
+        transition: 300ms;
+    }
+    .mail-link:hover:after {
+        width: 100%;
+    }
+</style>
+<div class="nav-wrap">
+    <!-- <div class="nav-placeholder">
+    </div> -->
+    <nav class="smooth-transition navelem" style="position: fixed; top: 0">
+      <div class="nav-wrapper">
+        <a class="brand-logo" onclick="$('html, body').animate({scrollTop: $('#home').offset().top}, 1000);"><img src="images/c_only.png"
+            class="responsive-img"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="navlink" href="/#home">Home</a></li>
+          <li><a class="navlink" href="/#about" >About</a></li>
+          <li><a class="navlink color-theme-green" href="/conduct">Conduct</a></li>
+          <li><a class="navlink" href="/#faqs">FAQs</a></li>
+          <li><a class="navlink" href="/#sponsors">Sponsors</a></li>
+          <li><a class="navlink" href="/#organisers">Organisers</a></li>
+          <li><a class="navlink" href="/#contactus">Contact Us</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a class="navlink" href="/#home">Home</a></li>
+          <li><a class="navlink" href="/#about" >About</a></li>
+          <li><a class="navlink color-theme-green" href="/conduct">Conduct</a></li>
+          <li><a class="navlink" href="/#faqs">FAQs</a></li>
+          <li><a class="navlink" href="/#sponsors">Sponsors</a></li>
+          <li><a class="navlink" href="/#organisers">Organisers</a></li>
+          <li><a class="navlink" href="/#contactus">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+</div>
+<div class="container" style="margin-top: 20vh">
+    <div class="heading-bg">
+        <h5 class="left-align white-text main-heading">Code Of Conduct</h5>
+    </div>
+    <div class="my-main-card hoverable">
+        <ul class="white-text conduct-ul">
+            <li>
+                <b>Rules and Guidelines</b>
+                <br/>
+                Hackers are diverse and complex, with many different interests and passions. These rules are in place so that everyone can feel comfortable participating in C2C. 
+                If you think they need editing or don’t cover something important, please let us know at &nbsp;<a class="color-theme-green mail-link" 
+                href="mailto:outreach.acmvit@gmail.com">outreach.acmvit@gmail.com</a>.
+            </li>
+            <li>
+                <b>Strict Rules</b>
+                <br>
+                These are the rules/the things this space is not for. We tried to keep them short, with more in-depth explanations in the appendix. 
+                Breaking any of these will result in your prompt removal from C2C.
+                <ul>
+                    <li>No harassment, including personal attacks.</li>
+                    <li>No spam. If Gmail wouldn’t put it in my inbox, it shouldn’t be in C2C. 
+                        This includes doing attention-catching things like writing in all caps, using clickbait headlines, 
+                        or otherwise editing the post or preview to pop out at the cost of other posts. 
+                        Posts not relating to hackathons or tech will also be considered spam.</li>
+                    <li>No shitposting, bad programmer jokes, or memes.</li>
+                    <li>No recruiting for your startup, company, job, or organization.</li>
+                    <li>No posting requests or giveaways for free stuff/invites. 
+                        Those belong in Code2Create.
+                    </li>
+                    <li>No illegal/pirated content, requests for it, 
+                        or information regarding the distribution of it.
+                    </li>
+                    <li>No telling people they or their post is not welcome in Code 2 Create. 
+                        If you think a post does not belong in C2C, 
+                        report the post or message an admin. If you make other people feel unwelcome in C2C, 
+                        we will remove you from the group.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Inclusivity Statement</b>
+                <br/>
+                Code 2 Create is the all-inclusive hackathons community.
+                <br/>
+                We encourage everyone to participate and are committed to building a community for all. 
+                Although we will fail at times, we seek to treat everyone both as fairly and equally as possible. 
+                Whenever a participant has made a mistake, we expect them to take responsibility for it.
+                <br/>
+                Although this list cannot be exhaustive, we explicitly honor diversity in age, gender, gender identity or expression, culture, ethnicity, language, national origin, 
+                political beliefs, profession, race, religion, sexual orientation, socioeconomic status, and technical ability. 
+                We will not tolerate discrimination based on any of the protected characteristics above, 
+                including participants with disabilities. There is no one true hacker.
+                <br/>
+                Our community prioritizes marginalized people’s safe existence in the community. We will not tolerate posts encouraging:
+                <ul>
+                    <li>Insensitivity toward boundary statements, such as “leave me alone,” “go away,” or “I’m not discussing this with you”</li>
+                    <li>Racist, sexist, cissexist, or otherwise oppressive behaviors or assumptions 
+                        (although these discussions may be moved to organising committee debate if they better fit its guidelines)
+                    </li>
+                </ul>
+                However, if you have a post that falls in the above categories yet you feel still belongs in C2C, you can message a moderator to discuss it. 
+                We’ve had posts like these in the past that turned into constructive discussions with a bit of reframing. Talking about hard problems is, 
+                itself, hard.
+            </li>
+            <li>
+                <b>[serious] tag</b>
+                <br/>
+                To encourage a more serious discussion on your post, you may preface it with a [serious] tag. 
+                Posts with the serious tag as well as their comments
+                <ul>
+                    <li>Must be on topic</li>
+                    <li>Must NOT give intentionally misleading advice</li>
+                    <li>Must NOT be images/memes unless relevant or asked for in the original post</li>
+                    <li>Must NOT be single words or phrases without explanation.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<%- partial('./partials/footer.ejs') %>
+<%- partial('./partials/commonScripts.ejs') %>
