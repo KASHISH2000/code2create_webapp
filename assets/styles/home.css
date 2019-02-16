@@ -415,7 +415,7 @@ input:active, input:focus, textarea:focus {
   background-color: #2b854c !important;
   }
   #devfolio-apply-now .logo {
-    /* Please keep the color of Devfolio logo mark either whit
-    e (#FFFFFF) or black (#000000) */
+  /* Please keep the color of Devfolio logo mark either whit
+  e (#FFFFFF) or black (#000000) */
     fill: #fff;
-    }
+  }
