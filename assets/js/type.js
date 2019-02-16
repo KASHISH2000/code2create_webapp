@@ -15,7 +15,7 @@ function type_str(){
 	.pauseFor(2500)
 	.deleteAll()
 	.pauseFor(1000)
-	.typeString('300+ Participants')
+	.typeString('500+ Participants')
 	.pauseFor(2500)
 	.deleteChars(4)
 	.typeString('ants')
