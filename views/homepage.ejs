@@ -64,6 +64,15 @@
         e (#FFFFFF) or black (#000000) */
     fill: #fff;
   }
+
+  #devfolio-apply-now>#text {
+    font-size: 10px;
+  }
+
+  #devfolio-register-form input {
+    box-sizing: border-box !important;
+    border-bottom: none !important;
+  }
 </style>
 
 
@@ -213,6 +222,7 @@
   </nav>
 </div>
 
+<!-- ABOUT SECTION -->
 <div class="about-wrap" id="about">
   <div class="container container-little-big">
     <div class="row">
@@ -253,13 +263,15 @@
   </div>
 </div>
 <br><br>
+
+<!-- FAQS -->
 <div class="faqs-wrap" id="faqs">
   <div class="container-little-big container">
     <div class="row">
       <div class="col s12 center wow fadeInDown">
         <h3 class="heading white-text center">FAQs</h3>
       </div>
-    </div>
+    </div><br>
     <div class="row">
       <div class="col s12 l6 center">
         <div class="faqs-div-wrap wow fadeInUp" id="faqs-div-wrap-1">
@@ -519,14 +531,13 @@
   </div>
 </div>
 <br><br>
+
+<!-- SPONSORS -->
 <div class="sponsors-wrap" id="sponsors">
   <div class="container">
     <div class="col s1 center wow fadeInUp">
       <h4 class="heading white-text">Sponsors</h4>
-    </div>
-    <div class="col s12">
-      <br>
-    </div>
+    </div><br>
     <!-- <div class="row sponPad fadeInUp">
 
         <div class="col m4 s12 center">
@@ -700,23 +711,27 @@
       </div>
     </div>
 
-    <!-- <div class="row sponPad fadeInUp">
-      <div class="col m4 s12 center">
-        <a href="https://www.taskade.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/taskade.svg" class="sponsors-pic wow center fadeInDown responsive-img ">
+    <div class="row sponPad fadeInUp">
+      <div class="col m4 s12 center" style="margin-top: -25px">
+        <a href="https://tryshift.com/" target="_blank" rel="noopener noreferrer">
+          <img src="/images/sponsors/shift.png" class="sponsors-pic wow center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center" style="margin-top: -25px">
-        <img src="/images/sponsors/shift.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+        <a href="https://www.axure.com" target="_blank" rel="noopener noreferrer">
+          <img src="/images/sponsors/axure.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+        </a>
       </div>
       <div class="col m4 s12 center" style="margin-top: -25px">
-        <img src="/images/sponsors/axure.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+        <a href="https://codingblocks.com" target="_blank" rel="noopener noreferrer">
+          <img src="/images/sponsors/cblogo.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+        </a>
       </div>
-    </div> -->
+    </div>
 
   </div>
 </div>
-<br>
+<!-- <br> -->
 <div class="row hide">
   <div class="col s12 center wow fadeInLeft">
     <h5 class="center display-inline-block white-text">Interested in sponsoring us? Have a look at our &nbsp;</h5>
@@ -731,12 +746,13 @@
 </div>
 </div>
 <br><br>
+<!-- ORGANISERS -->
 <div class="organisers-wrap" id="organisers">
   <div class="container container-little-big">
     <div class="col s12 center wow fadeInUp">
       <h4 class="heading white-text">Organisers</h4>
     </div>
-    <br><br>
+    <!-- <br><br> -->
     <div class="row">
       <div class="col s12 wow fadeInUp organisers-logo-div">
         <div class="col s12 l4 center">
@@ -754,26 +770,36 @@
     <!-- <div class="center-align wow fadeInUp">
         <img src="/images/vit.png" class="responsive-img" style="height: 150px; width: auto;">
     </div> -->
+    <br><br>
+    <!-- faculty organisers -->
     <div class="row faculty-div">
       <div class="col s12 center wow fadeInDown">
         <h4 class="center white-text heading">Faculty Organisers</h4>
         <br><br>
       </div>
-      <div class="col s12 m3 offset-m2 wow fadeInUp" style="padding-top:5px;">
+      <div class="col s12 l3 wow fadeInUp" style="padding-top:5px;">
+        <div class="member-card hrv-member-card">
+          <img src="/images/people/dean_site.jpg" class="member-card-img smooth-transition-fast">
+          <div class="member-info smooth-transition-fast">
+            <div class="member-name-div">
+              <h5 class="member-name">Prof. Balakrushna Tripathy</h5>
+            </div>
+            <h5 class="member-position">Dean<br>School of Information Technology & Engineering</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4 l3 wow fadeInUp" style="padding-top:5px;">
         <div class="member-card hrv-member-card">
           <img src="/images/people/dean_site.png" class="member-card-img smooth-transition-fast">
           <div class="member-info smooth-transition-fast">
             <div class="member-name-div">
               <h5 class="member-name">Dr. Aswani Kumar Cherukuri</h5>
             </div>
-            <h5 class="member-position">Dean<br>School of Information Technology & Engineering</h5>
+            <h5 class="member-position">Faculty Coordinator<br> ACM VIT Student Chapter</h5>
           </div>
         </div>
       </div>
-      <!-- <div class="col s0 m1">
-        &nbsp;
-      </div> -->
-      <div class="col s12 m3 hrv-col wow fadeInUp" style="padding-top:5px;">
+      <div class="col s12 m4 l3 wow fadeInUp" style="padding-top:5px;">
         <div class="member-card hrv-member-card">
           <img src="/images/people/hrv.png" class="member-card-img smooth-transition-fast">
           <div class="member-info smooth-transition-fast">
@@ -785,7 +811,7 @@
         </div>
       </div>
 
-      <div class="col s12 m3 hrv-col wow fadeInUp" style="padding-top:5px;">
+      <div class="col s12 m4 l3 wow fadeInUp" style="padding-top:5px;">
         <div class="member-card hrv-member-card">
           <img src="/images/people/divya.jpeg" class="member-card-img smooth-transition-fast">
           <div class="member-info smooth-transition-fast">
@@ -797,12 +823,13 @@
         </div>
       </div>
     </div>
-    <br>
+    <br><br>
+    <!-- student orgainsers -->
     <div class="row students-div">
       <div class="center wow fadeInDown">
         <h4 class="center white-text heading">Student Organisers</h4>
       </div>
-      <br><br>
+      <br>
       <div class="owl-carousel owl-theme wow fadeInUp" id="owlCarousel_members">
         <div class="owl-element-wrap">
           <div class="member-card">
@@ -834,7 +861,6 @@
                 <h5 class="member-name">Sasya Reddi</h5>
               </div>
               <h5 class="member-position">ACM-W Lead</h5>
-
               <div class="member-social-links text-center">
                 <!-- <a href="https://www.facebook.com/hardika.goyal?fref=pb&hc_location=profile_browser" target="_blank"
                   class="nodecoration">
@@ -1097,13 +1123,13 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
 </div>
 <br><br>
+<!-- CONTACT US SECTION -->
 <div class="contactus-wrap" id="contactus">
   <div class="container">
     <div class="col s12 center wow fadeInUp">
@@ -1111,14 +1137,14 @@
     </div>
     <br><br>
     <div class="row center contactus-info">
-      <div class="addressdiv col s12 m3 center"><i class="fa fa-map-marker smooth-transition" aria-hidden="true"></i>
+      <div class="addressdiv col s12 l3 center"><i class="fa fa-map-marker smooth-transition" aria-hidden="true"></i>
         &nbsp;VIT Vellore
       </div>
-      <div class="emaildiv col s12 m5 center">
+      <div class="emaildiv col s12 l6 center">
         <i class="fa fa-envelope smooth-transition" aria-hidden="true"></i>&nbsp;<a
           href="mailto:outreach.acmvit@gmail.com" class="" target="_blank">outreach.acmvit@gmail.com</a>
       </div>
-      <div class="phndiv col s12 m4 center">
+      <div class="phndiv col s12 l3 center">
         <i class="fa fa-phone-square smooth-transition" aria-hidden="true"></i>&nbsp;+91
         8849691453
       </div>
@@ -1149,21 +1175,18 @@
               <i class="material-icons right">send</i>
             </button>
           </div>
-
         </div>
       </form>
     </div>
-
   </div>
-</div>
-
+</div><br><br>
+<!-- subscribe for updates -->
 <div class="contactus-wrap" id="contactus">
   <div class="container">
     <div class="col s12 center wow fadeInUp">
       <h4 class="heading white-text" style="margin-top: 80px;">SUBSCRIBE FOR UPDATES</h4>
     </div>
     <br><br>
-
     <form action="/" style="margin-bottom: 50px;" method="post">
       <div class="row">
         <div class="input-field wow fadeInUp col s6">

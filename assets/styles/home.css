@@ -419,4 +419,10 @@ input:active, input:focus, textarea:focus {
   .sponPad img{
     width: 150px;
   }
+  .type-row {
+    font-size: 26px;
+  }
+  .hero-div h4, .hero-div h5 {
+    font-size: 22px;
+  }
 }
