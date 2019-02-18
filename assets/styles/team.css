@@ -149,6 +149,9 @@ margin-top: 195px;
 .member-info .fa-github{
   margin-left: 10px;
 }
+.fa-linkedin:hover {
+    color: #0077B5;
+}
 .member-info .fa-facebook:hover{
     color: #3b5998;
 }
