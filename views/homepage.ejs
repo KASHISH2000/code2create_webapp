@@ -27,12 +27,18 @@
     color: #1eb76e;
   }
 
+  .location-icon:hover path, .calendar-icon:hover path {
+    fill: #48ba86;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) .5s;
+    /* color: #48ba86; */
+  }
+
   /* devfolio button */
   #devfolio-apply-now {
     -ms-flex-align: center;
     -webkit-box-align: center;
     align-items: center;
-    background-color: #2b954c;
+    background-color: #48ba86;
     border-radius: 3px;
     border: none;
     color: #FFFFFF;
@@ -56,7 +62,9 @@
   }
 
   #devfolio-apply-now:hover {
-    background-color: #2b854c !important;
+    /* background-color: #2b854c !important; */
+    opacity: .9;
+    transition: ease-in-out .3s;
   }
 
   #devfolio-apply-now .logo {
@@ -73,6 +81,9 @@
     box-sizing: border-box !important;
     border-bottom: none !important;
   }
+  /* nav {
+    background-color: #1e1e1e !important;
+  } */
 </style>
 
 
@@ -97,10 +108,20 @@
       </div>
       <div class="row center white-text" style="margin-top: -20px;">
         <h5 class="moto center hide-on-small-only">
-          <i class="fa fa-calendar smooth-transition hero-fa" aria-hidden="true"></i>
-          March 22-24, 2019 &nbsp;| &nbsp;
+          <!-- <i class="fa fa-calendar smooth-transition hero-fa" aria-hidden="true"></i> -->
+          <span>
+            <svg class="calendar-icon" style="width:24px;height:24px;vertical-align:bottom;" viewBox="0 0 24 24">
+              <path fill="#FFFFFF" d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" />
+            </svg>
+            March 22-24, 2019
+          </span> 
+        &nbsp;| &nbsp;
           ACM-VIT<span class="">&nbsp; | &nbsp;</span>
-          <i class="fa fa-map-marker smooth-transition hero-fa" aria-hidden="true"></i> VIT University
+          <!-- <i class="fa fa-map-marker smooth-transition hero-fa" aria-hidden="true"></i>  -->
+          <svg class="location-icon" style="width:24px;height:24px;vertical-align:bottom;" viewBox="0 0 24 24">
+            <path fill="#FFFFFF" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+          </svg>
+          VIT University
         </h5>
         <h5 class="moto center hide-on-med-and-up">
           ACM-VIT
@@ -237,11 +258,12 @@
         <div class="center">
           <h4 class="heading center">Code2Create</h4>
         </div>
-        <p class="center" style="text-align: justify;" id="about-box-c2c">A thrilling tech sprint awaited by all
-          techies, Code2Create saw an explosion of technicality. Code2Create is all about designing, building and
-          creating; a place where graphic designers, software developers, app developers and web developers collaborate
-          intensively on projects. It is an outburst of technology, a tech marathon – it is Code2Create. Code2Create'18
-          saw more than 500 participants. The judges were renowned experts in their respective fields.
+        <p class="center" style="text-align: justify;" id="about-box-c2c">A thrilling tech sprint awaited by numerous innovators, 
+          Code2Create witnesses a plethora of skill sets. Code2Create is all about designing, building and creating; a place where graphic designers, 
+          software developers, app developers, and web developers collaborate intensively on projects. Code2Create'18 saw more than 500 participants. 
+          The judges were renowned experts in their respective fields. Participants from across the country indulge in 36 hours of intense brainstorming, 
+          designing, creating and testing, along with some engaging and very enjoyable side quests. 
+          Code2Create is ACM-VIT’s flagship event and one of the grandest annual events hosted in VIT.
         </p>
       </div>
       <div class="col s12 hide-on-med-and-up">
@@ -251,12 +273,12 @@
         <div class="center">
           <h4 class="heading center">ACM VIT</h4>
         </div>
-        <p class="" style="text-align: justify;" id="about-box-acm">Right from its inception in 2009, the ACM VIT
-          Student Chapter has been organising and conducting succesful technical and professional development events.
-          It hosted Compute 2013, the 6th ACM India Computing Convention from 22nd to 24th August, 2013, as well as the
-          first All India ACM Chapters Meet on 24th August, 2013. It has credentials in web/mobile applications
-          development and machine learning. The websites "All About VIT" and "VIT Cab Share" are some of the treasured
-          creations of its core members. Technology is its cause and education is its objective.
+        <p class="" style="text-align: justify;" id="about-box-acm">Right from its inception in 2009, 
+          the ACM VIT Student Chapter has been organizing and conducting successful technical and professional development events. 
+          It hosted Compute 2013, the 6th ACM India Computing Convention from 22nd to 24th August 2013, 
+          as well as the first All India ACM Chapters Meet on 24th August 2013. It has credentials in web/mobile applications development and machine learning. 
+          The websites "All About VIT" and "VIT Cab Share" are some of the treasured creations of its core members. 
+          Technology is its cause and education its objective
         </p>
       </div>
     </div>
@@ -603,17 +625,17 @@
     <div class="row sponPad fadeInUp sponsors-top-row">
       <div class="col m4 s12 center">
         <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/github.png" class="sponsors-pic wow center fadeInDown responsive-img">
+          <img src="/images/sponsors/github.png" class="sponsors-pic center fadeInDown responsive-img">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/devfolio.svg" class="sponsors-pic wow center fadeInDown responsive-img">
+          <img src="/images/sponsors/devfolio.svg" class="sponsors-pic center fadeInDown responsive-img">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://matic.network" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/matic.svg" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/matic.svg" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
     </div>
@@ -621,18 +643,18 @@
     <div class="row sponPad fadeInUp">
       <div class="col m4 s12 center">
         <a href="https://get.tech" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/dottech.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/dottech.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://jetbrains.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/jetbrains.png" class="sponsors-pic wow center  fadeInDown responsive-img "
+          <img src="/images/sponsors/jetbrains.png" class="sponsors-pic center  fadeInDown responsive-img "
             style="height: 150px; width:auto;">
         </a>
       </div>
       <div class="col m4 s12 center" style="margin-top: 32px;">
         <a href="https://hasura.io" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/hasura.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/hasura.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
     </div>
@@ -640,18 +662,18 @@
     <div class="row sponPad fadeInUp">
       <div class="col m4 s12 center">
         <a href="https://www.ibm.com/in-en/" target="blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/ibm.png" class="sponsors-pic wow center fadeInDown responsive-img "
+          <img src="/images/sponsors/ibm.png" class="sponsors-pic center fadeInDown responsive-img "
             style="height: 60px; width:auto;">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://www.wolfram.com/language/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/wolfram.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/wolfram.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://www.digitalocean.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/digitalocean.png" class="sponsors-pic wow center  fadeInDown responsive-img "
+          <img src="/images/sponsors/digitalocean.png" class="sponsors-pic center  fadeInDown responsive-img "
             style="height: 50px; width:auto;">
         </a>
       </div>
@@ -660,18 +682,18 @@
     <div class="row sponPad fadeInUp ">
       <div class="col m4 s12 center">
         <a href="https://www.acm.org" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/acm_int.png" class="sponsors-pic wow center fadeInDown responsive-img "
+          <img src="/images/sponsors/acm_int.png" class="sponsors-pic center fadeInDown responsive-img "
             style="padding-top: 70px;">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://zulipchat.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/zulip.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/zulip.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://www.stickermule.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/stickermule.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/stickermule.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
     </div>
@@ -679,18 +701,18 @@
     <div class="row sponPad fadeInUp ">
       <div class="col m4 s12 center" style="margin-top: 2.5rem">
         <a href="https://www.sketchapp.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/sketch.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/sketch.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://www.invisionapp.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/invision.png" class="sponsors-pic wow center  fadeInDown responsive-img "
+          <img src="/images/sponsors/invision.png" class="sponsors-pic center  fadeInDown responsive-img "
             style="height: 150px; width: auto;">
         </a>
       </div>
       <div class="col m4 s12 center" style="margin-top: 32px;">
         <a href="https://mlh.io" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/mlh.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/mlh.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
     </div>
@@ -698,17 +720,17 @@
     <div class="row sponPad fadeInUp ">
       <div class="col m4 s12 center" style="margin-top: -2rem">
         <a href="https://www.bugsee.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/bugsee.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/bugsee.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://www.taskade.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/taskade.svg" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/taskade.svg" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://www.hackerearth.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/hackerearth.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/hackerearth.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
     </div>
@@ -716,17 +738,17 @@
     <div class="row sponPad fadeInUp">
       <div class="col m4 s12 center" style="margin-top: -25px">
         <a href="https://tryshift.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/shift.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/shift.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center" style="margin-top: -25px">
         <a href="https://www.axure.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/axure.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/axure.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
       <div class="col m4 s12 center">
         <a href="https://codingblocks.com" target="_blank" rel="noopener noreferrer">
-          <img src="/images/sponsors/cblogo.png" class="sponsors-pic wow center fadeInDown responsive-img ">
+          <img src="/images/sponsors/cblogo.png" class="sponsors-pic center fadeInDown responsive-img ">
         </a>
       </div>
     </div>
@@ -1397,10 +1419,12 @@
     script.onload = function () {
       new Devfolio(devfolioOptions);
     }
-    document.getElementById("devfolio-apply-now").textContent = "Register Now";
-    console.log(document.getElementById("devfolio-apply-now").textContent, document.getElementById("text"));
+    // document.getElementById("devfolio-apply-now").textContent = "Register Now";
+    // console.log(document.getElementById("devfolio-apply-now").textContent, document.getElementById("text"));
+    // script.on
     script.onerror = function () {
       document.querySelector(devfolioOptions.buttonSelector).addEventListener('click', function () {
+        // window.open('https://devfolio.co/external-apply/', '_blank')
         window.location.href = 'https://devfolio.co/external-apply/' + devfolioOptions.key;
       });
     }

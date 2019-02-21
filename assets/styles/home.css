@@ -73,7 +73,7 @@ light background in about-box :#373d41;
     position: relative; } }
 /* NAVBAR */
 nav {
-  background-color: #332e2e;
+  background-color: #1e1e1e !important;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   z-index: 1001; }
 
