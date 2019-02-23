@@ -64,7 +64,7 @@
   #devfolio-apply-now:hover {
     /* background-color: #2b854c !important; */
     opacity: .9;
-    transition: ease-in-out .3s;
+    transition: .3s;
   }
 
   #devfolio-apply-now .logo {
@@ -84,6 +84,9 @@
   /* nav {
     background-color: #1e1e1e !important;
   } */
+  .cb-slideshow {
+    opacity: .5;
+  }
 </style>
 
 
@@ -104,9 +107,9 @@
     <div class="container-fluidd hero-content">
       <div class="row center">
         <br>
-        <img src="/images/logowhite.png" class="logo-c2c wow fadeInDown" data-wow-delay="0.5s">
+        <img src="/images/C2C_Logo.svg" class="logo-c2c wow fadeInDown" data-wow-delay="0.5s">
       </div>
-      <div class="row center white-text" style="margin-top: -20px;">
+      <div class="row center white-text" style="margin-top: 40px;">
         <h5 class="moto center hide-on-small-only">
           <!-- <i class="fa fa-calendar smooth-transition hero-fa" aria-hidden="true"></i> -->
           <span>
@@ -115,7 +118,7 @@
             </svg>
             March 22-24, 2019
           </span> 
-        &nbsp;| &nbsp;
+          <strong><span>&nbsp;| &nbsp;</span></strong>
           ACM-VIT<span class="">&nbsp; | &nbsp;</span>
           <!-- <i class="fa fa-map-marker smooth-transition hero-fa" aria-hidden="true"></i>  -->
           <svg class="location-icon" style="width:24px;height:24px;vertical-align:bottom;" viewBox="0 0 24 24">
@@ -126,12 +129,18 @@
         <h5 class="moto center hide-on-med-and-up">
           ACM-VIT
           <br>
-          <i class="fa fa-calendar smooth-transition hero-fa" aria-hidden="true"></i>
-          March 22-24, 2019 &nbsp;| &nbsp;
-          <i class="fa fa-map-marker smooth-transition hero-fa" aria-hidden="true"></i> VIT University
+          <span>
+            <svg class="calendar-icon" style="width:24px;height:24px;vertical-align:bottom;" viewBox="0 0 24 24">
+              <path fill="#FFFFFF" d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" />
+            </svg>
+          </span>
+          March 22-24, 2019 &nbsp;|
+          <svg class="location-icon" style="width:24px;height:24px;vertical-align:bottom;" viewBox="0 0 24 24">
+            <path fill="#FFFFFF" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+          </svg>
+          VIT University
         </h5>
       </div>
-      <h4 class="center white-text"><b>Evolution</b>&nbsp; <span style="color: rgba(255,255,255,0.8)">through</span> &nbsp;<b>Innovation</b></h4>
       <div class="row type-row">
         <div class="container">
           <div class="type-div center" id="type1">
@@ -175,6 +184,7 @@
           </div> -->
         </div>
       </div>
+      <h4 class="center white-text" style="margin-top: 40px;"><b>Evolution</b>&nbsp; <span style="color: rgba(255,255,255,0.7)">through</span> &nbsp;<b>Innovation</b></h4>
       <div class="row hide register-but-div center">
         <!--   <button class="hero-register-but waves-effect smooth-transition disable disabled" disabled style="margin:10px;">Register</button> -->
         <a href="/login">
@@ -311,7 +321,7 @@
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
                 <p>
-                  Any and all students from all over the country can register. We welcome you all!
+                  Students from all over the country are eligible to participate in Code2Create. Everybody is welcome to make a difference.
                 </p>
               </div>
             </div>
@@ -319,7 +329,7 @@
           <div class="faq-wrapper" data-id="2">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                What are the registration fees?
+                What will the hackathon cost me?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -330,7 +340,7 @@
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
                 <p>
-                  Nothing, it’s absolutely free!
+                  Nothing, it's absolutely free. You cannot put a prize on groundbreaking ideas.
                 </p>
               </div>
             </div>
@@ -338,7 +348,7 @@
           <div class="faq-wrapper" data-id="3">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                What kind of hackathon is this?
+                What do I bring along with me?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -349,8 +359,7 @@
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
                 <p>
-                  This is a software hackathon. Although participants may use hardware if they wish to, they will be
-                  judged on their software implementation.
+                  Bring your laptops, chargers, invigorated minds and a desire to design a new and better world.
                 </p>
               </div>
             </div>
@@ -358,7 +367,7 @@
           <div class="faq-wrapper" data-id="4">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                How many people can I have on my team?
+                What kind of a hackathon is Code2Create?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -369,8 +378,7 @@
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
                 <p>
-                  You can have 1 to 4 people per team. You should either create your own team or accept invitations
-                  from other team admins.
+                  Code2Create is a software-based hackathon.
                 </p>
               </div>
             </div>
@@ -378,7 +386,7 @@
           <div class="faq-wrapper" data-id="5">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                What tracks does this hack include?
+                How many members can constitute a team?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -388,23 +396,55 @@
             </div>
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
-                <!-- <p>
-                  For now we introduce the following tracks:
-                  <br>
-                  -FinTech
-                  <br>
-                  -Smart Cities
-                  <br>
-                  -Education
-                  <br>
-                  -Health Care
-                  <br>
-                  -Space
-                </p> -->
-                <p>The tracks will be announced soon. Please stay tuned.</p>
+                <p>You can have up to 4 members in a team.</p>
               </div>
             </div>
           </div>
+
+          <div class="faq-wrapper" data-id="12">
+            <div class="faq-div left-align smooth-transition">
+              <div class="faq-question">
+                What if I get hungry or need internet connection?
+              </div>
+              <button class="hamburger hamburger--slider right" type="button">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </button>
+            </div>
+            <div class="faq-details left-align white-text">
+              <div class="faq-details-inner">
+                <p>
+                  We will provide you with delicious food and beverages at regular intervals (breakfast, lunch, dinner, and snacks). Also, you will be provided with free access to our beloved internet facility, VOLSBB.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-wrapper" data-id="12">
+            <div class="faq-div left-align smooth-transition">
+              <div class="faq-question">
+                Will there be accommodation for external participants?
+              </div>
+              <button class="hamburger hamburger--slider right" type="button">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </button>
+            </div>
+            <div class="faq-details left-align white-text">
+              <div class="faq-details-inner">
+                <p>
+                  We will not be providing any accommodation. We expect our participants to stay at the venue for the entire duration of the hackathon.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m12 l6 center">
+        <div class="faqs-div-wrap wow fadeInUp" id="faqs-div-wrap-2">
+
           <div class="faq-wrapper" data-id="6">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
@@ -422,18 +462,15 @@
                   When you <a href="#" target="_blank">register</a> we
                   will ask you to submit your idea proposal and on the basis of your idea we will have shortlisting.
                 </p> -->
-                <p>The tracks will be announced soon. Please stay tuned.</p>
+                <p>The tracks will be announced soon. Please stay tuned and excited for the big reveal.</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col s12 m12 l6 center">
-        <div class="faqs-div-wrap wow fadeInUp" id="faqs-div-wrap-2">
+
           <div class="faq-wrapper" data-id="7">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                How do I qualify for the pitching round?
+                Can I start working on my hack before the hackathon?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -444,9 +481,7 @@
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
                 <p>
-                  There will be a technical inspection on Day 2 during the hack. After the inspection, we will
-                  shortlist 120 participants. These 120 participants will get a chance to present their hack in the
-                  expo for evaluation.
+                  No, you are not permitted to work on pre-existing projects in the hackathon. To maintain fair standards of judgment you will begin working on your hack after reporting to the venue.
                 </p>
               </div>
             </div>
@@ -454,7 +489,7 @@
           <div class="faq-wrapper" data-id="8">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                Is it only about technology?
+                What is the qualification criterion for the pitching round?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -464,8 +499,8 @@
             </div>
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
-                <p> We are tech enthusiasts but we believe 'All work and no play makes Jack a dull boy'.&nbsp
-                  We have numerous fun activities planned for you.
+                <p>
+                  There will be a technical inspection on Day 2 of the hackathon. After the inspection, we will shortlist 120 participants. These 120 participants will get a chance to present their respective hacks in the expo for evaluation.
                 </p>
               </div>
             </div>
@@ -473,7 +508,7 @@
           <div class="faq-wrapper" data-id="9">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                Who will be on the Judging panel?
+                Is the hackathon only about technology?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -483,8 +518,8 @@
             </div>
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
-                <p> We have experts from IBM, ACM India and Startup ecosphere to look into the details of your amazing
-                  projects.
+                <p>
+                  We are tech enthusiasts but we believe ‘All work and no play makes Jack a dull boy.’ We have numerous fun activities planned for you.
                 </p>
               </div>
             </div>
@@ -492,7 +527,7 @@
           <div class="faq-wrapper" data-id="10">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                What all can I win?
+                Who will be on the Judging Panel?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -502,10 +537,8 @@
             </div>
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
-                <p>Cash prizes, original licenses for various softwares, cloud credits, exclusive goodies and swags for
-                  winners. The best app built using the Hasura GraphQL Engine will win a Rs.5000 gift coupon from
-                  Flipkart.
-                  But we have something special back in store for every participant.
+                <p>
+                  We have experts from IBM, ACM India and Startup Ecosystem to look into the details of your amazing projects. 
                 </p>
               </div>
             </div>
@@ -513,7 +546,7 @@
           <div class="faq-wrapper" data-id="11">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                What if I get hungry or need internet connection?
+                How will I benefit from attending this hackathon?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -523,17 +556,17 @@
             </div>
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
-                <p> We’ll provide you with delicious food at regular intervals (breakfast, lunch, dinner and snacks)
-                  along with beverages. Also, you will be provided with free access to our beloved internet facility,
-                  VOLSBB.
+                <p>
+                  Code2Create is a place for innovators to create and make a difference. You will get an opportunity to interact with ingenious minds. In addition, we have cash prizes, licenses, schwags, cloud credits and goodies for the winner. The best app built using the Hasura GraphQL Engine will win an Rs.5000 gift card from Flipkart. Apart from this, we have something special in store for all the participants.
                 </p>
               </div>
             </div>
           </div>
+          
           <div class="faq-wrapper" data-id="12">
             <div class="faq-div left-align smooth-transition">
               <div class="faq-question">
-                What about accommodation for externals?
+                Will there be travel reimbursements provided?
               </div>
               <button class="hamburger hamburger--slider right" type="button">
                 <span class="hamburger-box">
@@ -543,8 +576,8 @@
             </div>
             <div class="faq-details left-align white-text">
               <div class="faq-details-inner">
-                <p> We will not be providing any accomodation for external students. We expect our participants to stay
-                  at the venue for the full hack.
+                <p>
+                  We do not provide reimbursements for external participants for travel expenses.
                 </p>
               </div>
             </div>
