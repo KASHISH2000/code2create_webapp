@@ -2,7 +2,7 @@
 /*LOGIC:
 JAb koi wrapper mein click karen, toh uska active karo. Phir Baki saare ko close kar do.
 */
-var tot_len=6;
+var tot_len=7;
 
 
 $("#faqs-div-wrap-1 .faq-wrapper").click(function(){
@@ -29,7 +29,7 @@ function close_all_1(index){
 	
 }
 
-tot_len=12;
+tot_len=14;
 
 
 $("#faqs-div-wrap-2 .faq-wrapper").click(function(){
@@ -45,7 +45,7 @@ $("#faqs-div-wrap-2 .faq-wrapper").click(function(){
 });
 
 function close_all_2(index){
-	for(var i=6;i<=tot_len;i++){
+	for(var i=1;i<=tot_len;i++){
 		if(i==index) continue;
 		var faq_wrapper=$('*[data-id='+i+']');
 		$(faq_wrapper).removeClass("active");
