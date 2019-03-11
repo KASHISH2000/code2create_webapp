@@ -80,7 +80,9 @@
   #devfolio-register-form input, #devfolio-login-form input {
     box-sizing: border-box !important;
     border-bottom: none !important;
-  }
+  }.hero-div {
+    min-height: 85vh;
+}
   /* nav {
     background-color: #1e1e1e !important;
   } */
@@ -89,6 +91,14 @@
   }
   .spons-mtop {
     margin-top: 30px;
+  }
+
+  .he-register {
+    margin-top: 1.5em !important;
+  }
+  .he-register-helpertext {
+    color: white;
+    margin-top: 10px !important;
   }
   @media only screen and (max-width: 600px) {
     .spons-mtop {
@@ -160,7 +170,7 @@
       </div>
       <div class="row">
         <div class="center" style="border-style: none;">
-          <div class="hide-on-small-onl">
+          <div class="hide-on-small-onl" style="color:white">
             <!-- <h5 class="center"><a href="http://skll.in/code2create18" style="color: rgb(60,190,136);">REGISTER NOW</a></h5> -->
             <!-- <a href="#" class="myButton wow fadeInDown" style="background-color:rgba(20,157,100,1); color: white;">COMING SOON</a> -->
             <button id="devfolio-apply-now"><svg class="logo" xmlns="htt
@@ -175,6 +185,10 @@
               1 60.08 111s-36.48.92-48.58-.12C5 110.29.15 104.22 0 97.52l.2-
               83.84C.38 7 5.26.94 11.76.41c12.11-1 48.59.12 48.59.12a55.41 5
               5.41 0 0 1 50.58 55.34z" /></svg>Register Now</button>
+
+              <a href="https://c2c.hackerearth.com"><button href="#" id="devfolio-apply-now" class="he-register">Register with HackerEarth</button></a>
+             <!-- <p class="he-register-helpertext">Only for Internals</p> -->
+             (Only for Internals)
           </div>
           <!-- <div class="hide-on-med-and-up">
             <button id="devfolio-apply-now"><svg class="logo" xmlns="htt
