@@ -81,8 +81,12 @@
     box-sizing: border-box !important;
     border-bottom: none !important;
   }.hero-div {
-    min-height: 93vh;
-}
+    /* min-height: 93vh; */
+    margin-top: -7vh;
+  }
+  .hero-content{
+    padding-top: 2vh;
+  }
   /* nav {
     background-color: #1e1e1e !important;
   } */
@@ -100,6 +104,21 @@
     color: white;
     margin-top: 10px !important;
   }
+  @media only screen and (max-width: 769px) {
+    .logo-c2c {
+        width: 60%;
+    }
+  }
+  @media (max-width: 426px) {
+    .logo-c2c {
+        width: 80%;
+    }
+  }
+  @media (max-width: 426px) and (min-height: 600px) {
+    .hero-content{
+    padding-top: 6vh;
+  }
+  } 
   @media only screen and (max-width: 600px) {
     .spons-mtop {
       margin-top: 0;
