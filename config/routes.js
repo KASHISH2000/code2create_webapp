@@ -35,6 +35,12 @@
   '/': {
     view: 'homepage'
   },
+  '/problem-statement': {
+    view: 'problemStatement',
+    locals: {
+      title: 'Problem Statements | Code2Create'
+    }
+  },
   '/conduct': {
     view: 'conduct',
     locals: {
