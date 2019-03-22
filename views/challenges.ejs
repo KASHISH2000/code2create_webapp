@@ -1,141 +1,156 @@
-    <link rel="stylesheet" href="/styles/app_common.css?1100">
-    <link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
-    <%- partial('./partials/challenges_resources.ejs') %>
-    <style>
-      .kc-nav-button.active{
-        color: #1eb76e !important;
-        background-color: #1eb76e !important;
-      }
-      .kc-nav-button{
-        width: 12px !important;
-        height: 12px !important;
-      }
-      .kc-nav-wrap{
-        bottom: 0px !important;
-      }
-      .problem-wrap h5{
-        position: relative;  
-        min-width: 17rem;
-      }
-      .powered{
-        position: absolute;
-        bottom: -30px;
-        left: 10px;
-        color: #1eb76e;
-        font-size: 1rem;
-      }
-      .powered-h5{
-        margin-bottom: 1.5rem;
-      }
-      @media(min-width: 769px){
-        .problem-wrap p{
-          padding-left: 2rem;
-        }
-        .powered{
-          left: 30px;
-        }
-      }
-    </style>
+<link rel="stylesheet" href="/styles/app_common.css?1100">
+<link rel="stylesheet" type="text/css" href="/styles/without_login_navbar.css?1100">
+<!-- <%- partial('./partials/challenges_resources.ejs') %> -->
+<style>
+  .kc-nav-button.active {
+    color: #1eb76e !important;
+    background-color: #1eb76e !important;
+  }
 
-    <% if(req.session.authenticated) { %>
-    <%- partial('./partials/navbar.ejs',{active: 'challenges'}) %>
-    <% } %>
-    <% if(!(req.session.authenticated)) { %>
-    <%- partial('./partials/without_login_navbar.ejs',{active: 'challenges'}) %>
-    <% } %>
-    <div class="container container-little-little-big">
-      <div class="heading-bg">
-       <h5 class="left-align white-text main-heading">Challenges</h5>
-     </div>
-     <div class="my-main-card hoverable">
-      <div class="challenges-wrap">
-        <div class='row'>
-          <div class="col s12">
+  .kc-nav-button {
+    width: 12px !important;
+    height: 12px !important;
+  }
 
+  .kc-nav-wrap {
+    bottom: 0px !important;
+  }
 
-            <div class = "kc-wrap">
-              <!-- Carousel items follow -->
+  .problem-wrap h5 {
+    position: relative;
+    min-width: 17rem;
+  }
 
-              <div class="kc-item">
-                <img src="/images/tracks/track1.png" title ="Construction" alt = "Construction"
+  .powered {
+    position: absolute;
+    bottom: -30px;
+    left: 10px;
+    color: #1eb76e;
+    font-size: 1rem;
+  }
+
+  .powered-h5 {
+    margin-bottom: 1.5rem;
+  }
+
+  @media(min-width: 769px) {
+    .problem-wrap p {
+      padding-left: 2rem;
+    }
+
+    .powered {
+      left: 30px;
+    }
+  }
+</style>
+<div class="container container-little-little-big">
+  <div class="heading-bg">
+    <h5 class="left-align white-text main-heading">Challenges</h5>
+  </div>
+  <div class="my-main-card hoverable">
+    <div class="challenges-wrap">
+      <div class='row'>
+        <div class="col s12">
+          <div class="kc-wrap">
+            <!-- Carousel items follow -->
+
+            <div class="kc-item">
+              <img src="/images/tracks/track1.png" title="Construction" alt="Construction"
                 data-desc="Easy to use lens zoom for high resolution images.">
 
-              </div> 
+            </div>
 
-              <div class="kc-item" >
+            <div class="kc-item">
 
-                <img src="/images/tracks/track-def.png" title ="Defence" alt = "Defence" 
+              <img src="/images/tracks/track-def.png" title="Defence" alt="Defence"
                 data-desc="Hugely popular fly-out image zoom for high-resolution images.">
 
-              </div>
+            </div>
 
-              <div class="kc-item">
+            <div class="kc-item">
 
-               <img src="/images/tracks/track-devop.png" title="Devops" alt = "Devops"
-               data-desc="Powerful 2d/3d responsive carousel.">
+              <img src="/images/tracks/track-devop.png" title="Devops" alt="Devops"
+                data-desc="Powerful 2d/3d responsive carousel.">
 
-             </div>
-             <div class="kc-item">
-               <img src="/images/tracks/track-health.png" title ="Health & Fitness" alt = "Health Care"
-               data-desc="Zoom for very high resolution images 100 megapixels+">                                                  
+            </div>
+            <div class="kc-item">
+              <img src="/images/tracks/track-health.png" title="Health & Fitness" alt="Health Care"
+                data-desc="Zoom for very high resolution images 100 megapixels+">
 
-             </div>
-             <div class="kc-item">
-                <img src="/images/tracks/tracck-data.png" title ="Data Integrity" alt = "Data Integrity"
-                data-desc="Zoom for very high resolution images 100 megapixels+">                                                  
- 
-              </div>
-              <div class="kc-item">
-                <img src="/images/tracks/track-edu.png" title ="Education" alt = "Education"
-                data-desc="Zoom for very high resolution images 100 megapixels+">                                                  
- 
-              </div>
-              <div class="kc-item">
-                <img src="/images/tracks/track-rec.png" title ="Recreation and Travel" alt = "Travel"
-                data-desc="Zoom for very high resolution images 100 megapixels+">                                                  
- 
-              </div>
+            </div>
+            <div class="kc-item">
+              <img src="/images/tracks/tracck-data.png" title="Data Integrity" alt="Data Integrity"
+                data-desc="Zoom for very high resolution images 100 megapixels+">
 
-           </div>
-         </div>
-       </div>
-       <div class="row">
+            </div>
+            <div class="kc-item">
+              <img src="/images/tracks/track-edu.png" title="Education" alt="Education"
+                data-desc="Zoom for very high resolution images 100 megapixels+">
+
+            </div>
+            <div class="kc-item">
+              <img src="/images/tracks/track-rec.png" title="Recreation and Travel" alt="Travel"
+                data-desc="Zoom for very high resolution images 100 megapixels+">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <h3 id="plugin-name" class="color-theme-green center">&nbsp;</h3>
       </div>
       <!-- construction -->
       <div class="row" id="cntr">
         <div class="col s12 m10 offset-m1 white-text">
           <div class="problem-wrap">
-            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM STATEMENT 1
-            </span>
-            <!-- <span class="powered">(powered by Metavrse)</span> -->
-          </h5>
-          <div class="white-text">
-                The most important part of construction management is tendering. Tendering is where a construction company responds to a request for information or pricing related to the supply of goods and services from a client. Any construction
-                 company can respond to this request with their tender and the one with the minimum cost is generally chosen.
-                <br><br>
-                The tendering process today is very outdated, there is a need to modernize this process so that contractors don't need to rely on excel sheets for their tender. Furthermore, clients find it difficult to trust a contractor because they promise 
-                a low cost build but don't keep their promise after the deal is confirmed. To reduce budget cost companies often ignore safety risks.
-                <br><br>
-                The idea is to use a platform which makes the tendering process easier and where clients can find trustworthy contractors.
-                <br>
-          </div>
-        </div>
-        <div class="problem-wrap">
-          <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">PROBLEM STATEMENT 2</span>
-            <!-- <span class="powered">(powered by Winuall)</span> -->
+            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM
+                STATEMENT 1
+              </span>
+              <!-- <span class="powered">(powered by Metavrse)</span> -->
             </h5>
-          <div class="white-text">
-                Construction is an activity involving a great number of people collaborating to produce complex, one-off developments. Whilst historically, information may have been managed and communicated using paper-based systems and verbal instructions, 
-                the integration of the supply chain, the introduction of computer aided design (CAD), building information modelling (BIM) and the development of mobile computing (MC) means that ICT is becoming a fundamental part, not just of the design office,
-                 but also of the construction site.
-                 <br><br>
-                 Requirement is to build a platform/interface which can serve as a medium to communication with people from the construction industry and make them aware about the different technologies which can aid them to achieve increased growth in their field 
-                 by providing them with the necessary tools and techniques and by also explaining to them its working and implementation. Real time hands-on sessions can also be integrated in the platform for increased efficiency in understanding.
-                 <br><br>
+            <div class="white-text">
+              The most important part of construction management is tendering. Tendering is where a construction company
+              responds to a request for information or pricing related to the supply of goods and services from a
+              client. Any construction
+              company can respond to this request with their tender and the one with the minimum cost is generally
+              chosen.
+              <br><br>
+              The tendering process today is very outdated, there is a need to modernize this process so that
+              contractors don't need to rely on excel sheets for their tender. Furthermore, clients find it difficult to
+              trust a contractor because they promise
+              a low cost build but don't keep their promise after the deal is confirmed. To reduce budget cost companies
+              often ignore safety risks.
+              <br><br>
+              The idea is to use a platform which makes the tendering process easier and where clients can find
+              trustworthy contractors.
+              <br>
+            </div>
           </div>
-        </div>
-        <!-- <div class="problem-wrap">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">PROBLEM
+                STATEMENT 2</span>
+              <!-- <span class="powered">(powered by Winuall)</span> -->
+            </h5>
+            <div class="white-text">
+              Construction is an activity involving a great number of people collaborating to produce complex, one-off
+              developments. Whilst historically, information may have been managed and communicated using paper-based
+              systems and verbal instructions,
+              the integration of the supply chain, the introduction of computer aided design (CAD), building information
+              modelling (BIM) and the development of mobile computing (MC) means that ICT is becoming a fundamental
+              part, not just of the design office,
+              but also of the construction site.
+              <br><br>
+              Requirement is to build a platform/interface which can serve as a medium to communication with people from
+              the construction industry and make them aware about the different technologies which can aid them to
+              achieve increased growth in their field
+              by providing them with the necessary tools and techniques and by also explaining to them its working and
+              implementation. Real time hands-on sessions can also be integrated in the platform for increased
+              efficiency in understanding.
+              <br><br>
+            </div>
+          </div>
+          <!-- <div class="problem-wrap">
           <h5 class="color-theme-green display-inline-block powered-h5">3. <span class="color-theme-green">problem solving using AR application</span>
             <span class="powered">(powered by Metavrse)</span>
             </h5>
@@ -151,54 +166,88 @@
             Reimagining Social Networking and Media using AR/VR.
           </p>
         </div> -->
-      </div>
-    </div>
-    <!-- defence -->
-    <div class="row" id="def">
-      <div class="col s12 m10 offset-m1 white-text">
-        <div class="problem-wrap">
-          <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">PROBLEM STATEMENT 1</span></h5>
-          <div class="white-text">
-            There is common problem of large scale infiltration by terrorists, refugees and Naxalites, along with smuggling of illegal weapons and drug trade, across the:
-                <li>Line Of Control between India and POK.</li>
-                <li>Indo-China border defined only by the MacMohan line</li>
-                <li>Border between India and Bangladesh and </li>
-                <li>Border between India and Nepal</li>
-            <br>
-            NECESSITY FOR A SOLUTION: India has been paying a heavy price for this security lapse in the past and will continue to bear heavy losses in the future if this is allowed to go on unchecked. Hence a solution is urgently required.
-            <br ><br>DIFFICULTY IN IMPLEMENTING SOLUTION (EXISTING GAPS): 
-            <li>It is not possible to physically, manually monitor such a large terrain, with varied topography</li>
-            <li>Any attempt to put up a fence is not economically feasible (expensive), besides taking too much time and resources which we do not have. Our neighbouring countries will definitely not share the expenses of such a project. Also, the topography, with rivers, mountains, glaciers etc, will come in the way of proper implementation of such a project.</li>
-            <br >USE OF TECHNOLOGY: An effective solution could be the use of radar systems sensors, and Early Warning Systems which provide a link between the selected sensitive areas along the border, prone to infiltration. 
-            <br><br>DESIRED OUTCOME: to effectively seal the border from such infiltration of men (terrorists, refugees, naxalites) and material (esp weapons, drugs), in a cost effective manner, with negligible errors, through an effective surveillance system.
-            
-          </div>
-       </div>
-       <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT 2</span></h5>
-        <div class="white-text">
-                DESCRIPTION OF THE CURRENT STATUS OF THE PROBLEM:  
-                <li>Enhancement of war fighting capabilities of Indian Armed Forces requires state of the art, technologically superior weapons and defence equipment to give us the cutting edge over our enemies. However, the indigenous development 
-                    of modern defence hardware continues to remain a concern despite the ‘Make in India’ incentives given by government, to foreign and Indian private sector industry.</li>
-                <li>India’s defence requirements are likely to increase in the future. Indigenous development of modern defence hardware and technology is likely to remain a top priority, because of the dynamic security environment, </li>
-                <li>Future challenges include technology dominated cyber, electronic warfare. </li>
-                <br>
-                
-                NECESSITY FOR A SOLUTION: 
-                <li>The cumulative effect of  lack of development of indigenous technology is that there is 40%-50% obsolescence in our weapon and defence transport technology. </li>
-                <li>India’s inability to develop sophisticated indigenous weapon technology has led to heavy dependence on imports.  So much so, that India has emerged as the largest importer of
-                     weapons in the period 2013-2018. This is unsustainable in the near future given our constrained financial position. Besides, too much dependence on foreign countries can prove to be detrimental in our time of need. </li>
-                <br>
-                DIFFICULTY IN IMPLEMENTING SOLUTION (EXISTING GAPS): 
-                Deficiency exists in development of new generation lightweight assault rifles, bulletproof jackets and helmets, hand-held thermal imagers (HHTIs) as well as a host of other modern weapons like carbines, machine guns, rocket launchers, anti-tank guided missiles (ATGMs), mortars, night-vision devices, radio sets, Unmanned Aerial Vehicles (UAVs), to name a few; in the face of lack of expertise, technology and budget constraints. 
-                <br>USE OF TECHNOLOGY: it is possible for India to overcome the problem of deficiency and obsolescence through development of smart weapons, killer robots, which can seek and destroy specific targets, Network-centric Battlefield Management is a new approach to managing battlefields by utilizing ICT advantages. A military commander could monitor his troop’s advancement to enemy’s line, their position in the battlefield, the number of casualties, as well as the level of ammunition supplies, and when to replenish them.
-                The intra-troops communication is also improved with network-centric devices.
-                 All these advantages are possible due to advance electronic devices plus wireless networking facilities between the military personnel in the battlefield and Command Centres.
-                <br><br>DESIRED OUTCOME: Cost effective smart solutions to problem of defence.
-                
         </div>
-     </div>
-     <!-- <div class="problem-wrap">
+      </div>
+      <!-- defence -->
+      <div class="row" id="def">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">1. <span class="color-theme-green">PROBLEM STATEMENT
+                1</span></h5>
+            <div class="white-text">
+              There is common problem of large scale infiltration by terrorists, refugees and Naxalites, along with
+              smuggling of illegal weapons and drug trade, across the:
+              <li>Line Of Control between India and POK.</li>
+              <li>Indo-China border defined only by the MacMohan line</li>
+              <li>Border between India and Bangladesh and </li>
+              <li>Border between India and Nepal</li>
+              <br>
+              NECESSITY FOR A SOLUTION: India has been paying a heavy price for this security lapse in the past and will
+              continue to bear heavy losses in the future if this is allowed to go on unchecked. Hence a solution is
+              urgently required.
+              <br><br>DIFFICULTY IN IMPLEMENTING SOLUTION (EXISTING GAPS):
+              <li>It is not possible to physically, manually monitor such a large terrain, with varied topography</li>
+              <li>Any attempt to put up a fence is not economically feasible (expensive), besides taking too much time
+                and resources which we do not have. Our neighbouring countries will definitely not share the expenses of
+                such a project. Also, the topography, with rivers, mountains, glaciers etc, will come in the way of
+                proper implementation of such a project.</li>
+              <br>USE OF TECHNOLOGY: An effective solution could be the use of radar systems sensors, and Early Warning
+              Systems which provide a link between the selected sensitive areas along the border, prone to infiltration.
+              <br><br>DESIRED OUTCOME: to effectively seal the border from such infiltration of men (terrorists,
+              refugees, naxalites) and material (esp weapons, drugs), in a cost effective manner, with negligible
+              errors, through an effective surveillance system.
+
+            </div>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT
+                2</span></h5>
+            <div class="white-text">
+              DESCRIPTION OF THE CURRENT STATUS OF THE PROBLEM:
+              <li>Enhancement of war fighting capabilities of Indian Armed Forces requires state of the art,
+                technologically superior weapons and defence equipment to give us the cutting edge over our enemies.
+                However, the indigenous development
+                of modern defence hardware continues to remain a concern despite the ‘Make in India’ incentives given by
+                government, to foreign and Indian private sector industry.</li>
+              <li>India’s defence requirements are likely to increase in the future. Indigenous development of modern
+                defence hardware and technology is likely to remain a top priority, because of the dynamic security
+                environment, </li>
+              <li>Future challenges include technology dominated cyber, electronic warfare. </li>
+              <br>
+
+              NECESSITY FOR A SOLUTION:
+              <li>The cumulative effect of lack of development of indigenous technology is that there is 40%-50%
+                obsolescence in our weapon and defence transport technology. </li>
+              <li>India’s inability to develop sophisticated indigenous weapon technology has led to heavy dependence on
+                imports. So much so, that India has emerged as the largest importer of
+                weapons in the period 2013-2018. This is unsustainable in the near future given our constrained
+                financial position. Besides, too much dependence on foreign countries can prove to be detrimental in our
+                time of need. </li>
+              <br>
+              DIFFICULTY IN IMPLEMENTING SOLUTION (EXISTING GAPS):
+              Deficiency exists in development of new generation lightweight assault rifles, bulletproof jackets and
+              helmets, hand-held thermal imagers (HHTIs) as well as a host of other modern weapons like carbines,
+              machine guns, rocket launchers, anti-tank guided missiles (ATGMs), mortars, night-vision devices, radio
+              sets, Unmanned Aerial Vehicles (UAVs), to name a few; in the face of lack of expertise, technology and
+              budget constraints.
+              <br>USE OF TECHNOLOGY: it is possible for India to overcome the problem of deficiency and obsolescence
+              through development of smart weapons, killer robots, which can seek and destroy specific targets,
+              Network-centric Battlefield Management is a new approach to managing battlefields by utilizing ICT
+              advantages. A military commander could monitor his troop’s advancement to enemy’s line, their position in
+              the battlefield, the number of casualties, as well as the level of ammunition supplies, and when to
+              replenish them.
+              The intra-troops communication is also improved with network-centric devices.
+              All these advantages are possible due to advance electronic devices plus wireless networking facilities
+              between the military personnel in the battlefield and Command Centres.
+              <br><br>DESIRED OUTCOME: Cost effective smart solutions to problem of defence.
+              <br><br>
+              Look at this web site:<br/>
+              <a href="https://www.indianweb2.com/2017/04/18/indias-9-defence-tech-startups-giving-boost-indian-armed-forces/">
+                Defence Startups in India
+              </a>
+            </div>
+          </div>
+          <!-- <div class="problem-wrap">
       <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Record my energy footprints</span></h5>
       <p class="white-text">
        Gas and other gaseous products are the main energy source of India.And the reserve of gas is decreasing extensively. But the economic development will be affected if energy demand cannot be met. So, the rate of progress in energy efficiency has to be doubled by the year of 2030. System loss or illegal connection has to be eliminated to zero. At the same time, proper steps should be taken in energy research and technology expansion among common people. And people should make aware of this. Come up with a solution so that people can record their energy footprints and also track their progress over days and months. 
@@ -210,161 +259,241 @@
      Renewables - Making Solar PV and Wind energy predictable (firming) is a huge challenge DERs(Distributed Energy Resources) are facing. There is vast material available on the internet regarding forecasting, storage etc and many strategies to make Solar PV and Wind power a smooth, predictable power source.
    </p>
  </div> -->
-</div>
-</div>
-<!-- Devops -->
-<div class="row" id="devop">
-  <div class="col s12 m10 offset-m1 white-text">
-    <div class="problem-wrap">
-      <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">How do you enable micro payments for online platforms?
-      </span>
-       <span class="powered">(powered by PayPal)</span>
-       </h5>
-      <p class="white-text">
-       One could be running a blog or video site on their personal domain or using hosted third party solutions.
-       How do you empower the author/creator to collect payments for selective blog posts or a specific short
-       film?
-       Please do note it would not be a subscription on a recurring or monthly basis but mostly one off
-       purchases.
-       To give an example, you might be running a website publishing several posts or short films or a music
-       video. Most of the posts/film/music may be free to access, however as a publisher/creator, might decide
-       to charge for specific content. How to let the user pay for it?
-       Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a>
-     </p>
-   </div>
-   <div class="problem-wrap">
-    <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">How do you enable Offline Payments in a digital manner, when there is no internet connectivity?</span>
-     <span class="powered">(powered by PayPal)</span>
-     </h5>
-    <p class="white-text">
-     There are scenario where we do not have internet connectivity, in airplanes, during natural disasters
-     and in remote areas. How do we enable digital payments in such offline scenarios? Possible permutation
-     and combinations do include
-     1) Buyer not connected to Internet; Seller not connected to Internet
-     2) Buyer not connected to Internet; Seller connected to Internet
-     3) Buyer connected to Internet; Seller not connected to Internet
-     Please do note, buyer and seller would get connected to internet at some point of time and the
-     transactions should be enabled
-     Use the API/SDK available in <a href="https://developer.paypal.com/" target="_blank">developer.paypal.com</a>
+        </div>
+      </div>
+      <!-- Devops -->
+      <div class="row" id="devop">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">
+              <span class="color-theme-green">
+                PROBLEM STATEMENT 1
+              </span>
+            </h5>
+            <div class="white-text">
+              In a technical firm or a company providing technical solutions, managing servers has always been a time
+              consuming and tedious task. The handling of logs and aggregating them manually can take up considerable
+              amounts of time, which can be used by the firm for other purposes.
+              Problems arise when the network gets clogged when there are issues of low bandwidth and high amounts of
+              data. <br /><br />
+              In this era, automating the logs and aggregation is possible, and thanks to methodologies of efficient
+              management such as DevOps,
+              is no big deal. However, designing a perfect log automation and aggregation system is a challenge on its
+              own and varies differently for different cases.
+              This problem statement focuses on an overall automated management system for log handling on large scale
+              focusing mainly on the problems network clogging caused by the mentioned predicaments.
+              Participants are expected to research on the problem and to provide and implement an efficient solution,
+              giving specific details on how they have tackled the mentioned problems and how their management system
+              can prove to be better than the existing ones.
+              <br /><br />Useful Links:<br />
+              <a href="https://www.datical.com/database-devops/6-problems-devops-helps-solve/" target="_blank">
+                https://www.datical.com/database-devops/6-problems-devops-helps-solve
+              </a><br />
+            </div>
+          </div>
+          <!-- <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">2. <span class="color-theme-green">How do you
+                enable Offline Payments in a digital manner, when there is no internet connectivity?</span>
+              <span class="powered">(powered by PayPal)</span>
+            </h5>
+            <p class="white-text">
+              There are scenario where we do not have internet connectivity, in airplanes, during natural disasters
+              and in remote areas. How do we enable digital payments in such offline scenarios? Possible permutation
+              and combinations do include
+              1) Buyer not connected to Internet; Seller not connected to Internet
+              2) Buyer not connected to Internet; Seller connected to Internet
+              3) Buyer connected to Internet; Seller not connected to Internet
+              Please do note, buyer and seller would get connected to internet at some point of time and the
+              transactions should be enabled
+              Use the API/SDK available in <a href="https://developer.paypal.com/"
+                target="_blank">developer.paypal.com</a>
 
-   </p>
- </div>
- <div class="problem-wrap">
-  <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Solution using AML</span></h5>
-  <p class="white-text">
-   AML is a process that is common across the financial industry. For example, to remit an international payment from a payor company to a beneficiary company, sanction screening is performed by the payor, the payor’s bank, the correspondent bank for payor, correspondent bank for the beneficiary, and the beneficiary’s bank.
-   Develop a solution that would leverage a common international platform and infrastructure. This solution could be made available to industry players through a subscription service.
- </p>
-</div>
-<div class="problem-wrap">
-  <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Game/App to provide financial literacy</span></h5>
-  <p class="white-text">
-    Develop a creative and engaging tool, game or app that provides financial literacy education at strategic points in a person’s early life.
-    The technology could include secondary school curriculum modules, or game style tools that teach basic financial skills such as opening bank accounts, as well as more elaborate financial concepts such as budgeting, savings, credit, interest, debt, financial planning or even basics on markets and how these work and interact.
-  </p>
-</div>
-</div>
-</div>
-<!-- Healthcare -->
-<div class="row" id="helc">
-  <div class="col s12 m10 offset-m1 white-text">
-    <div class="problem-wrap">
-      <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM STATEMENT 1</span>
-       <!-- <span class="powered">(powered by Cardea Labs)</span> -->
-       </h5>
-      <div class="white-text">
-            In today’s world, the growing population and their dependence on technology has increased drastically leading to a unhealthy lifestyle. For hours the youth spend their time looking in the screens of their mobile phones 
-            and laptops rather than focusing on their fitness/health. Although there are many apps on playstore for eg; Pokemon GO , Zombies Run! , Step Set Go Etc..which promote fitness regimes amongst people via an interactive approach 
-            there are still many users who neglect their fitness/health even after downloading these application because they start losing interest. You might find that in the initial level of these application there were many flaws in them.
-            Develop a solution and look into the multiple ways to counter their flaws.
+            </p>
+          </div> -->
+          <!-- <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Solution using
+                AML</span></h5>
+            <p class="white-text">
+              AML is a process that is common across the financial industry. For example, to remit an international
+              payment from a payor company to a beneficiary company, sanction screening is performed by the payor, the
+              payor’s bank, the correspondent bank for payor, correspondent bank for the beneficiary, and the
+              beneficiary’s bank.
+              Develop a solution that would leverage a common international platform and infrastructure. This solution
+              could be made available to industry players through a subscription service.
+            </p>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Game/App to provide
+                financial literacy</span></h5>
+            <p class="white-text">
+              Develop a creative and engaging tool, game or app that provides financial literacy education at strategic
+              points in a person’s early life.
+              The technology could include secondary school curriculum modules, or game style tools that teach basic
+              financial skills such as opening bank accounts, as well as more elaborate financial concepts such as
+              budgeting, savings, credit, interest, debt, financial planning or even basics on markets and how these
+              work and interact.
+            </p>
+          </div> -->
+        </div>
       </div>
-    </div>
-    <div class="problem-wrap">
-      <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT 2</span>
-      </h5>
-      <div class="white-text">
-            World over integrated medicine is gaining acceptance. Increasingly medicines and food that we are fed by the capitalists are being proven to have many ill effects on our body and causes many ailments.  
-            The hypothesis is that nature has cure of  everything and if eat well and right we can prevent or cure all ailments. Combining this knowledge with right way to eat, sleep, drink and exercise can solve the problem of healthy living to a large extent.
-            <br><br>
-            Public in general is not aware of the various benefits of various natural food items  i.e fruits, vegetables and their various combinations.  Researching the web and finding leads to half knowledge and lacks credibility.
-            <br><br>
-            There are various reliable data sources, datasets, ontologies on web that provide reliable information on causes and symptoms of various diseases and also about the nutritional value and chemical composition of various food items.
-            <br><br>
-            Idea is to create a ML based system that integrates this knowledge via various ontologies on diseases, their causes, their symptoms and chemical composition of various food items to suggest people in a self service way about what fruits and
-             vegetables to eat and when & how to fix a particular ailment.  Say if you have acidity, then what are the Do's and Dont's, which type of food to eat or not to eat.  The system should take inputs from user in terms of the symptoms and disease 
-             they have, then using the knowledge of its causes in terms of chemical imbalance and inflamations etc caused in body by them, it should then look into the chemical composition of various food items and suggest the DOs and DONT's.
-            
-      </div>
-    </div>
-    <div class="problem-wrap">
+      <!-- Healthcare -->
+      <div class="row" id="helc">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM
+                STATEMENT 1</span>
+              <!-- <span class="powered">(powered by Cardea Labs)</span> -->
+            </h5>
+            <div class="white-text">
+              In today’s world, the growing population and their dependence on technology has increased drastically
+              leading to a unhealthy lifestyle. For hours the youth spend their time looking in the screens of their
+              mobile phones
+              and laptops rather than focusing on their fitness/health. Although there are many apps on playstore for
+              eg; Pokemon GO , Zombies Run! , Step Set Go Etc..which promote fitness regimes amongst people via an
+              interactive approach
+              there are still many users who neglect their fitness/health even after downloading these application
+              because they start losing interest. You might find that in the initial level of these application there
+              were many flaws in them.
+              Develop a solution and look into the multiple ways to counter their flaws.
+            </div>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT
+                2</span>
+            </h5>
+            <div class="white-text">
+              World over integrated medicine is gaining acceptance. Increasingly medicines and food that we are fed by
+              the capitalists are being proven to have many ill effects on our body and causes many ailments.
+              The hypothesis is that nature has cure of everything and if eat well and right we can prevent or cure all
+              ailments. Combining this knowledge with right way to eat, sleep, drink and exercise can solve the problem
+              of healthy living to a large extent.
+              <br><br>
+              Public in general is not aware of the various benefits of various natural food items i.e fruits,
+              vegetables and their various combinations. Researching the web and finding leads to half knowledge and
+              lacks credibility.
+              <br><br>
+              There are various reliable data sources, datasets, ontologies on web that provide reliable information on
+              causes and symptoms of various diseases and also about the nutritional value and chemical composition of
+              various food items.
+              <br><br>
+              Idea is to create a ML based system that integrates this knowledge via various ontologies on diseases,
+              their causes, their symptoms and chemical composition of various food items to suggest people in a self
+              service way about what fruits and
+              vegetables to eat and when & how to fix a particular ailment. Say if you have acidity, then what are the
+              Do's and Dont's, which type of food to eat or not to eat. The system should take inputs from user in terms
+              of the symptoms and disease
+              they have, then using the knowledge of its causes in terms of chemical imbalance and inflamations etc
+              caused in body by them, it should then look into the chemical composition of various food items and
+              suggest the DOs and DONT's.
+            </div>
+            <!-- <div class="problem-wrap">
+              <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT
+                  3</span>
+              </h5>
+              <div class="white-text">
+                There is more ability in the health and fitness industry to change the population for the better than in any other aspect of health care. 
+                Fitness trainers, coaches and instructors are the front line in the health industry for preventative care. 
+                But they become an expensive investment for the general masses, making people neglect taking care of themselves. 
+                With the growing advancements in technology, 
+                we encourage participants to come with user friendly tech solutions to motivate and help the masses live a healthy life.
+              </div>
+          </div> -->
+          <!-- <div class="problem-wrap">
       <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">PROBLEM STATEMENT 3</span></h5>
       <div class="white-text">
             There is more ability in the health and fitness industry to change the population for the better than in any other aspect of health care. Fitness trainers, coaches and instructors are the front line in the health industry for preventative care. 
             But they become an expensive investment for the general masses, making people neglect taking care of themselves. With the growing advancements in technology, we encourage participants to come with user friendly tech solutions to motivate and help the masses live a healthy life.
       </div>
-    </div>
-    <!--<div class="problem-wrap">
+    </div> -->
+          <!--<div class="problem-wrap">
       <h5 class="color-theme-green display-inline-block">4. <span class="color-theme-green">Solution for Juvenile delinquents</span></h5>
       <p class="white-text">
        The risk factors and co-occurring issues for girls who are identified as at-risk for juvenile delinquent and/or sexually risky behavior. Develop a solution for this problem.
      </p>
    </div> -->
- </div>
-</div>
-<!-- data intergrity -->
-<div class="row" id="datai">
-    <div class="col s12 m10 offset-m1 white-text">
-      <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">Fake or Biased News & Disinformation
-            </span>
-         <span class="powered">(powered by Cruxx(Inable solutions))</span>
-         </h5>
-        <div class="white-text">
-            In the age of information bombardment, deep fakes and biased media, it has become very difficult for general public to identity which information to trust or reject, what to believe and share and what not to.
-            <br><br>
-            The hypothesis is that by connecting the dots between the source of information, the entities and events mentioned in the information piece published, consumer of information can be presented with a type of background
-             check information about the news/views expressed in the information in context.  Which can help people look at possible case of biased reporting or disinformation.
-             <br>
-             Consider articles and tweets by leading journalists only for the scope of this hackathon.
-             <br><br>
-             The ML/Neural network based system should parse an article (say HTML5 markup) extract the following to create an understanding
-            <li>The media company</li>
-            <li>The journalist who wrote the time</li>
-            <li>Date</li>
-            <li>Place</li>
-            <li>Various entities mentioned in the piece, say people, places, organisations and events
-                </li>
-            <br>
-            The system will need to have an evolutionary knowledge base about various entities especially journalists(people), media company(organization) and events.  For the sake of hackathon it can be a predefined curated set.
-            <br><br>The output should show the reader.<br>
-            which other organisations and people are affiliated with the media company as investors, board members and advertisers (if possible) could be in multiple levels
-            The historic stance of the journalist on the key event being discussed in the article, like For or against, or it gives links to related articles (time wise) on the same subject/event by the same media house/journalist
-            <br>
-            Links and associations of the journalist like past organization they worked, parents/family and their affiliations
-            <br>
-            For the scope of hackathon, participants may
-            Just have data on top 10 media houses (indian and a few can be international like Wire, CNN, NYTimes )  and pouplar journalists (like Arnab, Rajdeep, Barkha, Gaurav Sawant, Vir sanghvi, shekhar gupta etc)
-                <br>
-            Have a manually curated set of articles and tweets by them in recent history
-            pick a few major current affairs events like pulwama attack, terrorism, elections 2019 , you may choose any other based on data availability etc.
-            <br>
-            You may extend or reduce the scope of output display based on your own ideas that may promise a better a solution for the problem statement.
-            <br>
+        </div>
+      </div>
+    </div>
+      <!-- data intergrity -->
+      <div class="row" id="datai">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">Fake or
+                Biased News & Disinformation
+              </span>
+              <span class="powered">(powered by Cruxx(Inable solutions))</span>
+            </h5>
+            <div class="white-text">
+              In the age of information bombardment, deep fakes and biased media, it has become very difficult for
+              general public to identity which information to trust or reject, what to believe and share and what not
+              to.
+              <br><br>
+              The hypothesis is that by connecting the dots between the source of information, the entities and events
+              mentioned in the information piece published, consumer of information can be presented with a type of
+              background
+              check information about the news/views expressed in the information in context. Which can help people look
+              at possible case of biased reporting or disinformation.
+              <br>
+              Consider articles and tweets by leading journalists only for the scope of this hackathon.
+              <br><br>
+              The ML/Neural network based system should parse an article (say HTML5 markup) extract the following to
+              create an understanding
+              <li>The media company</li>
+              <li>The journalist who wrote the time</li>
+              <li>Date</li>
+              <li>Place</li>
+              <li>Various entities mentioned in the piece, say people, places, organisations and events
+              </li>
+              <br>
+              The system will need to have an evolutionary knowledge base about various entities especially
+              journalists(people), media company(organization) and events. For the sake of hackathon it can be a
+              predefined curated set.
+              <br><br>The output should show the reader.<br>
+              which other organisations and people are affiliated with the media company as investors, board members and
+              advertisers (if possible) could be in multiple levels
+              The historic stance of the journalist on the key event being discussed in the article, like For or
+              against, or it gives links to related articles (time wise) on the same subject/event by the same media
+              house/journalist
+              <br>
+              Links and associations of the journalist like past organization they worked, parents/family and their
+              affiliations
+              <br>
+              For the scope of hackathon, participants may
+              Just have data on top 10 media houses (indian and a few can be international like Wire, CNN, NYTimes ) and
+              pouplar journalists (like Arnab, Rajdeep, Barkha, Gaurav Sawant, Vir sanghvi, shekhar gupta etc)
+              <br>
+              Have a manually curated set of articles and tweets by them in recent history
+              pick a few major current affairs events like pulwama attack, terrorism, elections 2019 , you may choose
+              any other based on data availability etc.
+              <br>
+              You may extend or reduce the scope of output display based on your own ideas that may promise a better a
+              solution for the problem statement.
+              <br>
 
-        </div>
-      </div>
-      <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT 2</span>
-        </h5>
-        <div class="white-text">
-                Identifying the integrity of a doctor’s prescription is crucial as a fake prescription can be misused by patients to obtain drugs which can then be consumed for pleasure or sold to potential buyers. The drugs can fall into the hands of preteens or young teens who do not have the knowledge of the side effects of consuming the drugs. It can lead to addiction, dependencies, crimes and even deaths in many cases. It is hence a dangerous practice and measures need be taken to stop them. 
-            <br><br>
-            Another problem lies in the practice of patients obtaining fake doctor’s certificates to account for the leaves of absence in their places of work. Students also use the fake certificates to get away with their attendance quota problems so that they can attend their examinations. The mentioned practices are illegal yet there are very few countermeasures that exist that can tackle the problem directly.
-            <br><br>
-            This problem statement revolves around verifying the integrity of the certificates and prescriptions issued by doctors and expects the participants to formulate and implement a technical solution for the same.
-        </div>
-      </div>
-      <!-- <div class="problem-wrap">
+            </div>
+          </div>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT
+                2</span>
+            </h5>
+            <div class="white-text">
+              Identifying the integrity of a doctor’s prescription is crucial as a fake prescription can be misused by
+              patients to obtain drugs which can then be consumed for pleasure or sold to potential buyers. The drugs
+              can fall into the hands of preteens or young teens who do not have the knowledge of the side effects of
+              consuming the drugs. It can lead to addiction, dependencies, crimes and even deaths in many cases. It is
+              hence a dangerous practice and measures need be taken to stop them.
+              <br><br>
+              Another problem lies in the practice of patients obtaining fake doctor’s certificates to account for the
+              leaves of absence in their places of work. Students also use the fake certificates to get away with their
+              attendance quota problems so that they can attend their examinations. The mentioned practices are illegal
+              yet there are very few countermeasures that exist that can tackle the problem directly.
+              <br><br>
+              This problem statement revolves around verifying the integrity of the certificates and prescriptions
+              issued by doctors and expects the participants to formulate and implement a technical solution for the
+              same.
+            </div>
+          </div>
+          <!-- <div class="problem-wrap">
         <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Safeguarding patient's privacy</span></h5>
         <p class="white-text">
           Patient privacy issues (including concerns about data breeches) will continue to be top-of-mind for providers, payers, and consumers, especially with ongoing data breeches in the news. Providers and payers will need to step up data security to avoid the type of Health Insurance Portability and Accountability Act (HIPAA) violations that can negatively impact an organization.
@@ -376,35 +505,44 @@
          The risk factors and co-occurring issues for girls who are identified as at-risk for juvenile delinquent and/or sexually risky behavior. Develop a solution for this problem.
        </p>
      </div> -->
-   </div>
-  </div>
-  <!-- Education -->
-<div class="row" id="edu">
-    <div class="col s12 m10 offset-m1 white-text">
-      <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM STATEMENT 1</span>
-         <!-- <span class="powered">(powered by Cardea Labs)</span> -->
-         </h5>
-        <div class="white-text">
-            There is a severe shortage of qualified teachers in many schools in India. Especially in rural places, it is hard to find dedicated
-             and adequately educated teachers due to lack of opportunity. Also, with the small amount of teachers we do have, teacher absenteeism in schools has become a major issue. Also, other non-teaching duties, lack of subject expertise and teaching resources and over-crowded classes are few of the reasons that limit the teachers to a delivery mode of lessons, rather than engaging children in partnership for learning.
-
         </div>
       </div>
-      <br><br>
-      <div class="problem-wrap">
-        <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT 2</span>
-        </h5>
-        <div class="white-text">
-            In today’s world, technological advancements have transformed the way we live our lives. Its contribution to enhanced education 
-            techniques has had a great impact in reaching the farthest of the farthest. Students and teachers should be encouraged to use 
-            technology. For this, the teachers must be trained to use technology effectively and integrate it in their classroom instruction. 
-            However, the frequent power outages in schools or complete lack of access to grid supply of electricity in schools especially in 
-            remote rural areas makes it very challenging to implement technology solutions in classrooms. This is the case also for schools that can 
-            afford to invest in e-learning equipment in urban areas.
-        </div>
-      </div>
-      <!-- <div class="problem-wrap">
+      <!-- Education -->
+      <div class="row" id="edu">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM
+                STATEMENT 1</span>
+            </h5>
+            <div class="white-text">
+              There is a severe shortage of qualified teachers in many schools in India. Especially in rural places, it
+              is hard to find dedicated
+              and adequately educated teachers due to lack of opportunity. Also, with the small amount of teachers we do
+              have, teacher absenteeism in schools has become a major issue. Also, other non-teaching duties, lack of
+              subject expertise and teaching resources and over-crowded classes are few of the reasons that limit the
+              teachers to a delivery mode of lessons, rather than engaging children in partnership for learning.
+            </div>
+          </div>
+          <br><br>
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT
+                2</span>
+            </h5>
+            <div class="white-text">
+              In today’s world, technological advancements have transformed the way we live our lives. Its contribution
+              to enhanced education
+              techniques has had a great impact in reaching the farthest of the farthest. Students and teachers should
+              be encouraged to use
+              technology. For this, the teachers must be trained to use technology effectively and integrate it in their
+              classroom instruction.
+              However, the frequent power outages in schools or complete lack of access to grid supply of electricity in
+              schools especially in
+              remote rural areas makes it very challenging to implement technology solutions in classrooms. This is the
+              case also for schools that can
+              afford to invest in e-learning equipment in urban areas.
+            </div>
+          </div>
+          <!-- <div class="problem-wrap">
         <h5 class="color-theme-green display-inline-block">3. <span class="color-theme-green">Safeguarding patient's privacy</span></h5>
         <p class="white-text">
           Patient privacy issues (including concerns about data breeches) will continue to be top-of-mind for providers, payers, and consumers, especially with ongoing data breeches in the news. Providers and payers will need to step up data security to avoid the type of Health Insurance Portability and Accountability Act (HIPAA) violations that can negatively impact an organization.
@@ -416,90 +554,97 @@
          The risk factors and co-occurring issues for girls who are identified as at-risk for juvenile delinquent and/or sexually risky behavior. Develop a solution for this problem.
        </p>
      </div> -->
-   </div>
-  </div>
-  <!-- Travel -->
-<div class="row" id="travel">
-    <div class="col s12 m10 offset-m1 white-text">
-        <div class="problem-wrap">
-            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM STATEMENT</span>
-            <span class="powered">(powered by Cruxx(Inable solutions))</span>
+        </div>
+      </div>
+      <!-- Travel -->
+      <div class="row" id="travel">
+        <div class="col s12 m10 offset-m1 white-text">
+          <div class="problem-wrap">
+            <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM
+                STATEMENT</span>
+              <span class="powered">(powered by Cruxx(Inable solutions))</span>
             </h5>
             <br><br>
             <div class="white-text">
-                People planning leisure travel typically have certain budget in mind and some preferences about type of destination, 
-                most travel search and booking portals start with destination and the process is still generations old and very tedious.  
-                Requires travellers to try various combinations before finally deciding. <br/>
-                There is a need for an intelligent travel assistant that taps into various travel related APIs/Data providers and provide a 
-                conversational UI to help suggest and refine to get the best travel plan and then book. <br/> 
-                Scope of the desired solution for hackathon is to define a solution that takes basic inputs from user like 
-                <br>Budget: Range say 100,000 to 200,000
-                <br>Num of people/pax: Adults, Kids, Elders with respective age
-                <br>Destination: India(local) or International
-                <br>Destination Type: Beach, hills, historical cities etc.
-                <br>Nights: say 5N, 3N etc.
-                <br>Time period: say 2nd week of Apr or around New Year, can take a date range also
-                <br>Dates Fixed: Are dates fixed or you open to alternative dates that offers lower rates.
-                <br>You may add other parameters also
-                <br>Expected solution is an ML based solution that suggests various possible destinations/itinerary  based on the budget and then helps refine it further.
-                You may choose a wizard based UI instead of a conversational UI also.
-                
+              People planning leisure travel typically have certain budget in mind and some preferences about type of
+              destination,
+              most travel search and booking portals start with destination and the process is still generations old and
+              very tedious.
+              Requires travellers to try various combinations before finally deciding. <br />
+              There is a need for an intelligent travel assistant that taps into various travel related APIs/Data
+              providers and provide a
+              conversational UI to help suggest and refine to get the best travel plan and then book. <br />
+              Scope of the desired solution for hackathon is to define a solution that takes basic inputs from user like
+              <br>Budget: Range say 100,000 to 200,000
+              <br>Num of people/pax: Adults, Kids, Elders with respective age
+              <br>Destination: India(local) or International
+              <br>Destination Type: Beach, hills, historical cities etc.
+              <br>Nights: say 5N, 3N etc.
+              <br>Time period: say 2nd week of Apr or around New Year, can take a date range also
+              <br>Dates Fixed: Are dates fixed or you open to alternative dates that offers lower rates.
+              <br>You may add other parameters also
+              <br>Expected solution is an ML based solution that suggests various possible destinations/itinerary based
+              on the budget and then helps refine it further.
+              You may choose a wizard based UI instead of a conversational UI also.
+
             </div>
             <h5 class="color-theme-green display-inline-block powered-h5">Perks Involved:</h5>
             <div class="white-text">
-                Winners will be offered an internship with us at our Bangalore office and also a chance to get incubated post \
-                internship if the solution and team is really attractive.  You will get a chance to work with one of our travel startups Voyazer.
+              Winners will be offered an internship with us at our Bangalore office and also a chance to get incubated
+              post \
+              internship if the solution and team is really attractive. You will get a chance to work with one of our
+              travel startups Voyazer.
             </div>
             <h5 class="color-theme-green display-inline-block powered-h5">Dataset/References:</h5>
             <div class="white-text">
-                <li><a href="https://www.google.com/search?q=ope+datasets+travel+industry&rlz=1C5CHFA_enIN742IN744&oq=ope+datasets+travel+industry&aqs=chrome..69i57.12215j0j7&sourceid=chrome&ie=UTF-8
+              <li><a href="https://www.google.com/search?q=ope+datasets+travel+industry&rlz=1C5CHFA_enIN742IN744&oq=ope+datasets+travel+industry&aqs=chrome..69i57.12215j0j7&sourceid=chrome&ie=UTF-8
                     ">#1</a></li>
-                <li><a href="https://www.google.com/search?newwindow=1&rlz=1C5CHFA_enIN742IN744&q=world+tourism+dataset&sa=X&ved=2ahUKEwiF9rGhpP7gAhUTUI8KHTFfBzIQ1QIoBHoECAYQBQ&biw=1440&bih=789                    ">#2</a></li>
+              <li><a
+                  href="https://www.google.com/search?newwindow=1&rlz=1C5CHFA_enIN742IN744&q=world+tourism+dataset&sa=X&ved=2ahUKEwiF9rGhpP7gAhUTUI8KHTFfBzIQ1QIoBHoECAYQBQ&biw=1440&bih=789                    ">#2</a>
+              </li>
             </div>
-        </div>  
-   </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-</div>
-</div>
-</div>
 
-
-<%- partial('./partials/footer.ejs') %>
-<%- partial('./partials/commonScripts.ejs', {nojquery:true}) %>
 <script type="text/javascript">
   var div_unl;
-  function hide_unlin(){
-    var divs=$("div");
-    for(i=0;i<divs.length;i++){
-      var inn=divs[i].innerHTML;
-      if(inn=="Unlicensed Killer Carousel"){
-        div_unl=divs[i];
+  function hide_unlin() {
+    var divs = $("div");
+    for (i = 0; i < divs.length; i++) {
+      var inn = divs[i].innerHTML;
+      if (inn == "Unlicensed Killer Carousel") {
+        div_unl = divs[i];
         $(divs[i]).hide();
       }
     }
   }
-  setInterval(function(){
+  setInterval(function () {
     hide_unlin();
-  },100);
-  var tracks=["cntr","def","devop","helc","datai","edu","travel"];
+  }, 100);
+  var tracks = ["cntr", "def", "devop", "helc", "datai", "edu", "travel"];
 
-  function hideallex(tt){
-    tt-=1;
-    var i=0;
-    for(i=0;i<7;i++){
-      if(i!=tt)
-        $("#"+tracks[i]).fadeOut();
+  function hideallex(tt) {
+    tt -= 1;
+    var i = 0;
+    for (i = 0; i < 7; i++) {
+      if (i != tt)
+        $("#" + tracks[i]).fadeOut();
       else
-        $("#"+tracks[i]).fadeIn();
+        $("#" + tracks[i]).fadeIn();
     }
   }
   hideallex('all');
 
 
-  setInterval(function(){
-    var isactive=$(".kc-front-item");
-    var activekey=$(isactive).attr("data-cc-item-key");
+  setInterval(function () {
+    var isactive = $(".kc-front-item");
+    var activekey = $(isactive).attr("data-cc-item-key");
     hideallex(parseInt(activekey));
   }, 100);
 </script>
