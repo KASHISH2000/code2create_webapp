@@ -35,7 +35,7 @@
   '/': {
     view: 'homepage'
   },
-  '/problem-statement': {
+  '/problem-statements': {
     view: 'problemStatement',
     locals: {
       title: 'Problem Statements | Code2Create'
