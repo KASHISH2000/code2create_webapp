@@ -14,6 +14,7 @@
 
   .kc-nav-wrap {
     bottom: 0px !important;
+    /* left: 45% !important; */
   }
 
   .problem-wrap h5 {
@@ -89,11 +90,9 @@
 
             </div>
             <div class="kc-item">
-              <img src="/images/tracks/track-rec.png" title="Recreation and Travel" alt="Travel"
+              <img src="/images/tracks/track-des.png" title="Disability" alt="Disability"
                 data-desc="Zoom for very high resolution images 100 megapixels+">
-
             </div>
-
           </div>
         </div>
       </div>
@@ -512,7 +511,7 @@
         <div class="col s12 m10 offset-m1 white-text">
           <div class="problem-wrap">
             <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM
-                STATEMENT 1</span>
+              STATEMENT 1</span>
             </h5>
             <div class="white-text">
               There is a severe shortage of qualified teachers in many schools in India. Especially in rural places, it
@@ -523,11 +522,11 @@
               teachers to a delivery mode of lessons, rather than engaging children in partnership for learning.
             </div>
           </div>
-          <br><br>
+          <br>
           <div class="problem-wrap">
             <h5 class="color-theme-green display-inline-block">2. <span class="color-theme-green">PROBLEM STATEMENT
                 2</span>
-            </h5>
+            </h5><br>
             <div class="white-text">
               In today’s world, technological advancements have transformed the way we live our lives. Its contribution
               to enhanced education
@@ -562,48 +561,58 @@
           <div class="problem-wrap">
             <h5 class="color-theme-green display-inline-block powered-h5">1. <span class="color-theme-green">PROBLEM
                 STATEMENT</span>
-              <span class="powered">(powered by Cruxx(Inable solutions))</span>
+              <span class="powered">(Cruxx(Inable solutions))</span>
             </h5>
             <br><br>
             <div class="white-text">
-              People planning leisure travel typically have certain budget in mind and some preferences about type of
-              destination,
-              most travel search and booking portals start with destination and the process is still generations old and
-              very tedious.
-              Requires travellers to try various combinations before finally deciding. <br />
-              There is a need for an intelligent travel assistant that taps into various travel related APIs/Data
-              providers and provide a
-              conversational UI to help suggest and refine to get the best travel plan and then book. <br />
-              Scope of the desired solution for hackathon is to define a solution that takes basic inputs from user like
-              <br>Budget: Range say 100,000 to 200,000
-              <br>Num of people/pax: Adults, Kids, Elders with respective age
-              <br>Destination: India(local) or International
-              <br>Destination Type: Beach, hills, historical cities etc.
-              <br>Nights: say 5N, 3N etc.
-              <br>Time period: say 2nd week of Apr or around New Year, can take a date range also
-              <br>Dates Fixed: Are dates fixed or you open to alternative dates that offers lower rates.
-              <br>You may add other parameters also
-              <br>Expected solution is an ML based solution that suggests various possible destinations/itinerary based
-              on the budget and then helps refine it further.
-              You may choose a wizard based UI instead of a conversational UI also.
-
-            </div>
-            <h5 class="color-theme-green display-inline-block powered-h5">Perks Involved:</h5>
-            <div class="white-text">
-              Winners will be offered an internship with us at our Bangalore office and also a chance to get incubated
-              post \
-              internship if the solution and team is really attractive. You will get a chance to work with one of our
-              travel startups Voyazer.
-            </div>
-            <h5 class="color-theme-green display-inline-block powered-h5">Dataset/References:</h5>
-            <div class="white-text">
-              <li><a href="https://www.google.com/search?q=ope+datasets+travel+industry&rlz=1C5CHFA_enIN742IN744&oq=ope+datasets+travel+industry&aqs=chrome..69i57.12215j0j7&sourceid=chrome&ie=UTF-8
-                    ">#1</a></li>
-              <li><a
-                  href="https://www.google.com/search?newwindow=1&rlz=1C5CHFA_enIN742IN744&q=world+tourism+dataset&sa=X&ved=2ahUKEwiF9rGhpP7gAhUTUI8KHTFfBzIQ1QIoBHoECAYQBQ&biw=1440&bih=789                    ">#2</a>
-              </li>
+              In the age of information bombardment, deep fakes and biased media, 
+              it has become very difficult for general public to identity which information to trust or reject, 
+              what to believe and share and what not to.<br>
+              The hypothesis is that by connecting the dots between the source of information, 
+              the entities and events mentioned in the information piece published, 
+              consumer of information can be presented with a type of background check information about the 
+              news/views expressed in the information in context. 
+              Which can help people look at possible case of biased reporting or disinformation.<br>
+              Consider articles and tweets by leading journalists only for the scope of this hackathon.<br>
+              The ML/Neural network based system should parse an article (say HTML5 markup) extract the following to create an understanding<br>
+              The media company<br>
+              The journalist who wrote the time<br>
+              Date<br>
+              Place<br>
+              Various entities mentioned in the piece, say people, places, organisations and events<br>
+              The system will need to have an evolutionary knowledge base about various entities especially journalists(people), media company(organization) and events. 
+              For the sake of hackathon it can be a predefined curated set.<br>
+              The output should show the reader,
+              which other organisations and people are affiliated with the media company as investors, 
+              board members and advertisers (if possible) could be in multiple levels
+              The historic stance of the journalist on the key event being discussed in the article, 
+              like For or against, or it gives links to related articles (time wise) on the same subject/event by the same media house/journalist
+              Links and associations of the journalist like past organization they worked, parents/family and their affiliations
+              For the scope of hackathon, participants may
+              Just have data on top 10 media houses (indian and a few can be international like Wire, CNN, 
+              NYTimes ) and popular journalists (like Arnab, Rajdeep, Barkha, Gaurav Sawant, Vir sanghvi, shekhar gupta etc)
+              Have a manually curated set of articles and tweets by them in recent history
+              pick a few major current affairs events like pulwama attack, terrorism, elections 2019, 
+              you may choose any other based on data availability etc.
+              You may extend or reduce the scope of output display based on your own ideas that may promise a better a solution for the problem statement.
             </div>
           </div>
+
+          <div class="problem-wrap">
+              <h5 class="color-theme-green display-inline-block powered-h5"><span class="color-theme-green">PROBLEM
+                  STATEMENT 2</span>
+              </h5>
+              <br><br>
+              <div class="white-text">
+                Identifying the integrity of a doctor’s prescription is crucial as a fake prescription can be misused by patients to obtain drugs which can then be consumed for pleasure or sold to potential buyers. The drugs can fall into the hands of preteens or young teens who do not have the knowledge of the side effects of consuming the drugs. 
+                It can lead to addiction, dependencies, crimes and even deaths in many cases. 
+                It is hence a dangerous practice and measures need be taken to stop them. 
+                <br>
+                Another problem lies in the practice of patients obtaining fake doctor’s certificates to account for the leaves of absence in their places of work. Students also use the fake certificates to get away with their attendance quota problems so that they can attend their examinations. 
+                The mentioned practices are illegal yet there are very few countermeasures that exist that can tackle the problem directly. <br>
+                This problem statement revolves around verifying the integrity of the certificates and prescriptions issued by doctors and expects the participants to formulate and implement a technical solution for the same.
+              </div>
+            </div>
         </div>
       </div>
 
