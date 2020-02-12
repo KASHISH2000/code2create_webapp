@@ -364,19 +364,15 @@ input:active, input:focus, textarea:focus {
 
 .devfolio-sponsor{
   width:250px!important;
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 .dottech-sponsor{
-  width:200px;
-  margin-bottom: 30px;
+  margin-top:0!important;
+  width:200px!important;
 }
 
 .fold-sponsor{
   width:120px!important;
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 .sponsors-pic{
