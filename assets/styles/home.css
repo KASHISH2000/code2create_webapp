@@ -362,6 +362,18 @@ input:active, input:focus, textarea:focus {
 
 /*# sourceMappingURL=home.css.map */
 
+.devfolio-sponsor{
+  width:250px!important;
+}
+
+.no-margin-top{
+  margin-top:0!important;
+}
+
+.fold-sponsor{
+  width:120px!important;
+}
+
 .sponsors-pic{
   width: 200px;
   margin-top: 30px;
